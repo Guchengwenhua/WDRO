@@ -1,0 +1,816 @@
+{
+  "as_of_utc": "2026-10-07T15:35:04.678949+00:00",
+  "task_scope": "read-only acceptance and new statistical reports, no training or resumed jobs",
+  "controller_status": "paused",
+  "controller_pid": 1428532,
+  "controller_process_exists": false,
+  "job_state_counts": {
+    "paused": 1,
+    "pending": 65
+  },
+  "completion_markers_found": 0,
+  "current_policy": {
+    "version": 1,
+    "deadline_utc": null,
+    "training_cutoff_utc": null,
+    "poll_seconds": 300,
+    "child_poll_seconds": 30,
+    "gpus": [
+      1,
+      5,
+      7
+    ],
+    "gpu_min_free_mib": 10240,
+    "gpu_max_utilization_before_start": 85,
+    "cuda_fraction": 0.1,
+    "cpu_threads": 1,
+    "root_min_free_gib": 10,
+    "attached_min_free_gib": 200,
+    "new_artifact_cap_gib": 200,
+    "max_attempts": 2,
+    "max_new_gpu_jobs": 1,
+    "manifest_paths": [
+      "/remote-home/Guilin/DRO/Codex/week_bank_20260930/jobs.json",
+      "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/jobs.json"
+    ],
+    "owned_artifact_dirs": [
+      "/remote-home/Guilin/DRO/Codex/holiday_research_20260930/artifacts",
+      "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts",
+      "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts"
+    ],
+    "dependencies": {
+      "scale": "/remote-home/Guilin/DRO/Codex/checkpoint_bank_scale_20260930",
+      "geometry": "/remote-home/Guilin/DRO/Codex/geometry_uncertainty_extension_20260930"
+    },
+    "failure_policy": "one retry only for transient resource/I-O/process interruption with resumable outputs; deterministic errors block dependent branch, preserve logs; no arbitrary code mutation",
+    "no_new_services": true,
+    "run_until_complete": true,
+    "runtime_amendment": {
+      "date": "2026-10-06",
+      "user_instruction": "\u4e0d\u7528\u7ba1\u8fd9\u4e2a\u505c\u6b62\u65f6\u95f4\uff0c\u7ee7\u7eed\u8bad\u7ec3\u76f4\u5230\u5b8c\u6210\u5373\u53ef",
+      "scope": "Remove calendar and remaining-window cost stops; preserve development gates, resource bounds and per-job liveness limits."
+    }
+  },
+  "jobs": [
+    {
+      "id": "d10_qbest2000_s101",
+      "kind": "train",
+      "state": "paused",
+      "attempts": 1,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d10_qbest2000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d10_qbest2000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "bank_gate_matched",
+      "kind": "gate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/matched_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d10_geo10000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_geo10000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_geo10000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "bank_gate_long",
+      "kind": "gate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/long_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d30_geo2000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_geo2000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_geo2000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_geo10000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_geo10000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_geo10000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_geo10000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_geo.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_k310000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_k310000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_k3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_lagged310000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_lagged310000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_lagged3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qualifiedbest310000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qualifiedbest310000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/extend_qualifiedbest3.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_geo2000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_geo2000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_geo2000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_geo2000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d30_selected2000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d30_selected2000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/gates/d30.json",
+      "gate_exists": false
+    },
+    {
+      "id": "d10_qbest2000_s101_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s101/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d10_qbest2000_s102_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s102/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "d10_qbest2000_s103_test",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts/d10_qbest2000_s103/evaluation_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "bank_week_report",
+      "kind": "summarize",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_bank_20260930/report_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_freeze",
+      "kind": "gate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/freeze_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_dev_d10",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d10_dev/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_dev_d30",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d30_dev/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_train_gate",
+      "kind": "gate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_test_d10",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d10_test/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_test_d30",
+      "kind": "evaluate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d30_test/complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    },
+    {
+      "id": "geometry_official_prefix100",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s101/segment_0100.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_budget_gate",
+      "kind": "gate",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_original_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_random_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_entropy_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_geometry_s101",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s101/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_original_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_random_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_entropy_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_geometry_s102",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s102/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_original_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_random_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_entropy_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_train_geometry_s103",
+      "kind": "train",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s103/complete.json",
+      "marker_exists": false,
+      "gate_path": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "gate_exists": false
+    },
+    {
+      "id": "geometry_report",
+      "kind": "summarize",
+      "state": "pending",
+      "attempts": 0,
+      "marker": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/report_complete.json",
+      "marker_exists": false,
+      "gate_path": null,
+      "gate_exists": null
+    }
+  ],
+  "events": [
+    {
+      "time": 1790782569.7088616,
+      "kind": "controller_started",
+      "pid": 1337683,
+      "utc": "2026-09-30T15:36:09.708862+00:00"
+    },
+    {
+      "time": 1790783289.7389905,
+      "kind": "controller_closed",
+      "status": "stopped",
+      "utc": "2026-09-30T15:48:09.738991+00:00"
+    },
+    {
+      "time": 1790783291.0910032,
+      "kind": "controller_started",
+      "pid": 1338307,
+      "utc": "2026-09-30T15:48:11.091003+00:00"
+    },
+    {
+      "time": 1790804891.2179785,
+      "kind": "controller_error",
+      "error": "TypeError(\"int() argument must be a string, a bytes-like object or a real number, not 'NoneType'\")",
+      "utc": "2026-09-30T21:48:11.217978+00:00"
+    },
+    {
+      "time": 1791286491.0324998,
+      "kind": "controller_started",
+      "pid": 1428330,
+      "utc": "2026-10-06T11:34:51.032500+00:00"
+    },
+    {
+      "time": 1791286491.1718528,
+      "kind": "job_start",
+      "job": "d10_qbest2000_s101",
+      "pid": 1428332,
+      "gpu": 7,
+      "utc": "2026-10-06T11:34:51.171853+00:00"
+    },
+    {
+      "time": 1791286576.180907,
+      "kind": "own_child_checkpoint_stop",
+      "job": "d10_qbest2000_s101",
+      "reason": "controller_stop",
+      "pid": 1428332,
+      "utc": "2026-10-06T11:36:16.180907+00:00"
+    },
+    {
+      "time": 1791286593.1696854,
+      "kind": "job_end",
+      "job": "d10_qbest2000_s101",
+      "status": "paused",
+      "exit_code": 0,
+      "seconds": 102.00008535385132,
+      "utc": "2026-10-06T11:36:33.169685+00:00"
+    },
+    {
+      "time": 1791286593.1780896,
+      "kind": "controller_closed",
+      "status": "paused",
+      "utc": "2026-10-06T11:36:33.178090+00:00"
+    },
+    {
+      "time": 1791286616.362729,
+      "kind": "controller_started",
+      "pid": 1428532,
+      "utc": "2026-10-06T11:36:56.362729+00:00"
+    },
+    {
+      "time": 1791286616.5033977,
+      "kind": "job_start",
+      "job": "d10_qbest2000_s101",
+      "pid": 1428534,
+      "gpu": 7,
+      "utc": "2026-10-06T11:36:56.503398+00:00"
+    },
+    {
+      "time": 1791287696.6118312,
+      "kind": "own_child_checkpoint_stop",
+      "job": "d10_qbest2000_s101",
+      "reason": "controller_stop",
+      "pid": 1428534,
+      "utc": "2026-10-06T11:54:56.611831+00:00"
+    },
+    {
+      "time": 1791287698.1283693,
+      "kind": "job_end",
+      "job": "d10_qbest2000_s101",
+      "status": "paused",
+      "exit_code": 0,
+      "seconds": 1081.628455400467,
+      "utc": "2026-10-06T11:54:58.128369+00:00"
+    },
+    {
+      "time": 1791287698.1392365,
+      "kind": "controller_closed",
+      "status": "paused",
+      "utc": "2026-10-06T11:54:58.139236+00:00"
+    }
+  ]
+}

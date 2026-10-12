@@ -1,0 +1,51 @@
+{
+  "id": "eval_screen_GDS_s101_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "GDS",
+  "seed": 101,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "group",
+    "eta": 0.001,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_GDS_s101_d30",
+  "endpoints": [
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s101.pt",
+    "sha256": "4d5f8da695a47a77d71bcc2c4b41eb4a0f0ee6f053b526fd977aecd46056f4bf"
+  },
+  "inherit_training": false,
+  "models": {
+    "step20480": {
+      "path": "artifacts/runs/screen_GDS_s101/step20480.pt",
+      "sha256": "f6d03f2ae9efe390f9e6527f2bce1d272f81e0ff40e2fea75cdd6af0d5eaae86",
+      "step": 20480,
+      "actor_sha256": "a32fb49fa7fc412a983e2947b37724eaf5a24c33885b54e9e98d1bf343abb0ec"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_GDS_s101/best.pt",
+      "sha256": "b8f0a5796215db063e02166a556ac3592a3a45071f3e5e5b62c6aab6e0ee7267",
+      "step": 17408,
+      "actor_sha256": "e15986b95e7682e46fd5685adc6d6cd1da1fbab7c7853bb9e06f6a56deac6dc6"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

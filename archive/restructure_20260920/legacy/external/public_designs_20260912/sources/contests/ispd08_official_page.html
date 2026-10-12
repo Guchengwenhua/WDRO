@@ -1,0 +1,679 @@
+<html>
+
+<head>
+<title>ISPD 2008 Global Routing Contest</title>
+</head>
+
+<!BODY bgcolor=black TEXT=white
+topmargin=1 leftmargin=1 marginwidth=1 marginheight=1
+ALINK=#FFFFFF VLINK=#a0ff40 LINK=#80FF80>
+<BODY bgcolor=#9999ff text=black
+topmargin=10 leftmargin=10 marginwidth=10 marginheight=10
+LINK=#800000>
+<! ALINK=#000000 VLINK=#a00040 LINK=#400040>
+
+<img border=0 src="pic/rclogo.gif" border=0>
+<font face="Arial">
+<FONT SIZE=+3><B>ISPD 2008 Global Routing Contest</B></FONT>
+
+<BR>
+<HR>
+<BR>
+<a href="#head-news">[News and Announcements]</a>.
+<a href="#head-intr">[Introduction]</a>.
+<a href="#head-sche">[Schedule]</a>.
+<a href="#head-form">[Input/Output Format]</a>.
+<a href="#head-eval">[Router Evaluation and Ranking]</a>.
+<a href="#head-scri">[Evaluation Script]</a>.
+<a href="#head-benc">[Benchmarks]</a>.
+<a href="#head-join">[Join the Contest]</a>.
+<a href="#head-term">[Terms and Conditions]</a>
+<hr>
+<h1 id="head-news">News and Announcements</h1>
+
+<ul style="text-aligh: left;">
+    <li> <font color=red>Placement soluti used to generate benchmarks</font></li>
+        <li> <a href="http://www.ispd.cc/contests/08/placement_solution.tar.gz">placement_solution.tar.gz</a></li>
+        <li> <a href="http://www.ispd.cc/contests/08/gen_routing_benchmark.pl.gz">gen_routing_benchmark.pl.gz</a></li>
+    <li> <font color=red>Final Results can be found</font> <a href=http://www.ispd.cc/slides/ispd2008-files/S7-3.pdf>here</a></li>
+    <li> Mar 30, 2007 (SUN): Added guideline for submissions. <a href="#head-subm">[link]</a></li>
+    <li> Mar 30, 2007 (SUN): Added information from /proc/cpuinfo. <a href="#head-eval">[link]</a></li>
+    <li> Mar 24, 2007 (MON): Rule clarification: Each team is allowed to submit one and only one binary for all benchmarks.</li>
+    <li> Mar 24, 2007 (MON): Evaluation script is updated with bug fixes. See the <a href="#head-scri">"Script"</a> section.</li>
+    <li> Mar 24, 2007 (MON): Information of all teams is posted in <a href="#head-join">"Join the Contest"</a> section.</li>
+    <li> Mar 24, 2007 (MON): Details about out Linux box and runtime measurement are posted in <a href="#head-eval">Evaluation</a> section.</li>
+    <li> Mar 24, 2007 (MON): New 8 benchmarks are posted in <a href="#head-benc">Benchmark</a> section.</li>
+    <li> Mar 08, 2007 (SAT): 11 teams have confirmed participation. 8 new
+    benchmarks have been released to all the teams. The benchmarks and the
+    teams information will be posted shortly.
+    </li>
+    <li> Mar 05, 2007 (WED): Final day to "submit binary for the global router, and routing results" is moved to March 31, 2008.
+    </li>
+    <li> Mar 05, 2007 (WED): Added <a href="#head-join">suggestions</a> for
+    beginners.</li>
+    <li> Mar 04, 2007 (TUE): Added details of the CPU time measurement.
+    Parallel algorithms are allowed to speed up the router. </li>
+    <li> Mar 04, 2007 (TUE): Participation confirmation deadline is moved and
+    now it is on March 7,2008. The day of the release of new 8 benchmarks is on March 8, 2008
+    (around 2am).</li>
+    <li> Feb 04, 2007 (MON): Webpage is created announcing new scoring function</li>
+</ul>
+
+<hr>
+
+<h1 id="head-intr"> Introduction </h1>
+
+Continuing the tradition of spirited competition, the 
+<a href="http://www.ispd.cc">ISPD</a> 2008 Steering Committee is pleased to
+announce a global routing contest, sponsored by 
+<a href="http://www.src.org/">SRC</a> and <a href="http://www.c-eda.org/">
+IEEE-CEDA</a>. Like the prior placement contests, a set of benchmarks will be
+released; teams are invited to produce global routing solutions, with the best
+results winning fame, recognition, and a grand prize. There will be an
+<i>additional</i> prize awarded by the IEEE Council of EDA (CEDA) for the best
+results by a router <a href="#head-term">openly available</a> to all research
+groups. If the best results overall are obtained by an openly available
+router, it will win both the prizes. 
+
+<hr>
+<h1 id="head-sche"> Schedule </h1>
+ <ul>
+   <li>
+   Feb 04, 2008: Announcement of the Contest
+   </li>
+   <li>
+   Feb 04, 2008: 8 ISPD07 benchmarks are posted. These benchmarks also will be used for evaluation.
+   </li>
+   <li>
+   Mar 07, 2008: Last day to confirm participation with Dr. Cliff Sze (csze@us.ibm.com).
+   </li>
+   <li>
+   Mar 08, 2008: 8 new contest benchmarks are released. 
+   </li>
+   <li>
+   Mar 31, 2008: Final day to submit binary for the global router, and routing results. (Time: 23:59 CST w/ daylight saving, UTC-5)
+   </li>
+   <li>
+   Apr 15, 2008: ISPD 2008 results release and prizes giving
+   </li>
+ </ul>
+
+<hr>
+<h1 id="head-form"> Input/Output Format </h1>
+   All benchmarks have multiple metal layers (three-dimensional), with
+   additional congestion information.  The input file format is a variation on
+   the <a href="http://www.ece.ucsb.edu/~kastner/labyrinth/">Labyrinth</a>
+   format. The files will be ordinary ASCII text, specifying the size and
+   shape of the global routing graph, the capacity on 
+   edges of the graph, the number of signal nets, and the number of pins and 
+   their positions within each net. The file format has been designed to make 
+   parsing easy. 
+   <BR>
+   The output file format will be a variation of the
+   <a href="http://www.cerc.utexas.edu/utda/download/BoxRouter.htm">BoxRouter</a> format.
+   <BR>
+   The choice of input/output format is intended to make it possible for many
+   academic tools to participate in the contest, while writing a global router
+   which uses this format is not exceptionally difficult.
+<h2> Details of file formats </h2>
+ The input file format for the global routing contest is illustrated, 
+ with comments in italics (these will not be in actual input files). This 
+ example illustrates a problem with five routing layers (note the number of # 
+ marks on the vertical and horizontal capacity lines).
+ <br>
+ grid # # # <i>(x grids, y grids, 
+ number of layers)</i><br>
+ vertical capacity # # # # # <i>(vertical capacity by default on each layer)</i><br>
+ horizontal capacity # # # # #<br>
+ minimum width # # # # #<br>
+ minimum spacing # # # # #<br>
+ via spacing # # # # #<br>
+ lower_left_x lower_left_y
+ tile_width tile_height
+ <br>
+ <br>
+ num net #<br>
+ netname id_# number_of_pins
+ minimum_width<br>
+ x y layer<br>
+ x y layer<br>
+ <i>...<br>
+ [repeat for the appropriate number of nets]</i> <br>
+ <br>
+ # capacity adjustments <i>(to model congestion)</i><br>
+ column row layer column row layer reduced_capacity_level<br>
+ <i>[repeat for the number of capacity adjustments]</i>
+ <br><br>
+ There are a number of changes from the original Labyrinth format:
+ <ul>
+   <li>
+   The number of routing layers is specified while the original Labyrinth
+   format assumes a single routing plane.  This change was made to allow layer
+   assignment to be performed during global routing.
+   </li>
+   <li>
+   Each layer may have a unique capacity in each direction per global routing
+   tile, and it may be different for horizontal and vertical directions.
+   Preferred routing directions will be given by having a zero capacity in the
+   non-preferred direction. In the vertical and horizontal capacity lines, the
+   first number indicates the capacity on the first layer, the second number
+   the second layer, and so on. Minimum wire widths and minimum wire spacings
+   are also specified; this impacts capacity calculations.
+   </li>
+   <li>
+   The lower left corner (minimum X and Y) of the global routing region is
+   specified, as well as the width (X dimension) and height (Y dimension) of
+   each tile. Additionally, pin positions are given as XY locations, rather
+   than tile locations. This change was motivated so that a detail routing
+   contest based on these benchmarks could be performed in the future.
+   Conversion from pin positions to tile numbers can be done with floor(pin_x -
+   lower_left_x)/tile_width and floor (pin_y - lower_left_y)/tile_height. 
+   Pins will not be on the borders of global routing cells, so there should be 
+   no ambiguity. All pins will be within the specified global routing region.
+   </li>
+   <li>
+   Each net will have a minimum routed width; this width will span all layers.
+   When routing, <b> compute the utilization of a global routing graph edge by
+   adding the widths of all nets crossing and edge, plus the minimum spacing
+   multiplied by the number of nets.</b> This is more complex than the
+   Labyrinth model, but more accurately reflects modern routing challenges.
+   Each wire will require spacing between it's neighbors; think of this as
+   having one-half of the minimum spacing reserved on each side of a wire.
+   </li>
+   <li>
+   Congestion is modeled by including capacity adjustments. In the global
+   routing benchmarks, there may be obstacles, or pre-routed wires. To
+   communicate this to the global router, pairs of (adjacent) global routing
+   tiles may have a capacity that is different from the default values
+   specified at the start of a benchmark file.
+   </li>
+ </ul>
+ Calculation of capacity is more complex than is done in typical academic
+ global routing tools; our objective is to raise the bar slightly. Each global
+ routing tile will have a capacity; this is a measure of the <i>available
+ space</i>, not the number of global routing tracks. If the minimum wire width 
+ is 20, the minimum spacing 10, and the capacity of a tile is given as 450, this 
+ corresponds to 15 minimum width tracks (15 * (20 + 10)) . 
+ The capacity specified as the default value may be different than the width or 
+ height of a tile.  In general, it is desirable to have routing utilization of a 
+ tile be below the capacity, as higher utilization can be more difficult for detail 
+ routers to complete.
+<h2> Small sample input/output files </h2>
+ Here are a sample input file and a sample output routing file of a simple two
+ layer routing problem, with illustrations.
+ <a href="./3d.txt"> [Input]</a>
+ <a href="./3ds1.txt"> [Output]</a>
+ <a href="./3d.pdf"> [Description(pdf)]</a>.
+
+<hr>
+<h1 id="head-eval"> Router Evaluation and Ranking </h1>
+ The global routing solutions will be evaluated on the following 
+ metrics:
+ <ul>
+    <li> 
+    The final rank of a global router will be determined by the sum of
+    individual ranks of circuits. The smallest rank number wins the contest. 
+    </li>
+    <li> 
+    The individual rank per circuit is determined by the total overflow (TOF)
+    of one's global routing solutions. In other words, TOF is used as a representative
+    congestion metric of a given global routing solution. If there is a tie in TOF, the 
+    max overflow (MOF) of a solution is used to break the tie. Note that if an edge's 
+    capacity is 0, the overflow of an edge is simply the actual usage.  
+    </li>
+    <li>
+    If there are multiple global routing solutions with 0 total overflow,
+    which means they have 0 maximum overflow, 
+    the 2nd tie-breaker rule will be enforced consisting of the routed wire length and
+    runtime. The exact quality metric for 2nd tie-breaker is the_routed_wire_length
+    * (1 + CPU_time_factor) where CPU_time_factor = 0.04 * log_2(
+    router_cpu_time / median_cpu_time). CPU_time_factor will range from -0.1
+    to 0.1 (i.e., max 10% routed_wire_length advantage or disadvantage). Note that this
+    metric is similar to the one used in the <a href="http://www.sigda.org/ispd2006/contest.html">ISPD 2006 Placement Contest</a>. The routed wire length is based on tile-to-tile distance, not coordinate-to-coordinate distance.
+    </li>
+    <li>
+    Each via-to-via connection, you should add the constant k units of wire
+    length (the resistance ratio between via and one unit of wire in one
+    g-cell). If you have a (M1->M5) metal layer change, it is considered as
+    (M1->M2), (M2->M3), (M3->M4), (M4->M5), thus you should add 4*k units of
+    wire length to your calculation. After reviewing the data of several
+    technology generations, we set k = 1 for this global routing contest. In other words,
+    for each via, we're adding one *tile* penalty to the wire length calculation.
+    </li>
+    <li> 
+    Via-blockage and usage are implicitly modeled by edge capacity, because we
+    assume that a via size/spacing stays the same with those of wire usage.
+    Also, since no track assignment is required for this global routing
+    contest, no further detailed via modeling is required.  
+    </li>
+    <li> 
+    If a net has more than 1000 sinks (i.e., #pins > 1000), you don't have to route it. 
+    </li>
+    <li> 
+    If all pins of a net fall in the same tile, you don't have to route it.
+    </li>
+    <li> 
+    In terms of CPU_time_factor, the equation looks like the following figure, and
+    if a router is 2x faster/slower, the router gets about 4% routed wire length
+    advantage/disadvantage. If a router is 4x faster/slower, the
+    advantage/disadvantage factor will be approximately 8%, The maximum factor is set to
+    10%. 
+    <BR>
+    <img border=0 src="pic/10percent.jpg" border=0>
+    </li>
+    <li> 
+    Since we may not be able to obtain the source codes of all the
+    participating router, we will use WALL time as a measurement of a
+    router's CPU time. All submission will be run on a dedicated Linux machine
+    with single job running. The Linux machine will have 4 CPUs.
+    </li>
+    <li> 
+    Let us emphasize that the most important metric (i.e., objective function) should be the congestion
+    factor that is captured by the total overflow and max overflow. If router
+    A produces more total overflows (congestion) than router B, regardless of
+    routed wirelength and runtime, a router A's global routing solution is
+    regarded inferior to router B's solution. If two routers produce the
+    exactly same total overflow, the max overflow will break the tie.
+    </li>
+    <li> 
+    Each team is allowed to submit one and only one binary for all benchmarks.
+    In other words, for each team, the same settings/parameters must be
+    applied to all benchmarks.
+    </li>
+ </ul>
+ <B>Remarks</B> regarding CPU runtime:
+ <ul>
+    <li> 
+    You are welcome to use parallel algorithm to improve the runtime of your
+    router. Your algorithm is allowed to use up to 4 CPU in parallel.  The
+    runtime will be measured by the runtime (=elapsed real time between
+    invocation and termination) of our dedicated Linux machine.
+    </li>
+    <li> 
+    The directory will be wiped clean every time to prevent saving precomputed
+    information.
+    </li>
+    <li> 
+    Our Linux machine has 8 cpus running at 2.8 GHz. It will have more than
+    16GB of memory. 
+    </li>
+    <li> 
+    gcc information
+    <BR>
+    gcc version 4.1.2 20070626 (Red Hat 4.1.2-14)
+    <BR>
+    x86_64-redhat-linux
+    </li>
+    <li> 
+    Since we only have 2 weeks to run all routers and we have more than 10
+    participating teams. The runtime limit is set to <font color=red> 24
+    hours.</font> If a router takes more than 24 hours to route a benchmark,
+    it is consider to be failed in routing.
+    </li>
+    <li> 
+    information from /proc/cpuinfo
+    <BR>
+    <PRE>
+    CPU information:-
+    This is the CPU information I got from /proc/cpuinfo
+    processor       : 0
+    vendor_id       : AuthenticAMD
+    cpu family      : 15
+    model           : 65
+    model name      : Dual-Core AMD Opteron(tm) Processor 8220
+    stepping        : 3
+    cpu MHz         : 2800.258
+    cache size      : 1024 KB
+    physical id     : 0
+    siblings        : 2
+    core id         : 0
+    cpu cores       : 2
+    fpu             : yes
+    fpu_exception   : yes
+    cpuid level     : 1
+    wp              : yes
+    flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca
+    cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt
+    rdtscp lm 3dnowext 3dnow pni cx16 lahf_lm cmp_legacy svm extapic
+    cr8_legacy
+    bogomips        : 5602.42
+    TLB size        : 1024 4K pages
+    clflush size    : 64
+    cache_alignment : 64
+    address sizes   : 40 bits physical, 48 bits virtual
+    power management: ts fid vid ttp tm stc
+    </PRE>
+    </li>
+ </ul>
+<br>
+<hr>
+<h1 id="head-scri"> Evaluation Script </h1>
+ <ul>
+    <li> 
+    The solution evaluation Perl script is available for reference: <a href="./eval2008.zip">zipped perl script with example</a>
+    Special thanks to Dr. Philip Chong from Cadence Berkeley Lab and Dr. Mehmet Yildiz from IBM Corporation for their contributions.
+    </li>
+ </ul>
+
+<br>
+<hr>
+<h1 id="head-benc"> Benchmarks </h1>
+ ISPD08 Routing Contest will use 16 benchmarks from industrial ASIC designs to
+ evaluate all the contest submissions. All benchmarks consist of multi-metal
+ layers (i.e., multiple horizontal/vertical layers).  Note that 8 of the 16
+ benchmarks are from ISPD 2007 Global Routing Contest ("the 3D benchmarks").
+ If your router can generate solutions successfully on these benchmarks, it
+ should work well on new benchmarks too.  On March 8, 2008, additional 8
+ benchmarks will be released.
+ <br>
+ <ul style="text-aligh: left;">
+    <ul style="text-aligh: left;">
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec1.capo70.3d.35.50.90.gr.gz">adaptec1 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec2.mpl60.3d.35.20.100.gr.gz">adaptec2 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec3.dragon70.3d.30.50.90.gr.gz">adaptec3 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec4.aplace60.3d.30.50.90.gr.gz">adaptec4 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec1.capo70.3d.35.50.90.gr.gz">adaptec1 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/adaptec5.mfar50.3d.50.20.100.gr.gz">adaptec5 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/newblue1.ntup50.3d.30.50.90.gr.gz">newblue1 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/newblue2.fastplace90.3d.50.20.100.gr.gz">newblue2 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/07/rcontest/benchmark/newblue3.kraftwerk80.3d.40.50.90.gr.gz">newblue3 3d</a> </li>
+    </ul>
+ </ul>
+ <ul style="text-aligh: left;">
+    <ul style="text-aligh: left;">
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/bigblue1.capo60.3d.50.10.100.gr.gz">bigblue1 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/bigblue2.mpl60.3d.40.60.60.gr.gz">bigblue2 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/bigblue3.aplace70.3d.50.10.90.m8.gr.gz">bigblue3 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/bigblue4.fastplace70.3d.80.20.80.gr.gz">bigblue4 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/newblue4.mpl50.3d.40.10.95.gr.gz">newblue4 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/newblue5.ntup50.3d.40.10.100.gr.gz">newblue5 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/newblue6.mfar80.3d.60.10.100.gr.gz">newblue6 3d</a> </li>
+        <li> <a href="http://www.ispd.cc/contests/08/benchmark/newblue7.kraftwerk70.3d.80.20.82.m8.gr.gz">newblue7 3d</a> </li>
+    </ul>
+
+ </ul>
+ <br>
+
+<hr>
+<h1 id="head-join"> Join the Contest </h1>
+ If you are interested in participating in the contest, or even if you 
+ have any question, please feel free to send an email to Dr. Cliff Sze (<a
+ href="mailto:csze@us.ibm.com?subject=2008ISPD-RC">csze@us.ibm.com</a>).
+ To ensure prompt response, please start with "2008ISPD-RC" in the subject of your email.
+<BR>
+<BR>
+ <font color=red> For beginners</font>, <a href="./begin.txt">here</a> are some suggestions.
+<BR>
+<BR>
+
+<b>CONTESTANTS</b>
+<table border="1">
+
+<tr style="">
+<td valigh="top" align="center">
+ID 
+</td>
+<td valigh="top" align="center">
+Team Name
+</td>
+<td valigh="top" align="center">
+Affiliation
+</td>
+<td valigh="top" align="center">
+Contact Author
+</td>
+<td valigh="top" align="center">
+Other Authors
+</td>
+</tr>
+
+<tr style="">
+<td valigh="top" align="center">
+1   
+</td>
+<td valigh="top" align="center">
+FastRoute 3.0   
+</td>
+<td valigh="top" align="center">
+Iowa State University VLSI CAD LAB  
+</td>
+<td valigh="top" align="center">
+Yanheng Zhang   
+</td>
+<td valigh="top" align="center">
+Yue Xu  
+</td>
+</tr>
+
+<tr style="">
+<td valigh="top" align="center">
+2   
+</td>
+<td valigh="top" align="center">
+FGR 
+</td>
+<td valigh="top" align="center">
+Univ of Michigan    
+</td>
+<td valigh="top" align="center">
+Jarrod Roy      
+</td>
+<td valigh="top" align="center">
+</td>
+</tr>
+
+<tr style="">
+<td valigh="top" align="center">
+3   
+</td>
+<td valigh="top" align="center">
+NTUGR   
+</td>
+<td valigh="top" align="center">
+National Taiwan University  
+</td>
+<td valigh="top" align="center">
+Huang-Yu Chen   
+</td>
+<td valigh="top" align="center">
+Chin-Hsiung Hsu
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+4   
+</td>
+<td valigh="top" align="center">
+NCTU    
+</td>
+<td valigh="top" align="center">
+NCTU, Taiwan    
+</td>
+<td valigh="top" align="center">
+Wen-Hao Liu 
+</td>
+<td valigh="top" align="center">
+GKe-Ren Dai
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+5   
+</td>
+<td valigh="top" align="center">
+BoxRouter   
+</td>
+<td valigh="top" align="center">
+Univ of Texas   
+</td>
+<td valigh="top" align="center">
+Minsik Cho     
+</td>
+<td valigh="top" align="center">
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+6   
+</td>
+<td valigh="top" align="center">
+NTHU-Route  
+</td>
+<td valigh="top" align="center">
+National Tsing Hua University, Taiwan
+</td>
+<td valigh="top" align="center">
+Yen-Jung Chang 
+</td>
+<td valigh="top" align="center">
+Yu-Ting Lee, Tsung-Hsien Lee
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+7   
+</td>
+<td valigh="top" align="center">
+IMS GlObal Router (IGOR)    
+</td>
+<td valigh="top" align="center">
+Institute of Microelectronic Systems(IMS), Hannover, Germany   
+</td>
+<td valigh="top" align="center">
+Artur Quiring   
+</td>
+<td valigh="top" align="center">
+Philipp Panitz, Ole Ohlendorf
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+8   
+</td>
+<td valigh="top" align="center">
+USC 
+</td>
+<td valigh="top" align="center">
+University of Southern California   
+</td>
+<td valigh="top" align="center">
+Zhiyang Ong 
+</td>
+<td valigh="top" align="center">
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+9   
+</td>
+<td valigh="top" align="center">
+HSR (heuristically statistical router)  
+</td>
+<td valigh="top" align="center">
+Dept of EE, National Chiao Tung University, Hsinchu, Taiwan 
+</td>
+<td valigh="top" align="center">
+Hung-Ming Chen  
+</td>
+<td valigh="top" align="center">
+Sean Liu,   Jerry Lee,Po-Cheng Pan,   Ching-Yu Chin,  Yi-Hung Chen
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+10  
+</td>
+<td valigh="top" align="center">
+HKPU    
+</td>
+<td valigh="top" align="center">
+Dept of Electronic&Information Engineering, Polytechnic University of Hong Kong 
+</td>
+<td valigh="top" align="center">
+Jingwei Lu      
+</td>
+<td valigh="top" align="center">
+</td>
+</tr>
+ 
+<tr style="">
+<td valigh="top" align="center">
+11  
+</td>
+<td valigh="top" align="center">
+CUHK    
+</td>
+<td valigh="top" align="center">
+Chinese University of Hong Kong 
+</td>
+<td valigh="top" align="center">
+Zaichen Qian        
+</td>
+<td valigh="top" align="center">
+</td>
+</tr>
+</table>
+
+ <h2 id="head-subm">Submission Guideline</h2>
+Final submission time is set to (Mar 31) 11:59pm CST with daylight saving, which is in different
+time zone as,
+ <ul>
+    <li> 
+    9:59pm ( Mar 31) in California, 
+    </li> 
+    <li> 
+    12:59pm (Apr 1) in Beijing,Taipei and Hong Kong, 
+    </li> 
+    <li> 
+    6:59am (Apr 1) in Hannover, Germany.
+    </li> 
+</ul> 
+<BR>
+You can send me an http-link such that I can download your binary (or source
+files) and routing result files from the link. Please zipped or gtar all
+files.
+<BR>
+Since I will be running all the router by myself, if you don't have enough
+time to generate all routing results files, you can submit just a couple of
+them. I just want to make sure my execution of your binary generates exactly
+the same as your execution.
+<BR>
+You can ask me to use a non-open-source but faster solver (e.g. ILP, SAT) to
+run with your router for contest ranking. However, we have to make sure I can
+run it in my Linux machine.  When you release your source code for "Openly
+Available Tools", you can switch to an open-source solver.
+<hr>
+
+<h1 id="head-term" >Terms and Conditions</h1>
+ <h2>Openly Available Tools</h2>
+ What does &quot;openly available for research&quot; mean? In this case, the
+ intent is to foster an academic infrastructure where all the necessary pieces
+ are easily available to those who wish to do research on EDA algorithms and
+ flows. So by openly available we mean (a) the source code is freely
+ available, along with make files and some examples with known results, all
+ capable of running on a stock Linux system, and (b) the licensing terms, if
+ any, are appropriate for research. 
+ <br>
+ Note that (b) applies not only to the global router itself, but any code it
+ requires. For example, if your global router needs a SAT solver from another
+ group, the SAT solver must in turn be easily available for research for your
+ entry to qualify. IEEE/CEDA will test (a) and be the final judge of (b)
+ before awarding the prize.
+ <br>
+ <h2>Sponsors</h2>
+ <a href="http://www.c-eda.org/"><img src="pic/CEDAlogoColor.jpg" border="0" height="43" width="155"></a>
+
+</font>
+
+</body>
+
+</html>
+
+

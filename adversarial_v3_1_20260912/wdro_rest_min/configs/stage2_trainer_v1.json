@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "config_id": "wdro-rest-stage2-unified-trainer-v1",
+  "status": "frozen",
+  "frozen_at_utc": "2026-09-04T17:50:45Z",
+  "frozen_after_smoke_audit": "Codex/experiments/logs/stage2/stage2_smoke_audit_d30_s101_u200.json",
+  "research_protocol_override": false,
+  "applies_to_methods": ["erm", "mixed_erm", "hard_mining", "group_dro", "wdro_rest"],
+  "loss": "per_net_relative_regret",
+  "optimizer": {
+    "name": "adam_joint_actor_critic",
+    "learning_rate": 0.00005,
+    "epsilon": 0.00001,
+    "weight_decay": 0.0
+  },
+  "scheduler": {
+    "name": "constant",
+    "step_per_policy_update": true
+  },
+  "gradient_clip_l2": 1.0,
+  "validation_interval_updates": 100,
+  "validation_batch_size": 256,
+  "checkpoint_interval_updates": 100,
+  "structured_log_interval_updates": 10,
+  "stage2_smoke_updates": 200,
+  "training_pool": {
+    "kind": "stateless_immutable_per_update",
+    "identity_fields": ["protocol_id", "training_seed", "degree", "update", "net_index"],
+    "reuse_across_methods": true,
+    "materialized_nets_per_formal_run": 512000
+  },
+  "initialization": {
+    "actor": "trusted_degree_specific_dac21_actor_only",
+    "critic": "deterministic_fresh_per_degree_and_training_seed",
+    "policy_rng": "deterministic_per_degree_and_training_seed"
+  },
+  "checkpoint_schema": {
+    "retention": ["latest", "best"],
+    "includes": ["actor", "critic", "optimizer", "scheduler", "rng", "task_cursor", "call_ledger"]
+  },
+  "selection": {
+    "split": "synthetic_validation_only",
+    "erm_objective": "minimum_ood_worst_group_relative_regret",
+    "test_or_ispd_allowed": false
+  },
+  "determinism": {
+    "torch_deterministic_algorithms": true,
+    "cudnn_benchmark": false
+  }
+}

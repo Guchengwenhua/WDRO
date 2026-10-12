@@ -1,0 +1,82 @@
+--- delivery_audit.py.before
++++ delivery_audit.py.after
+@@ -7,12 +7,14 @@
+ """
+ from __future__ import annotations
+ import argparse
++import ast
+ import csv
+ import fcntl
+ import hashlib
+ import json
+ import os
+ from pathlib import Path
++import re
+ import sqlite3
+ import sys
+ import tempfile
+@@ -181,6 +183,45 @@
+             raise RuntimeError(f'lock still held: {path}') from exc
+         fcntl.flock(handle, fcntl.LOCK_UN)
+     return str(path)
++
++
++def research_process_kind(executable, argv):
++    """Identify the program Python executes, not command text retained by tmux."""
++    if not re.fullmatch(r'python(?:\d+(?:\.\d+)*)?', Path(executable).name) or not argv:
++        return None
++    modules = {f'adv_v3.{name}' for name in ('worker', 'joint', 'queue', 'pipeline', 'monitor')}
++    index = 1
++    while index < len(argv):
++        argument = argv[index]
++        if argument.startswith(('-m', '-c')):
++            payload = argument[2:] if len(argument) > 2 else (argv[index+1] if index+1 < len(argv) else '')
++            if argument.startswith('-m'):
++                return payload if payload in modules else None
++            remainder = argv[index+1:] if len(argument) > 2 else argv[index+2:]
++            if '--multiprocessing-fork' not in remainder:
++                return None
++            try:
++                statements = ast.parse(payload).body
++            except SyntaxError:
++                return None
++            spawn_names = set()
++            for statement in statements:
++                if isinstance(statement, ast.ImportFrom) and statement.module == 'multiprocessing.spawn':
++                    spawn_names.update(alias.asname or alias.name for alias in statement.names if alias.name == 'spawn_main')
++                elif isinstance(statement, ast.Import):
++                    spawn_names.update((alias.asname or alias.name) + '.spawn_main'
++                                       for alias in statement.names if alias.name == 'multiprocessing.spawn')
++                elif isinstance(statement, ast.Expr) and isinstance(statement.value, ast.Call):
++                    if ast.unparse(statement.value.func) in spawn_names:
++                        return 'multiprocessing.spawn'
++            return None
++        if argument in ('-W', '-X', '--check-hash-based-pycs'):
++            index += 2
++        elif argument in ('-', '--') or not argument.startswith('-'):
++            return None  # stdin/script arguments cannot select a Python module.
++        else:
++            index += 1
++    return None
+ 
+ 
+ def quiet_gate():
+@@ -212,12 +253,15 @@
+             continue
+         try:
+             cwd = (entry/'cwd').resolve()
+-            command = (entry/'cmdline').read_bytes().replace(b'\0', b' ').decode(errors='replace')
++            argv = (entry/'cmdline').read_bytes().decode(errors='replace').rstrip('\0').split('\0')
++            executable = str((entry/'exe').resolve(strict=True))
+             status = (entry/'stat').read_text().rsplit(') ',1)[1].split()[0]
+         except (OSError, RuntimeError):
+             continue
+-        if cwd in (ROOT, OLD) and status not in ('Z', 'X') and any(s in command for s in ('-m adv_v3.worker', '-m adv_v3.joint', '-m adv_v3.queue', '-m adv_v3.pipeline', '-m adv_v3.monitor', 'multiprocessing.spawn')):
+-            leftovers.append({'pid': int(entry.name), 'cwd': str(cwd), 'command': command})
++        kind = research_process_kind(executable, argv)
++        if cwd in (ROOT, OLD) and status not in ('Z', 'X') and kind is not None:
++            leftovers.append({'pid': int(entry.name), 'cwd': str(cwd), 'command': ' '.join(argv),
++                              'executable': executable, 'argv': argv, 'kind': kind})
+     require(not leftovers, f'experiment processes remain: {leftovers}')
+     return {'processes': states, 'released_locks': [lock_released(p) for p in lock_paths], 'leftover_processes': leftovers}
+ 

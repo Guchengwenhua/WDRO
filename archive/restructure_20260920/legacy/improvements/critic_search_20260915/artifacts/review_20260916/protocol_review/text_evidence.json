@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/protocol.json",
+    "sha256": "ecf055200083c8e4afd2cc63a24875e9b5987b97c87dee1571f6246dc900fe9e",
+    "line_start": 9,
+    "line_end": 18,
+    "text": "9:   \"true_score_budget_fixed\": 64,\n10:   \"validation\": {\"seed\": 101, \"centers_per_distribution\": 32, \"selection\": \"macro_true_penalized_score\"},\n11:   \"test\": {\"centers_per_distribution\": 64, \"methods\": [\"baseline\", \"no_move\", \"random_direction\", \"direction3\", \"direction4\", \"direction5\", \"direction6\", \"uniform_mse\", \"region_mse\", \"region_huber\", \"region_rankdiff\"]},\n12:   \"surrogate_refresh\": {\"train_count_per_pool\": 1024, \"validation_centers\": 128, \"validation_points_per_center\": 4, \"epochs\": 6, \"batch_size\": 128, \"learning_rate\": 0.0001, \"losses\": [\"mse\", \"huber\", \"local\"]},\n13:   \"joint\": {\"updates\": 128, \"batch_size\": 16, \"true_score_budget\": 4, \"variants\": [\"refresh32_raw\", \"refresh8_raw\", \"refresh32_ema\", \"refresh8_ema\"], \"ema_beta\": 0.9, \"validation_interval\": 32, \"validation_per_distribution\": 64, \"test_per_distribution\": 256, \"rho\": \"parent_fixed\", \"lambda_learning_rate\": 1.0},\n14:   \"greedy_forward_rows\": 256,\n15:   \"data_namespace\": \"critic-search-20260915\",\n16:   \"statistics\": {\"bootstrap_replicates\": 5000, \"paired\": true, \"directions\": 7, \"familywise_alpha\": 0.05, \"stable_requires_all_seed_directions\": true},\n17:   \"resource_policy\": {\"one_worker_per_gpu\": true, \"memory_limit_fraction\": 0.10, \"admission_free_mib\": 6144, \"reference_workers_per_task\": 3, \"foreign_process_changes\": false},\n18:   \"claims\": \"finite-budget exploratory search and short continued-training evidence; no universal or continuous-space robustness guarantee\""
+  },
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/THEORY_01_02.md",
+    "sha256": "c5dc45ca447ea489770d4f969ef81c832351e3bde15a62120c46b4e5aac94880",
+    "line_start": 59,
+    "line_end": 65,
+    "text": "59: 本轮是固定初始代理收集的一次 refresh，不含自适应多轮高误差挖掘。这样隔离数据来源效应，避免额外 oracle 预算与迭代次数混杂。多轮循环/高预测误差选择仍是未实施扩展，不能由本轮代替验收。\n60: \n61: ### 2.3 控制与统计对比\n62: \n63: 主因果对比为 `region_mse - uniform_mse`；`uniform_mse - old` 衡量本轮额外标签和更新相对于旧代理的综合效应。所有代理从同一参数初始化，不串行继承另一个变体；所有 Actor labels 对同一固定父模型有效。\n64: \n65: 最终每个中心保留已真实评价候选的最高 \\(r-\\lambda c\\)。记录其分数提升、regret、Hungarian 成本以及逐中心差值。方向 1 支持性证据要求最终真实攻击差值，而不是只报告训练 MSE。不同 seed 分开列示，不能将所有样本混为独立模型重复。"
+  },
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/THEORY_01_02.md",
+    "sha256": "c5dc45ca447ea489770d4f969ef81c832351e3bde15a62120c46b4e5aac94880",
+    "line_start": 73,
+    "line_end": 115,
+    "text": "73: ## 三、方向 2：比较 MSE、Huber、局部差分与排序\n74: \n75: ### 3.1 相同数据与尺度约束\n76: \n77: 三个目标共享完全相同的 1,024 个 search-region labels、训练顺序、初始参数、epochs、batch size 和学习率。每个 minibatch 按中心整组取样，以确保四点之间的六个局部无序对均可参与损失。不同中心之间不生成排序对。\n78: \n79: 预测值和标签始终采用原始 regret 单位，不标准化后直接用于搜索。若把代理乘上 \\(a>0\\) 而保持 \\(\\lambda\\) 不变，实际上将搜索权衡改成 \\(C-(\\lambda/a)c\\)，因此不能把任意排序分数当作数值校准的 regret。\n80: \n81: ### 3.2 预先固定的三个目标\n82: \n83: MSE 基线：\n84: \n85: \\[\n86: \\mathcal L_\\mathrm{MSE}=\\frac1N\\sum_i(C_\\psi(Z_i)-y_i)^2.\n87: \\]\n88: \n89: Huber 回归：令 \\(e=C_\\psi(Z)-y\\)，固定 \\(\\delta=0.01\\)：\n90: \n91: \\[\n92: h_\\delta(e)=\\begin{cases}\\tfrac12 e^2,&|e|\\le\\delta,\\\\\n93: \\delta(|e|-\\tfrac12\\delta),&|e|>\\delta.\\end{cases}\n94: \\]\n95: \n96: 它限制单个大残差的导数绝对值到 \\(\\delta\\)，可能减少异常样本影响，也可能降低恰好需要拟合的高 regret 尾部的权重。Huber 和 MSE 在相同学习率下的梯度量级不同；结果解释为这两个预定义完整训练配置的对比，不声称已找出各目标的最佳学习率。\n97: \n98: 局部差分/排序复合目标：令 \\(\\mathcal P\\) 为同中心内的无序对，\\(d_{ij}=y_i-y_j\\)、\\(\\hat d_{ij}=C_i-C_j\\)，固定温度 \\(\\tau=.01\\)，定义\n99: \n100: \\[\n101: \\mathcal L_\\mathrm{local}=\\mathcal L_\\mathrm{MSE}\n102: +0.25\\,\\mathbb E_{(i,j)\\in\\mathcal P}(\\hat d_{ij}-d_{ij})^2\n103: +0.1\\tau^2\\,\\mathbb E_{(i,j)\\in\\mathcal P:d_{ij}\\ne0}\n104: \\log(1+\\exp[-\\operatorname{sign}(d_{ij})\\hat d_{ij}/\\tau]).\n105: \\]\n106: \n107: 真实差分绝对值不超过 \\(10^{-12}\\) 的对不计排序项；差分项仍保留。\\(\\tau^2\\) 使排序项与平方 regret 的尺度相容。MSE 锚定绝对数值；差分项训练有限移动收益；排序项区分局部谁更难。任何两点差分都不是非光滑真实评分器的精确梯度标签。\n108: \n109: 对排序/差分项，全组预测同时平移常数不改变结果；MSE 会惩罚该偏移。回归锚点是此复合损失区别于纯排序代理的关键。复合项仍可能鼓励过大的局部 margin，必须报告预测均值/标准差与验证 MSE，不能只报告排序正确率。\n110: \n111: ### 3.3 选模与验证\n112: \n113: 使用独立 validation namespace 生成 **128 个中心**，每中心同样四点，共 512 个真实标签。所有数据/目标变体共享该验证池。每个变体仅在 6 个 epoch checkpoints 中按 validation MSE 选择最小者，平局取较早者。这一轮保持选模标准不变，以隔离训练数据/损失效应；“按真实攻击收益选代理”尚未作为另一条训练消融实施。\n114: \n115: 验证还记录 MAE、全局 Spearman、中心内平均 Spearman、非平局局部对排序准确率、局部差分 MSE、预测与标签的均值/标准差。以上指标均不替代独立 test 上的真实攻击结果。主协议中五个代理全部进入最终测试，不依据测试表现删除变体，不用最终测试指标选择 checkpoint。"
+  },
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/RESULTS.md",
+    "sha256": "597b1dbc317bed4d872c09885a134f480f0da8c3f2ea3619a718e269be1053e0",
+    "line_start": 10,
+    "line_end": 30,
+    "text": "10: ## 预先固定的主要比较\n11: \n12: 差值均为实验变体减对照；D1–D6 的真实惩罚分数越高越好，D7 的 validation 选中模型 test regret 越低越好。四分布等权宏平均。\n13: \n14: | 对比 | 宏均值差 | 点态95% CI | 9项同时区间 | 三seed均改善 | 判断 |\n15: |---|---:|---|---|---|---|\n16: | D1 | -0.0002243514 | [-0.001462852, 0.001023619] | [-0.002011249, 0.001600602] | 否 | 证据不足 |\n17: | D2 | -0.001588415 | [-0.002758802, -0.0003986629] | [-0.003202808, 0.0002125146] | 否 | 证据不足 |\n18: | D3 | 0.002457433 | [0.001204493, 0.003700609] | [0.0006946243, 0.004257825] | 是 | 支持改善 |\n19: | D4 | 0.0007045929 | [-0.0004224203, 0.001851778] | [-0.0008758727, 0.002330258] | 否 | 证据不足 |\n20: | D5 | 0.0007045929 | [-0.0004224203, 0.001851778] | [-0.0008758727, 0.002330258] | 否 | 证据不足 |\n21: | D6 | 0.001427325 | [5.307744e-06, 0.002765572] | [-0.0005257927, 0.003262055] | 是 | 证据不足 |\n22: | D7_refresh8_raw | 4.354298e-05 | [-0.0001745169, 0.0002504705] | [-0.0002477888, 0.0003403693] | 否 | 证据不足 |\n23: | D7_refresh32_ema | 2.762772e-06 | [-0.0002202376, 0.0002269357] | [-0.0003032986, 0.0003217975] | 否 | 证据不足 |\n24: | D7_refresh8_ema | -0.000135647 | [-0.0003443008, 7.952878e-05] | [-0.000428053, 0.000166728] | 否 | 证据不足 |\n25: \n26: D1 比较 region_mse−uniform_mse；D2 比较 region_rankdiff−region_mse；D3–D6 比较各 validation winner−baseline；D7 比较三种刷新/EMA变体−refresh32_raw。\n27: \n28: 置信区间使用5,000次 paired bootstrap：条件于已固定的3个模型，在每个分布内重采样中心索引，同一次抽样对三个seed与成对方法共同使用。四分布独立抽样后等权平均。\n29: 同时区间对9个主要宏平均对比采用 Bonferroni α=0.05/9；分布细表及次要比较仅给点态95%区间。极端分位数受5,000次Monte Carlo重采样精度限制。\n30: 只有同时区间支持改善且三个seed均同向才标记“支持改善”。区间包含0不证明等价；这些区间不覆盖重新训练模型的随机性，3个seed不足以支撑普适训练结论。"
+  },
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/RESULTS.md",
+    "sha256": "597b1dbc317bed4d872c09885a134f480f0da8c3f2ea3619a718e269be1053e0",
+    "line_start": 39,
+    "line_end": 42,
+    "text": "39: ### D2\n40: \n41: 相同搜索区域标签和初始参数下比较MSE与保留回归尺度的局部排序/差分目标；Huber为预声明次要对比。\n42: 宏均值差 -0.001588415；同时区间 [-0.003202808, 0.0002125146]；判断：证据不足。"
+  },
+  {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/report.py",
+    "sha256": "e17cab0bf17ae834544ed2a16c5a1ae7f22ce4d98ec75a45586fe149a6773500",
+    "line_start": 563,
+    "line_end": 579,
+    "text": "563: def contrasts(audit):\n564:     main = [(\"D1\", \"region_mse\", \"uniform_mse\"), (\"D2\", \"region_rankdiff\", \"region_mse\")]\n565:     main += [(f\"D{d}\", f\"direction{d}\", \"baseline\") for d in range(3, 7)]\n566:     secondary = [(\"D2_huber\", \"region_huber\", \"region_mse\"),\n567:                  (\"no_move\", \"no_move\", \"baseline\"), (\"random_direction\", \"random_direction\", \"baseline\")]\n568:     rows, distributions, seed_rows = [], [], []\n569:     for label, left, right in main+secondary:\n570:         deltas = np.stack([np.stack([audit.fixed[s, d, left][\"score\"]-audit.fixed[s, d, right][\"score\"] for d in DISTS]) for s in SEEDS])\n571:         add_contrast(rows, distributions, seed_rows, label, left, right, deltas, \"higher\", label in {x[0] for x in main})\n572:     for variant in VARIANTS[1:]:\n573:         delta = np.stack([np.stack([audit.training[s, variant, \"best\", d]-audit.training[s, VARIANTS[0], \"best\", d] for d in DISTS]) for s in SEEDS])\n574:         add_contrast(rows, distributions, seed_rows, \"D7_\"+variant, variant, VARIANTS[0], delta, \"lower\", True)\n575:     require(sum(r[\"primary\"] for r in rows) == 9, \"nine prespecified primary comparisons required\")\n576:     return rows, distributions, seed_rows\n577: \n578: \n579: def add_contrast(rows, distributions, seed_rows, label, left, right, deltas, better, primary):"
+  }
+]

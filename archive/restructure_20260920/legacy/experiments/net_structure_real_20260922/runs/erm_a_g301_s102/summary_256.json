@@ -1,0 +1,116 @@
+{
+  "phase": "main",
+  "method": "erm_a",
+  "seed": 102,
+  "generator": 301,
+  "recipe": "frozen_bn_1e5",
+  "setting": {
+    "lr": 1e-05,
+    "freeze_bn": true
+  },
+  "device_type": "cuda",
+  "update": 256,
+  "best_update": 256,
+  "validations": [
+    {
+      "update": 0,
+      "nets": 1085,
+      "mean": 0.019486507546591342,
+      "p95": 0.053549629715306135,
+      "macro": 0.01973299327017415
+    },
+    {
+      "update": 128,
+      "nets": 1085,
+      "mean": 0.019521994129753188,
+      "p95": 0.05296302100031503,
+      "macro": 0.019634413728798913
+    },
+    {
+      "update": 256,
+      "nets": 1085,
+      "mean": 0.019131375270723124,
+      "p95": 0.05331270753825409,
+      "macro": 0.019307861608767768
+    }
+  ],
+  "last_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.019131375270723124,
+    "p95": 0.05331270753825409,
+    "macro": 0.019307861608767768
+  },
+  "best_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.019131375270723124,
+    "p95": 0.05331270753825409,
+    "macro": 0.019307861608767768
+  },
+  "training_seconds": 109.25491373986006,
+  "new_training_seconds": 109.25491373986006,
+  "test_seconds": 14.269479878246784,
+  "process_seconds": 126.35671355575323,
+  "initial_update": 0,
+  "new_updates": 256,
+  "ledger": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 17805,
+    "test_forward_rows": 18432,
+    "test_gpu_rows": 18432
+  },
+  "ledger_delta": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 17805,
+    "test_forward_rows": 18432,
+    "test_gpu_rows": 18432
+  },
+  "tests": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/parent_s102.npz",
+      "nets": 5935,
+      "method": "parent",
+      "seed": 102,
+      "generator": 0,
+      "budget": 0,
+      "role": "parent",
+      "update": 0
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/erm_a_g301_s102_u256_last.npz",
+      "nets": 5935,
+      "method": "erm_a",
+      "seed": 102,
+      "generator": 301,
+      "budget": 256,
+      "role": "last",
+      "update": 256
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/erm_a_g301_s102_u256_val_best.npz",
+      "nets": 5935,
+      "method": "erm_a",
+      "seed": 102,
+      "generator": 301,
+      "budget": 256,
+      "role": "val_best",
+      "update": 256
+    }
+  ],
+  "rho": 0.07090420840928952,
+  "lambda_final": 0.0,
+  "nominal_fraction": 1.0,
+  "mean_selected_cost": 0.0,
+  "mean_budget_gap": -0.07090420840928949
+}

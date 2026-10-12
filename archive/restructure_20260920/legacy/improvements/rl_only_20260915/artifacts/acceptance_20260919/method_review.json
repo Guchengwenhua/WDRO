@@ -1,0 +1,647 @@
+{
+  "audit_time_utc": "2026-09-16T04:05:09.722615+00:00",
+  "scope": "read-only source/artifact/data audit; no Actor construction, inference, training, or solver calls",
+  "protocol_sha256": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+  "checks": {
+    "source_and_protocol_binding": {
+      "pass": true,
+      "mismatches": []
+    },
+    "matched_initialization": {
+      "pass": true,
+      "hashes_per_seed": {
+        "101": [
+          "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280"
+        ],
+        "102": [
+          "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca"
+        ],
+        "103": [
+          "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4"
+        ]
+      }
+    },
+    "validation_only_checkpoint_selection": {
+      "pass": true,
+      "mismatches": []
+    },
+    "lambda_recursion": {
+      "pass": true,
+      "mismatches": []
+    },
+    "data_namespace_and_coordinates": {
+      "pass": true,
+      "nominal_training_nets_checked": 393216,
+      "heldout_counts": {
+        "validation/uniform": 256,
+        "validation/mix_gauss": 256,
+        "validation/edge_bias": 256,
+        "validation/grid_cluster": 256,
+        "test/uniform": 1024,
+        "test/mix_gauss": 1024,
+        "test/edge_bias": 1024,
+        "test/grid_cluster": 1024,
+        "attack/uniform": 128,
+        "attack/mix_gauss": 128,
+        "attack/edge_bias": 128,
+        "attack/grid_cluster": 128
+      },
+      "heldout_unique_nets": 5632,
+      "unordered_coordinate_hash": "SHA256 of exact float32 pins lexicographically sorted by x then y",
+      "train_heldout_overlap": [],
+      "heldout_duplicates": [],
+      "training_duplicates": [],
+      "train_seed32_collisions": [],
+      "limitation": "Actual model-dependent training adversarial coordinates were not persistently saved; cannot retrospectively hash them all. Nominal centers are reconstructed from frozen source/protocol. Independent attack coordinates are handled by separate numeric acceptance."
+    },
+    "data_parameter_constants_match_protocol": {
+      "pass": true
+    },
+    "completion_binding_matches_run_binding": {
+      "pass": true,
+      "completed_manifests_checked": 17,
+      "mismatches": []
+    }
+  },
+  "runs": [
+    {
+      "task": "erm_critic_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1664,
+      "reported_best": 1664,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "erm_critic_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1280,
+      "reported_best": 1280,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "erm_critic_s103",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1664,
+      "reported_best": 1664,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "erm_rollout_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "erm_rollout_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "erm_rollout_s103",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_random_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_random_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1664,
+      "reported_best": 1664,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_random_s103",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1792,
+      "reported_best": 1792,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_es_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1792,
+      "reported_best": 1792,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_es_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1920,
+      "reported_best": 1920,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_es_s103",
+      "completed": false,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 1530,
+      "validation_events": 12,
+      "best_from_validation": 1408,
+      "reported_best": null,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": null,
+      "oracle_counter": null,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": null
+    },
+    {
+      "task": "wdro_critic_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1920,
+      "reported_best": 1920,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_critic_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 1920,
+      "reported_best": 1920,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_critic_s103",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_rl_s101",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_rl_s102",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "143b03bdcda1a244fa32eebd32591403ff0851e5dd283dfba75dfd4f405e48ca",
+      "trained_actor_hash_differs_from_initial": true
+    },
+    {
+      "task": "wdro_rl_s103",
+      "completed": true,
+      "bindings": {
+        "protocol": true,
+        "effective_protocol": true,
+        "source": true,
+        "dependency": true
+      },
+      "update_events": 2048,
+      "validation_events": 17,
+      "best_from_validation": 2048,
+      "reported_best": 2048,
+      "max_lambda_recursion_error": 0.0,
+      "forbidden_modules": [],
+      "oracle_counter": 0,
+      "initial_actor_sha256": "2b1babc3bed5c9f510a10734e8bf99578a82c8c7802bed8282093b7bfa4afbd4",
+      "trained_actor_hash_differs_from_initial": true
+    }
+  ],
+  "sources": {
+    "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/geometry.py": {
+      "sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+      "imports": [
+        "__future__",
+        "hashlib",
+        "json",
+        "models.actor_critic",
+        "numpy",
+        "os",
+        "pathlib",
+        "sys",
+        "time",
+        "torch"
+      ],
+      "sensitive_calls": [
+        {
+          "line": 129,
+          "call": "np.load",
+          "arguments": "np.load(tmp, allow_pickle=False)"
+        }
+      ]
+    },
+    "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/search.py": {
+      "sha256": "173de33b8c63af48f5712298ca5a84cd7368075420d842792dc8602020e213ad",
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "geometry",
+        "numpy",
+        "torch",
+        "typing"
+      ],
+      "sensitive_calls": []
+    },
+    "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/train.py": {
+      "sha256": "483f1846c2738d2d6139648c8948417a5e39a4acdcd729d47aa42e4857cace31",
+      "imports": [
+        "__future__",
+        "argparse",
+        "fcntl",
+        "geometry",
+        "hashlib",
+        "json",
+        "math",
+        "numpy",
+        "os",
+        "pathlib",
+        "random",
+        "search",
+        "signal",
+        "sys",
+        "time",
+        "torch",
+        "traceback"
+      ],
+      "sensitive_calls": [
+        {
+          "line": 392,
+          "call": "torch.load",
+          "arguments": "torch.load(self.out / 'best.pt', map_location=self.device, weights_only=False)"
+        },
+        {
+          "line": 176,
+          "call": "torch.load",
+          "arguments": "torch.load(latest, map_location=self.device, weights_only=False)"
+        },
+        {
+          "line": 395,
+          "call": "np.load",
+          "arguments": "np.load(self.out / 'initial.npz', allow_pickle=False)"
+        }
+      ]
+    },
+    "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/report.py": {
+      "sha256": "0fcdb802ad100488c321c9d7e497d055d06fe5eaf43572225705899d7dee81bc",
+      "imports": [
+        "argparse",
+        "csv",
+        "fcntl",
+        "geometry",
+        "json",
+        "numpy",
+        "pathlib",
+        "time"
+      ],
+      "sensitive_calls": [
+        {
+          "line": 56,
+          "call": "np.load",
+          "arguments": "np.load(path / 'results.npz', allow_pickle=False)"
+        }
+      ]
+    },
+    "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/test_environment.py": {
+      "sha256": "5c85e91f452fe76bcbb903a2708882da5b6909dcbd2a3f20c3ef5e84c4a66cb7",
+      "imports": [
+        "geometry",
+        "numpy",
+        "subprocess",
+        "sys",
+        "torch",
+        "unittest"
+      ],
+      "sensitive_calls": [
+        {
+          "line": 68,
+          "call": "subprocess.run",
+          "arguments": "subprocess.run([sys.executable, '-c', code], cwd=G.ROOT, capture_output=True, text=True)"
+        }
+      ]
+    },
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": {
+      "sha256": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "imports": [
+        "models.self_attn",
+        "models.utils",
+        "torch",
+        "torch.distributions.categorical",
+        "torch.nn"
+      ],
+      "sensitive_calls": []
+    },
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": {
+      "sha256": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "imports": [
+        "numpy",
+        "torch",
+        "torch.nn",
+        "torch.nn.functional"
+      ],
+      "sensitive_calls": []
+    },
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": {
+      "sha256": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40",
+      "imports": [
+        "math",
+        "numpy",
+        "os",
+        "torch",
+        "torch.nn"
+      ],
+      "sensitive_calls": []
+    }
+  },
+  "snapshot": {
+    "complete_tasks": 17,
+    "expected_tasks": 18,
+    "missing_complete": [
+      "wdro_es_s103"
+    ]
+  },
+  "findings_pending_write": false,
+  "method_status": "PASS_WITH_LIMITATIONS",
+  "aggregate_acceptance_at_snapshot": "INCOMPLETE_17_OF_18",
+  "findings": [
+    {
+      "id": "A01",
+      "severity": "aggregate_blocker",
+      "finding": "wdro_es_s103 incomplete at audit snapshot, 1530/2048 update events and no complete.json",
+      "scope": "Full 18-task acceptance requires later completion and artifact/runtime/statistical verification."
+    },
+    {
+      "id": "E01",
+      "severity": "evidence_limit",
+      "finding": "oracle_calls is initialized to zero, not an instrumented interception counter; guard and final sys.modules are not a full operating-system dependency trace",
+      "scope": "No forbidden dependency found in hash-bound source or manifests; claim this scoped evidence, not a tamper-proof universal absence proof."
+    },
+    {
+      "id": "E02",
+      "severity": "evidence_limit",
+      "finding": "Training candidate coordinates/per-candidate scores and model-dependent selected training topologies were not persistently saved",
+      "scope": "Cannot fully replay every training argmax or retrospectively hash all adversarial training inputs."
+    },
+    {
+      "id": "E03",
+      "severity": "diagnostic_gap",
+      "finding": "No persisted advantage variance, heldout surrogate ranking, or matched direction ablation",
+      "scope": "Cannot claim proven baseline variance reduction or useful surrogate directions."
+    },
+    {
+      "id": "S01",
+      "severity": "claim_scope",
+      "finding": "Heldout attack uses Random32 and lambda=0 without rho=.04 feasibility filtering",
+      "scope": "Finite displacement-window stress test, not constrained Wasserstein worst-case risk."
+    },
+    {
+      "id": "S02",
+      "severity": "claim_scope",
+      "finding": "mix_gauss shares one six-center layout per split make_data call",
+      "scope": "Net/seed bootstrap is conditional on that layout, not across mixture-layout population."
+    },
+    {
+      "id": "S03",
+      "severity": "claim_scope",
+      "finding": "Test is evaluated at initialization before training, but code uses only validation for best checkpoint",
+      "scope": "No code-level test selection leakage observed; do not call test never opened before final evaluation."
+    },
+    {
+      "id": "S04",
+      "severity": "claim_scope",
+      "finding": "Greedy/eval search and sampled/train outer update differ; indexed transport and raw length change the original regret/matching WDRO problem",
+      "scope": "No exact sampled-WDRO gradient or comparison-equivalence claim."
+    },
+    {
+      "id": "S05",
+      "severity": "claim_scope",
+      "finding": "Historical per-pin span accounting can exceed physical union length; no optimum values used",
+      "scope": "No exact physical-union, optimality-gap, approximation-ratio, or continuous-certificate claim."
+    }
+  ],
+  "markdown_sha256": "d42d0136bad5f8df103c8ef62921c83b39ef3bf287a596f9674ffb0c9f51c976",
+  "report_correction": {
+    "corrected_at_utc": "2026-09-16T04:17:40.641199+00:00",
+    "protocol_hash_in_markdown_regenerated_from_actual_file": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+    "json_protocol_hash_was_already_correct": true,
+    "wording": "Attack selects maximal own wirelength, not maximal transport cost. Training candidate count labeled as full planned count.",
+    "numeric_crosscheck_pass": true,
+    "numeric_values": {
+      "snapshot_expected_tasks": 18,
+      "snapshot_complete_tasks": 17,
+      "incomplete_snapshot_updates": 1530,
+      "target_updates": 2048,
+      "nominal_training_nets": 393216,
+      "heldout_nets": 5632,
+      "nominal_center_batches": 6144,
+      "validation_nets": 1024,
+      "test_nets": 4096,
+      "attack_centers": 512,
+      "planned_training_candidate_scores": 12582912,
+      "rho": 0.04,
+      "lambda_lr": 10.0,
+      "attack_candidates": 32,
+      "mixture_centers_per_split_call": 6
+    },
+    "scope": "Only method_review.md and method_review.json changed; original audit snapshot preserved."
+  }
+}

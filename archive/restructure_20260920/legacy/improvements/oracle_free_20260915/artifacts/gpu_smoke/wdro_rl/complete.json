@@ -1,0 +1,247 @@
+{
+  "binding": {
+    "method": "wdro_rl",
+    "seed": 101,
+    "smoke": true,
+    "protocol_sha256": "aae1baa86c16759d2968f9fb36c332c2e54d70374d9bb29e18100cd10d1335cb",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/improvements/oracle_free_20260915/geometry.py": "5e8ea89b65a431a67b0763bd6f63043b2a0493de200f9b1ecbaf4393ee65415f",
+      "/remote-home/Guilin/DRO/Codex/improvements/oracle_free_20260915/search.py": "0178975da64222e685121fc2dbed6883035341f16026c944a1a2d850e1da582e",
+      "/remote-home/Guilin/DRO/Codex/improvements/oracle_free_20260915/train.py": "eff6ed6f1db70c9d00343e0d94906cdaeff7f6edf37c53e0f80d3fccb2851286"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/wdro_rest_min/src/datasets.py": "aea18e08ff733937d4568316ca37fa34dabaab628abe812244882d24ec2222c5",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/wdro_rest_min/src/geometry.py": "d177eb67ff6cf8a091332fc4ec21a319db3ab73db21042defbc490e9f5dec7d1",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "effective_protocol": {
+      "degree": 30,
+      "updates": 2,
+      "batch_size": 2,
+      "actor_lr": 0.0001,
+      "baseline_lr": 0.0001,
+      "surrogate_lr": 0.0001,
+      "proposal_lr": 0.0001,
+      "candidates": 8,
+      "epsilon": 0.08,
+      "search_sigma": 0.04,
+      "es_step_size": 0.04,
+      "critic_steps": 4,
+      "critic_step_size": 0.01,
+      "lambda_init": 1.0,
+      "lambda_lr": 1.0,
+      "validation_every": 1,
+      "checkpoint_every": 1,
+      "val_per_distribution": 4,
+      "test_per_distribution": 4,
+      "attack_per_distribution": 2,
+      "attack_candidates": 32,
+      "greedy_microbatch": 64,
+      "distributions": [
+        "uniform",
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "schema_version": 1,
+      "experiment": "oracle_free_v1",
+      "seeds": [
+        101,
+        102,
+        103
+      ],
+      "methods": [
+        "erm_mst",
+        "erm_lb",
+        "wdro_random",
+        "wdro_es",
+        "wdro_critic",
+        "wdro_rl"
+      ],
+      "rho": 0.06250166191409032,
+      "parameters": {
+        "uniform": {},
+        "mix_gauss": {
+          "nonuniform": 0.8,
+          "clusters": 6,
+          "sigma": 0.04
+        },
+        "edge_bias": {
+          "nonuniform": 0.8,
+          "clusters": 4,
+          "sigma": 0.06
+        },
+        "grid_cluster": {
+          "nonuniform": 0.8,
+          "clusters": 8,
+          "sigma": 0.03
+        }
+      },
+      "initialization": "fresh random Actor, matched seed; no external weights",
+      "loss": "L/max(HPWL,Manhattan_MST/2)-1; erm_mst uses L/Manhattan_MST-1",
+      "model_selection": "minimum validation worst-group mean q_lb; earliest ties",
+      "references": "none, no optimal labels, no GeoSteiner library or executable",
+      "acceptance_scope": "degree30 proof of concept, not reproduction or universal robustness proof",
+      "calibration": {
+        "count": 2048,
+        "candidates_per_center": 7,
+        "quantile": 0.75,
+        "seed": 711,
+        "sha256": "4379ce4dfecf67c77040408d9b80612751e65f63e168775f596a30a32c3a912a"
+      },
+      "statistics": {
+        "bootstrap_replicates": 2000,
+        "paired": true,
+        "training_seeds": 3,
+        "primary": "raw length, q_mst, q_lb mean/P95 and worst group; before/after; cross method"
+      }
+    }
+  },
+  "identity": {
+    "pid": 439295,
+    "start_ticks": "3389838083",
+    "time": "2026-09-15T20:35:47Z",
+    "physical_gpu_index": 3,
+    "CUDA_VISIBLE_DEVICES": "3",
+    "device": "cuda:0",
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_total_memory": 51002867712
+  },
+  "status": "complete",
+  "acceptance": "gpu_smoke",
+  "step": 2,
+  "best_step": 2,
+  "best_validation_worst_group_q_lb": 5.729212070732413,
+  "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+  "final_actor_sha256": "261d04bc3970bc5c02092d238e60d3fb53847f6acd66f78276cef57456f5e5b9",
+  "initial_groups": {
+    "uniform": {
+      "mean_q_lb": 5.675952733305314,
+      "mean_q_mst": 2.337976366652657,
+      "mean_length": 12.733457371592522
+    },
+    "mix_gauss": {
+      "mean_q_lb": 7.441407192400221,
+      "mean_q_mst": 3.3660453943598045,
+      "mean_length": 12.728725614026189
+    },
+    "edge_bias": {
+      "mean_q_lb": 5.558236201709978,
+      "mean_q_mst": 2.279118100854989,
+      "mean_length": 12.51536812633276
+    },
+    "grid_cluster": {
+      "mean_q_lb": 5.763361898096494,
+      "mean_q_mst": 2.3816809490482465,
+      "mean_length": 12.16292412020266
+    }
+  },
+  "final_groups": {
+    "uniform": {
+      "mean_q_lb": 4.317751866143383,
+      "mean_q_mst": 1.6588759330716911,
+      "mean_length": 10.221617152914405
+    },
+    "mix_gauss": {
+      "mean_q_lb": 7.578156470521164,
+      "mean_q_mst": 3.434258748190509,
+      "mean_length": 12.952078083530068
+    },
+    "edge_bias": {
+      "mean_q_lb": 5.574395697297891,
+      "mean_q_mst": 2.2871978486489457,
+      "mean_length": 12.546641333028674
+    },
+    "grid_cluster": {
+      "mean_q_lb": 5.168508110277081,
+      "mean_q_mst": 2.0842540551385405,
+      "mean_length": 11.084026427939534
+    }
+  },
+  "final_test_worst_group_q_lb": 7.578156470521164,
+  "attacks": {
+    "uniform": {
+      "mean_center_q_lb": 5.8998858533525675,
+      "mean_attacked_q_lb": 6.983341772228327,
+      "mean_lift": 1.0834559188757589
+    },
+    "mix_gauss": {
+      "mean_center_q_lb": 8.387643245217376,
+      "mean_attacked_q_lb": 8.784898073120953,
+      "mean_lift": 0.397254827903577
+    },
+    "edge_bias": {
+      "mean_center_q_lb": 5.119933895692325,
+      "mean_attacked_q_lb": 6.755877335355925,
+      "mean_lift": 1.6359434396636
+    },
+    "grid_cluster": {
+      "mean_center_q_lb": 4.999986862071507,
+      "mean_attacked_q_lb": 5.718354131170846,
+      "mean_lift": 0.718367269099339
+    }
+  },
+  "lambda_final": 0.969297419115901,
+  "ledger": {
+    "search_greedy_scores": 32,
+    "search_padded_forward_rows": 128,
+    "evaluation_greedy_scores": 336,
+    "evaluation_padded_forward_rows": 1536,
+    "sampled_actor_scores": 4,
+    "oracle_calls": 0
+  },
+  "ledger_semantics": "Committed work; actual_calls.jsonl and actual_call_bounds include replay after interruption",
+  "actual_call_bounds": {
+    "search": {
+      "completed_real_rows": 32,
+      "attempted_real_rows_upper_bound": 32,
+      "completed_forward_rows": 128,
+      "attempted_forward_rows_upper_bound": 128
+    },
+    "evaluation": {
+      "completed_real_rows": 336,
+      "attempted_real_rows_upper_bound": 336,
+      "completed_forward_rows": 1536,
+      "attempted_forward_rows_upper_bound": 1536
+    },
+    "sampled_training": {
+      "completed_real_rows": 4,
+      "attempted_real_rows_upper_bound": 4,
+      "completed_forward_rows": 4,
+      "attempted_forward_rows_upper_bound": 4
+    }
+  },
+  "elapsed_seconds": 13.559947215020657,
+  "finished": "2026-09-15T20:36:01Z",
+  "update_seconds_total": 1.8536849990487099,
+  "seconds_per_update": 0.9268424995243549,
+  "forbidden_modules_loaded": [],
+  "oracle_guard": "geometry.install_oracle_guard active before model construction",
+  "peak_allocated_bytes": 120697344,
+  "peak_reserved_bytes": 127926272,
+  "finite_result_validation": true,
+  "artifacts": {
+    "latest.pt": "77c406045b5c70ce31d88008074dea547f3f265f32a6c692a0741f92317652a3",
+    "best.pt": "abc54be4c7069ce1d4894f2f92179a38958a02695c7477303be97518dde0aa52",
+    "initial.npz": "be76e6944104fd96622f9fd39f0725dd668c8c6d326a2f309bf5def050e2d0b3",
+    "initial.json": "a4246ecbe2dae758c11915c3eea0c853e2f00cca679d98d12cec26269f34e918",
+    "results.npz": "9ae91a81c8ce7d5e35df321bcaf19c3200087832ee9696837ed8ead0ac3b5503",
+    "progress.jsonl": "ec54202f57108d1407777e379660c0b41f5cf298fbae63fe7f80ae2bda0ba465",
+    "actual_calls.jsonl": "f0c0f5a6e824036e115aef97f932865e9455e73b2c174d5dd2eeee9d55cdb2a0",
+    "run.json": "07ebd9624b5a674368cf2ea052884a2e6ae62c8f94347e03e9866cdbf246fbd0"
+  },
+  "artifacts_sha256": {
+    "latest.pt": "77c406045b5c70ce31d88008074dea547f3f265f32a6c692a0741f92317652a3",
+    "best.pt": "abc54be4c7069ce1d4894f2f92179a38958a02695c7477303be97518dde0aa52",
+    "initial.npz": "be76e6944104fd96622f9fd39f0725dd668c8c6d326a2f309bf5def050e2d0b3",
+    "initial.json": "a4246ecbe2dae758c11915c3eea0c853e2f00cca679d98d12cec26269f34e918",
+    "results.npz": "9ae91a81c8ce7d5e35df321bcaf19c3200087832ee9696837ed8ead0ac3b5503",
+    "progress.jsonl": "ec54202f57108d1407777e379660c0b41f5cf298fbae63fe7f80ae2bda0ba465",
+    "actual_calls.jsonl": "f0c0f5a6e824036e115aef97f932865e9455e73b2c174d5dd2eeee9d55cdb2a0",
+    "run.json": "07ebd9624b5a674368cf2ea052884a2e6ae62c8f94347e03e9866cdbf246fbd0"
+  }
+}

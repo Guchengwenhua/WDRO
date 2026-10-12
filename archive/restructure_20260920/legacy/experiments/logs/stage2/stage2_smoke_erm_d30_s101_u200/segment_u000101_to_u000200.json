@@ -1,0 +1,186 @@
+{
+  "batch_size": 256,
+  "best": {
+    "nominal_mean": 0.007986464656570083,
+    "selection_objective": 0.014290580311029196,
+    "update": 200,
+    "validation_manifest_sha256": "8404b1b8416711bd8f86b97e152bebcd61b9040414c231392b7923e133a51cdd"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage2/stage2_smoke_erm_d30_s101_u200/best.pt",
+  "best_checkpoint_sha256": "217b8433d71dfa60f87368d7e7a7ff6c98534109fee7694b089a278af2a92aca",
+  "call_ledger": {
+    "actor_forward_nets": 75201,
+    "exact_rest_evaluator_nets": 75202,
+    "geosteiner_nets": 51202,
+    "surrogate_evaluator_nets": 0
+  },
+  "completed_updates": 200,
+  "cuda_visible_devices": "6",
+  "degree": 30,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2/stage2_smoke_erm_d30_s101_u200/events.jsonl",
+  "expected_updates": 200,
+  "finished_at_utc": "2026-09-04T17:49:30.760215Z",
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T174646Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 21100,
+    "legacy_best_eval": 4.158684459063664,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/DRO/WDRO-REST/save/DAC21/rsmt30b.pt",
+    "sha256": "885ef9ea6cac38e4f1ee83c000c0ec0f1c079151db1b236031a56cb7bbf8d8dc",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 4.440892098500626e-16,
+    "lstar_normalized": 3.26702032238245,
+    "lstar_original": 3.910627654693719,
+    "net_id": "train_u000001:uniform:d30:s101:n000000",
+    "rest_absolute_error": 8.881784197001252e-16,
+    "rest_normalized": 3.2915810719132423,
+    "rest_original": 3.9400269044250704,
+    "scale": 0.8354209632975971,
+    "status": "pass"
+  },
+  "last_validation": {
+    "aggregate": {
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "maximum": 0.0677317283215543,
+          "mean": 0.008894484859528975,
+          "minimum": 0.0,
+          "p95": 0.025991352175656002
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "maximum": 0.05870150657077426,
+          "mean": 0.00764120224974343,
+          "minimum": 0.0,
+          "p95": 0.021948523325732373
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "maximum": 0.10207304550609943,
+          "mean": 0.014290580311029196,
+          "minimum": 0.0,
+          "p95": 0.038704681814440416
+        },
+        "uniform": {
+          "count": 2000,
+          "maximum": 0.07824421070047613,
+          "mean": 0.007986464656570083,
+          "minimum": 0.0,
+          "p95": 0.02115423788901495
+        }
+      },
+      "overall": {
+        "count": 8000,
+        "maximum": 0.10207304550609943,
+        "mean": 0.009703183019217921,
+        "minimum": 0.0,
+        "p95": 0.028100855686552493
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.014290580311029196
+    },
+    "degree": 30,
+    "groups": {
+      "edge_bias": {
+        "dataset_array_bundle_sha256": "7ff51a04997567941229501aab1f69933a6e1f585efd111c7e67482e74fd4cd4",
+        "first_net_id": "validation:edge_bias:d30:s202:n000000",
+        "last_net_id": "validation:edge_bias:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.0677317283215543,
+          "mean": 0.008894484859528975,
+          "minimum": 0.0,
+          "p95": 0.025991352175656002
+        }
+      },
+      "grid_cluster": {
+        "dataset_array_bundle_sha256": "27e18afb8ad9128bde14e7db001188ce5f7ed9733eaed1e45f39de0316a5a052",
+        "first_net_id": "validation:grid_cluster:d30:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.05870150657077426,
+          "mean": 0.00764120224974343,
+          "minimum": 0.0,
+          "p95": 0.021948523325732373
+        }
+      },
+      "mix_gauss": {
+        "dataset_array_bundle_sha256": "051657bf372f12afc2537e1c403cdc5081639125fad64c6f36bf75a286c72a5c",
+        "first_net_id": "validation:mix_gauss:d30:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.10207304550609943,
+          "mean": 0.014290580311029196,
+          "minimum": 0.0,
+          "p95": 0.038704681814440416
+        }
+      },
+      "uniform": {
+        "dataset_array_bundle_sha256": "4b546741528669eec0bd974a84069bdf774194ef1ff8da0c9c7d4cb41029a6a8",
+        "first_net_id": "validation:uniform:d30:s202:n000000",
+        "last_net_id": "validation:uniform:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.07824421070047613,
+          "mean": 0.007986464656570083,
+          "minimum": 0.0,
+          "p95": 0.02115423788901495
+        }
+      }
+    },
+    "inference": {
+      "batch_size": 256,
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1
+    },
+    "seed": 202,
+    "selection": {
+      "nominal_mean": 0.007986464656570083,
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "test_or_ispd_used": false,
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.014290580311029196
+    },
+    "split": "validation"
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage2/stage2_smoke_erm_d30_s101_u200/latest.pt",
+  "latest_checkpoint_sha256": "65e23e71e771e9daa65705a84a94e11c5e1d530c46f22a9df8ba15e0eb804b72",
+  "method": "erm",
+  "nan_detected": false,
+  "peak_memory_allocated_bytes": 1607424000,
+  "peak_memory_reserved_bytes": 1704984576,
+  "physical_gpu_index": 6,
+  "policy_update_nets": 51200,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "resumed_from": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage2/stage2_smoke_erm_d30_s101_u200/latest.pt",
+  "run_id": "stage2_smoke_erm_d30_s101_u200",
+  "schema_version": 1,
+  "segment_wall_seconds": 144.82219897210598,
+  "started_this_segment_at_update": 101,
+  "status": "complete",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "99d5c663259845983cbf90cd5d836c0f7d9c293d4c2903787f923a60be7c5ce2",
+  "training_seed": 101,
+  "training_stream_hash": "ebd05990201d86a282785eede22d1c3a6afbb22f72f30853f9c0287b37626d18"
+}

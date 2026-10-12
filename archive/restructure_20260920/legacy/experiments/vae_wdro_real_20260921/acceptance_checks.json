@@ -1,0 +1,246 @@
+{
+  "checked_at": "2026-09-22T03:49:15.416858+00:00",
+  "checks": {
+    "data_alignment_and_split": {
+      "status": "PASS",
+      "details": {
+        "rows": 11032,
+        "split_counts": {
+          "C_external": 1944,
+          "A_train": 2810,
+          "A_val": 1085,
+          "B_test": 3991,
+          "A_cal": 1202
+        },
+        "cross_split_equal_geometry": 0,
+        "test_internal_duplicate_rows": 1
+      }
+    },
+    "candidate_pools_and_references": {
+      "status": "PASS",
+      "details": {
+        "all_pool_shapes": [
+          2810,
+          8,
+          30,
+          2
+        ],
+        "recomputed_non_nominal_costs": 59010,
+        "max_cost_error": 0.0,
+        "reference_cache_entries": 42231,
+        "invalid_references": 0,
+        "ball_shell_identical_fraction": 0.9957803762074224,
+        "common_rho": 0.07090420840928952
+      }
+    },
+    "checkpoints_initialization_and_budget": {
+      "status": "PASS",
+      "details": {
+        "REST_checkpoints_loaded": 36,
+        "seeds": 3,
+        "methods": 4,
+        "updates": 3072,
+        "all_best_updates": 0,
+        "best_actor_and_critic_equal_to_corresponding_parent": true,
+        "shared_center_sequence_checked": true,
+        "lambda_recurrence_steps_checked": 3072,
+        "sampled_requests": 196608,
+        "candidate_requests": 1179648
+      }
+    },
+    "per_net_results_and_tables": {
+      "status": "PASS",
+      "details": {
+        "NPZ_CSV_pairs": 27,
+        "stored_prediction_rows": 160245,
+        "test_nets_per_output": 5935,
+        "full_metric_rows_recomputed": 1050,
+        "maximum_table_error": 0.0,
+        "all_best_test_outputs_equal_parent": true
+      }
+    },
+    "saved_checkpoint_prediction_replay": {
+      "status": "PASS",
+      "details": {
+        "checkpoints": 15,
+        "actual_nets": 8385,
+        "forward_rows": 11520,
+        "max_length_error": 0.0,
+        "batch_starts": [
+          0,
+          2560,
+          5888
+        ],
+        "includes_external_B_and_tail": true
+      }
+    },
+    "vae_checkpoint_selection": {
+      "status": "PASS",
+      "details": {
+        "fits": [
+          16,
+          32
+        ],
+        "epochs": [
+          300,
+          300
+        ],
+        "selected_latent": 32,
+        "selected_epoch": 280,
+        "selection_dataset": "A_val",
+        "test_used_for_selection": false
+      }
+    },
+    "completion_and_process_lifecycle": {
+      "status": "PASS",
+      "details": {
+        "successful_child_jobs": 18,
+        "retries": 0,
+        "remaining_experiment_jobs": 0,
+        "single_instance_lock_released": true,
+        "wall_seconds": 4715.193935,
+        "first_interim_after_pair_exit_seconds": 4.024089
+      }
+    },
+    "vae_geometry_and_initial_action_rng": {
+      "status": "PASS",
+      "details": {
+        "regenerated_pools": {
+          "vae_ball_wdro": {
+            "candidate_coordinate_max_error": 0.0,
+            "regenerated_non_nominal_candidates": 19670
+          },
+          "vae_shell_wdro": {
+            "candidate_coordinate_max_error": 0.0,
+            "regenerated_non_nominal_candidates": 19670
+          }
+        },
+        "calibration_radii_exact": true,
+        "latent_scales_exact": true,
+        "inner_fraction": 0.004219623792577529,
+        "outer_fraction": 0.14011184544992375,
+        "initial_action_rng_equal_within_seed": true
+      }
+    }
+  },
+  "notes": [
+    {
+      "kind": "accounting",
+      "parent_test_passes": 5,
+      "necessary_parent_passes": 3,
+      "extra_duplicate_passes": 2,
+      "extra_rows": 11870,
+      "actual_test_rows": 172115,
+      "effect": "extra CPU inference only, no changed training or scoring; per-run ledger retains actual counts"
+    }
+  ],
+  "replays": [
+    {
+      "method": "parent",
+      "seed": 101,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "raw_wdro",
+      "seed": 101,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_shell_wdro",
+      "seed": 101,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "erm_a",
+      "seed": 101,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_ball_wdro",
+      "seed": 101,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "parent",
+      "seed": 102,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "raw_wdro",
+      "seed": 102,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_shell_wdro",
+      "seed": 102,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "erm_a",
+      "seed": 102,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_ball_wdro",
+      "seed": 102,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "parent",
+      "seed": 103,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "raw_wdro",
+      "seed": 103,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_shell_wdro",
+      "seed": 103,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "erm_a",
+      "seed": 103,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    },
+    {
+      "method": "vae_ball_wdro",
+      "seed": 103,
+      "requested_nets": 559,
+      "forward_rows": 768,
+      "maximum_length_error": 0.0
+    }
+  ],
+  "elapsed_seconds": 66.62966403365135,
+  "overall": "PASS_WITH_DOCUMENTED_LIMITATIONS"
+}

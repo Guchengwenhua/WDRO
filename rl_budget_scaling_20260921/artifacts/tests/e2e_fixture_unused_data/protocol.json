@@ -1,0 +1,105 @@
+{
+  "experiment": "rl_budget_scaling_20260921_v1",
+  "degree": 30,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "arms": [
+    "U",
+    "M",
+    "D",
+    "ME",
+    "MG",
+    "SG"
+  ],
+  "targets": {
+    "U": 2050,
+    "M": 2,
+    "D": 4,
+    "ME": 4,
+    "MG": 4,
+    "SG": 4
+  },
+  "start_steps": {
+    "U": 2048,
+    "M": 0,
+    "D": 0,
+    "ME": 2,
+    "MG": 2,
+    "SG": 1
+  },
+  "batch_size": 64,
+  "learning_rate_early": 0.0001,
+  "learning_rate_late": 5e-05,
+  "learning_rate_boundary": 8192,
+  "group_eta": 0.01,
+  "gradient_clip": 1.0,
+  "validation_every": 1,
+  "checkpoint_every": 1,
+  "endpoints": [
+    1,
+    2,
+    3,
+    4,
+    2048,
+    2050
+  ],
+  "val_per_group": 64,
+  "test_per_group": 64,
+  "greedy_microbatch": 64,
+  "selection_mean_tolerance": 0.01,
+  "primary_comparisons": [
+    {
+      "name": "training_budget",
+      "baseline": "U/step2048",
+      "candidate": "U/step2050",
+      "metric": "mean"
+    },
+    {
+      "name": "data_coverage",
+      "baseline": "U/step2050",
+      "candidate": "M/step2",
+      "metric": "mean"
+    },
+    {
+      "name": "robust_finetuning",
+      "baseline": "ME/step4",
+      "candidate": "MG/step4",
+      "metric": "worst"
+    },
+    {
+      "name": "pretraining_order",
+      "baseline": "D/step4",
+      "candidate": "MG/step4",
+      "metric": "worst"
+    },
+    {
+      "name": "stage_allocation",
+      "baseline": "SG/step4",
+      "candidate": "MG/step4",
+      "metric": "worst"
+    }
+  ],
+  "bootstrap_replicates": 50,
+  "bootstrap_seed": 9212026,
+  "primary_min_improvement_percent": 0.5,
+  "primary_min_improved_seeds": 2,
+  "familywise_ci": "Bonferroni: five two-sided 99 percent intervals",
+  "reference_solver_calls": 0,
+  "allowed_weight_lineage": "copied hash-verified pure RL parents only",
+  "output_semantics": "own learned topology REST span wirelength; no optimality or Wasserstein certificate",
+  "test_gate": "all 18 training complete with frozen endpoint and selected model hashes",
+  "max_workers": 8,
+  "cpu_threads_per_worker": 3,
+  "min_disk_gib": 20,
+  "train_new_updates_total": 45,
+  "validation_start": 1,
+  "supplemental_comparison": {
+    "name": "posttraining_scale_exploratory",
+    "baseline": "SG/step3",
+    "candidate": "SG/step4",
+    "metric": "worst"
+  }
+}

@@ -1,0 +1,1151 @@
+{
+  "at": 1789509886.8754232,
+  "completed_tasks": 0,
+  "conditional_wall_scenarios": {
+    "1": {
+      "assumption": "continuous workers and listed task dependencies; excludes capacity waiting and postprocess",
+      "continuous_gpu_workers": 1,
+      "seconds": [
+        41063.82143238068,
+        102336.4384203434
+      ]
+    },
+    "2": {
+      "assumption": "continuous workers and listed task dependencies; excludes capacity waiting and postprocess",
+      "continuous_gpu_workers": 2,
+      "seconds": [
+        20531.91071619034,
+        60606.402812261585
+      ]
+    },
+    "8": {
+      "assumption": "continuous workers and listed task dependencies; excludes capacity waiting and postprocess",
+      "continuous_gpu_workers": 8,
+      "seconds": [
+        7572.217817993164,
+        29308.876106200223
+      ]
+    }
+  },
+  "cpu_reference_timings": [
+    {
+      "family": "buffer",
+      "method": "wdro",
+      "note": "CPU measurements only; may include earlier implementation versions; not a GPU ETA",
+      "observed_batches": [
+        8
+      ],
+      "seconds_per_update_observed_range": [
+        0.3719146251678467,
+        0.8008172512054446
+      ],
+      "source_runs": [
+        "cpu_buffer_wdro",
+        "cpu_final_buffer",
+        "review_buffer_split_919",
+        "review_buffer_straight_919"
+      ]
+    },
+    {
+      "family": "hub",
+      "method": "wdro",
+      "note": "CPU measurements only; may include earlier implementation versions; not a GPU ETA",
+      "observed_batches": [
+        8
+      ],
+      "seconds_per_update_observed_range": [
+        0.4647402286529541,
+        0.8257941246032715
+      ],
+      "source_runs": [
+        "cpu_final_hub",
+        "cpu_hub_wdro_v2"
+      ]
+    },
+    {
+      "family": "rest",
+      "method": "wdro",
+      "note": "CPU measurements only; may include earlier implementation versions; not a GPU ETA",
+      "observed_batches": [
+        8
+      ],
+      "seconds_per_update_observed_range": [
+        0.9213998317718506,
+        1.2629026412963869
+      ],
+      "source_runs": [
+        "cpu_final_rest",
+        "cpu_rest_wdro_v1"
+      ]
+    },
+    {
+      "family": "timing",
+      "method": "wdro",
+      "note": "CPU measurements only; may include earlier implementation versions; not a GPU ETA",
+      "observed_batches": [
+        8
+      ],
+      "seconds_per_update_observed_range": [
+        0.5996786117553711,
+        0.6451279401779175
+      ],
+      "source_runs": [
+        "cpu_final_timing",
+        "cpu_timing_wdro_v2"
+      ]
+    }
+  ],
+  "fully_estimated": false,
+  "historical_rest_reference": {
+    "batch_size": 256,
+    "elapsed_seconds": 2135.0181773789227,
+    "note": "Historical basic REST WDRO with different batch/runtime; not current four-family GPU timing",
+    "seconds_per_update": 1.0675090886894614,
+    "source": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage6/formal_wdro_d10_s101_u2000_v1/result.json",
+    "updates": 2000
+  },
+  "known_remaining_work_seconds": [
+    41063.82143238068,
+    102336.4384203434
+  ],
+  "notes": [
+    "Intervals are engineering scenarios, not confidence intervals or completion promises.",
+    "Training, validation, test, 33-candidate attack forwards and LP allowance are separated; postprocess is excluded.",
+    "CUDA smoke uses batch-size extrapolation; formal CUDA samples replace it as soon as available.",
+    "Only scheduler-verified completion counts as complete; run files alone do not establish acceptance."
+  ],
+  "queue_state_age_seconds": 14.091908931732178,
+  "queue_status": "running",
+  "queue_wait_explanation": "Unknown: GPUs and CPU throughput depend on external load; free memory alone does not establish compute capacity.",
+  "queue_wait_seconds": null,
+  "running_tasks": 2,
+  "tasks": [
+    {
+      "attack_forward_seconds": [
+        0.0,
+        0.0
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        0.0
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.007193816900253296,
+          0.021530461683869365
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [
+          106.07261180877686
+        ],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          3.548100280761719,
+          6.98026340007782
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_rest"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "rest",
+      "heartbeat_age_seconds": 19.85250473022461,
+      "method": "wdro",
+      "phase": "complete",
+      "remaining_scored_nets": {
+        "attack": 0,
+        "test": 0,
+        "validation": 0
+      },
+      "remaining_updates": 0,
+      "scope": "smoke",
+      "status": "running",
+      "task_id": "gpu_smoke_rest",
+      "test_seconds": [
+        0.0,
+        0.0
+      ],
+      "total_seconds": [
+        0.0,
+        0.0
+      ],
+      "total_updates": 6,
+      "training_seconds": [
+        0.0,
+        0.0
+      ],
+      "update": 6,
+      "validation_rounds_remaining": 0,
+      "validation_seconds": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "attack_forward_seconds": [
+        0.6692767715454102,
+        1.6757021427154544
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        16.448
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.010457449555397035,
+          0.026182845979928975
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          2.7686559677124025,
+          8.64115355014801
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_timing"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "timing",
+      "heartbeat_age_seconds": 0.7527437210083008,
+      "method": "wdro",
+      "phase": "attack_grid_cluster",
+      "remaining_scored_nets": {
+        "attack": 64,
+        "test": 256,
+        "validation": 0
+      },
+      "remaining_updates": 0,
+      "scope": "smoke",
+      "status": "running",
+      "task_id": "gpu_smoke_timing",
+      "test_seconds": [
+        2.677107086181641,
+        6.7028085708618175
+      ],
+      "total_seconds": [
+        3.346383857727051,
+        24.82651071357727
+      ],
+      "total_updates": 6,
+      "training_seconds": [
+        0.0,
+        0.0
+      ],
+      "update": 6,
+      "validation_rounds_remaining": 0,
+      "validation_seconds": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 4352,
+        "test": 512,
+        "validation": 1024
+      },
+      "remaining_updates": 6,
+      "scope": "smoke",
+      "status": "pending",
+      "task_id": "gpu_smoke_hub",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 6,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 4,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 4352,
+        "test": 512,
+        "validation": 1024
+      },
+      "remaining_updates": 6,
+      "scope": "smoke",
+      "status": "pending",
+      "task_id": "gpu_smoke_buffer",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 6,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 4,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_erm_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        121.5467303466797,
+        363.7786806106568
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.007193816900253296,
+          0.021530461683869365
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [
+          106.07261180877686
+        ],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          3.548100280761719,
+          6.98026340007782
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_rest"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_wdro_s101",
+      "test_seconds": [
+        58.931748046875,
+        176.37754211425784
+      ],
+      "total_seconds": [
+        7572.217817993164,
+        15252.329943077086
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        7266.509375000001,
+        14295.579443359375
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        125.22996459960937,
+        374.8022769927979
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_erm_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        176.68906768798828,
+        442.3853656768799
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.010457449555397035,
+          0.026182845979928975
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          2.7686559677124025,
+          8.64115355014801
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_timing"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_wdro_s101",
+      "test_seconds": [
+        85.6674267578125,
+        214.48987426757816
+      ],
+      "total_seconds": [
+        6114.607198181153,
+        18851.540693466188
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        5670.207421875,
+        17697.082470703124
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        182.04328186035158,
+        455.7909828186036
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_erm_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_wdro_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_erm_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_wdro_s101",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_erm_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        121.5467303466797,
+        363.7786806106568
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.007193816900253296,
+          0.021530461683869365
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [
+          106.07261180877686
+        ],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          3.548100280761719,
+          6.98026340007782
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_rest"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_wdro_s102",
+      "test_seconds": [
+        58.931748046875,
+        176.37754211425784
+      ],
+      "total_seconds": [
+        7572.217817993164,
+        15252.329943077086
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        7266.509375000001,
+        14295.579443359375
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        125.22996459960937,
+        374.8022769927979
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_erm_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        176.68906768798828,
+        442.3853656768799
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.010457449555397035,
+          0.026182845979928975
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          2.7686559677124025,
+          8.64115355014801
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_timing"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_wdro_s102",
+      "test_seconds": [
+        85.6674267578125,
+        214.48987426757816
+      ],
+      "total_seconds": [
+        6114.607198181153,
+        18851.540693466188
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        5670.207421875,
+        17697.082470703124
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        182.04328186035158,
+        455.7909828186036
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_erm_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_wdro_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_erm_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_wdro_s102",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_erm_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        121.5467303466797,
+        363.7786806106568
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.007193816900253296,
+          0.021530461683869365
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [
+          106.07261180877686
+        ],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          3.548100280761719,
+          6.98026340007782
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_rest"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "rest",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "rest_wdro_s103",
+      "test_seconds": [
+        58.931748046875,
+        176.37754211425784
+      ],
+      "total_seconds": [
+        7572.217817993164,
+        15252.329943077086
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        7266.509375000001,
+        14295.579443359375
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        125.22996459960937,
+        374.8022769927979
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_erm_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": [
+        176.68906768798828,
+        442.3853656768799
+      ],
+      "attack_lp_allowance_seconds": [
+        0.0,
+        41.792
+      ],
+      "calibration": {
+        "batch_scale_upper": 1.0,
+        "greedy_seconds_per_padded_net": [
+          0.010457449555397035,
+          0.026182845979928975
+        ],
+        "limitation": "Ranges reflect sampling and batch-size scenarios, not confidence intervals; contention and buffering DP CPU costs may change.",
+        "measured_completed_run_seconds": [],
+        "observed_training_batch": 64.0,
+        "seconds_per_update": [
+          2.7686559677124025,
+          8.64115355014801
+        ],
+        "source": "cuda_smoke_same_batch",
+        "source_runs": [
+          "gpu_smoke_timing"
+        ],
+        "training_samples": 6,
+        "validation_span_samples": 4
+      },
+      "family": "timing",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "timing_wdro_s103",
+      "test_seconds": [
+        85.6674267578125,
+        214.48987426757816
+      ],
+      "total_seconds": [
+        6114.607198181153,
+        18851.540693466188
+      ],
+      "total_updates": 2048,
+      "training_seconds": [
+        5670.207421875,
+        17697.082470703124
+      ],
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": [
+        182.04328186035158,
+        455.7909828186036
+      ]
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_erm_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "hub",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "hub_wdro_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "erm",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_erm_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    },
+    {
+      "attack_forward_seconds": null,
+      "attack_lp_allowance_seconds": null,
+      "calibration": null,
+      "family": "buffer",
+      "heartbeat_age_seconds": null,
+      "method": "wdro",
+      "phase": null,
+      "remaining_scored_nets": {
+        "attack": 16896,
+        "test": 8192,
+        "validation": 17408
+      },
+      "remaining_updates": 2048,
+      "scope": "formal",
+      "status": "pending",
+      "task_id": "buffer_wdro_s103",
+      "test_seconds": null,
+      "total_seconds": null,
+      "total_updates": 2048,
+      "training_seconds": null,
+      "update": 0,
+      "validation_rounds_remaining": 17,
+      "validation_seconds": null
+    }
+  ],
+  "total_tasks": 28,
+  "unknown_calibration_tasks": [
+    "gpu_smoke_hub",
+    "gpu_smoke_buffer",
+    "rest_erm_s101",
+    "timing_erm_s101",
+    "hub_erm_s101",
+    "hub_wdro_s101",
+    "buffer_erm_s101",
+    "buffer_wdro_s101",
+    "rest_erm_s102",
+    "timing_erm_s102",
+    "hub_erm_s102",
+    "hub_wdro_s102",
+    "buffer_erm_s102",
+    "buffer_wdro_s102",
+    "rest_erm_s103",
+    "timing_erm_s103",
+    "hub_erm_s103",
+    "hub_wdro_s103",
+    "buffer_erm_s103",
+    "buffer_wdro_s103"
+  ]
+}

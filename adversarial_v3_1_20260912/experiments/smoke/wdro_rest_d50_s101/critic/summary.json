@@ -1,0 +1,77 @@
+{
+  "status": "complete",
+  "identity": {
+    "schema_version": 1,
+    "degree": 50,
+    "seed": 2194619361,
+    "namespace": "adversarial_v3_critic",
+    "settings": {
+      "train_count": 32,
+      "validation_count": 16,
+      "epochs": 2,
+      "batch_size": 8,
+      "learning_rate": 0.0001,
+      "label_microbatch": 128
+    },
+    "parent_critic_sha256": "5a52f4939890dc1340c3321df7f2be6106f7a0a998c842354d8beb7b0ee28da8",
+    "label_actor_sha256": "7183c5214e185d4de682d836a79faae5bf7b702f6f1e639baccc7a6c49f581fe",
+    "output_head": "linear"
+  },
+  "best_epoch": 1,
+  "validation": {
+    "mse": 0.00038723691601987465,
+    "spearman": 0.33529411764705885
+  },
+  "raw_validation": {
+    "mse": 7.599946057526199e-05,
+    "spearman": -0.2088235294117647
+  },
+  "raw_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.0,
+    "zero_prediction_fraction": 0.0,
+    "gradient_l2_mean": 0.043138115433976054,
+    "gradient_l2_min": 0.02528521604835987,
+    "gradient_l2_max": 0.10130521655082703
+  },
+  "calibrated_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.0,
+    "zero_prediction_fraction": 0.0,
+    "gradient_l2_mean": 0.09908748883754015,
+    "gradient_l2_min": 0.05076609551906586,
+    "gradient_l2_max": 0.1942310929298401
+  },
+  "label_requests": 48,
+  "label_distribution": "uniform_normalized",
+  "oracle_ledger_snapshot": {
+    "actor_requested": 48,
+    "reference_requests": 48,
+    "geosteiner_misses_started": 48,
+    "geosteiner_misses_completed": 48,
+    "actor_forward_rows_requested": 256,
+    "actor_padding_rows_requested": 208,
+    "actor_forward_rows_completed": 256,
+    "actor_padding_rows_completed": 208,
+    "actor_completed": 48,
+    "rest_requested": 48,
+    "rest_completed": 48
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.0006113508861744776,
+      "mse": 0.00038723691601987465,
+      "spearman": 0.33529411764705885
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.00043669365550158545,
+      "mse": 0.0009068447452372924,
+      "spearman": -0.21470588235294116
+    }
+  ],
+  "best_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/smoke/wdro_rest_d50_s101/critic/best.pt",
+  "latest_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/smoke/wdro_rest_d50_s101/critic/latest.pt",
+  "labels_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/smoke/wdro_rest_d50_s101/critic/labels.pt"
+}

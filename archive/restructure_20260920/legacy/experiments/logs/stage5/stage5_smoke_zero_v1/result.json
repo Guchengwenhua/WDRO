@@ -1,0 +1,165 @@
+{
+  "artifact_paths": {
+    "checkpoints_logical": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage5/stage5_smoke_zero_v1",
+    "checkpoints_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/checkpoints/stage5/stage5_smoke_zero_v1",
+    "logs_logical": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage5/stage5_smoke_zero_v1",
+    "logs_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/stage5/stage5_smoke_zero_v1"
+  },
+  "batch_size": 256,
+  "best": {
+    "feasible": true,
+    "nominal_mean": 0.008058229742175505,
+    "selection_objective": 0.014613043251571395,
+    "update": 0,
+    "validation_manifest_sha256": "167ecf1d2e8cc347f26b92f0e884d6b72a557385af91e0edc1587f493e39c502"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage5/stage5_smoke_zero_v1/best.pt",
+  "best_checkpoint_sha256": "7f8be2cd32e4500519fa2f5c7e9075922245097e1bf0ab26d7301872ea133f7a",
+  "call_ledger": {
+    "actor_forward_nets": 10561,
+    "exact_rest_evaluator_nets": 10562,
+    "geosteiner_nets": 2050,
+    "surrogate_evaluator_nets": 16896
+  },
+  "completed_updates": 2,
+  "cuda_visible_devices": "6",
+  "degree": 30,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage5/stage5_smoke_zero_v1/events.jsonl",
+  "expected_updates": 2000,
+  "finished_at_utc": "2026-09-05T18:11:49.754317Z",
+  "geosteiner_workers": 3,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260905T181131Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 21100,
+    "legacy_best_eval": 4.158684459063664,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/DRO/WDRO-REST/save/DAC21/rsmt30b.pt",
+    "sha256": "885ef9ea6cac38e4f1ee83c000c0ec0f1c079151db1b236031a56cb7bbf8d8dc",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 4.440892098500626e-16,
+    "lstar_normalized": 3.26702032238245,
+    "lstar_original": 3.910627654693719,
+    "net_id": "train_u000001:uniform:d30:s101:n000000",
+    "rest_absolute_error": 8.881784197001252e-16,
+    "rest_normalized": 3.2915810719132423,
+    "rest_original": 3.9400269044250704,
+    "scale": 0.8354209632975971,
+    "status": "pass"
+  },
+  "last_validation": null,
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage5/stage5_smoke_zero_v1/latest.pt",
+  "latest_checkpoint_sha256": "918c7b004bb03a497724aa5fe93433938f29fbc4499a95009c840527deac98a8",
+  "method": "wdro_rest",
+  "method_state": {
+    "budget": {
+      "centers": 512,
+      "exact_rescore_nets": 2048,
+      "perturbations": 16384,
+      "reference_cache_hits": 0,
+      "reference_cache_misses": 2048,
+      "reference_requests": 2048,
+      "repaired_candidates": 2,
+      "surrogate_nets": 16896
+    },
+    "cost_history": [
+      0.0,
+      0.0
+    ],
+    "lambda": 0.0,
+    "rho": 0.0,
+    "selection_stream_hash": "71226e4645a6d2ace9883550ab812212323ba333c5afb95420106612738578f3",
+    "support_stream_hash": "2ccd0c32eae9e8a2f077c1b9a81982792a66722b59bbbe991bfd75932dba2120"
+  },
+  "nan_detected": false,
+  "nominal_limit": 0.009447040644646115,
+  "peak_memory_allocated_bytes": 1594908160,
+  "peak_memory_reserved_bytes": 1698693120,
+  "physical_gpu_index": 6,
+  "policy_update_nets": 512,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "reference_cache": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/cache/stage5_references/stage5_smoke_zero_v1/lstar.sqlite",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/cache/stage5_references/stage5_smoke_zero_v1/lstar.sqlite"
+  },
+  "resumed_from": null,
+  "run_id": "stage5_smoke_zero_v1",
+  "run_identity": {
+    "ablation_config": {
+      "batch_size": 256,
+      "calibration_artifact": "experiments/cache/stage5/calibration_d30_s101.json",
+      "config_id": "smoke_zero",
+      "degree": 30,
+      "ground_cost": "hungarian_l1_mean",
+      "lambda_initial": 0.0,
+      "lambda_learning_rate": 1.0,
+      "lambda_mode": "learned",
+      "research_protocol_override": false,
+      "rho_mode": "zero",
+      "schema_version": 1,
+      "search_overrides": {
+        "candidate_count": 32,
+        "cem": {
+          "elite": 4,
+          "initial_std": 0.02,
+          "maximum_motion": 0.08,
+          "minimum_std": 0.001,
+          "population": 16,
+          "rounds": 4
+        },
+        "exact_rescore_top_k": 4,
+        "searcher": "random_sobol"
+      },
+      "stability_gate": {
+        "maximum_lambda": 100.0
+      },
+      "stage": 5,
+      "status": "frozen",
+      "training_seed": 101,
+      "updates": 2000
+    },
+    "baseline_config_sha256": "1e89baa124c2984ab4c71335a8919da64ea057dd4df67ac2b1bc5631a66392c3",
+    "batch_size": 256,
+    "calibration_sha256": "29a39b8610afa4518a9161034c3f59f1fb49a057c44800fd2339ef701f074787",
+    "degree": 30,
+    "erm_reference_result_sha256": "9dbfe78a5b08043602e73249294792107d39e68db4cb7dae27708e6e84b3ea6e",
+    "expected_updates": 2000,
+    "implementation_sha256": "3d4fed3656757f4b4ed49f00de829250320a55537678bdeb9ddb554f5ab221e8",
+    "inference": {
+      "mode": "deterministic_greedy",
+      "shared_batches": true,
+      "shared_hardware_required": true,
+      "symmetry_transforms": 1
+    },
+    "method": "wdro_rest",
+    "nominal_limit": 0.009447040644646115,
+    "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+    "rho": 0.0,
+    "rho_mode": "zero",
+    "stage": 5,
+    "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+    "training_seed": 101,
+    "wdro_config_sha256": "1b9c88d2c4c8c9b00e4d959fc8d2e1eff9594c97d63bafb56aca069204887e2d"
+  },
+  "schema_version": 1,
+  "segment_wall_seconds": 7.680514480918646,
+  "selection_feasible": true,
+  "started_this_segment_at_update": 1,
+  "status": "paused_for_resume",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_seed": 101,
+  "training_stream_hash": "0ac01a3c2da1e26fdd36b20d4abdcaf541eb36932d761c45e926cd36903aa178"
+}

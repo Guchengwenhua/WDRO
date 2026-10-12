@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "config_id": "wdro-rest-stage3-baselines-v1",
+  "status": "frozen",
+  "research_protocol_override": false,
+  "methods": [
+    "mixed_erm",
+    "group_dro",
+    "hard_mining"
+  ],
+  "group_dro": {
+    "eta": 0.01,
+    "initial_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "update_loss": "current_sampled_per_net_relative_regret",
+    "critic_weighting": "same_group_weights_as_actor"
+  },
+  "search": {
+    "candidate_count": 32,
+    "candidate_count_semantics": "32_perturbations_plus_unchanged_nominal_at_index_zero",
+    "families": [
+      "jitter",
+      "sparse",
+      "correlated",
+      "axis_biased"
+    ],
+    "amplitudes": [
+      0.01,
+      0.02,
+      0.04,
+      0.08
+    ],
+    "refresh_updates": 10,
+    "refresh_semantics": "block_seed_plus_immutable_center_id; centers_follow_frozen_per_update_pool",
+    "canonical_pin_order": "lexicographic_for_noise_assignment_then_restore_input_order",
+    "screening": "fixed_geometric_mst_over_hpwl_minus_one",
+    "screening_training_data": "none",
+    "shortlist": "nominal_plus_highest_three_distinct_perturbations; stable_candidate_index_ties",
+    "exact_rescore_top_k": 4,
+    "exact_rescore": "current_actor_greedy_rest_length_and_content_cached_geosteiner",
+    "score_microbatch": 256,
+    "shared_with_wdro_required": true
+  },
+  "selection": {
+    "erm_reference": "same_degree_seed_stage2_best_validation_nominal",
+    "nominal_degradation_max": 0.002,
+    "objective": "earliest_minimum_feasible_ood_worst_group_mean",
+    "no_feasible_checkpoint": "fail_acceptance_keep_latest_and_diagnostic_best"
+  },
+  "notes": [
+    "Implementation defaults fixed before formal runs without reading test or ISPD metrics.",
+    "Search support and shortlist rules must be reused unchanged by WDRO; rho cannot change candidate coordinates.",
+    "Only scalar true GeoSteiner lengths are cached by unordered content hash. Critic is never L_star."
+  ],
+  "frozen_at_utc": "2026-09-05T03:20:00Z",
+  "freeze_evidence": "Codex/experiments/logs/stage3_smoke/audit_v1.json"
+}

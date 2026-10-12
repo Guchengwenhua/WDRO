@@ -1,0 +1,23 @@
+{
+  "at": 1789222796.6402314,
+  "root_logical": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex",
+  "experiments_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912",
+  "disk_free_gib": 2604.680637359619,
+  "scope": "resume existing pipeline; validate and skip 48 completed tasks; recompute formal reports and delivery only",
+  "prior_runtime": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/runtime_20260912T141835_520522Z_374533.json",
+  "gpu": "index, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, 40964 MiB, 7676 MiB, 97 %\n1, 40964 MiB, 7676 MiB, 97 %\n2, 0 MiB, 48639 MiB, 0 %\n3, 0 MiB, 48639 MiB, 0 %\n4, 10670 MiB, 37969 MiB, 0 %\n5, 12718 MiB, 35921 MiB, 0 %\n6, 46924 MiB, 1716 MiB, 0 %\n7, 46924 MiB, 1716 MiB, 0 %\n",
+  "gpu_processes": "gpu_uuid, pid, used_gpu_memory [MiB]\nGPU-083009f1-983e-376f-f560-5aa9181b2363, 2085096, 40940 MiB\nGPU-10987c98-562e-dfb7-500c-2b418a8decae, 2085685, 40940 MiB\nGPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba, 1058617, 10664 MiB\nGPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f, 1059026, 12712 MiB\nGPU-3101bbe4-c59e-8827-0733-a684b9b87f09, 2085298, 46900 MiB\nGPU-454b1963-256e-690b-7984-79d10659716d, 2085874, 46900 MiB\n",
+  "tmux_command": [
+    "tmux",
+    "-S",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/tmp/adv_v3.sock",
+    "new-session",
+    "-d",
+    "-s",
+    "adv_v3_pipeline_resume",
+    "-c",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex",
+    "bash run_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python -u -B -m adv_v3.pipeline --fixed-concurrency 16 --joint-concurrency 8 --peak-mib 2500 --share-busy-gpus > experiments/logs/pipeline_recovery_20260912T141956Z.log 2>&1"
+  ],
+  "driver_log": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/logs/pipeline_recovery_20260912T141956Z.log"
+}

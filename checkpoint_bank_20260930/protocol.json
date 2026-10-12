@@ -1,0 +1,44 @@
+{
+  "type": "exploratory_continued_training",
+  "degree": 10,
+  "training_seeds": [
+    101,
+    102
+  ],
+  "arms": [
+    "geo",
+    "k1",
+    "k3",
+    "k5",
+    "refresh3"
+  ],
+  "steps": 200,
+  "batch_size": 64,
+  "inference_batch_size": 256,
+  "padding": "repeat final net then discard padded outputs",
+  "teacher_refresh_updates": 50,
+  "candidate_perturbations": 32,
+  "shortlist": 4,
+  "rho": 0.029607180878520014,
+  "parent": "formal_hard_mining_d10_s102_u2000/best.pt",
+  "validation": "2000 per group cached original reference",
+  "test": "first 256 per group after training only",
+  "offline_diagnostic": "32 uniform test centers x (8 perturbations+nominal), independently cached reference chunks32",
+  "reference_id": "geosteiner_exact_binary_scale_v2",
+  "library": "/remote-home/Guilin/DRO/DRO/WDRO-REST/algorithms/libeval.so",
+  "train_reference": "bank minimum teacher feasible length replaces both adversarial score denominator and target denominator",
+  "oracle_caveat": "bank historical training and validation remain oracle-assisted; GeoSteiner called only geo arm training and all arms offline diagnostic",
+  "resume": "atomic latest every10updates with optimizer scheduler RNG lambda bank step; offline truth chunks and atomic NPZ",
+  "content_hashes": "none newly computed; old metadata reference names read as identifiers",
+  "training_data": "new NumPy SeedSequence namespace [20260930,seed,update,degree,attempt]; same arms use same data",
+  "pool": "first execution freezes recorded eligible pool with size/mtime; shared inputs.json persisted",
+  "memory_fraction": 0.1,
+  "torch_cpu_threads": 1,
+  "precision": {
+    "tf32": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "torch_deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  }
+}

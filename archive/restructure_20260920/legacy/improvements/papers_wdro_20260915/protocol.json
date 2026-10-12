@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "experiment": "papers-basic-wdro-20260915-v1",
+  "scope": "degree10 mechanism and engineering pilot; not a reproduction of paper tables or a continuous WDRO certificate",
+  "degree": 10,
+  "seeds": [101, 102, 103],
+  "families": ["rest", "timing", "hub", "buffer"],
+  "methods": ["erm", "wdro"],
+  "updates": 2048,
+  "batch_size": 64,
+  "learning_rate": 0.0001,
+  "gradient_clip": 1.0,
+  "checkpoint_every": 32,
+  "validation_every": 128,
+  "validation_count": 256,
+  "test_count": 1024,
+  "attack_count": 128,
+  "greedy_microbatch": 64,
+  "shard_updates": 64,
+  "selection": "earliest minimum validation OOD worst-group cost; all checkpoints eligible including initialization; report nominal separately",
+  "lambda_initial": 0.0,
+  "lambda_lr": 1.0,
+  "rho": "q75 of all 32 perturbation costs on a separate 256-center training-only calibration; separately for rooted and unrooted costs",
+  "search": {
+    "candidate_count": 32,
+    "refresh_updates": 10,
+    "amplitudes": [0.01, 0.02, 0.04, 0.08],
+    "exact_rescore_top_k": 4,
+    "score_microbatch": 64
+  },
+  "attack": "heldout Random/Sobol 32 + center, all 33 scored, finite-support LP under shared average rho; no ES, learned critic attack, RL attack or CEM",
+  "distributions": {
+    "uniform": {"nonuniform": 0.0},
+    "mix_gauss": {"nonuniform": 0.8, "clusters": 6, "sigma": 0.04},
+    "edge_bias": {"nonuniform": 0.8, "clusters": 4, "sigma": 0.06},
+    "grid_cluster": {"nonuniform": 0.8, "clusters": 8, "sigma": 0.03}
+  },
+  "parameters": {
+    "rest": {},
+    "timing": {"alpha": 0.5},
+    "hub": {"beta": 0.5, "policy_bonus_weight": 0.0},
+    "buffer": {"phase_bins": 16, "buffer_penalty": 0.25, "objective_scale": 10.0, "delay_scale": 1e18}
+  },
+  "statistics": {"bootstrap_replicates": 2000, "confidence": 0.95, "training_repeats": 3, "unit": "paired training seeds and matched heldout nets; no universal superiority claims"},
+  "no_test_retuning": true,
+  "external_ispd_used": false,
+  "baseline": "same new permutation invariant action-independent MLP within each ERM/WDRO pair; original REST actor uses trusted DAC21 initialization; paper actors initialize from scratch",
+  "output_root": "/remote-home/Guilin/DRO/Codex/improvements/papers_wdro_20260915"
+}

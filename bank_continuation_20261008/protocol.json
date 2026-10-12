@@ -1,0 +1,27 @@
+{
+  "protocol_id": "accelerated_largebatch_20261006",
+  "training_batch": 4096,
+  "short_updates": 125,
+  "long_updates": 625,
+  "short_sample_updates": 512000,
+  "long_sample_updates": 2560000,
+  "score_microbatch": 1024,
+  "teacher_microbatch": 1024,
+  "validation_batch": 1024,
+  "test_batch": 1024,
+  "screen_batch": 1024,
+  "validation_interval": 6,
+  "refresh_interval": 3,
+  "learning_rate": 5e-05,
+  "optimizer": "original Adam; no unvalidated linear LR scaling",
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "comparisons": "new matched Geo/K3/lagged3/qualifiedbest3; old batch256 results historical only",
+  "limitation": "same sample count, different update count, batch composition and refresh cadence; not numerical equivalence",
+  "geometry_prefix_updates": 7,
+  "geometry_training_gate": "unchanged development-only positive evidence",
+  "authorization": "User explicitly allowed changed training batch with separate synchronized controls and reporting"
+}

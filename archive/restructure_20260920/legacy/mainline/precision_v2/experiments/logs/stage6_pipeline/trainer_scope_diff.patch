@@ -1,0 +1,46 @@
+--- stage5/trainer.py
++++ stage6/trainer.py
+@@ -66,23 +66,30 @@
+         "protocol_canonical_sha256": protocol_sha256(protocol),
+         "trainer_config_sha256": config_hash,
+     }
+-    if degree != 30 or training_seed != 101 or expected_updates != 2000 or rho_mode not in ("q50", "q75", "zero"):
+-        raise ValueError("stage 5 is limited to d30/s101 and 2000-update validation-only ablations")
++    selected = json.loads((PROJECT_ROOT / 'configs/stage5_selected_wdro_v1.json').read_text())
++    if (expected_updates != 2000 or selected['status'] != 'frozen' or selected['test_or_ispd_used']
++        or rho_mode != selected['selected_rho_mode'] or wdro_config["degree"] != degree):
++        raise ValueError("stage 6 requires corrected validation-frozen degree calibration and 2000 updates")
+     calibration_path = PROJECT_ROOT.parent / wdro_config["calibration_artifact"]
+     calibration = json.loads(calibration_path.read_text())
+     if (calibration["status"] != "pass" or calibration["protocol_canonical_sha256"] != protocol_sha256(protocol)
+         or calibration["baseline_config_file_sha256"] != file_sha256(PROJECT_ROOT / "configs/stage3_baselines_v1.json")
+         or calibration["source"] != "training_centers_only"):
+         raise ValueError("calibration has not passed")
++    assert calibration["degree"] == degree and calibration["seed"] == 101
++    assert wdro_config["ground_cost"] == "hungarian_l1_mean" and wdro_config["lambda_mode"] == "learned"
++    assert wdro_config["lambda_initial"] == 0 and wdro_config["lambda_learning_rate"] == 1
++    assert wdro_config["search_overrides"]["searcher"] == "random_sobol" and wdro_config["search_overrides"]["candidate_count"] == 32
++    assert wdro_config["search_overrides"]["exact_rescore_top_k"] == 4
+     rho = calibration[wdro_config["ground_cost"]][rho_mode] if rho_mode != "zero" else 0.0
+     search_config = dict(baseline_config["search"], **wdro_config["search_overrides"], ground_cost=wdro_config["ground_cost"])
+     identity["wdro_config_sha256"] = canonical_sha256(wdro_config)
+-    identity["stage"] = 5
++    identity["stage"] = 6
+     identity["ablation_config"] = wdro_config
+     identity["rho_mode"] = rho_mode
+     identity["rho"] = rho
+     identity["calibration_sha256"] = file_sha256(calibration_path)
+-    source_files = [*sorted((PROJECT_ROOT / "src").glob("*.py")), *sorted((PROJECT_ROOT / "stage4").glob("*.py")), *sorted((PROJECT_ROOT / "stage5").glob("*.py")), PROJECT_ROOT / "scripts" / "train_stage5.py"]
++    source_files = [*sorted((PROJECT_ROOT / "src").glob("*.py")), *sorted((PROJECT_ROOT / "stage4").glob("*.py")), *sorted((PROJECT_ROOT / "stage5").glob("*.py")), PROJECT_ROOT / "stage6" / "trainer.py", PROJECT_ROOT / "scripts" / "train_stage6.py"]
+     identity["baseline_config_sha256"] = canonical_sha256(baseline_config)
+     identity["implementation_sha256"] = canonical_sha256({str(p.relative_to(PROJECT_ROOT)): file_sha256(p) for p in source_files})
+     identity["inference"] = protocol["inference"]
+@@ -139,7 +146,7 @@
+     resumed_from: str | None = None
+     method_state = {"lambda": wdro_config["lambda_initial"], "rho": rho, "cost_history": [], "budget": {},
+                     "support_stream_hash": EMPTY_STREAM_SHA256, "selection_stream_hash": EMPTY_STREAM_SHA256}
+-    reference_cache = ReferenceCache(WORKSPACE_ROOT / "Codex" / "experiments" / "cache" / "stage5_references" / run_id / "lstar.sqlite")
++    reference_cache = ReferenceCache(WORKSPACE_ROOT / "Codex" / "experiments" / "cache" / "stage6_references" / run_id / "lstar.sqlite")
+     def checkpoint_state(**kwargs):
+         value = _checkpoint_state(**kwargs)
+         value["method_state"] = method_state

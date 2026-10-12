@@ -1,0 +1,47 @@
+{
+  "at_utc": "2026-09-05T16:51:29.475224Z",
+  "command": [
+    "tmux",
+    "-S",
+    "/remote-home/Guilin/DRO/Codex/experiments/tmp/stage4.sock",
+    "new-session",
+    "-d",
+    "-s",
+    "wdro_stage4_v1",
+    "export WDRO_TMUX_SESSION=wdro_stage4_v1; exec bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage4_pipeline.py >> /remote-home/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/pipeline.log 2>&1"
+  ],
+  "environment_preflight": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/environment_preflight.json",
+  "exact_command": "tmux -S /remote-home/Guilin/DRO/Codex/experiments/tmp/stage4.sock new-session -d -s wdro_stage4_v1 'export WDRO_TMUX_SESSION=wdro_stage4_v1; exec bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage4_pipeline.py >> /remote-home/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/pipeline.log 2>&1'",
+  "host_runtime": {
+    "eligible_gpu_indices": [
+      4,
+      5,
+      6
+    ],
+    "experiments_free_gib": 2894.964,
+    "manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260905T165119Z.json",
+    "preflight_passed": true,
+    "sha256": "38df95a0d75eeb837e9b5241022b381387436c2574d1cffc099a79e5a7cc1f89"
+  },
+  "log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/pipeline.log",
+  "log_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/pipeline.log",
+  "monitor_command": "cat /remote-home/Guilin/DRO/Codex/experiments/logs/stage4_pipeline/heartbeat.json",
+  "pipeline_command": "bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage4_pipeline.py",
+  "recovery_command": "bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/launch_stage4.py",
+  "runtime_environment": {
+    "CUDA_CACHE_PATH": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/cuda",
+    "MPLCONFIGDIR": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/matplotlib",
+    "TMPDIR": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TORCH_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/torch",
+    "TRITON_CACHE_DIR": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/triton",
+    "XDG_CACHE_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime"
+  },
+  "session": "wdro_stage4_v1",
+  "socket": "/remote-home/Guilin/DRO/Codex/experiments/tmp/stage4.sock",
+  "socket_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/tmp/stage4.sock",
+  "tasks": [
+    "500-update stability",
+    "full input/cost/dual/HM-prefix audit",
+    "export and stop at stage4"
+  ]
+}

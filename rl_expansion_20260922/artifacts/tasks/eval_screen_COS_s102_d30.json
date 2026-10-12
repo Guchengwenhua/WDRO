@@ -1,0 +1,51 @@
+{
+  "id": "eval_screen_COS_s102_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "COS",
+  "seed": 102,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "cosine",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_COS_s102_d30",
+  "endpoints": [
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s102.pt",
+    "sha256": "2a713cd7bae248d140bc6f421481bbfaf8ea4e28ba0606931b0e15435157bcba"
+  },
+  "inherit_training": false,
+  "models": {
+    "step20480": {
+      "path": "artifacts/runs/screen_COS_s102/step20480.pt",
+      "sha256": "6181ec17e3b375584fadce014ec64db83b06ddc414c9342e39a6673a9e45adf6",
+      "step": 20480,
+      "actor_sha256": "7faaf68ddf8f4a3f28fc442c5f7b4d28363728e38968b892a55b98c33dae9c90"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_COS_s102/best.pt",
+      "sha256": "964104ba7beec83b87add46340ad60fc20ea23b0ac352df80f9f411b4ef26d41",
+      "step": 18432,
+      "actor_sha256": "3c4eb8fdef236efbca63dcf7eee4ca5f4aa528176748e958d86a40a21a500132"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

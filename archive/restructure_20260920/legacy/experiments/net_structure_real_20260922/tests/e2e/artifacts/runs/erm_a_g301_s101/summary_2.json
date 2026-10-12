@@ -1,0 +1,102 @@
+{
+  "phase": "main",
+  "method": "erm_a",
+  "seed": 101,
+  "generator": 301,
+  "recipe": "frozen_bn_1e5",
+  "setting": {
+    "lr": 1e-05,
+    "freeze_bn": true
+  },
+  "device_type": "cuda",
+  "update": 2,
+  "best_update": 0,
+  "validations": [
+    {
+      "update": 0,
+      "nets": 8,
+      "mean": 0.008527099611863348,
+      "p95": 0.02468254288482652,
+      "macro": 0.008527099611863348
+    }
+  ],
+  "last_validation": {
+    "update": 0,
+    "nets": 8,
+    "mean": 0.008527099611863348,
+    "p95": 0.02468254288482652,
+    "macro": 0.008527099611863348
+  },
+  "best_validation": {
+    "update": 0,
+    "nets": 8,
+    "mean": 0.008527099611863348,
+    "p95": 0.02468254288482652,
+    "macro": 0.008527099611863348
+  },
+  "training_seconds": 2.742954008281231,
+  "new_training_seconds": 2.742954008281231,
+  "test_seconds": 0.6228339895606041,
+  "process_seconds": 5.608218990266323,
+  "initial_update": 0,
+  "new_updates": 2,
+  "ledger": {
+    "validation_requested": 8,
+    "validation_forward_rows": 256,
+    "validation_gpu_rows": 256,
+    "sampled_requested": 128,
+    "sampled_forward_rows": 128,
+    "sampled_gpu_rows": 128,
+    "test_requested": 48,
+    "test_forward_rows": 768,
+    "test_gpu_rows": 768
+  },
+  "ledger_delta": {
+    "validation_requested": 8,
+    "validation_forward_rows": 256,
+    "validation_gpu_rows": 256,
+    "sampled_requested": 128,
+    "sampled_forward_rows": 128,
+    "sampled_gpu_rows": 128,
+    "test_requested": 48,
+    "test_forward_rows": 768,
+    "test_gpu_rows": 768
+  },
+  "tests": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/tests/e2e/artifacts/test/parent_s101.npz",
+      "nets": 16,
+      "method": "parent",
+      "seed": 101,
+      "generator": 0,
+      "budget": 0,
+      "role": "parent",
+      "update": 0
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/tests/e2e/artifacts/test/erm_a_g301_s101_u2_last.npz",
+      "nets": 16,
+      "method": "erm_a",
+      "seed": 101,
+      "generator": 301,
+      "budget": 2,
+      "role": "last",
+      "update": 2
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/tests/e2e/artifacts/test/erm_a_g301_s101_u2_val_best.npz",
+      "nets": 16,
+      "method": "erm_a",
+      "seed": 101,
+      "generator": 301,
+      "budget": 2,
+      "role": "val_best",
+      "update": 0
+    }
+  ],
+  "rho": 0.07090420840928952,
+  "lambda_final": 0.0,
+  "nominal_fraction": 1.0,
+  "mean_selected_cost": 0.0,
+  "mean_budget_gap": -0.07090420840928952
+}

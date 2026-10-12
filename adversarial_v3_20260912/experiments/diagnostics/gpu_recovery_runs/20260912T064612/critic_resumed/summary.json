@@ -1,0 +1,67 @@
+{
+  "status": "complete",
+  "identity": {
+    "schema_version": 1,
+    "degree": 10,
+    "seed": 1350652007,
+    "namespace": "gpu_recovery_critic",
+    "settings": {
+      "train_count": 32,
+      "validation_count": 16,
+      "epochs": 2,
+      "batch_size": 8,
+      "learning_rate": 0.0001,
+      "label_microbatch": 128
+    },
+    "parent_critic_sha256": "6182b251ceb57e73dc417fb99e9293c9e1299cc81caaf0f34f007a254307c858",
+    "label_actor_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "output_head": "linear"
+  },
+  "best_epoch": 2,
+  "validation": {
+    "mse": 0.006800943498844761,
+    "spearman": 0.22058823529411767
+  },
+  "raw_validation": {
+    "mse": 0.11486634467045817,
+    "spearman": 0.3337013472362478
+  },
+  "raw_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.375,
+    "zero_prediction_fraction": 0.375,
+    "gradient_l2_mean": 0.16468080133199692,
+    "gradient_l2_min": 0.0,
+    "gradient_l2_max": 0.46982741355895996
+  },
+  "calibrated_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.0,
+    "zero_prediction_fraction": 0.0,
+    "gradient_l2_mean": 0.6436090767383575,
+    "gradient_l2_min": 0.4625699818134308,
+    "gradient_l2_max": 0.7969680428504944
+  },
+  "label_requests": 48,
+  "label_distribution": "uniform_normalized",
+  "oracle_ledger_snapshot": {
+    "fake_gpu_reward_requests": 48
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.11225143633782864,
+      "mse": 0.04246517002940044,
+      "spearman": 0.0411764705882353
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.03695984371006489,
+      "mse": 0.006800943498844761,
+      "spearman": 0.22058823529411767
+    }
+  ],
+  "best_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/diagnostics/gpu_recovery_runs/20260912T064612/critic_resumed/best.pt",
+  "latest_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/diagnostics/gpu_recovery_runs/20260912T064612/critic_resumed/latest.pt",
+  "labels_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/diagnostics/gpu_recovery_runs/20260912T064612/critic_resumed/labels.pt"
+}

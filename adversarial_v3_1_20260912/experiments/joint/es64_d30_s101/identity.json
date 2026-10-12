@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "experiment": "adversarial_v3_joint",
+  "method": "es64",
+  "degree": 30,
+  "seed": 101,
+  "smoke": false,
+  "config": {
+    "updates": 512,
+    "batch_size": 64,
+    "learning_rate": 1e-05,
+    "gradient_clip": 1.0,
+    "lambda_learning_rate": 1.0,
+    "validation_interval": 64,
+    "validation_count": 128,
+    "evaluation_count": 512,
+    "independent_attack_count": 64,
+    "evaluation_batch_size": 64,
+    "rl_interval": 4,
+    "critic_interval": 32,
+    "rl_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0001,
+    "nominal_degradation_max": 0.002,
+    "initial_checkpoint_is_candidate": true,
+    "optimizer_initialization": "fresh_for_main_policy_and_search_surrogate"
+  },
+  "protocol": {
+    "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/protocol.json",
+    "sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63"
+  },
+  "dependencies": {
+    "parent_erm": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s101_u2000/best.pt",
+      "sha256": "22e95d658b68b5adb8bad4e77f1e2f6d55c71e800f946e244a54d24be333612e"
+    },
+    "parent_wdro_rest": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage5/stage5_rho_q75_d30_s101_u2000_v1/best.pt",
+      "sha256": "1235ffb73db7555c494d588c03ee3f68b16b1c1b2be1bfc749d21d1245186746"
+    },
+    "fixed_opponent_completion": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/fixed/erm_d30_s101/complete.json",
+      "sha256": "7efaefe96c18e52113e5c6f642b5234182b8ff1f7ea36808060037ff4bcd1f95"
+    }
+  },
+  "source": {
+    "common.py": "5ff462a4c76ece32e0a2b57a45049c14c42aedbcd736ebbbcd949fec7c6eaca2",
+    "search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f",
+    "joint.py": "262b8cb657ee387f84311c74c60b9e3b7ad6c5ba7359ba520cb514fd36f9c947"
+  },
+  "data_namespaces": {
+    "train": "joint-training-u{update:06d}",
+    "validation": "joint-validation",
+    "evaluation": "joint-evaluation",
+    "independent_attack": "joint-independent-attack",
+    "rl_online": "joint-attacker-training-u{update:06d}"
+  }
+}

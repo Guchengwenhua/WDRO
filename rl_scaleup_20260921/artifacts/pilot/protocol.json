@@ -1,0 +1,105 @@
+{
+  "experiment": "engineering_calibration_only",
+  "scope": "Preregistered degree30 scale expansion; primary 8-seed directional comparisons; no optimum or continuous WDRO guarantee",
+  "degree": 30,
+  "seeds": [
+    9001
+  ],
+  "batch_size": 64,
+  "warmup_updates": 16,
+  "fixed_updates": 16,
+  "coev_updates": 16,
+  "learned_methods": [
+    "reinforce",
+    "bestof_ppo",
+    "sequential_ppo"
+  ],
+  "coev_methods": [
+    "erm",
+    "random",
+    "es",
+    "reinforce",
+    "bestof_ppo",
+    "sequential_ppo"
+  ],
+  "distributions": [
+    "uniform",
+    "mix_gauss",
+    "edge_bias",
+    "grid_cluster"
+  ],
+  "fixed_test_per_distribution": 64,
+  "test_per_distribution": 64,
+  "attack_per_distribution": 64,
+  "attack_candidates": 32,
+  "candidates": 8,
+  "epsilon": 0.08,
+  "rho": 0.04,
+  "fixed_lambda": 5.0,
+  "test_lambdas": [
+    1.0,
+    5.0,
+    10.0
+  ],
+  "lambda_init": 5.0,
+  "lambda_lr": 10.0,
+  "actor_lr": 0.0001,
+  "baseline_lr": 0.0001,
+  "attacker": {
+    "width": 64,
+    "lr": 0.0003,
+    "sigma": 0.04,
+    "clip": 0.2,
+    "epochs": 4,
+    "epsilon": 0.08
+  },
+  "greedy_microbatch": 64,
+  "checkpoint_every": 4,
+  "population_snapshot_every": 64,
+  "population_history": 3,
+  "selection": "last update only, no test selection or tuning",
+  "initialization": "fresh matched random Actor; common same-seed ERM warmup generated within this branch",
+  "fixed_training": "uniform centers, frozen warmup Actor, lambda5",
+  "coev_initialization": "warmup Actor/baseline/optimizer, own fixed-trained attacker; population inherits PPO; random/es have zero attacker training cost",
+  "population": "uniform opponent among live Actor and latest three historical snapshots; live Actor trained on selected geometry; attacker and live Actor losses need not form one saddle objective",
+  "maddpg_moving_opponent": "clear reward replay before every coevolution search because Actor and lambda change; keep network and optimizer learning; fixed-Actor phase retains replay",
+  "metric": "Actor own-action wirelength in fixed [.1,.9] square",
+  "transport": "indexwise mean-pin L1; no Hungarian",
+  "forbidden": "external reference solver, optimal labels, MST, geometric bound, external pretrained weights",
+  "statistics": {
+    "bootstrap_replicates": 2000,
+    "aggregate": "paired crossed bootstrap of seeds and centers; same sampled center indices shared across resampled seeds within distribution",
+    "multiplicity": "8 preregistered one-sided seed sign-flip tests, Holm familywise alpha .05; 2000-replicate crossed bootstrap intervals descriptive",
+    "primary_methods": [
+      "bestof_ppo",
+      "sequential_ppo"
+    ],
+    "fixed_primary_price": 5.0,
+    "fixed_reference": "reinforce",
+    "coev_reference": "random",
+    "coev_suites": [
+      "nominal_length",
+      "random32_length",
+      "es32_length"
+    ],
+    "minimum_improving_seeds": 6,
+    "fixed_minimum_gain_difference": 0.01,
+    "coev_minimum_relative_improvement": 0.005
+  },
+  "resources": {
+    "max_workers": 8,
+    "max_new_workers_per_gpu": 1,
+    "min_free_mib": 8192,
+    "max_admission_util": 80,
+    "saturated_duty_fraction": 0.0,
+    "memory_fraction": 0.12,
+    "cpu_threads_per_worker": 1,
+    "reserve_disk_gib": 25,
+    "worker_disk_gib": 2,
+    "max_load": 64,
+    "min_mem_available_gib": 32,
+    "heartbeat_timeout_seconds": 1800,
+    "retry_cooldown_seconds": 120
+  },
+  "data_namespace": "rl-scaleup-20260921-pilot-only"
+}

@@ -1,0 +1,97 @@
+{
+  "status": "complete",
+  "run_id": "fixed_pre8192_sequential_ppo_s308",
+  "kind": "fixed",
+  "method": "sequential_ppo",
+  "seed": 308,
+  "initial_step": 0,
+  "step": 2048,
+  "task": {
+    "id": "fixed_pre8192_sequential_ppo_s308",
+    "kind": "fixed",
+    "method": "sequential_ppo",
+    "seed": 308,
+    "start": 0,
+    "end": 2048,
+    "milestones": [
+      2048
+    ],
+    "parents": {
+      "warmup": {
+        "run": "pre8192_s308",
+        "step": 8192,
+        "source": "new"
+      }
+    },
+    "priority": 2
+  },
+  "identity": {
+    "pid": 1075792,
+    "start_ticks": "3458046967",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "time": "2026-09-23T18:03:56Z",
+    "device": "cuda:0",
+    "physical_gpu_index": 3,
+    "gpu_uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "duty_fraction": 1.0
+  },
+  "binding": {
+    "protocol_sha256": "737de52e8aba578c9013ab6b52f55073f7b2e2ec2c241ef18d9b8da609bcf855",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/runner.py": "1f59115dfd17c67dfec68c79c3f5784d1e13d9a1c7fe4a599b02a0433872186a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/engine.py": "39bcc94df8423e677a60529dbd8d4098beaf1b6ae20d064d54242ec836fc1c9a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/policies.py": "fbab7457b63b09c2afd879e9b10bfc15942ff7104f5fbab53e8f21f214284a3f",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/env_geometry.py": "388e4f956865bb25ee54c6ec8785fd8ce80d87f47e3a216dcfb08d27e1393914"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "parents": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/artifacts/runs/pre8192_s308/checkpoints/step_8192.pt": "f677879760a1a96f8b4a6c3b5847538cde961c87998f7dbd4254db59f57ee764"
+    },
+    "task": {
+      "id": "fixed_pre8192_sequential_ppo_s308",
+      "kind": "fixed",
+      "method": "sequential_ppo",
+      "seed": 308,
+      "start": 0,
+      "end": 2048,
+      "milestones": [
+        2048
+      ],
+      "parents": {
+        "warmup": {
+          "run": "pre8192_s308",
+          "step": 8192,
+          "source": "new"
+        }
+      },
+      "priority": 2
+    }
+  },
+  "device": "cuda:0",
+  "calls": {
+    "search_greedy_scores": 1048576,
+    "evaluation_greedy_scores": 147456,
+    "sampled_actor_scores": 0,
+    "search_padded_forward_rows": 1048576,
+    "evaluation_padded_forward_rows": 208896,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 11596.212140113115,
+  "peak_allocated_bytes": 126579712,
+  "artifacts_sha256": {
+    "latest.pt": "54ce046d31d2f273173a8eef8a0462ffb3c50fca5445990fbc2a07a0b7ef54b3",
+    "run.json": "b0495d8378fd2ad9da8a2c8cd02f9d45fe52414fb55b0c3bc6054d9d7cc8633c",
+    "progress.jsonl": "a536c0cdb8ed30c08be65cbab88d7a2a35252c651b3916bb79c005cf76caadc8",
+    "actual_calls.jsonl": "45ed2a85572aa5163235f9b1d5b376224fb691b715b89ec724dead5afe4089cb",
+    "inherited_budget.json": "047672e1a0d909b58f55ac2e64a9adfd8fc35043320d1444bb74fc9f2937879f",
+    "checkpoints/step_2048.json": "d223e942bf9a8297a926c465ee094bd8597077afa7484255ebb6fab3e575294f",
+    "checkpoints/step_2048.pt": "54ce046d31d2f273173a8eef8a0462ffb3c50fca5445990fbc2a07a0b7ef54b3",
+    "evaluations/step_2048.json": "373a6e5c9e7749a3cd25a13e315fc410d565ba4ff7aa448ffd8891ccdb132d66",
+    "evaluations/step_2048.npz": "74016ab1f225cd58674ac67d56bd5c1f163bfcc6b402dc8100b3ce376adeb77b"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "final_BASE_s201",
+  "mode": "train",
+  "stage": "final",
+  "arm": "BASE",
+  "seed": 201,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "original",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 4,
+  "target": 6,
+  "outdir": "artifacts/runs/final_BASE_s201",
+  "endpoints": [
+    6
+  ],
+  "parent": {
+    "path": "artifacts/runs/screen_BASE_s201/step4.pt",
+    "sha256": "67255516ea8c44cc12a6e1a2ffb95d547803bf4e99b52b102a06422803755258"
+  },
+  "inherit_training": true
+}

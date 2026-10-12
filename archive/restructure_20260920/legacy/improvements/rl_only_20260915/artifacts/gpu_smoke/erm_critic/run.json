@@ -1,0 +1,110 @@
+{
+  "binding": {
+    "method": "erm_critic",
+    "seed": 101,
+    "smoke": true,
+    "protocol_sha256": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/geometry.py": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/search.py": "173de33b8c63af48f5712298ca5a84cd7368075420d842792dc8602020e213ad",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/train.py": "483f1846c2738d2d6139648c8948417a5e39a4acdcd729d47aa42e4857cace31"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "effective_protocol": {
+      "degree": 30,
+      "updates": 2,
+      "batch_size": 2,
+      "actor_lr": 0.0001,
+      "baseline_lr": 0.0001,
+      "surrogate_lr": 0.0001,
+      "proposal_lr": 0.0001,
+      "candidates": 8,
+      "epsilon": 0.08,
+      "search_sigma": 0.04,
+      "es_step_size": 0.04,
+      "critic_steps": 4,
+      "critic_step_size": 0.01,
+      "lambda_init": 1.0,
+      "lambda_lr": 10.0,
+      "validation_every": 1,
+      "checkpoint_every": 1,
+      "val_per_distribution": 4,
+      "test_per_distribution": 4,
+      "attack_per_distribution": 2,
+      "attack_candidates": 32,
+      "greedy_microbatch": 64,
+      "distributions": [
+        "uniform",
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "schema_version": 1,
+      "experiment": "rl_only_v1",
+      "seeds": [
+        101,
+        102,
+        103
+      ],
+      "methods": [
+        "erm_critic",
+        "erm_rollout",
+        "wdro_random",
+        "wdro_es",
+        "wdro_critic",
+        "wdro_rl"
+      ],
+      "rho": 0.04,
+      "parameters": {
+        "uniform": {},
+        "mix_gauss": {
+          "nonuniform": 0.8,
+          "clusters": 6,
+          "sigma": 0.04
+        },
+        "edge_bias": {
+          "nonuniform": 0.8,
+          "clusters": 4,
+          "sigma": 0.06
+        },
+        "grid_cluster": {
+          "nonuniform": 0.8,
+          "clusters": 8,
+          "sigma": 0.03
+        }
+      },
+      "initialization": "fresh matched random weights; no pretrained reference",
+      "loss": "own-action wirelength only",
+      "environment": "fixed [.1,.9] square, no per-net bbox rescaling",
+      "transport": "direct average L1 between correspondingly labeled pins; no assignment minimization",
+      "radius": "a priori fixed .04; no quantile or reference optimization",
+      "model_selection": "minimum validation worst-group mean own-action length; earliest ties",
+      "references": "none: no optimal labels, MST, geometric bound, Hungarian, external pretrained weights or solver",
+      "pure_rl_mainline": "erm_critic,erm_rollout,wdro_rl; remaining adversaries are diagnostic controls",
+      "acceptance_scope": "degree30 from-scratch proof of concept; no exact regret or optimality claim",
+      "statistics": {
+        "bootstrap_replicates": 2000,
+        "paired": true,
+        "training_seeds": 3,
+        "primary": "own-action length mean/P95/worst group; matched before/after and methods; candidate budget and actual time"
+      }
+    }
+  },
+  "identity": {
+    "pid": 441780,
+    "start_ticks": "3389926811",
+    "time": "2026-09-15T20:50:33Z",
+    "physical_gpu_index": 2,
+    "CUDA_VISIBLE_DEVICES": "2",
+    "device": "cuda:0",
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_total_memory": 51002867712
+  },
+  "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280"
+}

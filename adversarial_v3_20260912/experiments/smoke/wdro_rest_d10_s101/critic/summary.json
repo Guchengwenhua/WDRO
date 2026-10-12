@@ -1,0 +1,73 @@
+{
+  "status": "complete",
+  "identity": {
+    "schema_version": 1,
+    "degree": 10,
+    "seed": 1350652007,
+    "namespace": "adversarial_v3_critic",
+    "settings": {
+      "train_count": 32,
+      "validation_count": 16,
+      "epochs": 2,
+      "batch_size": 8,
+      "learning_rate": 0.0001,
+      "label_microbatch": 128
+    },
+    "parent_critic_sha256": "d7a80c4fcd4b1204d3fe2fa4bb50b93a122013aa0106db11327b4df3bd84f48f",
+    "label_actor_sha256": "4c1230869ce54578a74b39631b5db410cb9c4bcb11564f01a0a15fe3bac4dff1",
+    "output_head": "linear"
+  },
+  "best_epoch": 2,
+  "validation": {
+    "mse": 0.0006807606664860055,
+    "spearman": 0.12158375177486576
+  },
+  "raw_validation": {
+    "mse": 1.0010964370626968e-05,
+    "spearman": -0.17025130615174972
+  },
+  "raw_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.9375,
+    "zero_prediction_fraction": 0.9375,
+    "gradient_l2_mean": 0.00982025545090437,
+    "gradient_l2_min": 0.0,
+    "gradient_l2_max": 0.1571240872144699
+  },
+  "calibrated_gradient": {
+    "nets": 16,
+    "zero_gradient_fraction": 0.0,
+    "zero_prediction_fraction": 0.0,
+    "gradient_l2_mean": 0.2045124159194529,
+    "gradient_l2_min": 0.0873335525393486,
+    "gradient_l2_max": 0.35626935958862305
+  },
+  "label_requests": 48,
+  "label_distribution": "uniform_normalized",
+  "oracle_ledger_snapshot": {
+    "actor_requested": 48,
+    "reference_requests": 48,
+    "geosteiner_misses_started": 48,
+    "geosteiner_misses_completed": 48,
+    "actor_completed": 48,
+    "rest_requested": 48,
+    "rest_completed": 48
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_mse": 0.0020735731086460873,
+      "mse": 0.0015484090223342787,
+      "spearman": 0.17522364226377712
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.0015259410138241947,
+      "mse": 0.0006807606664860055,
+      "spearman": 0.12158375177486576
+    }
+  ],
+  "best_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/smoke/wdro_rest_d10_s101/critic/best.pt",
+  "latest_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/smoke/wdro_rest_d10_s101/critic/latest.pt",
+  "labels_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/smoke/wdro_rest_d10_s101/critic/labels.pt"
+}

@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-09-16T04:20:58Z",
+  "scope": "Final-auditor report schema and deterministic numerical regeneration preflight; no full experiment acceptance claimed",
+  "script_hashes": {
+    "artifacts/acceptance_20260916/audit_acceptance.py": "b3a423296d15315e49e76451475a284a180964771d4c9bd40c87594ce21830bc",
+    "artifacts/acceptance_20260916/statistics_review.py": "993f37fd6df9a97fd6d92a08b2fcedd176e322b1ff995a09016e3469a6ad67ba",
+    "report.py": "0fcdb802ad100488c321c9d7e497d055d06fe5eaf43572225705899d7dee81bc",
+    "protocol.json": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+    "run_env.sh": "57a9d8f59ebf0d995a489a9f53dce52bedd5c7fd3413352283de4e8dd6e6e4cc"
+  },
+  "bootstrap": {
+    "status": "PASS",
+    "formal_three_seed_comparisons_checked": 52,
+    "bootstrap_seed": 20260915,
+    "replicates": 2000,
+    "max_absolute_difference": 0.0,
+    "comparison": "report.paired_ci versus full-auditor independent seed/net resampling implementation on existing completed-run arrays"
+  },
+  "report_replay": {
+    "status": "PASS",
+    "source": "artifacts/cpu_smoke, six completed runs",
+    "execution": "report.main in memory; CSV/Markdown writes intercepted; artifact loader reads existing arrays; no model execution",
+    "byte_identical_files": {
+      "metrics.csv": "5dd3c2d65bbc5bd6a92132f3c771484a0b6ca2632b29bcd91643a2ec24e2ce4e",
+      "paired_comparisons.csv": "258abf2a8837cd0867043a25cdcd5d1fd739b5afb1ff3c8261a441b9182e269c",
+      "attacks.csv": "8cb41fa4f470c99d91e088caaa66074a22b4e16d33d395a20107567aec66eadb",
+      "budget_and_runtime.csv": "2fc8b1860ce881a0a41965ba49d4bc5d331cfb03d398a6a5b1b50a61f217beeb",
+      "REPORT.md": "060c1ea3a6d80eaae367a4037e5ece19848064f4b18333a63030b94994fdb5d8"
+    },
+    "complete_json_excluded_reason": "Contains created_at timestamp and output-specific bindings; five scientific outputs are deterministic"
+  },
+  "schema": {
+    "metrics_key": [
+      "method",
+      "seed",
+      "distribution",
+      "stage"
+    ],
+    "metrics_numeric": [
+      "count",
+      "mean",
+      "p95"
+    ],
+    "paired_numeric": [
+      "difference",
+      "ci_low",
+      "ci_high"
+    ],
+    "fixed_training_seeds": 3,
+    "fixed_replicates": 2000,
+    "current_frozen_configuration_matches": true
+  },
+  "statistics_cli": {
+    "final_command": [
+      "--outdir",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/acceptance_20260916/final_statistics",
+      "--require-complete"
+    ],
+    "success_status": "NUMERICAL_REVIEW_PASS",
+    "success_exit": 0,
+    "missing_run_exit": 2,
+    "numerical_error_exit": 1,
+    "outside_root_exit": 2,
+    "missing_gate_test": "PASS; wdro_es_s103 absent, exit 2 before final output creation",
+    "outside_root_test": "PASS; /tmp/forbidden_rl_statistics refused before writing",
+    "partial_snapshot_preserved": true,
+    "expected_output_files": [
+      "statistics_review.json",
+      "statistics_review.md",
+      "statistics_review_runs.csv",
+      "statistics_review_groups.csv",
+      "statistics_review_attacks.csv",
+      "statistics_review_pairwise.csv"
+    ]
+  },
+  "limits": [
+    "Full acceptance cannot run until all 18 formal tasks and 6 smoke tasks finish and all recorded worker/scheduler processes exit.",
+    "Hardcoded three-seed and 2000-replicate settings match this frozen protocol; reuse with a different protocol needs review.",
+    "Auditor SHA reflects the handoff version after parent integrated final_statistics; numerical core tests cover the unchanged report/schema/bootstrap paths."
+  ],
+  "new_model_forward_calls": 0,
+  "new_training_updates": 0,
+  "frozen_files_modified": false,
+  "statistics_script_finalized": true
+}

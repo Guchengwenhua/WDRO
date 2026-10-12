@@ -1,0 +1,187 @@
+{
+  "batch_size": 256,
+  "best": {
+    "nominal_mean": 0.010579507097048297,
+    "selection_objective": 0.017597972857311718,
+    "update": 2000,
+    "validation_manifest_sha256": "8949711cb90a54e46dc876e240e5301ca11cf7a27229ee8dc0265b9d2e1338b1"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d50_s102_u2000/best.pt",
+  "best_checkpoint_sha256": "ad017290a018288a8b9b9b809960c3797e89a2cdb1d7fdcecb9200f1eb82f4e1",
+  "call_ledger": {
+    "actor_forward_nets": 680001,
+    "exact_rest_evaluator_nets": 680002,
+    "geosteiner_nets": 512002,
+    "surrogate_evaluator_nets": 0
+  },
+  "completed_updates": 2000,
+  "cuda_visible_devices": "5",
+  "degree": 50,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage2/formal_erm_d50_s102_u2000/events.jsonl",
+  "expected_updates": 2000,
+  "finished_at_utc": "2026-09-07T04:45:10.831971Z",
+  "geosteiner_workers": 3,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/host_runtime_20260907T035643Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 11200,
+    "legacy_best_eval": 5.362027152246599,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/DRO/WDRO-REST/save/DAC21/rsmt50b.pt",
+    "sha256": "1c82c939ef7ebae68313adba8f30419e7ab47ef9566984c30db40004b448c429",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 8.881784197001252e-16,
+    "lstar_normalized": 4.39641547203064,
+    "lstar_original": 5.286986033430047,
+    "net_id": "train_u000001:uniform:d50:s102:n000000",
+    "rest_absolute_error": 8.881784197001252e-16,
+    "rest_normalized": 4.445869445800781,
+    "rest_original": 5.346457771322822,
+    "scale": 0.8315542057860082,
+    "status": "pass"
+  },
+  "last_validation": {
+    "aggregate": {
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "maximum": 0.10227056832238307,
+          "mean": 0.01350826040204949,
+          "minimum": 0.0,
+          "p95": 0.03158158177869282
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "maximum": 0.040228436409932136,
+          "mean": 0.01071906371496966,
+          "minimum": 0.0,
+          "p95": 0.024055568432888974
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "maximum": 0.08733780478858975,
+          "mean": 0.017597972857311718,
+          "minimum": 0.0003069854228499676,
+          "p95": 0.03708499612284994
+        },
+        "uniform": {
+          "count": 2000,
+          "maximum": 0.04326465411904724,
+          "mean": 0.010579507097048297,
+          "minimum": 0.0,
+          "p95": 0.02379822017176417
+        }
+      },
+      "overall": {
+        "count": 8000,
+        "maximum": 0.10227056832238307,
+        "mean": 0.01310120101784479,
+        "minimum": 0.0,
+        "p95": 0.029801823627112846
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.017597972857311718
+    },
+    "degree": 50,
+    "groups": {
+      "edge_bias": {
+        "dataset_array_bundle_sha256": "13558c35570073685d2c1dab0cc99080b6d39241256a8d03592bf404e4afac92",
+        "first_net_id": "validation:edge_bias:d50:s202:n000000",
+        "last_net_id": "validation:edge_bias:d50:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.10227056832238307,
+          "mean": 0.01350826040204949,
+          "minimum": 0.0,
+          "p95": 0.03158158177869282
+        }
+      },
+      "grid_cluster": {
+        "dataset_array_bundle_sha256": "2b952b9d2d6b394204f9255c4e3294571ec0a966cdb9bef52c8fede229faa869",
+        "first_net_id": "validation:grid_cluster:d50:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d50:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.040228436409932136,
+          "mean": 0.01071906371496966,
+          "minimum": 0.0,
+          "p95": 0.024055568432888974
+        }
+      },
+      "mix_gauss": {
+        "dataset_array_bundle_sha256": "a0e11d5156d3e838a468db0f358d4dbbf5d6bb75fd90f2a19e730ccd3c37a41d",
+        "first_net_id": "validation:mix_gauss:d50:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d50:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.08733780478858975,
+          "mean": 0.017597972857311718,
+          "minimum": 0.0003069854228499676,
+          "p95": 0.03708499612284994
+        }
+      },
+      "uniform": {
+        "dataset_array_bundle_sha256": "f347af042d6a936882dc377d52cf3cec1eae79fa42b493ccfe3cd9883b07025e",
+        "first_net_id": "validation:uniform:d50:s202:n000000",
+        "last_net_id": "validation:uniform:d50:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.04326465411904724,
+          "mean": 0.010579507097048297,
+          "minimum": 0.0,
+          "p95": 0.02379822017176417
+        }
+      }
+    },
+    "inference": {
+      "batch_size": 256,
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1
+    },
+    "seed": 202,
+    "selection": {
+      "nominal_mean": 0.010579507097048297,
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "test_or_ispd_used": false,
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.017597972857311718
+    },
+    "split": "validation"
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d50_s102_u2000/latest.pt",
+  "latest_checkpoint_sha256": "07960f18126e2f43d2f76f0e801ec6f4619d65c786ef4221996a0a8654065253",
+  "method": "erm",
+  "nan_detected": false,
+  "peak_memory_allocated_bytes": 3591419904,
+  "peak_memory_reserved_bytes": 3776970752,
+  "physical_gpu_index": 5,
+  "policy_update_nets": 512000,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "resumed_from": null,
+  "run_id": "formal_erm_d50_s102_u2000",
+  "schema_version": 1,
+  "segment_wall_seconds": 2898.188269112259,
+  "started_this_segment_at_update": 1,
+  "status": "complete",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_seed": 102,
+  "training_stream_hash": "4b5df2479aa63346206899f00a807d5c718247e1fc6d7dc447a81ee81c65b760"
+}

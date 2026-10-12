@@ -1,0 +1,72 @@
+{
+  "at": 1789201239.937987,
+  "reason": "v3 attempt superseded by isolated v3.1 numerical batchshape repair; algorithm protocol unchanged",
+  "before_state": {
+    "phase": "fixed",
+    "status": "running",
+    "at": 1789196153.6559565,
+    "command": [
+      "bash",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/run_env.sh",
+      "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+      "-u",
+      "-m",
+      "adv_v3.queue",
+      "--phase",
+      "fixed",
+      "--max-concurrent",
+      "16",
+      "--max-per-gpu",
+      "6",
+      "--peak-mib",
+      "2500",
+      "--reference-workers",
+      "0"
+    ]
+  },
+  "targets": [
+    {
+      "name": "pipeline",
+      "pid": 348424,
+      "at": 1789196153.655397,
+      "command": [
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/adv_v3/pipeline.py",
+        "--fixed-concurrency",
+        "16",
+        "--joint-concurrency",
+        "8",
+        "--peak-mib",
+        "2500"
+      ],
+      "process_start_ticks": "3358999023",
+      "state": "S"
+    },
+    {
+      "name": "queue/fixed",
+      "pid": 348440,
+      "at": 1789196155.6854098,
+      "command": [
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/adv_v3/queue.py",
+        "--phase",
+        "fixed",
+        "--max-concurrent",
+        "16",
+        "--max-per-gpu",
+        "6",
+        "--peak-mib",
+        "2500",
+        "--reference-workers",
+        "0"
+      ],
+      "process_start_ticks": "3358999226",
+      "state": "T"
+    }
+  ],
+  "active_formal_workers": 0,
+  "action": "SIGTERM only verified old controllers; SIGCONT stopped queue to deliver pending signal",
+  "artifacts_preserved": true,
+  "post": {
+    "348424": "exited",
+    "348440": "exited"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "experiment": "rl_only_vs_precision_v2_frozen_actors",
+  "degree": 30,
+  "training_seeds": [
+    101,
+    102,
+    103
+  ],
+  "mainline_methods": [
+    "erm",
+    "mixed_erm",
+    "hard_mining",
+    "group_dro",
+    "wdro_rest"
+  ],
+  "rl_only_methods": [
+    "erm_critic",
+    "erm_rollout",
+    "wdro_random",
+    "wdro_es",
+    "wdro_critic",
+    "wdro_rl"
+  ],
+  "groups": [
+    "uniform",
+    "mix_gauss",
+    "edge_bias",
+    "grid_cluster"
+  ],
+  "inference": {
+    "T": 1,
+    "greedy": true,
+    "forward_batch": 64,
+    "tail_padding": "repeat last then discard",
+    "coordinate_preprocessing": "none: identical stored coordinates for every Actor within a suite"
+  },
+  "suites": {
+    "rl_test": "all 4096 original fixed-window test nets",
+    "mainline_test": "all 40000 original bbox-normalized degree30 mainline test nets",
+    "rl_attack32": "same 512 heldout centers and 32 candidates per center; maximize own length, lambda=0"
+  },
+  "output_metric": "own REST span-accounted length; no optimum/reference labels",
+  "model_selection": "retain every previously frozen validation-best Actor; no tuning or training",
+  "reuse": "RL-only original rl_test and rl_attack32 predictions; 64-row replay for each of 8 cells verifies compatibility",
+  "statistics": {
+    "replicates": 2000,
+    "seed": 20260919,
+    "grouping": "equal distribution and training seed weights",
+    "within_family": "paired seed and net resampling",
+    "cross_family": "independent training-seed resampling; paired net resampling",
+    "baselines": [
+      "mainline:group_dro",
+      "mainline:mixed_erm",
+      "mainline:wdro_rest"
+    ],
+    "multiple_testing_correction": false
+  },
+  "limitations": [
+    "frozen-model comparison, not matched initialization/training budget ablation",
+    "mainline has DAC21 pretraining, 2000x256 fine tuning and relative-regret reference feedback",
+    "RL-only starts randomly, 2048x64 updates and own-length feedback",
+    "same named distributions have different generators/normalization; report suites separately",
+    "Random32 window maximum is not a rho-constrained worst-case certificate",
+    "No reference solver calls or new training; old model training lineage still used reference algorithms"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "critic_search_20260915",
+  "scope": "seven_direction_degree30_mechanism_study_not_parent_protocol_replacement",
+  "degree": 30,
+  "seeds": [101, 102, 103],
+  "parent": "precision_v2_ERM",
+  "initial_surrogate": "v3.1_calibrated_fixed_ERM_same_seed",
+  "distributions": ["uniform", "mix_gauss", "edge_bias", "grid_cluster"],
+  "true_score_budget_fixed": 64,
+  "validation": {"seed": 101, "centers_per_distribution": 32, "selection": "macro_true_penalized_score"},
+  "test": {"centers_per_distribution": 64, "methods": ["baseline", "no_move", "random_direction", "direction3", "direction4", "direction5", "direction6", "uniform_mse", "region_mse", "region_huber", "region_rankdiff"]},
+  "surrogate_refresh": {"train_count_per_pool": 1024, "validation_centers": 128, "validation_points_per_center": 4, "epochs": 6, "batch_size": 128, "learning_rate": 0.0001, "losses": ["mse", "huber", "local"]},
+  "joint": {"updates": 128, "batch_size": 16, "true_score_budget": 4, "variants": ["refresh32_raw", "refresh8_raw", "refresh32_ema", "refresh8_ema"], "ema_beta": 0.9, "validation_interval": 32, "validation_per_distribution": 64, "test_per_distribution": 256, "rho": "parent_fixed", "lambda_learning_rate": 1.0},
+  "greedy_forward_rows": 256,
+  "data_namespace": "critic-search-20260915",
+  "statistics": {"bootstrap_replicates": 5000, "paired": true, "directions": 7, "familywise_alpha": 0.05, "stable_requires_all_seed_directions": true},
+  "resource_policy": {"one_worker_per_gpu": true, "memory_limit_fraction": 0.10, "admission_free_mib": 6144, "reference_workers_per_task": 3, "foreign_process_changes": false},
+  "claims": "finite-budget exploratory search and short continued-training evidence; no universal or continuous-space robustness guarantee"
+}

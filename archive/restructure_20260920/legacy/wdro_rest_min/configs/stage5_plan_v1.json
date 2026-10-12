@@ -1,0 +1,67 @@
+{
+  "batch_size": 256,
+  "calibration": "/remote-home/Guilin/DRO/Codex/experiments/cache/stage5/calibration_d30_s101.json",
+  "calibration_sha256": "29a39b8610afa4518a9161034c3f59f1fb49a057c44800fd2339ef701f074787",
+  "cem": {
+    "elite": 4,
+    "initial_std": 0.02,
+    "maximum_motion": 0.08,
+    "minimum_std": 0.001,
+    "population": 16,
+    "rounds": 4
+  },
+  "degree": 30,
+  "dependent_ablations": [
+    "lambda_fixed",
+    "k1",
+    "k8",
+    "chamfer",
+    "random_64",
+    "cem_64"
+  ],
+  "equal_calls": "64 true Actor/REST/reference scoring requests per center per update; includes nominal once; Random=63 perturbations plus nominal; CEM=4x16 with nominal in round 1, elite4 after each round",
+  "fixed_lambda_rule": "mean lambda_after over updates 1901-2000 of selected learned-rho run; frozen before fixed-lambda training",
+  "initial_tasks": [
+    {
+      "config": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/configs/stage5/rho_zero.json",
+      "config_sha256": "d7c2d8e1de38666bff44be366694786d15fe605222bd2ba510abbf761cabed00",
+      "rho_mode": "zero",
+      "run_id": "stage5_rho_zero_d30_s101_u2000_v1"
+    },
+    {
+      "config": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/configs/stage5/rho_q50.json",
+      "config_sha256": "bc41a2364f36e28f79c6ec0d98a0bf30775716b6f5c31adcb6048573395ff95a",
+      "rho_mode": "q50",
+      "run_id": "stage5_rho_q50_d30_s101_u2000_v1"
+    },
+    {
+      "config": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/configs/stage5/rho_q75.json",
+      "config_sha256": "342277a1d630cc451d29eb728c4cb70f11c75a0288f4de67735b843a45e38272",
+      "rho_mode": "q75",
+      "run_id": "stage5_rho_q75_d30_s101_u2000_v1"
+    }
+  ],
+  "main_method_locked": {
+    "candidate_count": 32,
+    "ground_cost": "hungarian_l1_mean",
+    "lambda_mode": "learned",
+    "searcher": "random_sobol"
+  },
+  "minimum_total_unique_runs": 9,
+  "nominal_guard_absolute": 0.002,
+  "policy_updates": 2000,
+  "radius_rule": "same selected quantile across K/searcher; Hungarian and Chamfer calibrated separately on same training K32 support",
+  "research_protocol_override": false,
+  "rho_order": [
+    "zero",
+    "q50",
+    "q75"
+  ],
+  "schema_version": 1,
+  "selection_source": "synthetic_validation_only",
+  "stage": 5,
+  "status": "frozen",
+  "test_or_ispd_used": false,
+  "tie_rule": "first in declared rho order; earliest checkpoint within run",
+  "training_seed": 101
+}

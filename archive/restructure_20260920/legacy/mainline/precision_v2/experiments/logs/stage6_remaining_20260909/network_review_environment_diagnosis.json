@@ -1,0 +1,7 @@
+{
+  "in_process_value": "runtime_value",
+  "proc_initial_value": null,
+  "runtime_environment_not_reflected_in_proc": true,
+  "failed_check": "gpu_mapping",
+  "cause": "Initial review incorrectly treated /proc/PID/environ as a live view of Python os.environ set after exec; train_stage6 sets CUDA_VISIBLE_DEVICES before torch import and JobLease records runtime value. Use queue, CLI physical GPU and JobLease binding."
+}

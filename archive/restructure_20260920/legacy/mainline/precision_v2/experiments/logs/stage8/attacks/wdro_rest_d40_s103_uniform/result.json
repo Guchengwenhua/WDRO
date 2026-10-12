@@ -1,0 +1,148 @@
+{
+  "accounting": "committed rounds; completed replay attempts and unfinished-call bounds kept in calls.jsonl",
+  "at_utc": "2026-09-09T21:53:21.740576Z",
+  "binding": {
+    "attack": {
+      "calls_per_center": 256,
+      "cem": {
+        "elite": 4,
+        "initial_std": 0.02,
+        "maximum_motion": 0.08,
+        "minimum_std": 0.001,
+        "population": 16,
+        "rounds": 16
+      },
+      "center_batch": 16,
+      "cost_interpretation": "Unconstrained local search stress test; measure actual cost. Not a certified Wasserstein ball.",
+      "elite": 4,
+      "ground_cost": "hungarian_l1_mean",
+      "objective": "maximum_true_relative_regret",
+      "original_included_once": true,
+      "population": 16,
+      "refresh_updates": 10,
+      "rounds": 16,
+      "score_microbatch": 256,
+      "searcher": "cem_256",
+      "seed": 303,
+      "source": "stage5.cem_round with independent attack net IDs; 16 rounds",
+      "tie_break": "earliest candidate",
+      "transport_penalty": 0
+    },
+    "count": 2000,
+    "hardware": {
+      "cuda": "12.4",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "torch": "2.6.0+cu124"
+    },
+    "input": {
+      "count": 2000,
+      "degree": 40,
+      "distribution": "uniform",
+      "input": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/stage8/inputs/uniform_d40.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/cache/stage8/inputs/uniform_d40.npz",
+        "sha256": "120b6f41d0c41beeac2b1bd51f2749744b29260fbea2ac963115c96c872122ac"
+      },
+      "metadata": {
+        "array_bundle_sha256": "1e71ea6fdca0ae02dfa6c49ea9c5f7ce2cac05ac7decec7b3adc040f09f056ce",
+        "attempt_streams_used": 1,
+        "base_seed": 303,
+        "count": 2000,
+        "degree": 40,
+        "distribution": "uniform",
+        "kind": "synthetic_fixed_split",
+        "parameters": {
+          "nonuniform": 0.0
+        },
+        "protocol_id": "wdro-rest-min-protocol-v1",
+        "rejections": {},
+        "schema_version": 1,
+        "split": "attack"
+      }
+    },
+    "model": {
+      "best": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d40_s103_u2000_v1/best.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d40_s103_u2000_v1/best.pt",
+        "sha256": "d55fb32d4775914b41ba570d7aa60acb4e09af507f790906bd582bf1d706e616"
+      },
+      "degree": 40,
+      "latest": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d40_s103_u2000_v1/latest.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d40_s103_u2000_v1/latest.pt",
+        "sha256": "4fe578fe73bd53ee24a6584b3e62b39e98cbc69fe3a2816c6bd254abfd134965"
+      },
+      "method": "wdro_rest",
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage6/formal_wdro_d40_s103_u2000_v1/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage6/formal_wdro_d40_s103_u2000_v1/result.json",
+        "sha256": "ca4f84b37da4e8416bfc9f3a5490846025353ef36ddc1918c5fb22658b01a149"
+      },
+      "seed": 103
+    },
+    "model_selection": false,
+    "plan": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "sha256": "ad3e145992f33a6bfa01a55dce73d7c7fce93ceff74795657b6f0ba510499ece"
+    },
+    "reference_identity": {
+      "implementation_sha256": "508cf6ec03af543f04b7c54598e8447cf578321c1bc5533bdbbd6f31054118e2",
+      "library_sha256": "8b0e1599f072711b739158f30b10da8e41f585b87d9b5bcd55cfcde4c8020a6a",
+      "reference_id": "geosteiner_exact_binary_scale_v2",
+      "require_status": "optimal",
+      "rounding": "none",
+      "scale": 134217728,
+      "validate_embedding": true
+    },
+    "role": "independent_attack",
+    "source_sha256": "ffd8e962ae73a49adb3865fdd3ea7a102688d50831c1c0b14f295e2702ecc4eb"
+  },
+  "call_ledger": {
+    "actor_forward_nets": 512000,
+    "exact_rest_evaluator_nets": 512000,
+    "geosteiner_search_nets": 512000,
+    "geosteiner_selected_verification_nets": 2000
+  },
+  "changed_fraction": 0.9995,
+  "completed_nets": 2000,
+  "cost": {
+    "count": 2000,
+    "maximum": 0.04857719726860523,
+    "mean": 0.030340413875691596,
+    "minimum": 0.0,
+    "p95": 0.03756032837554812
+  },
+  "legal_fraction": 1.0,
+  "model_selection": false,
+  "original_summary": {
+    "count": 2000,
+    "maximum": 0.05012613603769947,
+    "mean": 0.008956502819588522,
+    "minimum": 0.0,
+    "p95": 0.0223613162743904
+  },
+  "peak_reserved_mib": 212.0,
+  "predictions": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage8/attacks/wdro_rest_d40_s103_uniform/predictions.npz",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage8/attacks/wdro_rest_d40_s103_uniform/predictions.npz",
+    "sha256": "e56f28ebc78fb201017d90be5e95f60a79d0380bd470f3ffa82721ddbcc4effb"
+  },
+  "repaired_candidates": 3,
+  "selected_update": 500,
+  "status": "complete",
+  "summary": {
+    "count": 2000,
+    "maximum": 0.1325508374034245,
+    "mean": 0.04939289986772604,
+    "minimum": 0.022242358114253107,
+    "p95": 0.07312471363067127
+  },
+  "times": {
+    "actor_seconds": 181.07118044048548,
+    "reference_seconds": 1501.1591914258897,
+    "rest_seconds": 6.534503262490034,
+    "wall_seconds": 1801.7601674124599
+  },
+  "verification_seconds": 15.69901092350483
+}

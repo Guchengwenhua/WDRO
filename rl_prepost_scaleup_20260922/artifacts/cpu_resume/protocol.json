@@ -1,0 +1,161 @@
+{
+  "experiment": "ENGINEERING_ONLY_cpu_resume",
+  "scope": "Budget-factorial REST pretraining and post-training plus separate attacker continuation",
+  "degree": 30,
+  "seeds": [
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308
+  ],
+  "batch_size": 64,
+  "warmup_updates": 8192,
+  "fixed_updates": 8192,
+  "coev_updates": 8192,
+  "learned_methods": [
+    "reinforce",
+    "bestof_ppo",
+    "sequential_ppo"
+  ],
+  "coev_methods": [
+    "erm",
+    "random",
+    "es",
+    "reinforce",
+    "bestof_ppo",
+    "sequential_ppo"
+  ],
+  "distributions": [
+    "uniform",
+    "mix_gauss",
+    "edge_bias",
+    "grid_cluster"
+  ],
+  "fixed_test_per_distribution": 4,
+  "test_per_distribution": 4,
+  "attack_per_distribution": 4,
+  "attack_candidates": 32,
+  "candidates": 8,
+  "epsilon": 0.08,
+  "rho": 0.04,
+  "fixed_lambda": 5.0,
+  "test_lambdas": [
+    1.0,
+    5.0,
+    10.0
+  ],
+  "lambda_init": 5.0,
+  "lambda_lr": 10.0,
+  "actor_lr": 0.0001,
+  "baseline_lr": 0.0001,
+  "attacker": {
+    "width": 64,
+    "lr": 0.0003,
+    "sigma": 0.04,
+    "clip": 0.2,
+    "epochs": 4,
+    "epsilon": 0.08
+  },
+  "greedy_microbatch": 64,
+  "checkpoint_every": 1,
+  "selection": "last update only, no test selection or tuning",
+  "initialization": "fresh matched random Actor; common same-seed ERM warmup generated within this branch",
+  "fixed_training": "uniform centers, frozen warmup Actor, lambda5",
+  "metric": "Actor own-action wirelength in fixed [.1,.9] square",
+  "transport": "indexwise mean-pin L1; no Hungarian",
+  "forbidden": "external reference solver, optimal labels, MST, geometric bound, external pretrained weights",
+  "resources": {
+    "max_workers": 8,
+    "max_new_workers_per_gpu": 1,
+    "min_free_mib": 8192,
+    "max_admission_util": 80,
+    "saturated_duty_fraction": 0.0,
+    "memory_fraction": 0.12,
+    "cpu_threads_per_worker": 1,
+    "reserve_disk_gib": 25,
+    "worker_disk_gib": 2,
+    "max_load": 64,
+    "min_mem_available_gib": 32,
+    "heartbeat_timeout_seconds": 1800,
+    "retry_cooldown_seconds": 120,
+    "wait_for_origin_training": false,
+    "statistics_workers": 8
+  },
+  "data_namespace": "rl-scaleup-20260921-v1",
+  "origin_root": "/remote-home/Guilin/DRO/Codex/rl_scaleup_20260921",
+  "evaluation_namespace": "rl-prepost-engineering-only",
+  "source_updates": 2048,
+  "target_updates": 8192,
+  "middle_updates": 4096,
+  "main_methods": [
+    "erm",
+    "random",
+    "bestof_ppo",
+    "sequential_ppo"
+  ],
+  "statistics": {
+    "primary_family": "6 one-sided paired seed sign-flip tests with Holm FWER .05",
+    "replicates": 2000,
+    "minimum_relative_improvement": 0.005,
+    "minimum_improving_seeds": 6,
+    "primary_metric": "equal mean of Random32 and ES32 across four distributions",
+    "primary_methods": [
+      "bestof_ppo",
+      "sequential_ppo"
+    ],
+    "contrasts": [
+      "post_only",
+      "pre_only_at_long_post",
+      "ppo_vs_random_at_long_pre_long_post"
+    ],
+    "secondary": "4096 checkpoints; separate Random32 and ES32; nominal; P95; worst group; equal REST-update allocation; attacker fixed gain; descriptive intervals only"
+  },
+  "tasks": [
+    {
+      "id": "post_pre2048_bestof_ppo_s301",
+      "kind": "coev",
+      "method": "bestof_ppo",
+      "seed": 301,
+      "start": 2048,
+      "end": 2050,
+      "milestones": [
+        2048,
+        2049,
+        2050
+      ],
+      "parents": {
+        "resume": {
+          "run": "coev_bestof_ppo_s301",
+          "step": 2048,
+          "source": "legacy"
+        }
+      },
+      "priority": 1
+    },
+    {
+      "id": "post_pre2048_sequential_ppo_s301",
+      "kind": "coev",
+      "method": "sequential_ppo",
+      "seed": 301,
+      "start": 2048,
+      "end": 2050,
+      "milestones": [
+        2048,
+        2049,
+        2050
+      ],
+      "parents": {
+        "resume": {
+          "run": "coev_sequential_ppo_s301",
+          "step": 2048,
+          "source": "legacy"
+        }
+      },
+      "priority": 1
+    }
+  ]
+}

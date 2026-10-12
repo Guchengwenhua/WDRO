@@ -1,0 +1,74 @@
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/before/run_stage4_smoke.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/run_stage4_smoke.py
+@@ -15,6 +15,7 @@
+ from src.job_control import utc_now
+ from src.rest import file_sha256
+ from run_stage3_smoke import assert_same
++from precision_capacity_wait import wait_capture
+ 
+ LOGS=EXP/'logs/stage4_smoke'
+ 
+@@ -29,7 +30,7 @@
+     capture=[sys.executable,str(ROOT/'scripts/capture_host_runtime.py'),'--purpose',f'stage4_{run_id}_stop{stop}']
+     if measured_peak:
+         capture+=['--measured-peak-mib',str(measured_peak+1024),'--safety-margin-mib','2048']
+-    captured=subprocess.run(capture,capture_output=True,text=True,check=True)
++    captured=wait_capture(capture,context=f'stage4_{run_id}_stop{stop}')
+     summary=json.loads(captured.stdout.strip().splitlines()[-1])
+     manifest=json.loads(Path(summary['manifest']).read_text())
+     eligible=[r for r in manifest['gpu_decisions'] if r['eligible']]
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/before/run_stage5_smoke.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/run_stage5_smoke.py
+@@ -8,6 +8,7 @@
+ from src.rest import file_sha256
+ from stage5.configuration import write_config,base_config
+ from run_stage3_smoke import assert_same
++from precision_capacity_wait import wait_capture
+ LOG=EXP/'logs/stage5_smoke'
+ 
+ def launch(name,config,stop,resume=False):
+@@ -24,7 +25,7 @@
+     else:
+         peak=json.loads((EXP/'logs/stage4_smoke/memory_profile.json').read_text())['measured_peak_reserved_mib']
+         pre+=['--measured-peak-mib',str(peak+1024),'--safety-margin-mib','8192']
+-    p=subprocess.run(pre,capture_output=True,text=True,check=True);summary=json.loads(p.stdout.strip().splitlines()[-1])
++    p=wait_capture(pre,context=run_id+'_to'+str(stop));summary=json.loads(p.stdout.strip().splitlines()[-1])
+     snapshot=json.loads(Path(summary['manifest']).read_text());gpu=max([r for r in snapshot['gpu_decisions'] if r['eligible']],key=lambda r:r['minimum_free_memory_mib'])['index']
+     cmd=['bash',str(ROOT/'scripts/stage3_env.sh'),sys.executable,str(ROOT/'scripts/train_stage5.py'),'--degree','30','--seed','101','--scope','stage5_smoke',
+          '--wdro-config',config['config'],'--rho-mode',config['rho_mode'],'--run-id',run_id,'--stop-after',str(stop),'--physical-gpu-index',str(gpu),
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/before/run_stage6_smoke.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/run_stage6_smoke.py
+@@ -8,6 +8,7 @@
+ from src.rest import file_sha256
+ 
+ from run_stage3_smoke import assert_same
++from precision_capacity_wait import wait_capture
+ LOG=EXP/'logs/stage6_smoke'
+ 
+ def launch(name,config,stop,resume=False,degree=30,seed=101):
+@@ -20,7 +21,7 @@
+     profile=LOG/'memory_profile.json'
+     peak=max(3602,json.loads(profile.read_text())['maximum_reserved_mib'] if profile.exists() else 0)
+     pre+=['--measured-peak-mib',str(peak+1024),'--safety-margin-mib','4096']
+-    p=subprocess.run(pre,capture_output=True,text=True,check=True);summary=json.loads(p.stdout.strip().splitlines()[-1])
++    p=wait_capture(pre,context=run_id+'_to'+str(stop));summary=json.loads(p.stdout.strip().splitlines()[-1])
+     snapshot=json.loads(Path(summary['manifest']).read_text());gpu=max([r for r in snapshot['gpu_decisions'] if r['eligible']],key=lambda r:r['minimum_free_memory_mib'])['index']
+     cmd=['bash',str(ROOT/'scripts/stage3_env.sh'),sys.executable,str(ROOT/'scripts/train_stage6.py'),'--degree',str(degree),'--seed',str(seed),'--scope','stage6_smoke',
+          '--wdro-config',config['config'],'--rho-mode',config['rho_mode'],'--run-id',run_id,'--stop-after',str(stop),'--physical-gpu-index',str(gpu),
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/before/run_stage6_evaluation_smoke.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/run_stage6_evaluation_smoke.py
+@@ -7,12 +7,13 @@
+ from src.rest import file_sha256
+ from src.job_control import utc_now
+ from capture_host_runtime import gpu_sample,compute_processes,disk_snapshot
++from precision_capacity_wait import wait_capture
+ LOG=EXP/'logs/stage6_evaluation_smoke'
+ 
+ def launch(name,limit=None):
+     command=[sys.executable,str(ROOT/'scripts/capture_host_runtime.py'),'--purpose','stage6_evaluation_validation_smoke',
+         '--measured-peak-mib','4626','--safety-margin-mib','4096']
+-    summary=json.loads(subprocess.run(command,check=True,capture_output=True,text=True).stdout.strip().splitlines()[-1])
++    summary=json.loads(wait_capture(command,context='stage6_evaluation_'+name).stdout.strip().splitlines()[-1])
+     host=json.loads(Path(summary['manifest']).read_text());gpu=max((g for g in host['gpu_decisions'] if g['eligible']),key=lambda g:g['minimum_free_memory_mib'])['index']
+     cmd=[sys.executable,str(ROOT/'scripts/evaluate_stage6.py'),'--degree','50','--gpu',str(gpu),'--preflight',summary['manifest'],'--smoke','--smoke-name',name]
+     if limit:cmd+=['--max-new-batches',str(limit)]

@@ -1,0 +1,51 @@
+{
+  "id": "eval_screen_D4_s102_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "D4",
+  "seed": 102,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": true,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_D4_s102_d30",
+  "endpoints": [
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s102.pt",
+    "sha256": "2a713cd7bae248d140bc6f421481bbfaf8ea4e28ba0606931b0e15435157bcba"
+  },
+  "inherit_training": false,
+  "models": {
+    "step20480": {
+      "path": "artifacts/runs/screen_D4_s102/step20480.pt",
+      "sha256": "159ca6bdc58b8c756004fb922ddb0906cb26e645e3d9eff57087a8c9e36c1caf",
+      "step": 20480,
+      "actor_sha256": "de27ec029d045127e6b0ba03c487a76b0d19b72281fd08fc246037eb4ece52be"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_D4_s102/best.pt",
+      "sha256": "40db86363c26dcc5665303f371fb5129a9bb95ee837b8ef9bdf7a3907b0da68f",
+      "step": 20480,
+      "actor_sha256": "de27ec029d045127e6b0ba03c487a76b0d19b72281fd08fc246037eb4ece52be"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

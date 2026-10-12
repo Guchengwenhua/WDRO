@@ -1,0 +1,109 @@
+{
+  "status": "complete",
+  "run_id": "post_pre8192_random_s301",
+  "kind": "coev",
+  "method": "random",
+  "seed": 301,
+  "initial_step": 0,
+  "step": 8192,
+  "task": {
+    "id": "post_pre8192_random_s301",
+    "kind": "coev",
+    "method": "random",
+    "seed": 301,
+    "start": 0,
+    "end": 8192,
+    "milestones": [
+      2048,
+      4096,
+      8192
+    ],
+    "parents": {
+      "warmup": {
+        "run": "pre8192_s301",
+        "step": 8192,
+        "source": "new"
+      }
+    },
+    "priority": 3
+  },
+  "identity": {
+    "pid": 1079154,
+    "start_ticks": "3458531048",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "time": "2026-09-23T19:24:36Z",
+    "device": "cuda:0",
+    "physical_gpu_index": 5,
+    "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+    "CUDA_VISIBLE_DEVICES": "5",
+    "duty_fraction": 1.0
+  },
+  "binding": {
+    "protocol_sha256": "737de52e8aba578c9013ab6b52f55073f7b2e2ec2c241ef18d9b8da609bcf855",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/runner.py": "1f59115dfd17c67dfec68c79c3f5784d1e13d9a1c7fe4a599b02a0433872186a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/engine.py": "39bcc94df8423e677a60529dbd8d4098beaf1b6ae20d064d54242ec836fc1c9a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/policies.py": "fbab7457b63b09c2afd879e9b10bfc15942ff7104f5fbab53e8f21f214284a3f",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/env_geometry.py": "388e4f956865bb25ee54c6ec8785fd8ce80d87f47e3a216dcfb08d27e1393914"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "parents": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/artifacts/runs/pre8192_s301/checkpoints/step_8192.pt": "0ece7f83a30bc4714039db72bcb90e0e2cd8be28b6f64ac0f68842993049e4fe"
+    },
+    "task": {
+      "id": "post_pre8192_random_s301",
+      "kind": "coev",
+      "method": "random",
+      "seed": 301,
+      "start": 0,
+      "end": 8192,
+      "milestones": [
+        2048,
+        4096,
+        8192
+      ],
+      "parents": {
+        "warmup": {
+          "run": "pre8192_s301",
+          "step": 8192,
+          "source": "new"
+        }
+      },
+      "priority": 3
+    }
+  },
+  "device": "cuda:0",
+  "calls": {
+    "search_greedy_scores": 4194304,
+    "evaluation_greedy_scores": 442368,
+    "sampled_actor_scores": 524288,
+    "search_padded_forward_rows": 4194304,
+    "evaluation_padded_forward_rows": 454656,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 16162.02709224075,
+  "peak_allocated_bytes": 375944192,
+  "artifacts_sha256": {
+    "latest.pt": "6d18f3441eb722be857135c08bfad5f759d3114bffdd0d45ecb23b6df32094de",
+    "run.json": "a2a94441dd841c1e5c69209cbd2c070d214295dfce2a320f61161a5bf3e80949",
+    "progress.jsonl": "913cc51eb668b3170bad52c9b13fbe4a97420a970256b0ad9832eeeffe0d425b",
+    "actual_calls.jsonl": "4c95047400d7634c61aeddef97c26f4708ffb747e140ce4fd8fb75dbe6a0a3b5",
+    "inherited_budget.json": "9688ced4257d9b8b8f86675f8c7205efb396bae4994f77bf3c444cf90f2b1ee4",
+    "checkpoints/step_2048.json": "57bbf6ded8f4a8ebdb587f17cec2ce79d988311f773c3c1d2f9708bf9c63527c",
+    "checkpoints/step_2048.pt": "717b989138357bb24af43bb302de3767ba6a36f7dcc6ff97d295330af9a3e111",
+    "checkpoints/step_4096.json": "7bca0ef062bce359f58da3950adbd3a530830eff7192870031ab4b22bddc134b",
+    "checkpoints/step_4096.pt": "af36a547809d7ba209a87a4ce44600f368061c8facc1729bc4f26be80b6109d6",
+    "checkpoints/step_8192.json": "b409ef0a488c7f234c3bde1914a0b8ac39bed161d5b8a908c27695eff155a858",
+    "checkpoints/step_8192.pt": "6d18f3441eb722be857135c08bfad5f759d3114bffdd0d45ecb23b6df32094de",
+    "evaluations/step_2048.json": "c7ab19f21d33f31a0f97ccb42528dc40b17e8c13f018f47cb55b4219f66dd668",
+    "evaluations/step_2048.npz": "b0fe91eb40c6a2821cc4e4f39c09378269305372260086c8c1bd9c623c52edf8",
+    "evaluations/step_4096.json": "e98031c66b78c29c71ae3a1ae3803763c4637e136cc73cef78ddf11ac21e6233",
+    "evaluations/step_4096.npz": "cf35ccd6df1dde6eb1ba76d099f826ce1c6c2525000af8eee0760359b942da60",
+    "evaluations/step_8192.json": "2a9df49780d4321a0b1b1ea76d7c806b76b977a905f271bedb2a86b626c65467",
+    "evaluations/step_8192.npz": "6c8e0e8d07afcdea277f818dd2c4069d0a73e5a111f2fe91c623c5050c189de8"
+  }
+}

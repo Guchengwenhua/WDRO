@@ -1,0 +1,147 @@
+{
+  "models": "M0900,M1118",
+  "datasets": "D0218,D0223,D0228,D0233",
+  "count": 512,
+  "batch": 256,
+  "seed": 20260930,
+  "gpu": "4",
+  "scores": [
+    "Hnorm",
+    "maxp",
+    "Q",
+    "G",
+    "C",
+    "first_Hnorm"
+  ],
+  "temperature": 1.0,
+  "dtype": "float32",
+  "scope": "conditional second endpoint and direction on greedy trajectory",
+  "model_metadata": [
+    {
+      "id": "M0900",
+      "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/experiments/checkpoints/stage2/formal_erm_d30_s102_u2000/best.pt",
+      "real_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s102_u2000/best.pt",
+      "bytes": 28787290,
+      "mtime_ns": 1788756160437387127,
+      "family": "rest",
+      "state_key": "actor_state_dict",
+      "strip_prefix": "",
+      "train_degree": 30,
+      "seed": 102,
+      "label": "wdro_precision_v2 / stage2/formal_erm_d30_s102_u2000/best.pt",
+      "branch": "wdro_precision_v2",
+      "metadata": {
+        "method": "erm",
+        "degree": 30,
+        "training_seed": 102,
+        "expected_updates": 2000,
+        "batch_size": 256,
+        "update": 400
+      },
+      "state_keys": [
+        "embedder.conv1d.weight",
+        "embedder.conv1d.bias",
+        "embedder.batch_norm.weight",
+        "embedder.batch_norm.bias",
+        "embedder.batch_norm.running_mean",
+        "embedder.batch_norm.running_var",
+        "embedder.batch_norm.num_batches_tracked",
+        "encoder.layer_stack.0.slf_attn.w_qs.weight"
+      ],
+      "status": "ready",
+      "width": 128,
+      "depth": 3,
+      "inner": 512
+    },
+    {
+      "id": "M1118",
+      "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/experiments/checkpoints/stage6/formal_wdro_d30_s102_u2000_v1/best.pt",
+      "real_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d30_s102_u2000_v1/best.pt",
+      "bytes": 28790490,
+      "mtime_ns": 1788927088969914776,
+      "family": "rest",
+      "state_key": "actor_state_dict",
+      "strip_prefix": "",
+      "train_degree": 30,
+      "seed": 102,
+      "label": "wdro_precision_v2 / stage6/formal_wdro_d30_s102_u2000_v1/best.pt",
+      "branch": "wdro_precision_v2",
+      "metadata": {
+        "method": "wdro_rest",
+        "degree": 30,
+        "training_seed": 102,
+        "expected_updates": 2000,
+        "batch_size": 256,
+        "stage": 6,
+        "rho_mode": "q75",
+        "rho": 0.027471832682689032,
+        "nominal_limit": 0.010211383314195742,
+        "update": 1300
+      },
+      "state_keys": [
+        "embedder.conv1d.weight",
+        "embedder.conv1d.bias",
+        "embedder.batch_norm.weight",
+        "embedder.batch_norm.bias",
+        "embedder.batch_norm.running_mean",
+        "embedder.batch_norm.running_var",
+        "embedder.batch_norm.num_batches_tracked",
+        "encoder.layer_stack.0.slf_attn.w_qs.weight"
+      ],
+      "status": "ready",
+      "width": 128,
+      "depth": 3,
+      "inner": 512
+    }
+  ],
+  "dataset_metadata": [
+    {
+      "id": "D0218",
+      "label": "precision_v2/test/edge_bias_d30_s303_n10000",
+      "path": "/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/artifacts/data/D0218.npz",
+      "source": "/remote-home/Guilin/DRO/Codex/wdro_legacy_v1/experiments/cache/datasets/protocol_v1/test/edge_bias_d30_s303_n10000.npz",
+      "degree": 30,
+      "count": 10000,
+      "kind": "test",
+      "reference_available": true,
+      "minimum": 0.10000000149011612,
+      "maximum": 0.8999999761581421
+    },
+    {
+      "id": "D0223",
+      "label": "precision_v2/test/grid_cluster_d30_s303_n10000",
+      "path": "/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/artifacts/data/D0223.npz",
+      "source": "/remote-home/Guilin/DRO/Codex/wdro_legacy_v1/experiments/cache/datasets/protocol_v1/test/grid_cluster_d30_s303_n10000.npz",
+      "degree": 30,
+      "count": 10000,
+      "kind": "test",
+      "reference_available": true,
+      "minimum": 0.10000000149011612,
+      "maximum": 0.8999999761581421
+    },
+    {
+      "id": "D0228",
+      "label": "precision_v2/test/mix_gauss_d30_s303_n10000",
+      "path": "/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/artifacts/data/D0228.npz",
+      "source": "/remote-home/Guilin/DRO/Codex/wdro_legacy_v1/experiments/cache/datasets/protocol_v1/test/mix_gauss_d30_s303_n10000.npz",
+      "degree": 30,
+      "count": 10000,
+      "kind": "test",
+      "reference_available": true,
+      "minimum": 0.10000000149011612,
+      "maximum": 0.8999999761581421
+    },
+    {
+      "id": "D0233",
+      "label": "precision_v2/test/uniform_d30_s303_n10000",
+      "path": "/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/artifacts/data/D0233.npz",
+      "source": "/remote-home/Guilin/DRO/Codex/wdro_legacy_v1/experiments/cache/datasets/protocol_v1/test/uniform_d30_s303_n10000.npz",
+      "degree": 30,
+      "count": 10000,
+      "kind": "test",
+      "reference_available": true,
+      "minimum": 0.10000000149011612,
+      "maximum": 0.8999999761581421
+    }
+  ]
+}

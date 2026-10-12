@@ -1,0 +1,2062 @@
+{
+  "review_status": "NOT_READY_RUNNING",
+  "runtime_health": "PASS",
+  "started_at": "2026-09-16T04:04:51.828450+00:00",
+  "finished_at": "2026-09-16T04:04:51.904300+00:00",
+  "scope": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915",
+  "read_only_runtime_audit": true,
+  "counts": {
+    "expected_tasks": 24,
+    "expected_gpu_smoke": 6,
+    "expected_training": 18,
+    "scheduler_completed": 23,
+    "completed_gpu_smoke": 6,
+    "completed_training": 17,
+    "running": 1,
+    "pending": 0,
+    "failures": 0,
+    "attempt_records": 25,
+    "held_locks": 3,
+    "checked_locks": 41,
+    "source_hashes_checked": 16,
+    "dependency_hashes_checked": 3
+  },
+  "blockers": [
+    "1 training task still running",
+    "operations/exit.json missing",
+    "report/complete.json missing"
+  ],
+  "runtime_issues": [],
+  "queue_status": "running",
+  "queue_heartbeat_age_seconds": 4.39599609375,
+  "queue_launch_id": "1789505388022057964_441638",
+  "launch_record_matches_queue": true,
+  "queue_changed_during_review": false,
+  "queue_end_status": "running",
+  "queue_end_completed_count": 23,
+  "exit_record": null,
+  "report_complete": null,
+  "tmux": {
+    "socket": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/operations/rl_only.sock",
+    "returncode": 0,
+    "sessions": "rl_only_20260915: 1 windows (created Tue Sep 15 20:49:46 2026)\n",
+    "stderr": "",
+    "panes": "rl_only_20260915 441638 python 0\n"
+  },
+  "running_progress": [
+    {
+      "task_id": "wdro_es_s103",
+      "gpu": 2,
+      "wrapper_heartbeat_age_seconds": 3.901555061340332,
+      "trainer_heartbeat_age_seconds": 6.835526704788208,
+      "trainer_heartbeat": {
+        "pid": 461261,
+        "start_ticks": "3391131073",
+        "time": "2026-09-16T00:11:15Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712,
+        "status": "running",
+        "updated": "2026-09-16T04:04:45Z",
+        "step": 1528,
+        "updates": 2048,
+        "phase": "running",
+        "updates_completed": 1528,
+        "updates_target": 2048,
+        "elapsed_seconds": 14009.556704364717,
+        "seconds_per_update": 8.421470169153514,
+        "estimated_remaining_seconds": 4379.164487959827,
+        "last_update_seconds": 14009.310197301209
+      },
+      "latest_checkpoint_exists": true,
+      "latest_checkpoint_age_seconds": 243.11487412452698,
+      "latest_checkpoint_bytes": 28876706
+    }
+  ],
+  "process_identities": [
+    {
+      "label": "scheduler",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441638,
+        "start_ticks": "3389922544"
+      },
+      "current": {
+        "pid": 441638,
+        "start_ticks": "3389922544",
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "state": "S",
+        "uid": 3070,
+        "cmdline": "/remote-home/Guilin/miniconda3/envs/py311/bin/python scheduler.py"
+      },
+      "matches_live_identity": true
+    },
+    {
+      "label": "erm_critic_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442158,
+        "start_ticks": "3389947190"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442161,
+        "start_ticks": "3389947219"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 449929,
+        "start_ticks": "3390352709"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 449932,
+        "start_ticks": "3390352749"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 457979,
+        "start_ticks": "3390960705"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 457982,
+        "start_ticks": "3390960754"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442021,
+        "start_ticks": "3389939038"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442031,
+        "start_ticks": "3389939073"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 451467,
+        "start_ticks": "3390584842"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 451470,
+        "start_ticks": "3390584880"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 458191,
+        "start_ticks": "3390971210"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 458196,
+        "start_ticks": "3390971260"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_critic/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441770,
+        "start_ticks": "3389926769"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_critic/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441780,
+        "start_ticks": "3389926811"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_rollout/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441771,
+        "start_ticks": "3389926775"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_rollout/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441777,
+        "start_ticks": "3389926809"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_critic/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441971,
+        "start_ticks": "3389934935"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_critic/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441976,
+        "start_ticks": "3389934968"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_es/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441887,
+        "start_ticks": "3389930862"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_es/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441897,
+        "start_ticks": "3389930894"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_random/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441885,
+        "start_ticks": "3389930847"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_random/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441890,
+        "start_ticks": "3389930879"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_rl/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441973,
+        "start_ticks": "3389934947"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_rl/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 441983,
+        "start_ticks": "3389934980"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 449874,
+        "start_ticks": "3390350659"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 449877,
+        "start_ticks": "3390350696"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452371,
+        "start_ticks": "3390665204"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452374,
+        "start_ticks": "3390665249"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 465118,
+        "start_ticks": "3391317994"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 465161,
+        "start_ticks": "3391320094"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 465164,
+        "start_ticks": "3391320155"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 445318,
+        "start_ticks": "3390159249"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 445321,
+        "start_ticks": "3390159281"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452280,
+        "start_ticks": "3390661047"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452283,
+        "start_ticks": "3390661104"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 461256,
+        "start_ticks": "3391131000"
+      },
+      "current": {
+        "pid": 461256,
+        "start_ticks": "3391131000",
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "state": "S",
+        "uid": 3070,
+        "cmdline": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/scheduler.py --worker-spec /remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/operations/attempt_wdro_es_s103_a1_1789517470645503237.json"
+      },
+      "matches_live_identity": true
+    },
+    {
+      "label": "wdro_es_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 461261,
+        "start_ticks": "3391131073"
+      },
+      "current": {
+        "pid": 461261,
+        "start_ticks": "3391131073",
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "state": "R",
+        "uid": 3070,
+        "cmdline": "/remote-home/Guilin/miniconda3/envs/py311/bin/python train.py --method wdro_es --seed 103 --outdir artifacts/runs/wdro_es_s103 --cpu-threads 3 --physical-gpu-index 2 --resume"
+      },
+      "matches_live_identity": true
+    },
+    {
+      "label": "wdro_random_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442181,
+        "start_ticks": "3389949248"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442184,
+        "start_ticks": "3389949291"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452130,
+        "start_ticks": "3390648620"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 452133,
+        "start_ticks": "3390648662"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 459710,
+        "start_ticks": "3391056124"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 459719,
+        "start_ticks": "3391056178"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s101/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442019,
+        "start_ticks": "3389939029"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s101/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 442024,
+        "start_ticks": "3389939060"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s102/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 454462,
+        "start_ticks": "3390789257"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s102/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 454465,
+        "start_ticks": "3390789316"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s103/wrapper",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 467625,
+        "start_ticks": "3391440953"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s103/trainer",
+      "recorded": {
+        "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+        "pid": 467634,
+        "start_ticks": "3391441037"
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_critic/completion_trainer",
+      "recorded": {
+        "pid": 441780,
+        "start_ticks": "3389926811",
+        "time": "2026-09-15T20:50:33Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_erm_rollout/completion_trainer",
+      "recorded": {
+        "pid": 441777,
+        "start_ticks": "3389926809",
+        "time": "2026-09-15T20:50:33Z",
+        "physical_gpu_index": 3,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_random/completion_trainer",
+      "recorded": {
+        "pid": 441890,
+        "start_ticks": "3389930879",
+        "time": "2026-09-15T20:51:14Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_es/completion_trainer",
+      "recorded": {
+        "pid": 441897,
+        "start_ticks": "3389930894",
+        "time": "2026-09-15T20:51:14Z",
+        "physical_gpu_index": 3,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_critic/completion_trainer",
+      "recorded": {
+        "pid": 441976,
+        "start_ticks": "3389934968",
+        "time": "2026-09-15T20:51:54Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "smoke_wdro_rl/completion_trainer",
+      "recorded": {
+        "pid": 441983,
+        "start_ticks": "3389934980",
+        "time": "2026-09-15T20:51:55Z",
+        "physical_gpu_index": 3,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s101/completion_trainer",
+      "recorded": {
+        "pid": 442024,
+        "start_ticks": "3389939060",
+        "time": "2026-09-15T20:52:35Z",
+        "physical_gpu_index": 3,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s101/completion_trainer",
+      "recorded": {
+        "pid": 442031,
+        "start_ticks": "3389939073",
+        "time": "2026-09-15T20:52:35Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s101/completion_trainer",
+      "recorded": {
+        "pid": 442161,
+        "start_ticks": "3389947219",
+        "time": "2026-09-15T20:53:56Z",
+        "physical_gpu_index": 7,
+        "CUDA_VISIBLE_DEVICES": "7",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s101/completion_trainer",
+      "recorded": {
+        "pid": 442184,
+        "start_ticks": "3389949291",
+        "time": "2026-09-15T20:54:17Z",
+        "physical_gpu_index": 6,
+        "CUDA_VISIBLE_DEVICES": "6",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s101/completion_trainer",
+      "recorded": {
+        "pid": 445321,
+        "start_ticks": "3390159281",
+        "time": "2026-09-15T21:29:17Z",
+        "physical_gpu_index": 2,
+        "CUDA_VISIBLE_DEVICES": "2",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s101/completion_trainer",
+      "recorded": {
+        "pid": 449877,
+        "start_ticks": "3390350696",
+        "time": "2026-09-15T22:01:10Z",
+        "physical_gpu_index": 4,
+        "CUDA_VISIBLE_DEVICES": "4",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s102/completion_trainer",
+      "recorded": {
+        "pid": 449932,
+        "start_ticks": "3390352749",
+        "time": "2026-09-15T22:01:31Z",
+        "physical_gpu_index": 5,
+        "CUDA_VISIBLE_DEVICES": "5",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s102/completion_trainer",
+      "recorded": {
+        "pid": 451470,
+        "start_ticks": "3390584880",
+        "time": "2026-09-15T22:40:12Z",
+        "physical_gpu_index": 5,
+        "CUDA_VISIBLE_DEVICES": "5",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s102/completion_trainer",
+      "recorded": {
+        "pid": 452133,
+        "start_ticks": "3390648662",
+        "time": "2026-09-15T22:50:51Z",
+        "physical_gpu_index": 7,
+        "CUDA_VISIBLE_DEVICES": "7",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_es_s102/completion_trainer",
+      "recorded": {
+        "pid": 452283,
+        "start_ticks": "3390661104",
+        "time": "2026-09-15T22:52:56Z",
+        "physical_gpu_index": 1,
+        "CUDA_VISIBLE_DEVICES": "1",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s102/completion_trainer",
+      "recorded": {
+        "pid": 452374,
+        "start_ticks": "3390665249",
+        "time": "2026-09-15T22:53:37Z",
+        "physical_gpu_index": 0,
+        "CUDA_VISIBLE_DEVICES": "0",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s102/completion_trainer",
+      "recorded": {
+        "pid": 454465,
+        "start_ticks": "3390789316",
+        "time": "2026-09-15T23:14:18Z",
+        "physical_gpu_index": 3,
+        "CUDA_VISIBLE_DEVICES": "3",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_critic_s103/completion_trainer",
+      "recorded": {
+        "pid": 457982,
+        "start_ticks": "3390960754",
+        "time": "2026-09-15T23:42:51Z",
+        "physical_gpu_index": 5,
+        "CUDA_VISIBLE_DEVICES": "5",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "erm_rollout_s103/completion_trainer",
+      "recorded": {
+        "pid": 458196,
+        "start_ticks": "3390971260",
+        "time": "2026-09-15T23:44:36Z",
+        "physical_gpu_index": 6,
+        "CUDA_VISIBLE_DEVICES": "6",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_random_s103/completion_trainer",
+      "recorded": {
+        "pid": 459719,
+        "start_ticks": "3391056178",
+        "time": "2026-09-15T23:58:46Z",
+        "physical_gpu_index": 4,
+        "CUDA_VISIBLE_DEVICES": "4",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_critic_s103/completion_trainer",
+      "recorded": {
+        "pid": 465164,
+        "start_ticks": "3391320155",
+        "time": "2026-09-16T00:42:46Z",
+        "physical_gpu_index": 7,
+        "CUDA_VISIBLE_DEVICES": "7",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    },
+    {
+      "label": "wdro_rl_s103/completion_trainer",
+      "recorded": {
+        "pid": 467634,
+        "start_ticks": "3391441037",
+        "time": "2026-09-16T01:02:55Z",
+        "physical_gpu_index": 6,
+        "CUDA_VISIBLE_DEVICES": "6",
+        "device": "cuda:0",
+        "torch_version": "2.6.0+cu124",
+        "numpy_version": "2.4.6",
+        "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+        "gpu_total_memory": 51002867712
+      },
+      "current": null,
+      "matches_live_identity": false
+    }
+  ],
+  "locks": [
+    {
+      "path": "artifacts/cpu_smoke/erm_critic_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/cpu_smoke/erm_rollout_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/cpu_smoke/wdro_critic_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/cpu_smoke/wdro_es_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/cpu_smoke/wdro_random_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/cpu_smoke/wdro_rl_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/erm_critic/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/erm_rollout/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/wdro_critic/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/wdro_es/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/wdro_random/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/gpu_smoke/wdro_rl/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_0.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_1.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_2.lock",
+      "held": true,
+      "expected_held": true,
+      "matches_expected": true,
+      "holders": [
+        {
+          "pid": 461256,
+          "lock_type": "FLOCK",
+          "mode": "WRITE"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/operations/gpu_3.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_4.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_5.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_6.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/gpu_7.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/operations/queue.lock",
+      "held": true,
+      "expected_held": true,
+      "matches_expected": true,
+      "holders": [
+        {
+          "pid": 441638,
+          "lock_type": "FLOCK",
+          "mode": "WRITE"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/resume_audit/resumed/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/resume_audit/uninterrupted/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_critic_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_critic_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_critic_s103/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_rollout_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_rollout_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/erm_rollout_s103/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_critic_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_critic_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_critic_s103/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_es_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_es_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_es_s103/run.lock",
+      "held": true,
+      "expected_held": true,
+      "matches_expected": true,
+      "holders": [
+        {
+          "pid": 461261,
+          "lock_type": "FLOCK",
+          "mode": "WRITE"
+        }
+      ]
+    },
+    {
+      "path": "artifacts/runs/wdro_random_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_random_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_random_s103/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_rl_s101/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_rl_s102/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    },
+    {
+      "path": "artifacts/runs/wdro_rl_s103/run.lock",
+      "held": false,
+      "expected_held": false,
+      "matches_expected": true,
+      "holders": []
+    }
+  ],
+  "frozen_sources": [
+    {
+      "path": "THEORY.md",
+      "expected_sha256": "fc1dfbc3c67d10233a7d4804fe44a6933411f3eb2c28c11cd02830bb4025e159",
+      "actual_sha256": "fc1dfbc3c67d10233a7d4804fe44a6933411f3eb2c28c11cd02830bb4025e159",
+      "matches": true
+    },
+    {
+      "path": "THEORY_REVIEW.md",
+      "expected_sha256": "542532ffd48c0b8045e690a1001d3177eda5b7925b3b9fbd30bd5cfb4268859d",
+      "actual_sha256": "542532ffd48c0b8045e690a1001d3177eda5b7925b3b9fbd30bd5cfb4268859d",
+      "matches": true
+    },
+    {
+      "path": "artifacts/cpu_report/complete.json",
+      "expected_sha256": "ef9c04986714a274ee328ac78accc1a647c37cbce3c5cf0a33d3ea1fd2fb9d8a",
+      "actual_sha256": "ef9c04986714a274ee328ac78accc1a647c37cbce3c5cf0a33d3ea1fd2fb9d8a",
+      "matches": true
+    },
+    {
+      "path": "artifacts/resume_audit/audit.json",
+      "expected_sha256": "1cafae02dd3f93fdd98e9d8bc48551d1c87bd66ee7e00762af3302fd59e022f7",
+      "actual_sha256": "1cafae02dd3f93fdd98e9d8bc48551d1c87bd66ee7e00762af3302fd59e022f7",
+      "matches": true
+    },
+    {
+      "path": "artifacts/tests/cpu_smoke_results.json",
+      "expected_sha256": "8c4e2e40a63ff52437dd0da8e3a94919d81e7e550f2fc46f67b15ed15a3f066c",
+      "actual_sha256": "8c4e2e40a63ff52437dd0da8e3a94919d81e7e550f2fc46f67b15ed15a3f066c",
+      "matches": true
+    },
+    {
+      "path": "artifacts/tests/environment_final.log",
+      "expected_sha256": "c490dc7c29b90ed15f372d226b28c78b060b61f2069e281a206b5074713c2e2d",
+      "actual_sha256": "c490dc7c29b90ed15f372d226b28c78b060b61f2069e281a206b5074713c2e2d",
+      "matches": true
+    },
+    {
+      "path": "geometry.py",
+      "expected_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+      "actual_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+      "matches": true
+    },
+    {
+      "path": "protocol.json",
+      "expected_sha256": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+      "actual_sha256": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+      "matches": true
+    },
+    {
+      "path": "queue.json",
+      "expected_sha256": "6cd73afa9e3d4c7ff740186b798803869c7ff7f3998b1d13bb6af42f7f27bdd0",
+      "actual_sha256": "6cd73afa9e3d4c7ff740186b798803869c7ff7f3998b1d13bb6af42f7f27bdd0",
+      "matches": true
+    },
+    {
+      "path": "report.py",
+      "expected_sha256": "0fcdb802ad100488c321c9d7e497d055d06fe5eaf43572225705899d7dee81bc",
+      "actual_sha256": "0fcdb802ad100488c321c9d7e497d055d06fe5eaf43572225705899d7dee81bc",
+      "matches": true
+    },
+    {
+      "path": "run_env.sh",
+      "expected_sha256": "57a9d8f59ebf0d995a489a9f53dce52bedd5c7fd3413352283de4e8dd6e6e4cc",
+      "actual_sha256": "57a9d8f59ebf0d995a489a9f53dce52bedd5c7fd3413352283de4e8dd6e6e4cc",
+      "matches": true
+    },
+    {
+      "path": "scheduler.py",
+      "expected_sha256": "0850bc931bf897a9e94cdef5cab336aa875da2464f65c7937ac8cb4176835431",
+      "actual_sha256": "0850bc931bf897a9e94cdef5cab336aa875da2464f65c7937ac8cb4176835431",
+      "matches": true
+    },
+    {
+      "path": "search.py",
+      "expected_sha256": "173de33b8c63af48f5712298ca5a84cd7368075420d842792dc8602020e213ad",
+      "actual_sha256": "173de33b8c63af48f5712298ca5a84cd7368075420d842792dc8602020e213ad",
+      "matches": true
+    },
+    {
+      "path": "test_environment.py",
+      "expected_sha256": "5c85e91f452fe76bcbb903a2708882da5b6909dcbd2a3f20c3ef5e84c4a66cb7",
+      "actual_sha256": "5c85e91f452fe76bcbb903a2708882da5b6909dcbd2a3f20c3ef5e84c4a66cb7",
+      "matches": true
+    },
+    {
+      "path": "test_scheduler.py",
+      "expected_sha256": "86a0b3e3073e3b2ad9920251bdf6c5391fc59ac45132c8d1135b17dc86229e6e",
+      "actual_sha256": "86a0b3e3073e3b2ad9920251bdf6c5391fc59ac45132c8d1135b17dc86229e6e",
+      "matches": true
+    },
+    {
+      "path": "train.py",
+      "expected_sha256": "483f1846c2738d2d6139648c8948417a5e39a4acdcd729d47aa42e4857cace31",
+      "actual_sha256": "483f1846c2738d2d6139648c8948417a5e39a4acdcd729d47aa42e4857cace31",
+      "matches": true
+    }
+  ],
+  "dependency_hashes": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py",
+      "expected_sha256": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "actual_sha256": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "matches": true
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py",
+      "expected_sha256": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "actual_sha256": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "matches": true
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py",
+      "expected_sha256": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40",
+      "actual_sha256": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40",
+      "matches": true
+    }
+  ],
+  "completion_markers": [
+    {
+      "task_id": "smoke_erm_critic",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "d4501a5cd2ed8fc8219f17d7fa80e8935e4ce289cdf825db3dec7b1a70f2e1ff",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/erm_critic/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "erm_critic",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "smoke_erm_rollout",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "effd8a6eede5b36bd0c8535a67dcf02cda125ec74d654bcd811e3271d8284a65",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/erm_rollout/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "erm_rollout",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "smoke_wdro_random",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "8eaa50a64d5b9b168f151fc64395b358deb9584e070f4c718fd55b7e2caebcf9",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/wdro_random/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "wdro_random",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "smoke_wdro_es",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "f4418022160dd28139a8ffaa47830bb67beac0ee8491ce07a6d265f35d14d208",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/wdro_es/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "wdro_es",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "smoke_wdro_critic",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "15592009256038b7394c8972cd3d474ddc9c7fdb6ea0c60066d8c6dd1bb46b6c",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/wdro_critic/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "wdro_critic",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "smoke_wdro_rl",
+      "kind": "gpu_smoke",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "e72e29525398dcb1da0a107aa53fefdcbe02d97c7dab0e79014dd75faa91a238",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/gpu_smoke/wdro_rl/complete.json",
+      "acceptance": "gpu_smoke",
+      "step": 2,
+      "method": "wdro_rl",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2
+    },
+    {
+      "task_id": "wdro_rl_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "d55d14065a4582b5c74833b75da6b58e546ae86253759c3d7da3b13e87dcb494",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_rl_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_rl",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_rollout_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "337d0baf7d66f7d5c3fc262db6b6eb0aa071b4bb65ff516266ac8c5158094171",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_rollout_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_rollout",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_critic_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "d8a7d39b1ad814b58f9c618c9716251ee875e40349e7b6f4960452ac14a02b5f",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_critic_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_critic",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_random_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "48577b801f9387e48765e43eb42b299fab8da0b023e19f87296414d0b31ab4df",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_random_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_random",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_es_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "2efc455b6df06c54dcca532af0753872e3b9c243a3c39f9645685acb5eb1e1b0",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_es_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_es",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_critic_s101",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "ad52e838899d51b0973fb0a3efbdc2d5c9db6699814d280e3f45a033bbc896a7",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_critic_s101/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_critic",
+      "seed": 101,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_critic_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "4019280e78ce6f923f1f2346ac69436e5bedc815c0cb8777e998133510fd3818",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_critic_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_critic",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_rollout_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "05c4e150e9053dbd84dd48cbbb553f03171db568a923c0a56d78dd143004d04d",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_rollout_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_rollout",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_random_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "704c7ff3df8d2d7f2165dfec9a19a60348e2954e09282f0515dfb3a998cdf0f8",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_random_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_random",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_es_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "ca006e153cf71b61487225e7e86e44af22da917f6e7a4349ce98772ddb032fde",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_es_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_es",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_critic_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "7f88d3709173388b4608cffa51725c240c6975f8121e0a4106681a0660475bff",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_critic_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_critic",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_rl_s102",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "9781b3c8be8c55aad45fe9f54acb6fcf5f843c96bfc3f1cee04f1e24e92b63b7",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_rl_s102/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_rl",
+      "seed": 102,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_critic_s103",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "1b8197aa3786eba0250ac5536bc6ec6ed69a8a2283d381c586b2891f9ed17cc8",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_critic_s103/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_critic",
+      "seed": 103,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "erm_rollout_s103",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "66da98c02b6deaefd17dd0dc237fdbc9355d1c5f8d8df43e66f8b49ec0650b59",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/erm_rollout_s103/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "erm_rollout",
+      "seed": 103,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_random_s103",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "62e2df47aa4070e7b682b83d260c595f16ffb0cf9cdd2f09e7e28bd570d9dbcf",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_random_s103/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_random",
+      "seed": 103,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_es_s103",
+      "kind": "training",
+      "complete_exists": false,
+      "recorded_completed_by_scheduler": false,
+      "complete_sha256": null,
+      "matches_scheduler_complete_sha256": null,
+      "path": "artifacts/runs/wdro_es_s103/complete.json"
+    },
+    {
+      "task_id": "wdro_critic_s103",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "36e694e222b14692c05919aa210c46d0169e35d51dc6519180cbca33bbd0aed0",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_critic_s103/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_critic",
+      "seed": 103,
+      "device": "cuda:0",
+      "target_updates": 2048
+    },
+    {
+      "task_id": "wdro_rl_s103",
+      "kind": "training",
+      "complete_exists": true,
+      "recorded_completed_by_scheduler": true,
+      "complete_sha256": "85ab9baa5d22828ac272bb364a7a8f7098662ff17043e534dacd8b92929bdfed",
+      "matches_scheduler_complete_sha256": true,
+      "path": "artifacts/runs/wdro_rl_s103/complete.json",
+      "acceptance": "accepted_gpu",
+      "step": 2048,
+      "method": "wdro_rl",
+      "seed": 103,
+      "device": "cuda:0",
+      "target_updates": 2048
+    }
+  ],
+  "attempts": [
+    {
+      "task_id": "erm_critic_s101",
+      "attempt": 1,
+      "gpu": 7,
+      "path": "artifacts/operations/attempt_erm_critic_s101_a1_1789505633212075097.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 23843.6720430851
+    },
+    {
+      "task_id": "erm_critic_s102",
+      "attempt": 1,
+      "gpu": 5,
+      "path": "artifacts/operations/attempt_erm_critic_s102_a1_1789509688455359638.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 19510.670733213425
+    },
+    {
+      "task_id": "erm_critic_s103",
+      "attempt": 1,
+      "gpu": 5,
+      "path": "artifacts/operations/attempt_erm_critic_s103_a1_1789515767790697816.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 11376.918960809708
+    },
+    {
+      "task_id": "erm_rollout_s101",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_erm_rollout_s101_a1_1789505551718539138.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 23764.18722629547
+    },
+    {
+      "task_id": "erm_rollout_s102",
+      "attempt": 1,
+      "gpu": 5,
+      "path": "artifacts/operations/attempt_erm_rollout_s102_a1_1789512009712854568.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 16350.230984926224
+    },
+    {
+      "task_id": "erm_rollout_s103",
+      "attempt": 1,
+      "gpu": 6,
+      "path": "artifacts/operations/attempt_erm_rollout_s103_a1_1789515873158167630.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 11441.439968585968
+    },
+    {
+      "task_id": "smoke_erm_critic",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_smoke_erm_critic_a1_1789505429060788192.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 26052.295931577682
+    },
+    {
+      "task_id": "smoke_erm_rollout",
+      "attempt": 1,
+      "gpu": 3,
+      "path": "artifacts/operations/attempt_smoke_erm_rollout_a1_1789505429110491764.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 26052.289890527725
+    },
+    {
+      "task_id": "smoke_wdro_critic",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_smoke_wdro_critic_a1_1789505510670762039.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 25970.680292606354
+    },
+    {
+      "task_id": "smoke_wdro_es",
+      "attempt": 1,
+      "gpu": 3,
+      "path": "artifacts/operations/attempt_smoke_wdro_es_a1_1789505469915238949.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 26011.419126033783
+    },
+    {
+      "task_id": "smoke_wdro_random",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_smoke_wdro_random_a1_1789505469780390375.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 26011.524241685867
+    },
+    {
+      "task_id": "smoke_wdro_rl",
+      "attempt": 1,
+      "gpu": 3,
+      "path": "artifacts/operations/attempt_smoke_wdro_rl_a1_1789505510801825634.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 25970.567843914032
+    },
+    {
+      "task_id": "wdro_critic_s101",
+      "attempt": 1,
+      "gpu": 4,
+      "path": "artifacts/operations/attempt_wdro_critic_s101_a1_1789509667832753052.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 14881.077421665192
+    },
+    {
+      "task_id": "wdro_critic_s102",
+      "attempt": 1,
+      "gpu": 0,
+      "path": "artifacts/operations/attempt_wdro_critic_s102_a1_1789512813140541569.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 8427.714251041412
+    },
+    {
+      "task_id": "wdro_critic_s103",
+      "attempt": 1,
+      "gpu": 7,
+      "path": "artifacts/operations/attempt_wdro_critic_s103_a1_1789519341025647736.json",
+      "result_exists": true,
+      "result_status": "deferred",
+      "returncode": null,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": null
+    },
+    {
+      "task_id": "wdro_critic_s103",
+      "attempt": 1,
+      "gpu": 7,
+      "path": "artifacts/operations/attempt_wdro_critic_s103_a1_1789519361989521233.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 4611.7360663414
+    },
+    {
+      "task_id": "wdro_es_s101",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_wdro_es_s101_a1_1789507753792755296.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 14039.439708948135
+    },
+    {
+      "task_id": "wdro_es_s102",
+      "attempt": 1,
+      "gpu": 1,
+      "path": "artifacts/operations/attempt_wdro_es_s102_a1_1789512771524165747.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 7931.549899101257
+    },
+    {
+      "task_id": "wdro_es_s103",
+      "attempt": 1,
+      "gpu": 2,
+      "path": "artifacts/operations/attempt_wdro_es_s103_a1_1789517470645503237.json",
+      "result_exists": false,
+      "result_status": "missing",
+      "returncode": null,
+      "wrapper_identity_live": true,
+      "heartbeat_age_seconds": 3.900573492050171
+    },
+    {
+      "task_id": "wdro_random_s101",
+      "attempt": 1,
+      "gpu": 6,
+      "path": "artifacts/operations/attempt_wdro_random_s101_a1_1789505653714053569.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 15712.612624645233
+    },
+    {
+      "task_id": "wdro_random_s102",
+      "attempt": 1,
+      "gpu": 7,
+      "path": "artifacts/operations/attempt_wdro_random_s102_a1_1789512647408511706.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 12201.042059659958
+    },
+    {
+      "task_id": "wdro_random_s103",
+      "attempt": 1,
+      "gpu": 4,
+      "path": "artifacts/operations/attempt_wdro_random_s103_a1_1789516722122104901.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 5746.68043756485
+    },
+    {
+      "task_id": "wdro_rl_s101",
+      "attempt": 1,
+      "gpu": 3,
+      "path": "artifacts/operations/attempt_wdro_rl_s101_a1_1789505551660083462.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 17502.26954269409
+    },
+    {
+      "task_id": "wdro_rl_s102",
+      "attempt": 1,
+      "gpu": 3,
+      "path": "artifacts/operations/attempt_wdro_rl_s102_a1_1789514053525342582.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 6152.715216875076
+    },
+    {
+      "task_id": "wdro_rl_s103",
+      "attempt": 1,
+      "gpu": 6,
+      "path": "artifacts/operations/attempt_wdro_rl_s103_a1_1789520570215931519.json",
+      "result_exists": true,
+      "result_status": "exited",
+      "returncode": 0,
+      "wrapper_identity_live": false,
+      "heartbeat_age_seconds": 3957.7023074626923
+    }
+  ],
+  "attempt_result_status_counts": {
+    "exited": 23,
+    "deferred": 1,
+    "missing": 1
+  },
+  "limits": [
+    "Runtime health does not replace independent checkpoint, prediction and statistical acceptance.",
+    "Active process snapshots may advance during this read-only audit.",
+    "Heartbeat remaining-time estimate excludes validation, final evaluation and report."
+  ]
+}

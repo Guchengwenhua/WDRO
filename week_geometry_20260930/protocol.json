@@ -1,0 +1,106 @@
+{
+  "scope": "Seven-day reentrant conditional-geometry research; root controller schedules all work; no running extension edits",
+  "deadline": "2026-10-07T15:29:00Z",
+  "no_new_training_after": "2026-10-06T15:29:00Z",
+  "stages": [
+    "wait extension complete",
+    "freeze per-degree winner from extension development only",
+    "fresh legal dev screening",
+    "dev-only positive gate",
+    "fresh independent test screening",
+    "conditional matched-seed full original WDRO training",
+    "always-run partial-aware report"
+  ],
+  "freeze": {
+    "metrics": [
+      "Q",
+      "G",
+      "C"
+    ],
+    "rule": "reuse extension predeclared per-degree development winner; no test data consumed",
+    "training_degree": 10,
+    "degree30": "diagnostic only; never transfer d30 gate to d10"
+  },
+  "screen": {
+    "degrees": [
+      10,
+      30
+    ],
+    "models_per_degree": 4,
+    "training_seeds": [
+      102,
+      103
+    ],
+    "dev_centers_per_family": 32,
+    "test_centers_per_family": 64,
+    "families": [
+      "uniform",
+      "mix_gauss",
+      "edge_bias",
+      "grid_cluster"
+    ],
+    "new_dev_seed": 202610041,
+    "new_test_seed": 202610057,
+    "candidates": 32,
+    "nominal": 1,
+    "shortlist": "nominal plus top3, exact budget4 per method; hard-radius branch pads nominal if fewer legal",
+    "methods": [
+      "original MST/HPWL",
+      "random",
+      "conditional Hnorm",
+      "development-chosen Q/G/C"
+    ],
+    "inference": "FP32 greedy T1 batch256 padded tail; per-instance step mean",
+    "geometry": "same actual L-path samples and bbox(w+h) geometry as pilot",
+    "constraint": "Compute Hungarian L1 mean after final float32 normalization on model inputs. hard c<=degree q75 rho is separate auxiliary scope; soft score=regret-1*c uses all original-normalized candidates.",
+    "reference": "all33 exact GeoSteiner labels only after all model/method shortlists frozen; diagnostic collection cost separate from per-method four-exact budget",
+    "generator": "new seeded iid noise with original four motion family styles and amplitudes, not claimed identical original Sobol support stream",
+    "gate": "d10 extension dev mean positive AND new dev soft-dual geometry minus entropy AND random paired CI95 lower>0, Holm-adjusted p<.05 across six predeclared scope\u00d7baseline contrasts. Test never read by gate.",
+    "statistics": "same center shared across4models; average models first then paired center bootstrap2000 and9999 signflips; family breakdown; d30 does not gate training"
+  },
+  "training": {
+    "updates": 2000,
+    "degree": 10,
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "arms": [
+      "original",
+      "random",
+      "entropy",
+      "geometry"
+    ],
+    "initialization": "same original legacy rsmt10b actor; fresh original critic/Adam and RNG seed namespace per seed",
+    "support": "unchanged original random_sobol32+nominal; normalized float32 pins; original transport_costs Hungarian",
+    "modified": "shortlist ranking only. Original retains MST/HPWL; random fixed seed update RNG; entropy/geometric current frozen-within-call actor greedy conditional scores.",
+    "reference": "GeoSteiner exact binary scale v2 every arm; nominal+3 exact rescoring; no bank surrogate",
+    "dual": "unchanged original lambda initial0 eta1 projected ascent with original rho q75; no added hard-radius filter",
+    "loss": "unchanged original relative-regret actor-critic, modes and optimizer",
+    "validation": "original every100, 4\u00d72000 cached true references; original nominal degradation bound. Best selected by original validation only",
+    "test": "fixed latest and validation-best after2000, original batch256 unpadded tail 4\u00d710000; not strategy selection",
+    "budget_note": "same candidate32 and exact4 budgets, but entropy/geometry score all33 by actor, additional actor_forward_nets logged; not equal walltime",
+    "primary": "fixed latest2000 macro-OOD mean regret geometry minus original/random/entropy; paired same net IDs, shared fitted seeds averaged; three Bonferroni98.333% intervals; validation-best is secondary and actual selected update always reported, including update0",
+    "first_seed_block": 101,
+    "deadline_scope": "stage102/103 may be skipped if root time budget insufficient; no test-driven early stopping"
+  },
+  "runtime": {
+    "gpu": "root CUDA_VISIBLE_DEVICES, torch cuda0",
+    "memory_fraction": 0.1,
+    "cpu_threads": 1,
+    "estimate_screen_seconds_each": 7200,
+    "estimate_train_seconds": 21600,
+    "estimated_branch_storage_gib": 20,
+    "overall_controller_cap_gib": 200,
+    "resume": "atomic batch predictions, per-center references, fixed metadata and selections; full trainer actor/critic/optimizer/scheduler/RNG/lambda/latest checkpoint, no completion if paused",
+    "bookkeeping": "no content hashes; original identifier-derived seed hashing retained solely for unchanged original training stream"
+  },
+  "cost_gate": {
+    "prefix": "same final2000 scientific run geometry seed101, stop_after100, save full resumable state, no test evaluation, not smoke",
+    "prefix_max_wall_seconds": 21600,
+    "rule": "dev-positive AND official100-step cost projection for all three matched4arm blocks fits min(72h,45%remaining untilOct6 15:29UTC),1.25safety plus2h finaleval; H uses geometry timing upper estimate; original/random uses observedscale2s/update",
+    "negative": "retain100-step artifact, no fullmatrix completion claim, all12 fulltrain jobs skipped",
+    "baseline_reuse": "not used: source bookkeeping identity differs; no new equivalence claim"
+  }
+}

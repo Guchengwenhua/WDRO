@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euo pipefail
+TASK_ROOT=/remote-home/Guilin/DRO/Codex/improvements/papers_wdro_20260915
+export TMPDIR="$TASK_ROOT/artifacts/tmp"
+export TMP="$TMPDIR" TEMP="$TMPDIR"
+export XDG_CACHE_HOME="$TASK_ROOT/.cache"
+export TORCH_HOME="$XDG_CACHE_HOME/torch" CUDA_CACHE_PATH="$XDG_CACHE_HOME/cuda"
+export MPLCONFIGDIR="$XDG_CACHE_HOME/matplotlib" TRITON_CACHE_DIR="$XDG_CACHE_HOME/triton"
+export PYTHONDONTWRITEBYTECODE=1
+export OMP_NUM_THREADS="${PAPERS_WDRO_CPU_THREADS:-1}" OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS="${PAPERS_WDRO_CPU_THREADS:-1}"
+export CUBLAS_WORKSPACE_CONFIG=:4096:8
+export PYTHONPATH="$TASK_ROOT/.deps:$TASK_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+mkdir -p "$TMPDIR" "$XDG_CACHE_HOME" "$TORCH_HOME" "$CUDA_CACHE_PATH" "$MPLCONFIGDIR" "$TRITON_CACHE_DIR"
+cd "$TASK_ROOT"
+exec /remote-home/Guilin/miniconda3/envs/py311/bin/python "$@"

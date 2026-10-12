@@ -1,0 +1,35 @@
+{
+  "id": "final_DEEP_s202",
+  "mode": "train",
+  "stage": "final",
+  "arm": "DEEP",
+  "seed": 202,
+  "config": {
+    "width": 128,
+    "depth": 6,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "original",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 4,
+  "target": 6,
+  "outdir": "artifacts/runs/final_DEEP_s202",
+  "endpoints": [
+    6
+  ],
+  "parent": {
+    "path": "artifacts/runs/screen_DEEP_s202/step4.pt",
+    "sha256": "755de3be5b0a5178850f49e24e357bcd58ba223b9e4abc2d9638af05c23cf484"
+  },
+  "inherit_training": true
+}

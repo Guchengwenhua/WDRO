@@ -1,0 +1,144 @@
+{
+  "first_queue_tasks": 53,
+  "stages": {
+    "parents": 2,
+    "screen": 51
+  },
+  "first_queue_updates": 552960,
+  "idealized_first_stage_hours_at_8_gpus": 18.888277788460254,
+  "minimum_total_updates": 712704,
+  "maximum_total_updates": 1105920,
+  "minimum_new_sampled": 50331648,
+  "maximum_new_sampled": 75497472,
+  "short_pilot_profiles": [
+    {
+      "name": "E50",
+      "config": {
+        "width": 128,
+        "depth": 3,
+        "inner": 512,
+        "batch": 64,
+        "lr": 5e-05,
+        "schedule": "constant",
+        "optimizer": "adam",
+        "weight_decay": 0.0,
+        "freeze_bn": false,
+        "advantage_ema": false,
+        "augmentation": false,
+        "objective": "erm",
+        "eta": 0.01,
+        "uniform_mix": 0.0,
+        "normalize_risk": false
+      },
+      "new_updates": 32,
+      "seconds_per_update": 0.9738180029671639,
+      "peak_reserved_bytes": 425721856,
+      "ledger": {
+        "sampled_rows": 2048,
+        "rollout_rows": 2048,
+        "calibration_rows": 256,
+        "validation_rows": 256,
+        "test_rows": 0,
+        "backward_updates": 32,
+        "oracle_calls": 0
+      }
+    },
+    {
+      "name": "B256",
+      "config": {
+        "width": 128,
+        "depth": 3,
+        "inner": 512,
+        "batch": 256,
+        "lr": 5e-05,
+        "schedule": "constant",
+        "optimizer": "adam",
+        "weight_decay": 0.0,
+        "freeze_bn": false,
+        "advantage_ema": false,
+        "augmentation": false,
+        "objective": "erm",
+        "eta": 0.01,
+        "uniform_mix": 0.0,
+        "normalize_risk": false
+      },
+      "new_updates": 32,
+      "seconds_per_update": 1.1888175865169615,
+      "peak_reserved_bytes": 1402994688,
+      "ledger": {
+        "sampled_rows": 8192,
+        "rollout_rows": 8192,
+        "calibration_rows": 256,
+        "validation_rows": 256,
+        "test_rows": 0,
+        "backward_updates": 32,
+        "oracle_calls": 0
+      }
+    },
+    {
+      "name": "WIDE",
+      "config": {
+        "width": 256,
+        "depth": 3,
+        "inner": 1024,
+        "batch": 64,
+        "lr": 5e-05,
+        "schedule": "original",
+        "optimizer": "adam",
+        "weight_decay": 0.0,
+        "freeze_bn": false,
+        "advantage_ema": false,
+        "augmentation": false,
+        "objective": "erm",
+        "eta": 0.01,
+        "uniform_mix": 0.0,
+        "normalize_risk": false
+      },
+      "new_updates": 32,
+      "seconds_per_update": 0.9593700366094708,
+      "peak_reserved_bytes": 484442112,
+      "ledger": {
+        "sampled_rows": 2048,
+        "rollout_rows": 2048,
+        "calibration_rows": 256,
+        "validation_rows": 256,
+        "test_rows": 0,
+        "backward_updates": 32,
+        "oracle_calls": 0
+      }
+    },
+    {
+      "name": "DEEP",
+      "config": {
+        "width": 128,
+        "depth": 6,
+        "inner": 512,
+        "batch": 64,
+        "lr": 5e-05,
+        "schedule": "original",
+        "optimizer": "adam",
+        "weight_decay": 0.0,
+        "freeze_bn": false,
+        "advantage_ema": false,
+        "augmentation": false,
+        "objective": "erm",
+        "eta": 0.01,
+        "uniform_mix": 0.0,
+        "normalize_risk": false
+      },
+      "new_updates": 32,
+      "seconds_per_update": 0.9917843225412071,
+      "peak_reserved_bytes": 515899392,
+      "ledger": {
+        "sampled_rows": 2048,
+        "rollout_rows": 2048,
+        "calibration_rows": 256,
+        "validation_rows": 256,
+        "test_rows": 0,
+        "backward_updates": 32,
+        "oracle_calls": 0
+      }
+    }
+  ],
+  "note": "Short-pilot estimate excludes validation, startup, shared-device and CPU contention, and scheduling tails."
+}

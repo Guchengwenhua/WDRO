@@ -1,0 +1,453 @@
+{
+  "jobs": [
+    {
+      "id": "geometry_freeze",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/stages.py",
+        "--phase",
+        "freeze"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/freeze_complete.json",
+      "depends_on": [],
+      "estimated_seconds": 60,
+      "kind": "gate"
+    },
+    {
+      "id": "geometry_dev_d10",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/screen.py",
+        "--degree",
+        "10",
+        "--split",
+        "dev"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d10_dev/complete.json",
+      "depends_on": [
+        "geometry_freeze"
+      ],
+      "estimated_seconds": 7200,
+      "kind": "evaluate"
+    },
+    {
+      "id": "geometry_dev_d30",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/screen.py",
+        "--degree",
+        "30",
+        "--split",
+        "dev"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d30_dev/complete.json",
+      "depends_on": [
+        "geometry_freeze"
+      ],
+      "estimated_seconds": 7200,
+      "kind": "evaluate"
+    },
+    {
+      "id": "geometry_train_gate",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/stages.py",
+        "--phase",
+        "train_gate"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate_complete.json",
+      "depends_on": [
+        "geometry_dev_d10"
+      ],
+      "estimated_seconds": 60,
+      "kind": "gate"
+    },
+    {
+      "id": "geometry_test_d10",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/screen.py",
+        "--degree",
+        "10",
+        "--split",
+        "test"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d10_test/complete.json",
+      "depends_on": [
+        "geometry_dev_d10",
+        "geometry_train_gate"
+      ],
+      "estimated_seconds": 10800,
+      "kind": "evaluate"
+    },
+    {
+      "id": "geometry_test_d30",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/screen.py",
+        "--degree",
+        "30",
+        "--split",
+        "test"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/screen_d30_test/complete.json",
+      "depends_on": [
+        "geometry_dev_d30",
+        "geometry_train_gate"
+      ],
+      "estimated_seconds": 10800,
+      "kind": "evaluate"
+    },
+    {
+      "id": "geometry_official_prefix100",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "geometry",
+        "--seed",
+        "101",
+        "--stop-after",
+        "100"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s101/segment_0100.json",
+      "depends_on": [
+        "geometry_train_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate.json",
+      "estimated_seconds": 7200,
+      "max_wall_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_budget_gate",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/budget_gate.py"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "depends_on": [
+        "geometry_official_prefix100"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/gate.json",
+      "estimated_seconds": 60,
+      "kind": "gate"
+    },
+    {
+      "id": "geometry_train_original_s101",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "original",
+        "--seed",
+        "101"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s101/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_random_s101",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "random",
+        "--seed",
+        "101"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s101/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_entropy_s101",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "entropy",
+        "--seed",
+        "101"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s101/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_geometry_s101",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "geometry",
+        "--seed",
+        "101"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s101/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_original_s102",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "original",
+        "--seed",
+        "102"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s102/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s101",
+        "geometry_train_random_s101",
+        "geometry_train_entropy_s101",
+        "geometry_train_geometry_s101",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_random_s102",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "random",
+        "--seed",
+        "102"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s102/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s101",
+        "geometry_train_random_s101",
+        "geometry_train_entropy_s101",
+        "geometry_train_geometry_s101",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_entropy_s102",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "entropy",
+        "--seed",
+        "102"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s102/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s101",
+        "geometry_train_random_s101",
+        "geometry_train_entropy_s101",
+        "geometry_train_geometry_s101",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_geometry_s102",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "geometry",
+        "--seed",
+        "102"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s102/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s101",
+        "geometry_train_random_s101",
+        "geometry_train_entropy_s101",
+        "geometry_train_geometry_s101",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_original_s103",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "original",
+        "--seed",
+        "103"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/original_s103/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s102",
+        "geometry_train_random_s102",
+        "geometry_train_entropy_s102",
+        "geometry_train_geometry_s102",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_random_s103",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "random",
+        "--seed",
+        "103"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/random_s103/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s102",
+        "geometry_train_random_s102",
+        "geometry_train_entropy_s102",
+        "geometry_train_geometry_s102",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 7200,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_entropy_s103",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "entropy",
+        "--seed",
+        "103"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/entropy_s103/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s102",
+        "geometry_train_random_s102",
+        "geometry_train_entropy_s102",
+        "geometry_train_geometry_s102",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_train_geometry_s103",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/run_train.py",
+        "--arm",
+        "geometry",
+        "--seed",
+        "103"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/train/geometry_s103/complete.json",
+      "depends_on": [
+        "geometry_train_gate",
+        "geometry_train_original_s102",
+        "geometry_train_random_s102",
+        "geometry_train_entropy_s102",
+        "geometry_train_geometry_s102",
+        "geometry_budget_gate"
+      ],
+      "gate_file": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/budget_gate.json",
+      "estimated_seconds": 21600,
+      "kind": "train"
+    },
+    {
+      "id": "geometry_report",
+      "argv": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/stages.py",
+        "--phase",
+        "report"
+      ],
+      "cwd": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930",
+      "complete": "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts/report_complete.json",
+      "depends_on": [
+        "geometry_freeze",
+        "geometry_dev_d10",
+        "geometry_dev_d30",
+        "geometry_train_gate",
+        "geometry_test_d10",
+        "geometry_test_d30",
+        "geometry_official_prefix100",
+        "geometry_budget_gate",
+        "geometry_train_original_s101",
+        "geometry_train_random_s101",
+        "geometry_train_entropy_s101",
+        "geometry_train_geometry_s101",
+        "geometry_train_original_s102",
+        "geometry_train_random_s102",
+        "geometry_train_entropy_s102",
+        "geometry_train_geometry_s102",
+        "geometry_train_original_s103",
+        "geometry_train_random_s103",
+        "geometry_train_entropy_s103",
+        "geometry_train_geometry_s103"
+      ],
+      "estimated_seconds": 1200,
+      "kind": "summarize",
+      "always_run": true
+    }
+  ]
+}

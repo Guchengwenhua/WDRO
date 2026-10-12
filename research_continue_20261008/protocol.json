@@ -1,0 +1,59 @@
+{
+  "cohort": "continuation_and_exploratory_geometry_20261008",
+  "authorization": "User requested autonomous bank continuation and direct geometry/ordinary-entropy training",
+  "bank": {
+    "degree": 30,
+    "arms": [
+      "geo",
+      "k3",
+      "lagged3"
+    ],
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "batch": 4096,
+    "short_updates": 125,
+    "long_updates": 625,
+    "short_samples": 512000,
+    "long_samples": 2560000,
+    "repairs": "import failed seed103 checkpoints into new output dirs; original failures retained",
+    "rng_namespace": "accelerated_largebatch_20261006",
+    "selection": "fixed latest primary; validation-best secondary; no choice based on test",
+    "changes": "d30 fixed K3 added; all three arms extended equally to625"
+  },
+  "geometry": {
+    "degree": 10,
+    "arms": [
+      "original",
+      "random",
+      "entropy",
+      "geometry"
+    ],
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "batch": 4096,
+    "updates": 125,
+    "samples": 512000,
+    "candidates": 33,
+    "exact_shortlist": 4,
+    "metric": "G versus Hnorm",
+    "rng_namespace": "geometry_exploratory_20261008",
+    "gate_override": true,
+    "classification": "exploratory after failed development gate; no claim of pre-gate confirmation",
+    "primary": "latest125 macro OOD true regret; geometry minus each of other3 arms",
+    "statistics": "paired per-instance bootstrap on seed-averaged differences; 98.333% Bonferroni intervals for3 primary contrasts; seed effects separately",
+    "secondary": "validation-selected best, nominal/worstOOD/P95, lambda, cost, difficulty correlations",
+    "budget_scope": "equal sample/update/candidate/exact-reference budgets; entropy and geometry require extra actor work, report separately"
+  },
+  "storage": "All artifacts and temporary caches on attached disk, project symlinks; root free threshold3GiB because only small source files on root",
+  "limitations": [
+    "Historical test data have been inspected; this is an exploratory continuation, not a new blinded holdout.",
+    "No population claim from three seeds; no equivalence margin invented.",
+    "d30 admission requires44GiB free and low current utilization; future foreign jobs can still change availability."
+  ]
+}

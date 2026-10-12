@@ -1,0 +1,141 @@
+{
+  "complete": true,
+  "arm": "geo",
+  "degree": 30,
+  "seed": 101,
+  "updates": 625,
+  "last_validation": {
+    "split": "validation",
+    "seed": 202,
+    "degree": 30,
+    "inference": {
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1,
+      "batch_size": 1024
+    },
+    "groups": {
+      "uniform": {
+        "summary": {
+          "count": 2000,
+          "mean": 0.006808500775776409,
+          "p95": 0.020050760435724728,
+          "minimum": 0.0,
+          "maximum": 0.05944083185152355
+        },
+        "dataset_array_bundle_sha256": "4b546741528669eec0bd974a84069bdf774194ef1ff8da0c9c7d4cb41029a6a8",
+        "first_net_id": "validation:uniform:d30:s202:n000000",
+        "last_net_id": "validation:uniform:d30:s202:n001999"
+      },
+      "mix_gauss": {
+        "summary": {
+          "count": 2000,
+          "mean": 0.012088883058492062,
+          "p95": 0.03249962396433577,
+          "minimum": 0.0,
+          "maximum": 0.07208593911704528
+        },
+        "dataset_array_bundle_sha256": "051657bf372f12afc2537e1c403cdc5081639125fad64c6f36bf75a286c72a5c",
+        "first_net_id": "validation:mix_gauss:d30:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d30:s202:n001999"
+      },
+      "edge_bias": {
+        "summary": {
+          "count": 2000,
+          "mean": 0.007712041481430329,
+          "p95": 0.022723524782376086,
+          "minimum": 0.0,
+          "maximum": 0.06634851933580953
+        },
+        "dataset_array_bundle_sha256": "7ff51a04997567941229501aab1f69933a6e1f585efd111c7e67482e74fd4cd4",
+        "first_net_id": "validation:edge_bias:d30:s202:n000000",
+        "last_net_id": "validation:edge_bias:d30:s202:n001999"
+      },
+      "grid_cluster": {
+        "summary": {
+          "count": 2000,
+          "mean": 0.006607234639233306,
+          "p95": 0.018726326966426114,
+          "minimum": 0.0,
+          "maximum": 0.05731484866463521
+        },
+        "dataset_array_bundle_sha256": "27e18afb8ad9128bde14e7db001188ce5f7ed9733eaed1e45f39de0316a5a052",
+        "first_net_id": "validation:grid_cluster:d30:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d30:s202:n001999"
+      }
+    },
+    "aggregate": {
+      "overall": {
+        "count": 8000,
+        "mean": 0.008304164988733027,
+        "p95": 0.02441284812525201,
+        "minimum": 0.0,
+        "maximum": 0.07208593911704528
+      },
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "mean": 0.007712041481430329,
+          "p95": 0.022723524782376086,
+          "minimum": 0.0,
+          "maximum": 0.06634851933580953
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "mean": 0.006607234639233306,
+          "p95": 0.018726326966426114,
+          "minimum": 0.0,
+          "maximum": 0.05731484866463521
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "mean": 0.012088883058492062,
+          "p95": 0.03249962396433577,
+          "minimum": 0.0,
+          "maximum": 0.07208593911704528
+        },
+        "uniform": {
+          "count": 2000,
+          "mean": 0.006808500775776409,
+          "p95": 0.020050760435724728,
+          "minimum": 0.0,
+          "maximum": 0.05944083185152355
+        }
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.012088883058492062
+    },
+    "selection": {
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.012088883058492062,
+      "nominal_mean": 0.006808500775776409,
+      "test_or_ispd_used": false
+    }
+  },
+  "best": {
+    "update": 438,
+    "feasible": true,
+    "selection_objective": 0.011879236296131279,
+    "nominal_mean": 0.0068907603213562195,
+    "validation_manifest_sha256": "not_computed_per_skill"
+  },
+  "reference_state": {
+    "bank": [],
+    "accounting": {
+      "teacher_forward_nets": 0,
+      "teacher_seconds": 0.0,
+      "exact_train_nets": 10240000,
+      "exact_train_seconds": 43637.69736818969,
+      "refresh_seconds": 0.0,
+      "refreshes": 0,
+      "duplicate_snapshots_skipped": 0
+    },
+    "arm": "geo"
+  },
+  "wall_seconds_this_process": 47425.202513471246
+}

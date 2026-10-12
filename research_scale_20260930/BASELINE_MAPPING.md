@@ -1,0 +1,11 @@
+# Scientific pipeline mapping and limits
+Original root: ../wdro_precision_v2/wdro_rest_min.
+Entrypoint scripts/train_stage6.py -> stage6/trainer.py:train_wdro.
+Search: stage5/search.py:search_batch -> src/candidates.py:generate_support/exact_score_support; selected random_sobol32 plus nominal, top4 exact rescoring. This shortlist exists in the original frozen configuration.
+Objective: src/metrics.py:relative_regret is (REST-reference)/reference, without clipping negative values; stage4/dual.py:select_wdro subtracts lambda*c. Cost stage5/search.py:transport_costs uses src/costs.py:batch_cost, Hungarian mean L1 on final normalized coordinates.
+Dual: original learned lambda starts0; update_lambda uses mean selected cost minus calibrated q75 rho, learning rate1. No substitution with a fixed epsilon perturbation test.
+Outer: stage6/trainer.py samples actor(pins,False), applies detached REINFORCE advantage plus critic squared error, separate norm clipping then Adam and scheduler. Original ReLU critic unchanged for all arms; negative targets explicitly retained and their fraction recorded. ReLU cannot represent negative means; no unlabelled critic redesign.
+Pilot: run_bank.py restores already-trained hard_s102 actor+critic+Adam with actual stored lr5e-5; batch64/200updates/validation50; different stateless training stream. Original: legacy actor+fresh critic+fresh Adam, batch256/2000/validation100. Pilot therefore cannot diagnose an original-WDRO convergence defect from final degradation alone.
+Scale: isolated faithful_trainer.py copies original scientific sequence; adapters replace reference provider, source paths and non-scientific digest/inverse-audit bookkeeping. Original RNG seed namespaces retained. Cached-reference evaluation and train/dev selection remain separate from test.
+Identity-reference check equivalence.json: actual original stage5 search plus original stage6 loss expressions versus Geo adapter, CPU d10/batch8, same input/RNG; support,f,reference,Z,lambda,loss and all one-step actor/critic state values equal. No claim of whole-run numerical identity, hardware-independent equality or long-run equivalence.
+Old geometry perturbation pilot is finite candidate screening, not epsilon-constrained WDRO. Real geometry-guided training remains gated and must calculate original transport on final normalized points before selection.

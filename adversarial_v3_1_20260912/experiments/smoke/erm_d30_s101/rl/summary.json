@@ -1,0 +1,74 @@
+{
+  "status": "complete",
+  "identity": {
+    "schema_version": 1,
+    "algorithm": "v3_one_step_reinforce_raw_f_baseline_X",
+    "degree": 30,
+    "seed": 2064425146,
+    "price": 0.0384167150312949,
+    "config": {
+      "updates": 2,
+      "batch_size": 8,
+      "learning_rate": 0.0003,
+      "initial_std": 0.02,
+      "maximum_motion": 0.08,
+      "validation_interval": 1,
+      "validation_count": 8,
+      "hidden_size": 64,
+      "parent_checkpoint_sha256": "22e95d658b68b5adb8bad4e77f1e2f6d55c71e800f946e244a54d24be333612e",
+      "protocol_sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63"
+    }
+  },
+  "identity_sha256": "4b1d22cb59def8b80659dedb4a91a0948ad76eedad2574bbff2fead2ef7e7c14",
+  "update": 2,
+  "best_update": 2,
+  "best_f": 0.0051385207408034626,
+  "counts": {
+    "training_requests": 32,
+    "validation_requests": 32,
+    "baseline_requests": 32,
+    "candidate_requests": 32
+  },
+  "validation_history": [
+    {
+      "update": 1,
+      "mean_f": 0.005134824228996854,
+      "mean_baseline_f": 0.011744655087321837,
+      "mean_delta_f": -0.006609830858324983,
+      "real_score_requests": 16,
+      "baseline_requests": 8,
+      "candidate_requests": 8,
+      "centers_sha256": "e0c42682c6111bc603495475a94f352b221d0b911e39a10574de5a7dd952d459"
+    },
+    {
+      "update": 2,
+      "mean_f": 0.0051385207408034626,
+      "mean_baseline_f": 0.011744655087321837,
+      "mean_delta_f": -0.006606134346518374,
+      "real_score_requests": 16,
+      "baseline_requests": 8,
+      "candidate_requests": 8,
+      "centers_sha256": "e0c42682c6111bc603495475a94f352b221d0b911e39a10574de5a7dd952d459"
+    }
+  ],
+  "validation_centers_sha256": "e0c42682c6111bc603495475a94f352b221d0b911e39a10574de5a7dd952d459",
+  "data_namespace": "adv_v3_rl_d30_seed2064425146",
+  "training_wall_seconds": 0.6257080584764481,
+  "oracle_ledger_snapshot": {
+    "actor_requested": 112,
+    "reference_requests": 112,
+    "geosteiner_misses_started": 104,
+    "geosteiner_misses_completed": 104,
+    "actor_forward_rows_requested": 1280,
+    "actor_padding_rows_requested": 1168,
+    "actor_forward_rows_completed": 1280,
+    "actor_padding_rows_completed": 1168,
+    "actor_completed": 112,
+    "rest_requested": 112,
+    "rest_completed": 112
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/smoke/erm_d30_s101/rl/latest.pt",
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/smoke/erm_d30_s101/rl/best.pt",
+  "reward_normalization": "none",
+  "baseline": "real_f_of_original_X"
+}

@@ -1,0 +1,593 @@
+{
+  "status": "complete",
+  "acceptance": "accepted_gpu",
+  "binding": {
+    "model_id": "rl_only_wdro_critic_s102",
+    "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+    "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+    "model": {
+      "id": "rl_only_wdro_critic_s102",
+      "family": "rl_only",
+      "method": "wdro_critic",
+      "seed": 102,
+      "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+      "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+      "state_key": "actor",
+      "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+      "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+      "selected_update": 1920,
+      "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+    },
+    "sources": {
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+    "smoke": false
+  },
+  "identity": {
+    "pid": 586203,
+    "start_ticks": "3421612960",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "device": "cuda:0",
+    "physical_gpu_index": 1,
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "visible_devices": "1"
+  },
+  "selected_update": 1920,
+  "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9",
+  "cells": [
+    {
+      "key": "rl_test__uniform",
+      "suite": "rl_test",
+      "group": "uniform",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "81d62f0840299dad19a2062e8ba1d21df601a8ea33b49df96f3d2656a4abec73",
+        "count": 1024
+      },
+      "sha256": "69318579615a02af2413bc09baa6f8b38c11a2b48ecc54b3f51cda9b68231b47",
+      "count": 1024,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_test__uniform.npz"
+    },
+    {
+      "key": "rl_attack32__uniform",
+      "suite": "rl_attack32",
+      "group": "uniform",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "14ab5a955c447a00964e60d06ffc8764a58c6c8091f1195f7f6f573f787187e0",
+        "count": 4096
+      },
+      "sha256": "43a4b364376707076298d2958e3e832f780f77af09c133d8635ff190a7b3e093",
+      "count": 4096,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_attack32__uniform.npz"
+    },
+    {
+      "key": "rl_test__mix_gauss",
+      "suite": "rl_test",
+      "group": "mix_gauss",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "b4c376d5db560b2c99ecffbb3f517fcfe712159d043fd7909c3165e1ca251cad",
+        "count": 1024
+      },
+      "sha256": "3b23e11fd1202b9a5f8763215e3fed5335c3a820ecd7b6db85e996d63fc9f12f",
+      "count": 1024,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_test__mix_gauss.npz"
+    },
+    {
+      "key": "rl_attack32__mix_gauss",
+      "suite": "rl_attack32",
+      "group": "mix_gauss",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "3434887580fc1e9a94c31f838ecb0696a3c1b33b0ee018fc1bd695d528544894",
+        "count": 4096
+      },
+      "sha256": "3d1907a7555acf46db222ad5709d7e44b2755324eff57bbf944f3d78a943ec60",
+      "count": 4096,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_attack32__mix_gauss.npz"
+    },
+    {
+      "key": "rl_test__edge_bias",
+      "suite": "rl_test",
+      "group": "edge_bias",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "a47d028d7547d1d2ef2ea36abe8c6a051b158826354e164d41a6b3b1f59b21c0",
+        "count": 1024
+      },
+      "sha256": "b9a4af891cbe89f9a4d5ff4f97e7c0bc7a182554e8f4c0bf7d7ba2e5bc23d045",
+      "count": 1024,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_test__edge_bias.npz"
+    },
+    {
+      "key": "rl_attack32__edge_bias",
+      "suite": "rl_attack32",
+      "group": "edge_bias",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "ef6a7b488973d8e751f5ec2073d4de944459f7e7fd54f8c21a4427c9ef86cf83",
+        "count": 4096
+      },
+      "sha256": "05c12be01a9698c12ef746cbb768b81af9dc4bac2febaad0db39ebd766cb6f07",
+      "count": 4096,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_attack32__edge_bias.npz"
+    },
+    {
+      "key": "rl_test__grid_cluster",
+      "suite": "rl_test",
+      "group": "grid_cluster",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "48c2aa97d0b5213fefa535a0f66fc1d03e4b527495ce9fb8a8f9c5605340f66e",
+        "count": 1024
+      },
+      "sha256": "dd03d3c655264b40cb78c5a7768bc0fd87db24bca3a4da1382b17a1d15c1068c",
+      "count": 1024,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_test__grid_cluster.npz"
+    },
+    {
+      "key": "rl_attack32__grid_cluster",
+      "suite": "rl_attack32",
+      "group": "grid_cluster",
+      "mode": "reused",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "4933040df75497be102458a2b0055f3fcc37e539a36272d93f6b01894c9ecef8",
+        "count": 4096
+      },
+      "sha256": "41731bbed946601b262fedcd94bf099b7bf94841ef2243d7666d1c28f5428cf9",
+      "count": 4096,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/rl_attack32__grid_cluster.npz"
+    },
+    {
+      "key": "mainline_test__uniform",
+      "suite": "mainline_test",
+      "group": "uniform",
+      "mode": "new_gpu_inference",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "917408a6175ceba3625cccfa103b8103f2402cce78d7b9729d689c5326ae74c2",
+        "count": 10000
+      },
+      "sha256": "dda6f14fe4ae98398917466e46fe88230f8cd08c09bf804f2bcae827da51cf94",
+      "count": 10000,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/mainline_test__uniform.npz"
+    },
+    {
+      "key": "mainline_test__mix_gauss",
+      "suite": "mainline_test",
+      "group": "mix_gauss",
+      "mode": "new_gpu_inference",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "77bc8b37b5f31602013e2a6a8c95cb8fbb0f51159efee3728282544122cefb8b",
+        "count": 10000
+      },
+      "sha256": "56115c054386d879495052b3fc3590a4e9964322fdd7fc6cf1c3162787abf646",
+      "count": 10000,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/mainline_test__mix_gauss.npz"
+    },
+    {
+      "key": "mainline_test__edge_bias",
+      "suite": "mainline_test",
+      "group": "edge_bias",
+      "mode": "new_gpu_inference",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "2b300ef519ddcfd06c0cb81d6623c281b38c75eef049305b649f9b61a192df70",
+        "count": 10000
+      },
+      "sha256": "6953f14d2f88efa99901a580016f059c7e4d046b6bf0e862fc333caf4e3e5957",
+      "count": 10000,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/mainline_test__edge_bias.npz"
+    },
+    {
+      "key": "mainline_test__grid_cluster",
+      "suite": "mainline_test",
+      "group": "grid_cluster",
+      "mode": "new_gpu_inference",
+      "binding": {
+        "run": {
+          "model_id": "rl_only_wdro_critic_s102",
+          "manifest_sha256": "56937218d2a90db55f251385433f686373c734dea86b3f0ccee3e2655b91bf90",
+          "protocol_sha256": "ab554bf0668321ed09cc9422b2bc9e0c70c913281e9bd0c24c559b68e271e228",
+          "model": {
+            "id": "rl_only_wdro_critic_s102",
+            "family": "rl_only",
+            "method": "wdro_critic",
+            "seed": 102,
+            "checkpoint": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/best.pt",
+            "checkpoint_sha256": "e8632fb3d03aed6b46a3eaff1b20becc0fd5b3719954d9bee1c0325a33c57d48",
+            "state_key": "actor",
+            "saved_results": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/artifacts/runs/wdro_critic_s102/results.npz",
+            "saved_results_sha256": "6cf61cfd58edd255855d27dea6e1d19ba71bfe240e3535ff4ed5e498b539da11",
+            "selected_update": 1920,
+            "actor_sha256": "90e216556815b47947a623d64a3c5bd184d16087547827c6266ebd5beda69db9"
+          },
+          "sources": {
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/evaluate.py": "397ca404e188143e325e4ac3a513e250fedf56130eb67f7e6a8a01fa744fb49c",
+            "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/common.py": "9de57349d4b9300a0564f970656c9d65858bb016236aeb660172e7fb00964ece"
+          },
+          "dependencies": {
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+            "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+          },
+          "geometry_sha256": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+          "smoke": false
+        },
+        "data_sha256": "97a1d4ea6678bdb9afefaf306544d5c7577e37001f3f85b3c84b11e9b807d19c",
+        "count": 10000
+      },
+      "sha256": "377646b6c6344ce9dc29166b9a5ec5d965251389c18d6ea1b2268c9434b1bf51",
+      "count": 10000,
+      "path": "/remote-home/Guilin/DRO/Codex/improvements/rl_only_vs_mainline_20260919/artifacts/runs/rl_only_wdro_critic_s102/mainline_test__grid_cluster.npz"
+    }
+  ],
+  "artifacts": {
+    "mainline_test__edge_bias.npz": "6953f14d2f88efa99901a580016f059c7e4d046b6bf0e862fc333caf4e3e5957",
+    "mainline_test__grid_cluster.npz": "377646b6c6344ce9dc29166b9a5ec5d965251389c18d6ea1b2268c9434b1bf51",
+    "mainline_test__mix_gauss.npz": "56115c054386d879495052b3fc3590a4e9964322fdd7fc6cf1c3162787abf646",
+    "mainline_test__uniform.npz": "dda6f14fe4ae98398917466e46fe88230f8cd08c09bf804f2bcae827da51cf94",
+    "rl_attack32__edge_bias.npz": "05c12be01a9698c12ef746cbb768b81af9dc4bac2febaad0db39ebd766cb6f07",
+    "rl_attack32__grid_cluster.npz": "41731bbed946601b262fedcd94bf099b7bf94841ef2243d7666d1c28f5428cf9",
+    "rl_attack32__mix_gauss.npz": "3d1907a7555acf46db222ad5709d7e44b2755324eff57bbf944f3d78a943ec60",
+    "rl_attack32__uniform.npz": "43a4b364376707076298d2958e3e832f780f77af09c133d8635ff190a7b3e093",
+    "rl_test__edge_bias.npz": "b9a4af891cbe89f9a4d5ff4f97e7c0bc7a182554e8f4c0bf7d7ba2e5bc23d045",
+    "rl_test__grid_cluster.npz": "dd03d3c655264b40cb78c5a7768bc0fd87db24bca3a4da1382b17a1d15c1068c",
+    "rl_test__mix_gauss.npz": "3b23e11fd1202b9a5f8763215e3fed5335c3a820ecd7b6db85e996d63fc9f12f",
+    "rl_test__uniform.npz": "69318579615a02af2413bc09baa6f8b38c11a2b48ecc54b3f51cda9b68231b47",
+    "mainline_test__edge_bias.json": "7cc720a379d0b4924e524b182b027220e6b5da6a7847d5f29aa38a3d66b8fb30",
+    "mainline_test__grid_cluster.json": "e907cfa67c17c447f6ad41119712f83c74329af97803c9acf70b57575d8cb591",
+    "mainline_test__mix_gauss.json": "20cb2cf2d9d41b15ca6aa5ce77605db938f4c820e78859ec36546895800a470c",
+    "mainline_test__uniform.json": "80b1f4a64c0a624f8b8b6ab0d624d42e2d2b017f5d1e61529397a2c8d35c1373",
+    "rl_attack32__edge_bias.json": "b9c22c688497de73964060dd4186d7faef76fd317631785b34f5ae78cfcf9025",
+    "rl_attack32__grid_cluster.json": "431438c36675919a537365613d92bcd70b0b910b322535f0e9dbfa7c274b9ee8",
+    "rl_attack32__mix_gauss.json": "131361c34848ffd7977addb86bd228c21de99076e9783a4168c180d0269d8886",
+    "rl_attack32__uniform.json": "15eca0d4a40e3f8967e5f6e425a18033c763a88409d128c633e4cccfb5c899e5",
+    "rl_test__edge_bias.json": "2479cad2fb74d8bc6bf3a37fd607a325b0bd7ccb190f5a7ea0b805d4775b8ea3",
+    "rl_test__grid_cluster.json": "48cc9370aefd86a70ee540bba95b3085fe1324342e9e9ca576f747d083a1901d",
+    "rl_test__mix_gauss.json": "6e04b353d9849db6d595ca7a4becba3dce6de5074c1ab26d5348e53460e3570a",
+    "rl_test__uniform.json": "104b7cb79a339e14a84103067414dcf72c91580d473d56b68007b53c3db3aa7a",
+    "run.json": "b8a5aafa44f3992a0abd0cc643bd9b16633cc1e967c116d28fef8ce2d65f6e32",
+    "calls.jsonl": "97fc4fb0f644e74a35c9bd58f823dbc69998a850e4009e6868ae783f948bbcda"
+  },
+  "actual_calls": {
+    "completed_real_rows": 40512,
+    "attempted_real_rows_upper_bound": 40512,
+    "completed_forward_rows": 40704,
+    "unresolved_calls": 0
+  },
+  "reused_rows": 20480,
+  "unique_new_inference_rows": 40000,
+  "compatibility_replay_rows_per_uninterrupted_run": 512,
+  "elapsed_seconds": 65.94216702133417,
+  "peak_reserved_bytes": 67108864,
+  "new_training_updates": 0,
+  "reference_solver_calls": 0,
+  "forbidden_modules_loaded": []
+}

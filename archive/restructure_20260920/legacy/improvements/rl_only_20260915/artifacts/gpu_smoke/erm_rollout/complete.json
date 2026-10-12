@@ -1,0 +1,245 @@
+{
+  "binding": {
+    "method": "erm_rollout",
+    "seed": 101,
+    "smoke": true,
+    "protocol_sha256": "808b800d15718e9fed7e37292ea0978ab6e2a941674dbd8eebd5ae6e03971d97",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/geometry.py": "15b8469833c17209ea2e5f08ea02c649a2a2d44c2ca18b1dbd02d2f3b9960d88",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/search.py": "173de33b8c63af48f5712298ca5a84cd7368075420d842792dc8602020e213ad",
+      "/remote-home/Guilin/DRO/Codex/improvements/rl_only_20260915/train.py": "483f1846c2738d2d6139648c8948417a5e39a4acdcd729d47aa42e4857cace31"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/DRO/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "effective_protocol": {
+      "degree": 30,
+      "updates": 2,
+      "batch_size": 2,
+      "actor_lr": 0.0001,
+      "baseline_lr": 0.0001,
+      "surrogate_lr": 0.0001,
+      "proposal_lr": 0.0001,
+      "candidates": 8,
+      "epsilon": 0.08,
+      "search_sigma": 0.04,
+      "es_step_size": 0.04,
+      "critic_steps": 4,
+      "critic_step_size": 0.01,
+      "lambda_init": 1.0,
+      "lambda_lr": 10.0,
+      "validation_every": 1,
+      "checkpoint_every": 1,
+      "val_per_distribution": 4,
+      "test_per_distribution": 4,
+      "attack_per_distribution": 2,
+      "attack_candidates": 32,
+      "greedy_microbatch": 64,
+      "distributions": [
+        "uniform",
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "schema_version": 1,
+      "experiment": "rl_only_v1",
+      "seeds": [
+        101,
+        102,
+        103
+      ],
+      "methods": [
+        "erm_critic",
+        "erm_rollout",
+        "wdro_random",
+        "wdro_es",
+        "wdro_critic",
+        "wdro_rl"
+      ],
+      "rho": 0.04,
+      "parameters": {
+        "uniform": {},
+        "mix_gauss": {
+          "nonuniform": 0.8,
+          "clusters": 6,
+          "sigma": 0.04
+        },
+        "edge_bias": {
+          "nonuniform": 0.8,
+          "clusters": 4,
+          "sigma": 0.06
+        },
+        "grid_cluster": {
+          "nonuniform": 0.8,
+          "clusters": 8,
+          "sigma": 0.03
+        }
+      },
+      "initialization": "fresh matched random weights; no pretrained reference",
+      "loss": "own-action wirelength only",
+      "environment": "fixed [.1,.9] square, no per-net bbox rescaling",
+      "transport": "direct average L1 between correspondingly labeled pins; no assignment minimization",
+      "radius": "a priori fixed .04; no quantile or reference optimization",
+      "model_selection": "minimum validation worst-group mean own-action length; earliest ties",
+      "references": "none: no optimal labels, MST, geometric bound, Hungarian, external pretrained weights or solver",
+      "pure_rl_mainline": "erm_critic,erm_rollout,wdro_rl; remaining adversaries are diagnostic controls",
+      "acceptance_scope": "degree30 from-scratch proof of concept; no exact regret or optimality claim",
+      "statistics": {
+        "bootstrap_replicates": 2000,
+        "paired": true,
+        "training_seeds": 3,
+        "primary": "own-action length mean/P95/worst group; matched before/after and methods; candidate budget and actual time"
+      }
+    }
+  },
+  "identity": {
+    "pid": 441777,
+    "start_ticks": "3389926809",
+    "time": "2026-09-15T20:50:33Z",
+    "physical_gpu_index": 3,
+    "CUDA_VISIBLE_DEVICES": "3",
+    "device": "cuda:0",
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "gpu_total_memory": 51002867712
+  },
+  "status": "complete",
+  "acceptance": "gpu_smoke",
+  "step": 2,
+  "best_step": 1,
+  "best_validation_worst_group_length": 15.778735388070345,
+  "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+  "final_actor_sha256": "3c04f6a6f4f325a6ee3bbac4c88c42b720658cac2aaee3e08a2c4e4fd315bf7d",
+  "initial_groups": {
+    "uniform": {
+      "mean_length": 12.03407884016633,
+      "p95_length": 13.007848136872052
+    },
+    "mix_gauss": {
+      "mean_length": 10.823503023013473,
+      "p95_length": 11.429533636197448
+    },
+    "edge_bias": {
+      "mean_length": 13.567445797845721,
+      "p95_length": 16.264343055710196
+    },
+    "grid_cluster": {
+      "mean_length": 12.442667957395315,
+      "p95_length": 14.299209133535623
+    }
+  },
+  "final_groups": {
+    "uniform": {
+      "mean_length": 11.963106475770473,
+      "p95_length": 13.021583338826895
+    },
+    "mix_gauss": {
+      "mean_length": 10.823503023013473,
+      "p95_length": 11.429533636197448
+    },
+    "edge_bias": {
+      "mean_length": 13.567445797845721,
+      "p95_length": 16.264343055710196
+    },
+    "grid_cluster": {
+      "mean_length": 11.985489644110203,
+      "p95_length": 14.293092400580644
+    }
+  },
+  "final_test_worst_group_length": 13.567445797845721,
+  "attacks": {
+    "uniform": {
+      "mean_center_length": 12.369875397533178,
+      "mean_attacked_length": 14.372469078749418,
+      "mean_lift": 2.00259368121624
+    },
+    "mix_gauss": {
+      "mean_center_length": 11.562529537826777,
+      "mean_attacked_length": 13.514749716967344,
+      "mean_lift": 1.9522201791405678
+    },
+    "edge_bias": {
+      "mean_center_length": 14.617898609489202,
+      "mean_attacked_length": 15.499778889119625,
+      "mean_lift": 0.8818802796304226
+    },
+    "grid_cluster": {
+      "mean_center_length": 13.382985107600689,
+      "mean_attacked_length": 14.517324108630419,
+      "mean_lift": 1.1343390010297298
+    }
+  },
+  "lambda_final": 1.0,
+  "ledger": {
+    "search_greedy_scores": 0,
+    "search_padded_forward_rows": 0,
+    "evaluation_greedy_scores": 336,
+    "evaluation_padded_forward_rows": 1536,
+    "rollout_greedy_scores": 4,
+    "rollout_padded_forward_rows": 128,
+    "sampled_actor_scores": 4,
+    "oracle_calls": 0
+  },
+  "reward_source": "raw length of current learned Actor's own sampled topology",
+  "control_variate": "current learned Actor greedy rollout",
+  "adversarial_score": "own greedy Actor length minus lambda times direct indexwise mean L1",
+  "ledger_semantics": "Committed work; actual_calls.jsonl and actual_call_bounds include replay after interruption",
+  "actual_call_bounds": {
+    "search": {
+      "completed_real_rows": 0,
+      "attempted_real_rows_upper_bound": 0,
+      "completed_forward_rows": 0,
+      "attempted_forward_rows_upper_bound": 0
+    },
+    "evaluation": {
+      "completed_real_rows": 336,
+      "attempted_real_rows_upper_bound": 336,
+      "completed_forward_rows": 1536,
+      "attempted_forward_rows_upper_bound": 1536
+    },
+    "rollout": {
+      "completed_real_rows": 4,
+      "attempted_real_rows_upper_bound": 4,
+      "completed_forward_rows": 128,
+      "attempted_forward_rows_upper_bound": 128
+    },
+    "sampled_training": {
+      "completed_real_rows": 4,
+      "attempted_real_rows_upper_bound": 4,
+      "completed_forward_rows": 4,
+      "attempted_forward_rows_upper_bound": 4
+    }
+  },
+  "elapsed_seconds": 7.735573224723339,
+  "finished": "2026-09-15T20:50:40Z",
+  "update_seconds_total": 1.2109316065907478,
+  "seconds_per_update": 0.6054658032953739,
+  "forbidden_modules_loaded": [],
+  "oracle_guard": "geometry.install_oracle_guard active before model construction",
+  "peak_allocated_bytes": 119288832,
+  "peak_reserved_bytes": 127926272,
+  "finite_result_validation": true,
+  "artifacts": {
+    "latest.pt": "d48a29c0858041898c7e6f2d83d4f82ade61a22a1bfbfd9502bf400cad54eb70",
+    "best.pt": "0c9fcafafd123a61e8b41cd4aac052781eabf1332a6b8baf6bc99723cf7158ae",
+    "initial.npz": "6f0214d57d4e16a3ffec9875b41a1b0838874df78d045bacc62c576aeb9d69f7",
+    "initial.json": "826cbd4198051e46b65a44efacd3407484c0f540a65690cf9270eb5fdf6139e0",
+    "results.npz": "8cfe4f0c47571d6602f589197ced5ae961b87a5ff6db0e4343ac70292b8e28f9",
+    "progress.jsonl": "84958d4998849c39019f21305ff08ea19fe6083b11c819ef23c2336ede561e82",
+    "actual_calls.jsonl": "eb4e6f9bc5c1545a31f319c9018ef25e296c7440f246e5c69e00e4f9747c57f0",
+    "run.json": "7fe147e1e19e76a9a9b289057939596657e26f92c35123add5c29b1b38cfbd12"
+  },
+  "artifacts_sha256": {
+    "latest.pt": "d48a29c0858041898c7e6f2d83d4f82ade61a22a1bfbfd9502bf400cad54eb70",
+    "best.pt": "0c9fcafafd123a61e8b41cd4aac052781eabf1332a6b8baf6bc99723cf7158ae",
+    "initial.npz": "6f0214d57d4e16a3ffec9875b41a1b0838874df78d045bacc62c576aeb9d69f7",
+    "initial.json": "826cbd4198051e46b65a44efacd3407484c0f540a65690cf9270eb5fdf6139e0",
+    "results.npz": "8cfe4f0c47571d6602f589197ced5ae961b87a5ff6db0e4343ac70292b8e28f9",
+    "progress.jsonl": "84958d4998849c39019f21305ff08ea19fe6083b11c819ef23c2336ede561e82",
+    "actual_calls.jsonl": "eb4e6f9bc5c1545a31f319c9018ef25e296c7440f246e5c69e00e4f9747c57f0",
+    "run.json": "7fe147e1e19e76a9a9b289057939596657e26f92c35123add5c29b1b38cfbd12"
+  }
+}

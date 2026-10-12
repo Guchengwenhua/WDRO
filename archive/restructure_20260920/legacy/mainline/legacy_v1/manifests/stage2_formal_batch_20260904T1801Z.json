@@ -1,0 +1,527 @@
+{
+  "artifact_root": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/experiments",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments"
+  },
+  "captured_at_utc": "2026-09-04T18:10:50.580799Z",
+  "initial_project_preflight": {
+    "batch_ready": true,
+    "path": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/preflight_20260904T180058Z.json",
+    "sha256": "1f1ea77750d0592e7c0a245ceea79c997aa9974781d6242472b335a03c526910"
+  },
+  "kind": "stage2_formal_batch_provenance_snapshot",
+  "memory_profile": {
+    "path": "Codex/wdro_rest_min/manifests/stage2_memory_profile_v1.json",
+    "sha256": "7e55b17cb5877cb9669e8167107f937bf069d84c67a69df5f1edfa9760c74e14"
+  },
+  "queue_id": "stage2_erm_formal_v1",
+  "queue_job_at_snapshot": {
+    "events": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/events.jsonl",
+    "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/run_stage2_erm_queue.py --queue-id stage2_erm_formal_v1 --max-simultaneous 15 --geosteiner-workers 3 --launch-stagger-seconds 3 --poll-seconds 15 --max-attempts 4 --exclude-gpu-indices 0 1 2 3 7",
+    "heartbeat": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/heartbeat.json",
+    "host": "265a80f1f5a6",
+    "monitor_command": "tail -f /remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/events.jsonl",
+    "pid": 23057,
+    "queue_id": "stage2_erm_formal_v1",
+    "queue_manifest": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/queue.json",
+    "recovery_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/run_stage2_erm_queue.py --queue-id stage2_erm_formal_v1 --max-simultaneous 15 --geosteiner-workers 3 --launch-stagger-seconds 3 --poll-seconds 15 --max-attempts 4 --exclude-gpu-indices 0 1 2 3 7",
+    "runtime_excluded_gpu_indices": [
+      0,
+      1,
+      2,
+      3,
+      7
+    ],
+    "schema_version": 1,
+    "started_at_utc": "2026-09-04T18:05:35.864384Z",
+    "status": "running",
+    "tmux_session": "wdro_stage2_erm_v1"
+  },
+  "research_protocol_override": false,
+  "schema_version": 1,
+  "task_count": 15,
+  "tasks": [
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180102Z.json --run-id formal_erm_d50_s101_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 6,
+      "current_pid": 19848,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180102Z.json --run-id formal_erm_d50_s101_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 50,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:04.205377Z",
+          "degree": 50,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180102Z.json --run-id formal_erm_d50_s101_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180102Z.json",
+          "physical_gpu_index": 6,
+          "pid": 19848,
+          "run_id": "formal_erm_d50_s101_u2000",
+          "seed": 101
+        }
+      ],
+      "run_id": "formal_erm_d50_s101_u2000",
+      "seed": 101,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d50_s101_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180107Z.json --run-id formal_erm_d50_s102_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 4,
+      "current_pid": 20021,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180107Z.json --run-id formal_erm_d50_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 50,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:08.974167Z",
+          "degree": 50,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180107Z.json --run-id formal_erm_d50_s102_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180107Z.json",
+          "physical_gpu_index": 4,
+          "pid": 20021,
+          "run_id": "formal_erm_d50_s102_u2000",
+          "seed": 102
+        }
+      ],
+      "run_id": "formal_erm_d50_s102_u2000",
+      "seed": 102,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d50_s102_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180112Z.json --run-id formal_erm_d50_s103_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 5,
+      "current_pid": 20189,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180112Z.json --run-id formal_erm_d50_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 50,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:13.696370Z",
+          "degree": 50,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 50 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180112Z.json --run-id formal_erm_d50_s103_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180112Z.json",
+          "physical_gpu_index": 5,
+          "pid": 20189,
+          "run_id": "formal_erm_d50_s103_u2000",
+          "seed": 103
+        }
+      ],
+      "run_id": "formal_erm_d50_s103_u2000",
+      "seed": 103,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d50_s103_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180116Z.json --run-id formal_erm_d40_s101_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 6,
+      "current_pid": 20365,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180116Z.json --run-id formal_erm_d40_s101_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 40,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:18.287501Z",
+          "degree": 40,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180116Z.json --run-id formal_erm_d40_s101_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180116Z.json",
+          "physical_gpu_index": 6,
+          "pid": 20365,
+          "run_id": "formal_erm_d40_s101_u2000",
+          "seed": 101
+        }
+      ],
+      "run_id": "formal_erm_d40_s101_u2000",
+      "seed": 101,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d40_s101_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 2,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180220Z.json --run-id formal_erm_d40_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_physical_gpu_index": 4,
+      "current_pid": 22417,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180220Z.json --run-id formal_erm_d40_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 40,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:22.957912Z",
+          "degree": 40,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 102 --scope formal --device cuda --physical-gpu-index 1 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180121Z.json --run-id formal_erm_d40_s102_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180121Z.json",
+          "physical_gpu_index": 1,
+          "pid": 20534,
+          "run_id": "formal_erm_d40_s102_u2000",
+          "seed": 102
+        },
+        {
+          "at_utc": "2026-09-04T18:02:22.278696Z",
+          "degree": 40,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180220Z.json --run-id formal_erm_d40_s102_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180220Z.json",
+          "physical_gpu_index": 4,
+          "pid": 22417,
+          "run_id": "formal_erm_d40_s102_u2000",
+          "seed": 102
+        }
+      ],
+      "run_id": "formal_erm_d40_s102_u2000",
+      "seed": 102,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d40_s102_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 2,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180535Z.json --run-id formal_erm_d40_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_physical_gpu_index": 5,
+      "current_pid": 23065,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180535Z.json --run-id formal_erm_d40_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 40,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:27.757014Z",
+          "degree": 40,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 103 --scope formal --device cuda --physical-gpu-index 7 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180126Z.json --run-id formal_erm_d40_s103_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180126Z.json",
+          "physical_gpu_index": 7,
+          "pid": 20613,
+          "run_id": "formal_erm_d40_s103_u2000",
+          "seed": 103
+        },
+        {
+          "at_utc": "2026-09-04T18:05:37.445809Z",
+          "degree": 40,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 40 --seed 103 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180535Z.json --run-id formal_erm_d40_s103_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180535Z.json",
+          "physical_gpu_index": 5,
+          "pid": 23065,
+          "run_id": "formal_erm_d40_s103_u2000",
+          "seed": 103
+        }
+      ],
+      "run_id": "formal_erm_d40_s103_u2000",
+      "seed": 103,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d40_s103_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 101 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180131Z.json --run-id formal_erm_d30_s101_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 4,
+      "current_pid": 20872,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 101 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180131Z.json --run-id formal_erm_d30_s101_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 30,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:32.708349Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 101 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180131Z.json --run-id formal_erm_d30_s101_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180131Z.json",
+          "physical_gpu_index": 4,
+          "pid": 20872,
+          "run_id": "formal_erm_d30_s101_u2000",
+          "seed": 101
+        }
+      ],
+      "run_id": "formal_erm_d30_s101_u2000",
+      "seed": 101,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d30_s101_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180135Z.json --run-id formal_erm_d30_s102_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 5,
+      "current_pid": 21045,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180135Z.json --run-id formal_erm_d30_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 30,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:37.594904Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180135Z.json --run-id formal_erm_d30_s102_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180135Z.json",
+          "physical_gpu_index": 5,
+          "pid": 21045,
+          "run_id": "formal_erm_d30_s102_u2000",
+          "seed": 102
+        }
+      ],
+      "run_id": "formal_erm_d30_s102_u2000",
+      "seed": 102,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d30_s102_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 4,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180541Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_physical_gpu_index": 6,
+      "current_pid": 23137,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180541Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 30,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:42.392155Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 3 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180140Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180140Z.json",
+          "physical_gpu_index": 3,
+          "pid": 21123,
+          "run_id": "formal_erm_d30_s103_u2000",
+          "seed": 103
+        },
+        {
+          "at_utc": "2026-09-04T18:02:27.667006Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 0 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180225Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180225Z.json",
+          "physical_gpu_index": 0,
+          "pid": 22488,
+          "run_id": "formal_erm_d30_s103_u2000",
+          "seed": 103
+        },
+        {
+          "at_utc": "2026-09-04T18:03:22.606733Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 0 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180321Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180321Z.json",
+          "physical_gpu_index": 0,
+          "pid": 22789,
+          "run_id": "formal_erm_d30_s103_u2000",
+          "seed": 103
+        },
+        {
+          "at_utc": "2026-09-04T18:05:42.852977Z",
+          "degree": 30,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 30 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180541Z.json --run-id formal_erm_d30_s103_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180541Z.json",
+          "physical_gpu_index": 6,
+          "pid": 23137,
+          "run_id": "formal_erm_d30_s103_u2000",
+          "seed": 103
+        }
+      ],
+      "run_id": "formal_erm_d30_s103_u2000",
+      "seed": 103,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d30_s103_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180145Z.json --run-id formal_erm_d20_s101_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 6,
+      "current_pid": 21285,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180145Z.json --run-id formal_erm_d20_s101_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 20,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:47.264135Z",
+          "degree": 20,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 101 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180145Z.json --run-id formal_erm_d20_s101_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180145Z.json",
+          "physical_gpu_index": 6,
+          "pid": 21285,
+          "run_id": "formal_erm_d20_s101_u2000",
+          "seed": 101
+        }
+      ],
+      "run_id": "formal_erm_d20_s101_u2000",
+      "seed": 101,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d20_s101_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180150Z.json --run-id formal_erm_d20_s102_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 4,
+      "current_pid": 21462,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180150Z.json --run-id formal_erm_d20_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 20,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:52.111085Z",
+          "degree": 20,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 102 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180150Z.json --run-id formal_erm_d20_s102_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180150Z.json",
+          "physical_gpu_index": 4,
+          "pid": 21462,
+          "run_id": "formal_erm_d20_s102_u2000",
+          "seed": 102
+        }
+      ],
+      "run_id": "formal_erm_d20_s102_u2000",
+      "seed": 102,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d20_s102_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 2,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 103 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180546Z.json --run-id formal_erm_d20_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_physical_gpu_index": 4,
+      "current_pid": 23313,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 103 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180546Z.json --run-id formal_erm_d20_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 20,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:01:57.115139Z",
+          "degree": 20,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 103 --scope formal --device cuda --physical-gpu-index 7 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180155Z.json --run-id formal_erm_d20_s103_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180155Z.json",
+          "physical_gpu_index": 7,
+          "pid": 21624,
+          "run_id": "formal_erm_d20_s103_u2000",
+          "seed": 103
+        },
+        {
+          "at_utc": "2026-09-04T18:05:47.820670Z",
+          "degree": 20,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 20 --seed 103 --scope formal --device cuda --physical-gpu-index 4 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180546Z.json --run-id formal_erm_d20_s103_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180546Z.json",
+          "physical_gpu_index": 4,
+          "pid": 23313,
+          "run_id": "formal_erm_d20_s103_u2000",
+          "seed": 103
+        }
+      ],
+      "run_id": "formal_erm_d20_s103_u2000",
+      "seed": 103,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d20_s103_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 101 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180200Z.json --run-id formal_erm_d10_s101_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 5,
+      "current_pid": 21802,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 101 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180200Z.json --run-id formal_erm_d10_s101_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 10,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:02:02.126810Z",
+          "degree": 10,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 101 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180200Z.json --run-id formal_erm_d10_s101_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180200Z.json",
+          "physical_gpu_index": 5,
+          "pid": 21802,
+          "run_id": "formal_erm_d10_s101_u2000",
+          "seed": 101
+        }
+      ],
+      "run_id": "formal_erm_d10_s101_u2000",
+      "seed": 101,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d10_s101_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 2,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180626Z.json --run-id formal_erm_d10_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_physical_gpu_index": 5,
+      "current_pid": 23608,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180626Z.json --run-id formal_erm_d10_s102_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 10,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:02:07.120283Z",
+          "degree": 10,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 102 --scope formal --device cuda --physical-gpu-index 7 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180205Z.json --run-id formal_erm_d10_s102_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180205Z.json",
+          "physical_gpu_index": 7,
+          "pid": 21975,
+          "run_id": "formal_erm_d10_s102_u2000",
+          "seed": 102
+        },
+        {
+          "at_utc": "2026-09-04T18:06:27.926934Z",
+          "degree": 10,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 102 --scope formal --device cuda --physical-gpu-index 5 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180626Z.json --run-id formal_erm_d10_s102_u2000 --geosteiner-workers 3 --resume",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180626Z.json",
+          "physical_gpu_index": 5,
+          "pid": 23608,
+          "run_id": "formal_erm_d10_s102_u2000",
+          "seed": 102
+        }
+      ],
+      "run_id": "formal_erm_d10_s102_u2000",
+      "seed": 102,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d10_s102_u2000.log"
+    },
+    {
+      "attempts_at_snapshot": 1,
+      "current_exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180210Z.json --run-id formal_erm_d10_s103_u2000 --geosteiner-workers 3",
+      "current_physical_gpu_index": 6,
+      "current_pid": 22150,
+      "current_resume_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180210Z.json --run-id formal_erm_d10_s103_u2000 --geosteiner-workers 3 --resume",
+      "current_status": "running",
+      "degree": 10,
+      "launch_history": [
+        {
+          "at_utc": "2026-09-04T18:02:12.037211Z",
+          "degree": 10,
+          "event": "task_launch",
+          "exact_command": "/remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/train_erm.py --degree 10 --seed 103 --scope formal --device cuda --physical-gpu-index 6 --host-runtime-manifest /remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180210Z.json --run-id formal_erm_d10_s103_u2000 --geosteiner-workers 3",
+          "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260904T180210Z.json",
+          "physical_gpu_index": 6,
+          "pid": 22150,
+          "run_id": "formal_erm_d10_s103_u2000",
+          "seed": 103
+        }
+      ],
+      "run_id": "formal_erm_d10_s103_u2000",
+      "seed": 103,
+      "stdout_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2_queue/stage2_erm_formal_v1/formal_erm_d10_s103_u2000.log"
+    }
+  ],
+  "temporary_and_cache_environment": {
+    "TEMP": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TMP": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TMPDIR": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TORCH_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/torch",
+    "XDG_CACHE_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime"
+  },
+  "training_code": {
+    "combined_sha256": "b0370f12aa1091f5ef6fb5ccbab3c10cd8ce9350e9631ab8de50b4ac4ac1524d",
+    "files": {
+      "configs/data_contract_v1.json": "2121d1119bc20dcd493183fcab4ce8aaa986eee84523e487fb42c2cc29612055",
+      "configs/protocol_v1.json": "077505bccd33153117745f1e004943c262305234e39d8ebebb4a53b470a60850",
+      "configs/stage2_trainer_v1.json": "ed4ba66cab239d702b27a5f40816f6b6f3f6e686cfe539e5913e9a332bdca3a3",
+      "scripts/capture_host_runtime.py": "72d4d6a5f259266470c1eac54531f2fb08d937c4eac08b6b71c9e5f749278e31",
+      "scripts/train_erm.py": "f1cb5e05ec868b6b546badfd7cbb18cddf1837b03715b0bac97e0390f05f8c68",
+      "src/accounting.py": "c5dc15e75a499f9f9252bb6511ff64500a6cdfd4c802591fc0a52a3e4d645d4e",
+      "src/checkpoints.py": "9550909eaf6d2b1d001e165097debaa8e519670e318431283941fb7983dbbff2",
+      "src/datasets.py": "aea18e08ff733937d4568316ca37fa34dabaab628abe812244882d24ec2222c5",
+      "src/geometry.py": "d177eb67ff6cf8a091332fc4ec21a319db3ab73db21042defbc490e9f5dec7d1",
+      "src/geosteiner.py": "07bb622e10a1e5633661ab84caf20043a0122f61e7097990ebcf592950aee643",
+      "src/io_utils.py": "4cb0286ca85226ed8946c8590bea86a9dba4380720161cefb62498fccd9d9e8c",
+      "src/job_control.py": "ac12fec2f621e40736adede4052d985fea479cea254e07722b2e406152e0afbd",
+      "src/metrics.py": "4f747b68ec1391449c0b8d7aa8fc7d90bce286f360acd26e542b0b9992c96634",
+      "src/protocol.py": "488f6a691e730015b7cab8e0395d138d1ca345fcf6380a5e9fdac12fca48b024",
+      "src/rest.py": "cd0ebb5328e2b28928aa000a850166f6f12886611e2a0f929c8f452c2f264424",
+      "src/trainer.py": "ad0395d2d58a773e1a2afd41f8a5bf72addc21796b2ba73d9e9d471f1ac88fef",
+      "src/training_data.py": "3bae52bb8bb59b041c4859d842c48ab46c653202c09e52cdb1600470bee4aafb",
+      "src/validation.py": "526b705e186a18f5efb12babf03af78b75e3d0501683e0381aff2fb26dcd1685"
+    }
+  }
+}

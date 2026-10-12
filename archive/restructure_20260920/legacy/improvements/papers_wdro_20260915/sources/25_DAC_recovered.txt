@@ -1,0 +1,1898 @@
+===== PAGE 1 =====
+To Tackle Cost-Skew Tradeoff: An Adaptive
+Learning Approach for Hub Node Selection
+Guowei Sun
+*2
+, Lin Chen
+*1
+, Qiming Huang
+3
+, Hu Ding
+š1
+1
+School of Computer Science and Technology,
+2
+School of Data Science,
+3
+School of the Gifted Young
+University of Science and Technology of China, Hefei 230026, China
+f
+gwsun1998, ischenlin, chnhqm
+g
+@mail.ustc.edu.cn, huding@ustc.edu.cn
+Abstract
+‰In chip design,
+skew
+is a pivotal factor that signif-
+challenge is how to achieve an appropriate trade-off between
+the total wire-length cost and skew. Selecting hub nodes is an
+effective method to improve this cost-skew trade-off. In this
+paper, we propose a novel reinforcement learning-based method
+for hub node selection, where our key idea is leveraging an
+effective adaptive learning strategy. Moreover, our approach is
+particularlysuitableforsolvinglarge-scaleroutinginstances.The
+empiricalresultssuggestthatourmethodcanachievepromising
+performance on both small-scale and large-scale clock nets,
+Index Terms
+‰Skew, wirelength, MSPD.
+I. I
+NTRODUCTION
+algorithms for various VLSI routing applications has attracted
+substantial attention [1]Š[6]. The routing quality are closely
+related to several crucial metrics in chip design, which are the
+so-called 
+PPA
+Œ, i.e.,
+performance
+,
+power
+, and
+area
+[7]. The
+design procedure of interconnect trees relies on several widely
+studied optimization objectives, among which the total tree
+cost
+is the most prevalent, typically measured by wire length.
+Additionally, the
+skew
+travel time between the longest and shortest root-leaf paths,
+is also a crucial factor, as illustrated in Fig. 1. For different
+applications, these objectives may have different priorities.
+In this paper, we focus on designing an effective routing
+algorithm for tackling the tradeoff between the wire-length
+and skew. For chip design, the clock frequencyŒ is an
+important performance indicator, as it determines the number
+of instructions that the processor can execute per second [8].
+The clock frequency is the reciprocal of the clock cycle, which
+can be affected by several different factors in practice. In
+cycle; as noted in [9], it can account for even more than 10%
+of the cycle time. Consequently, how to effectively address
+the clock skew issue is an imperative problem that we are
+confronted with for designing high-quality chips.
+Actually, the skew issue is a long historical topic in the
+research of EDA. Several classical methods were proposed
+before, such as the methods of
+Zero-Skew Tree (ZST)
+and
+Bounded-Skew Tree (BST)
+[8]. The goal of ZST is to build a
+*First two authors contributed equally. šCorresponding author. This work
+was supported in part by the Fundamental Research Funds for the Central
+Universities through Grant WK2150110025.
+(a)
+(b)
+(c)
+5
+6
+8
+7
+8
+8
+8
+9
+7
+6
+8
+7
+cost = 12
+skew = 3
+cost = 13
+skew = 2
+cost = 14
+skew = 1
+Fig. 1: This illustration shows that different routing priorities can
+lead to various topologies;
+v
+0
+is designated as the root node, and
+the number marked alongside each vertex is the distance to
+v
+0
+in
+the tree. Figure (a) depicts a design focusing on minimizing wire
+length [8], while Figure (b) illustrates a trade-off between cost and
+skew. Figure (c) primarily emphasizes skew, aiming to minimize the
+timedifferenceforsignalstravelingfromtheroot nodetoothernodes.
+routing tree where the signal from the root node can reach all
+the terminals at the same time, so that the skew is zero. Boese
+and Kahng [10] presented the Deferred-Merge Embedding
+(DME) algorithm for building a ZST that can accomplish
+precise zero skew. However, a drawback of ZST is that it
+ized due to the limitations of the manufacturing process [8].
+This motivates researchers to consider an alternative solution,
+Bounded-Skew Tree [11]Š[13], which is a clock tree with a
+maximum skew bounded by a given threshold
+U B >
+0
+. It
+is worth noting that when there is no skew restriction (i.e.,
+U B
+=
+1
+), the BST problem is simply equivalent to the
+classical Rectilinear Steiner Minimum Tree (RSMT) prob-
+lem [14]. Several heuristic methods were developed to address
+the bounded skew Steiner tree construction problem in the past
+decades [12], [13]. Cong et al. [11] provided an improved
+designed for the BST problem. Additionally, several elegant
+approximation algorithms were also proposed for the skew
+problem [15], [16]. More recently, Han et al. [17] studied the
+tradeoff between cost and skew and formulated the bounded
+Recently, building upon the classic Prim-Dijkstra (PD)
+algorithm [18], Kahng et al. [19] introduced the
+Multi-Source
+Prim-Dijkstra (MSPD)
+algorithm for the cost-skew tradeoff
+problem, which will be detailed in Section II-B. The main
+insight of the MSPD approach is to select several centrally
+located hubŒ nodes (termed sourcesŒ in their paper) to serve
+as root connections and enforce a constraint thatprevents other
+nodes from connecting directly to the root. Subsequently, the
+
+===== PAGE 2 =====
+the tree topology. From the examples illustrated in Fig. 2, we
+can see the advantage of utilizing hub nodes.
+the hub nodes.
+comes from the high
+computational cost, since an optimal algorithm would require
+an exhaustive search for the best combination of hub nodes.
+Although the method proposed in [19] could reduce the com-
+plexity to a certain extent by only considering those centrally
+located node candidates, the resulting smaller solution space
+the
+secondchallenge
+is that there is currently no effective method
+capable of adaptively deciding how many hub nodes should be
+chosen. Theexistingalgorithmsrequirespecifyingamaximum
+quantity of hub nodes, and then enumerating different combi-
+nations that have the sizes within such an upper bound. Due to
+the importance of hub nodes in the skew problem, the open-
+source project
+OpenROAD
+(Foundations and Realization of
+Open, Accessible DesignŒ) in collaboration with TILOS AI
+Institute recently launched an innovation-driven competition
+selection algorithms to achieve favorable cost-skew tradeoff.
+To tackle those challenges in addressing the cost-skew
+tradeoff problem, we propose an adaptive learning-based
+framework. In particular, our framework takes account of the
+global space for determining the number of chosen hub nodes
+and their locations.
+Themaincontributions
+of our paper are
+outlined as follows:
+1)
+We propose a novel Selector
+ConductorŒ idea that
+can be seamlessly integrated with the existing reinforce-
+ment learning method. The SelectorŒ network is for
+selecting hub nodes, and the ConductorŒ network is
+used for monitoring the current environment and actions
+to determine when to halt operations. This cooperation
+mechanism between them yields an adaptive learning
+process,andalsoenhancesourmodel's abilitytomanage
+larger-scale instances.
+2)
+To evaluate the performance of our proposed method,
+we conducted a set of experiments on both small-scale
+and large-scale problems using diverse datasets sourced
+from synthetic data and the OpenROAD competitions.
+In the experiments, our learning-based method achieved
+the best Pareto frontier in terms of cost and skew across
+II. P
+RELIMINARIES
+A. Problem Formulation
+An instance of a clock routing problem comprises
+n
+nodes,
+denoted as
+V
+=
+f
+v
+0
+; v
+1
+;
+; v
+n
+1
+g
+, with
+v
+0
+acting as the
+root node
+and other nodes serving as the
+sinks
+. The goal is
+to construct a routing tree such that the signal from the root,
+v
+0
+, can be transmitted to the other nodes. Suppose a routing
+tree
+T
+= (
+V; E
+)
+is constructed to connect all the nodes in
+V
+. In this routing tree
+T
+, let
+e
+i;j
+denote the edge linking
+v
+i
+https://github.com/TILOS-AI-Institute/multi-source-Prim-Dijkstra
+(a)
+(b)
+(c)
+Hub Nodes
+Source
+A Much 
+Lower Delay
+shows the locations of all nodes. Figure (b) depicts a routing tree
+sink experiences a much lower delay than the other black sinks.
+Figure (c) presents a routing tree generated by the MSPD algorithm,
+demonstrating a reduction in skew through the aid of hub nodes.
+with
+v
+j
+j
+x
+j
+x
+i
+j
++
+j
+y
+j
+y
+i
+j
+(suppose
+v
+i
+= (
+x
+i
+; y
+i
+)
+and
+v
+j
+= (
+x
+j
+; y
+j
+)
+).
+Consequently, the
+cost
+of the clock tree, denoted as cost
+(
+T
+)
+,
+is the sum of all edge costs, i.e.,
+cost
+(
+T
+) =
+X
+e
+ij
+2
+E
+j
+x
+j
+x
+i
+j
++
+j
+y
+j
+y
+i
+j
+:
+(1)
+The clock
+skew
+refers to the difference between the highest
+and lowest arrival times of the clock signal across the
+n
+1
+skew
+(
+T
+) = max
+v
+i
+;v
+j
+2
+V
+j
+t
+(
+v
+0
+; v
+i
+)
+t
+(
+v
+0
+; v
+j
+)
+j
+;
+(2)
+where
+t
+(
+v
+0
+; v
+i
+)
+denotes the signal delay between the nodes
+v
+0
+and
+v
+i
+, estimatedbyusingeitherthe
+linear delay
+or the
+Elmore
+delay
+model [8]. The linear delay model equates delay directly
+with the path length between
+v
+0
+and
+v
+i
+, ignoring other details
+in the circuit, whereas the Elmore model is more complex that
+also takes the resistance and capacitance into account. Due to
+its simplicity for calculation, the linear model remains popular
+in commercial tools [8].
+As discussed in Section I, a central problem for practical
+clock routing is designing an effective algorithm for achieving
+a pleasant
+cost-skew tradeoff
+. Formally, given a node set
+V
+and a parameter
+2
+[0
+;
+1]
+, our objective is to construct a
+routing tree
+T
+to minimize:
+cost
+(
+T
+) + (1
+)
+skew
+(
+T
+)
+:
+(3)
+B. Multi-Source Prim-Dijkstra (MSPD)
+Multi-Source Prim-Dijkstra (MSPD) [19] is a variant of the
+PD algorithm [18]. Given a clock routing instance as shown
+in Fig. 2(a), a major difference of MSPD is that the algorithm
+selects a set of hub nodes and only these designated nodes
+can link directly to the root. The purpose of this constraint is
+to avoid large skew (see the comparison between Fig.2(b) and
+Fig.2(c)). It is noteworthy that the authors of [19] proposed
+computational cost due to its exhaustive search for the best
+combination of hub nodes. To avoid such a large combination
+space, the authors also introduced an alternative approach
+that only enumerates the combinations of the potential hub
+nodeslocated centrallyto theroot; thecentralityŒ ismeasured
+
+===== PAGE 3 =====
+Input
+Encoder1
+Selector
+Conductor
+MSPD
+Loss
+...
+Selected 
+Hub Nodes
+Predicted Cost
+-
+Skew Value
+Encoder2
+continue
+Actor
+Critic
+Y
+N
+Routing 
+tree
+Encoder3
+Input
+Selecting Hub
+Nodes
+Interaction Between 
+Selector
+and 
+Conductor
+Selector
+Selector
+Conductor
+Conductor
+Step: t
+Step: t+1
+MSPD
+Routing 
+tree
+Fig. 3: Our proposed RL-based framework, whose core neural components are the Selector and Conductor networks. The Selector network
+determines the hub node in each step, while the Conductor network monitors the environment and existing actions, assessing the need for
+given an input node set, the red node is the root, and the hub nodes (labeled in blue) can be determined by the Selector and Conductor
+networks. Then, the instance is processed by the MSPD algorithm and eventually, the routing tree with cost-skew tradeoff is obtained.
+their article [19] for more details). Although this method
+reduces the size of the candidate set, it results in a narrower
+solution space that could downgrade the obtained solution
+quality. Moreover, thepriormethodsusuallyrequirespecifying
+a maximum quantity of hub nodes, which may not be easy to
+determine and thus also restricts the capability to optimize the
+objective of (3). These practical issues motivate us to develop
+Section III.
+C. Reinforcement Learning
+Our proposed method utilizes Reinforcement learning (RL),
+which is an important machine learning methodology that
+has been extensively studied for many different real-world
+applications [20]. RL uses an
+agent
+to perform the learning
+process, where the agent can make decisions by taking ac-
+of interacting with the environment, evaluating the current
+state, and receiving rewards based on the outcomes of its
+actions. In particular, the
+Actor-Critic
+RL framework [20]
+has been successfully applied to solve several routing tasks
+in EDA [4], [5]. The ActorŒ network typically involves a
+sequence of decision-making steps, such as connecting a node
+to the existing tree; ultimately this network will generate a
+routing tree. Meanwhile, the CriticŒ network is employed to
+facilitate the training of the Actor network.
+For completeness, we introduce the three important ter-
+minologies of RL that will be used throughout Section III:
+1)
+State:
+At any given time step, the state includes the
+locations of all nodes in
+V
+, the root node
+v
+0
+, and the currently
+selected set of hub nodes; 2)
+Action:
+At each step
+t
+, the
+agent selects a new hub node that has not been previously
+chosen; subsequently, the agent must also determine whether
+to continue selecting additional hub nodes; 3)
+Reward:
+In our
+model, the reward is computed at the conclusion of the RL
+process and is combined with the critic's prediction to assess
+the quality of the selected hub nodes.
+Our method also follows the above overall framework; how-
+new ideas for this purpose.
+III. O
+UR
+P
+ROPOSED
+F
+RAMEWORK
+In this section, we introduce our proposed approach. First,
+we analyze the technical challenges and provide an overview
+of our framework below.
+The challenges and our high-level idea.
+We are aware
+of several recently proposed RL-based methods for routing
+problems, such as the method of [4] for minimizing the wire-
+length and the method of [5] for minimizing the timing-driven
+objective. Nevertheless, we are still confronted with some new
+tradeoff.Bothofthosemethodsare designedforgenerating the
+termination criteria. But in our problem, our aim is to select
+several key hub nodes. The immediate issues for realizing
+such a model include how to handle the uncertainty of the
+termination criterion (note that even the number of needed
+hub nodes is also unknown in advance). Thus, our task is to
+Our high-level idea relies on a novel 
+Selector
+Conduc-
+tor
+Œ reinforcement learning framework. To identify the most
+appropriate candidates for hub nodes, we design a SelectorŒ
+network that is dedicated to hub node selection. More im-
+portantly, we also integrate a ConductorŒ module into the
+classical Actor module, which can help the model monitor
+the environment and existing actions, so as to determine the
+necessity of further actions. The architecture of our whole
+model is built upon this adaptive Selector
+Conductor
+mechanism, as shown in Fig. 3.
+We present the technical details in the following parts.
+In Section III-A, we introduce the Encoder module that is
+used for representing the input data. The SelectorŒ and
+ConductorŒ modules are two key parts to realize the adaptive
+learning in our framework, which are respectively introduced
+
+===== PAGE 4 =====
+in Section III-B and Section III-C. Finally, we describe the
+Critic network and the training method in Section III-D.
+Superscriptsofthenotations.
+For ease of presentation, in
+thefollowingsections,weusethesuperscriptsfrom
+f
+0
+;
+1
+;
+2
+;
+3
+g
+to differentiate the parameters and variables in different mod-
+ules. For example,
+W
+0
+denotes the parameters in the Encoder
+modules,
+W
+1
+is for the Selector network,
+W
+2
+is for the
+Conductor network, and
+W
+3
+is for the Critic network.
+A. Encoder
+The goal of the Encoder is to embed an input instance
+V
+(which contains
+n
+vertices in
+2
+D
+) into a higher dimensional
+space
+R
+d
+with some appropriately set value
+d
+; this new
+representation will serve the following modules as shown in
+Fig. 3. Our Encoder model is based on the seminal
+attention
+mechanism
+in deep learning [21], which is inspired by human
+visual attention, enables the model to weigh the importance
+of different inputs and allows the model to focus on different
+parts of the input sequence. Note that we have three encoders
+for the Selector, Conductor, and Critic networks, respectively
+(as shown in Fig. 3), where they have the same structure but
+with different trained parameters.
+Given the routing instance
+V
+containing
+n
+nodes, we
+build the input to our encoder that is the form of a matrix
+X
+ini
+2
+R
+n
+3
+. The 3-dimensional information includes the 2D
+coordinate information
+(
+x; y
+)
+and a label indicating whether
+it is a root node (labeled as 1 if it is a root node, and
+0 otherwise). Then we embed these nodes into a higher
+dimensional space for enriching their encoded information: the
+input vector
+X
+ini
+2
+R
+n
+3
+is processed through a feed-forward
+neural network layer, obtaining the output
+^
+X
+ini
+2
+R
+n
+d
+0
+(where the integer
+d
+0
+our model). Formally, our feed-forward neural network can
+be calculated as:
+^
+X
+ini
+= max
+~
+0
+; X
+ini
+W
+0
+1
++
+~
+b
+0
+1
+W
+0
+2
++
+~
+b
+0
+2
+;
+(4)
+where
+~
+0
+is the zero vector, and
+W
+0
+1
+2
+R
+3
+d
+0
+; W
+0
+2
+2
+R
+d
+0
+d
+0
+;
+~
+b
+0
+1
+2
+R
+d
+0
+;
+~
+b
+0
+2
+2
+R
+d
+0
+are the parameters to be trained
+in this feed-forward layer. Considering the importance of the
+root node, we need to ensure that the information of the root
+node
+v
+0
+should be accessible to other nodes. For this purpose,
+we concatenate the embedding of the root node with that of
+each other node: the obtained new embedding is
+X
+2
+R
+d
+(
+d
+= 2
+d
+0
+), and each row
+X
+[
+i
+] =
+h
+^
+X
+ini
+[
+i
+]
+;
+^
+X
+ini
+[0]
+i
+(5)
+is the augmented embedding of the node
+v
+i
+, where
+^
+X
+ini
+[
+i
+]
+is
+the
+i
+-th row of
+^
+X
+ini
+, i.e., the original embedding of
+v
+i
+, and
+^
+X
+ini
+[0]
+is the original embedding of the root.
+Then, the embedding
+X
+is fed into the multi-headŒ atten-
+tion layer [21]. The function of this layer is to aggregate and
+capture information from all the nodes. Through this multi-
+head attention layer, the information from various nodes is
+aggregated to create a new representation for each node, and
+thus an enriched embedding can be obtained. As mentioned at
+thebeginning ofthis subsection, wehavethis Encodernetwork
+before each of the downstream Selector, Conductor, and Critic
+networks. We denote the corresponding outputs from these
+three Encoders as
+E
+1
+,
+E
+2
+, and
+E
+3
+2
+R
+n
+d
+, respectively.
+B. Selector Network
+The function of the Selector network is to identify the nodes
+that have high potential to become the hubs. The methodology
+for identifying hub nodes leverages the
+Pointer Network
+various combinatorial optimization problems with sequence
+generation tasks, such as the planar Travelling Salesman
+Problem (TSP) [22] and the Rectilinear Minimum Spanning
+Tree (RMST) problem [4].
+Before diving into the details of our Selector and Con-
+ductor networks, we illustrate this
+Selector
+Conductor
+cooperation mechanism in Fig. 3 (right). To assist the Selector
+H
+1
+t
+2
+R
+d
+1
+and
+H
+2
+t
+2
+R
+d
+1
+(initially set to
+~
+0
+) to encode the
+environment at step
+t
+, where
+d
+1
+is a hyperparameter. At step
+t
+, the Selector network selects a new hub node based on the
+hidden state
+H
+1
+t
+. The action of selecting the hub node is
+encoded and can be passed to the Conductor to update its
+hidden state, resulting in
+H
+2
+t
+, thereby assisting the Conductor
+in making decisions. If the Conductor chooses to continue
+selecting hub nodes, the Selector progresses to step
+t
++ 1
+. It
+is important to note that the encoding of the action at step
+t
+will be employed to update the hidden state of the Selector,
+yielding
+H
+1
+t
++1
+. Subsequently, the Selector will use
+H
+1
+t
++1
+to
+select hub nodes as described above.
+Now, we introduce more details for the Selector and leave
+the details for the Conductor to Section III-C. At step
+t
+, lever-
+aging
+H
+1
+t
+, the probabilities of those
+n
+nodes being selected as
+the hub node can be obtained by the following
+n
+-dimensional
+vector:
+p
+sel
+t
+=
+Softmax
+tanh
+Mask
+z
+1
+t
+;
+(6)
+where the value
+z
+1
+t
+=
+g
+1
+>
+tanh
+W
+1
+1
+E
+1
+>
++
+W
+1
+2
+H
+1
+t
+with
+W
+1
+1
+2
+R
+d
+2
+d
+,
+W
+1
+2
+2
+R
+d
+2
+d
+1
+, and
+g
+1
+2
+R
+d
+2
+being the
+parameters to be trained (the integer
+d
+2
+hyperparameter), and
+E
+1
+represents the node embeddings for
+the Selector network. The computation mechanism of Eq. 6
+is based on the Pointer Network [22], and let us explain it in
+detail. The value
+z
+1
+t
+2
+R
+n
+represents the logits for selecting
+different nodes. For the nodes that have already been selected,
+we useMask
+(
+z
+1
+t
+)
+to set their valuesto
+, thereby preventing
+them from being re-selected. The softmaxŒ function normal-
+izes this vector and outputs the probabilities of those
+n
+nodes
+to be selected, i.e., the vector
+p
+sel
+t
+2
+R
+n
+. Note that during the
+trainingphase, selectionsare madeaccordingto theprobability
+p
+sel
+t
+, whereas in the testing phase, the
+model directly chooses the node with the highest probability.
+Suppose the Selector network selects the
+i
+-th node (
+1
+i
+n
+1
+). It is important to embed this action to assist
+subsequent decisions. To achieve this, we use
+A
+1
+t
+2
+R
+d
+1
+to
+encode the selection action. Since the selected hub node will
+
+===== PAGE 5 =====
+be connected to the root node, the encoding of the
+i
+-th node
+E
+1
+[
+i
+]
+2
+R
+d
+should be combined with the encoding of the root
+node
+E
+1
+[0]
+:
+A
+1
+t
+=
+W
+1
+a
+E
+1
+[
+i
+] +
+W
+1
+r
+E
+1
+[0]
+;
+(7)
+where
+W
+1
+a
+2
+R
+d
+1
+d
+and
+W
+1
+r
+2
+R
+d
+1
+d
+are the parameters to
+be trained.
+W
+1
+r
+E
+1
+[0]
+and
+W
+1
+a
+E
+1
+[
+i
+]
+represent the transformed
+embeddings of the root node and the currently selected hub
+node, respectively. After the action is encoded, the hidden state
+of the Selector for step
+t
++ 1
+is updated as follows:
+H
+1
+t
++1
+= max
+0
+;
+max
+H
+1
+t
+; W
+1
+u
+A
+1
+t
+;
+(8)
+where
+W
+1
+u
+2
+R
+d
+1
+d
+1
+is the parameter to be trained. The new
+hidden state
+H
+1
+t
++1
+is obtained by integrating the previous state
+H
+1
+t
+with the current action encoding
+W
+1
+u
+A
+1
+t
+.
+C. Conductor Network
+The Conductor network monitors the environment and as-
+sesses existing actions to determine whether to select addi-
+tional hub nodes. Similar to the Selector, it also maintains
+a hidden state
+H
+2
+t
+that records information from previous
+actions. At step
+t
+, the Conductor needs to perceive the action
+made by the Selector; thus, the selection action of the Selector
+at this step should be encoded to facilitate better decision-
+making by the Conductor. We employ the same method as
+illustrated in Eq. 7 and Eq. 8 to encode the action and update
+the hidden state of the Conductor, but with different trained
+parameters.
+At step
+t
+, based on the hidden state
+H
+2
+t
+, we compute:
+z
+2
+t
+=
+g
+2
+>
+tanh
+W
+2
+1
+E
+2
+>
++
+W
+2
+2
+H
+2
+t
+;
+(9)
+where
+W
+2
+1
+2
+R
+d
+2
+d
+,
+W
+2
+2
+2
+R
+d
+2
+d
+1
+, and
+g
+2
+2
+R
+d
+2
+are
+parameters to be trained, and
+E
+2
+represents the node em-
+beddings for the Conductor network. The term
+z
+2
+t
+2
+R
+n
+is
+expected to produce a vector that integrates information from
+the hidden state
+H
+2
+t
+and the node embeddings. Based on
+z
+2
+t
+,
+the probability of whether to continue selecting hub nodes at
+step
+t
+can be computed as:
+p
+con
+t
+=
+Sigmoid
+~
+1
+tanh
+z
+2
+t
+;
+(10)
+where
+~
+1
+tanh
+z
+2
+t
+represents the sum of the elements of
+tanh
+z
+2
+t
+. Eq. 10 aggregates information from different nodes
+to inform the decision on whether to continue selecting a hub
+node. If
+p
+con
+t
+>
+0
+:
+5
+, the process proceeds to the next step;
+otherwise, the Selector will stop.
+D. Critic and Training Method
+In reinforcement learning, particularly in an Actor-Critic
+model, the Critic module is often used to assist the learn-
+ing process [20]. Different from the previous RL-based
+networks [4], [5], our Critic module tries to predict the
+cost-skew tradeoff valueŒ of the input instance
+V
+, where
+the predicted value is denoted as
+Cr
+(
+V
+)
+. Recall that our
+Critic network receives the input
+E
+3
+2
+R
+n
+d
+from the
+Encoder, as described in Section III-A. Initially, we compute
+an attention-weightedŒ representation of
+E
+3
+: Attn
+(
+E
+3
+) =
+softmax
+tanh
+E
+3
+g
+3
+>
+E
+3
+, where
+g
+3
+2
+R
+d
+is a trainable
+parameter vector, and Attn
+(
+E
+3
+)
+represents a weighted sum of
+the encoded information from different nodes. Then, two fully
+connected layers are utilized to obtain the predicted cost-skew
+value:
+Cr
+(
+V
+) = max
+0
+;
+Attn
+(
+E
+3
+)
+W
+3
+1
++
+~
+b
+3
+1
+W
+3
+2
++
+b
+3
+2
+;
+(11)
+where
+W
+3
+1
+2
+R
+d
+d
+3
+,
+~
+b
+3
+1
+2
+R
+d
+3
+,
+W
+3
+2
+2
+R
+d
+3
+1
+, and
+b
+3
+2
+2
+R
+are trainable parameters (with
+d
+3
+being a hyperparameter).
+After obtaining
+Cr
+(
+V
+)
+, we introduce the training method of
+the Actor and Critic networks.
+Let
+1
+and
+2
+denote theparameters for theActor and Critic,
+respectively. Suppose the batch size is
+N
+1
+and the set of
+sampled instances for training are
+V
+=
+f
+V
+1
+; V
+2
+;
+; V
+N
+g
+. For
+each
+1
+i
+N
+, assume
+T
+i
+is the trajectory executed by
+the Actor, which follows a Markov decision process. Each
+step consists of selecting a hub node and deciding whether to
+continue. The probability of trajectory
+T
+i
+under the Actor's
+policy is denoted as
+p
+1
+(
+T
+i
+)
+. This probability is calculated as
+the product of the probabilities of the actions taken, including
+selecting hub nodes and making continuation decisions. The
+cost-skew value of the solution produced by the Actor is
+denoted by
+Ac
+(
+V
+i
+;
+T
+i
+)
+for each
+i
+. The loss for the Actor,
+denoted as
+L
+A
+(
+1
+j V
+)
+, is calculated by:
+1
+N
+N
+X
+i
+=1
+2
+4
+Cr
+(
+V
+i
+)
+Ac
+(
+V
+i
+;
+T
+i
+) +
+jT
+i
+j
+X
+t
+=1
+R
+t
+t
+3
+5
+log
+p
+1
+(
+T
+i
+j
+V
+i
+)
+;
+(12)
+where
+jT
+i
+j
+denotes the number of hub nodes chosen by the
+Actor in trajectory
+T
+i
+.
+R
+t
+and
+respectively represent the
+intermediate reward and the decay factor, which are used to
+balance the exploration and exploitation in RL [20].
+The loss for the Critic
+L
+C
+(
+2
+jV
+)
+is based on the Mean
+Squared Error (MSE) function:
+1
+N
+N
+X
+i
+=1
+k
+Cr
+(
+V
+i
+)
+Ac
+(
+V
+i
+;
+T
+i
+)
+k
+2
+2
+:
+(13)
+Both the Actor and Critic networks are trained using the
+Stochastic Gradient Descent (SGD) method [23].
+IV. EXPERIMENTAL RESULTS
+We trained our model using PyTorch and conducted our
+experiments on a 64-bit Linux system equipped with eight
+NVIDIA RTX A6000 GPUs. We compare the performance
+of our algorithm with three representative baselines: (1) the
+BST-DMEŒ algorithm outlined in [11]; (2) a heuristic
+m
+ulti-
+s
+ource
+s
+election method introduced in [19], denoted as MSS-
+MSPDŒ; (3) the PDŒ algorithm [18], [24] introduced in
+Section II-B. Our algorithm is labeled as ŒOURSŒ. We present
+our results separately for small-scale (
+n
+50
+) and large-scale
+(
+n >
+50
+) instances.
+
+===== PAGE 6 =====
+(a) degree 10
+(b) degree 15
+(c) degree 25
+(d) degree 40
+(e) degree 50
+(f) degree 100
+(g) degree 500
+(h) degree 1000
+Fig. 4: Figures (a) to (e) show the comparison results of our framework with the BST-DME, MSS-MSPD, and PD algorithms for data with
+degrees of 10, 15, 25, 40, and 50, respectively. Figures (f) to (h) show the comparison results for large degrees of 100, 500, and 1000,
+respectively.
+A. Small-Scale
+We trained our models for degrees ranging from 10 to
+50 on randomly generated training data. For degree 10, we
+trained the model with mini-batch size B = 2048 for 100
+k
+iterations. Subsequently, the batch size was diminished for
+each ascending degree. In this part, we compare the ex-
+perimental performance for nets with degrees
+50
+, using
+the test data (300 instances for each degree) derived from
+the recent OpenROAD contest [25], which is generated by
+a well-designed random algorithm, ensuring the diversity of
+distribution.
+The Prim's algorithm and Dijkstra's algorithm are com-
+monly used representative algorithms for optimizing cost
+and skew [18], so we particularly take their obtained values
+
+cost
+(
+T
+P
+)
+Œ and 
+skew
+(
+T
+D
+)
+Œ as the baseline values, where
+T
+P
+and
+T
+D
+are the trees obtained by Prim's and Dijkstra's al-
+gorithms, respectively. Suppose
+T
+is thetree obtained by an al-
+gorithm(eitherourmethodorabaseline),thenweevaluatethis
+algorithm's performance by the ratios
+cost
+(
+T
+)
+cost
+(
+T
+P
+)
+and
+skew
+(
+T
+)
+skew
+(
+T
+D
+)
+,
+where are respectively referred as 
+normalized wirelength
+Œ
+and 
+normalized skew
+Œ. The comparative performance of
+these algorithms is illustrated in Fig. 4 (a)-(e). It can be
+observed that our algorithm achieves the best Pareto frontiers,
+andtheperformancedifferencebetweenOURSŒandtheother
+algorithms gradually increases as the scale increases. To more
+clearly illustrate this trend, we also conducted the experiment
+on larger scale instances in the next section.
+B. Large-Scale
+We compare the algorithms on randomly generated large-
+degree networks (degrees of 100, 500, and 1000, with 100
+instances for each degree). The results are shown in Fig. 4 (f)-
+(h). It can be seen that the BST-DME algorithm has relatively
+poor performance on large-scale instances. Since the BST-
+DME algorithm has to obey skew constraints, the wirelength
+cost caused by this constraint accumulates rapidly with the
+expansion of scale, and our framework maintains a superior
+performance relative to other algorithms. It is worth noting
+that we directly use the model trained in degree 100 for
+effectiveness of applying our model to large-scale problems.
+The runtimes of various algorithms across different degrees
+are shown in Table I. Since most of the computational load
+of our learning-based model belongs to the training stage, the
+running time of solving a new instance in the test stage is quite
+small. Our runtime is comparable with PD and slightly slower
+performance than these two baselines as shown in Fig. 4.
+TABLEI: Averageruntimeperformance over1000 samplesfor small-
+scale tests and over 100 samples for large-scale tests.
+Degree
+BST-DME(s) MSS-MSPD(s) PD(s) OURS(s)
+10
+0.022 0.007 0.001 0.003
+15
+0.045 0.074 0.005 0.007
+25
+0.057 0.107 0.009 0.009
+40
+0.081 0.240 0.014 0.015
+50
+0.094 0.400 0.018 0.019
+100
+0.202 2.575 0.103 0.104
+500
+1.216 136.6 1.387 1.415
+1000
+2.480 1008 4.392 5.362
+V. C
+ONCLUSION
+In this paper, we propose an adaptive learning-based ap-
+proach to select hub nodes for the cost-skew tradeoff problem.
+The key idea relies on a novel Selector
+Conductor coop-
+eration mechanism integrated with the RL framework. Our
+experimental results illustrate the promising performance of
+our model on small and large-scale nets. In the future, we can
+considerfurtherspeeding upour method throughotheraspects.
+For example, it is interesting to consider whether the MSPD
+algorithm can be implemented on GPUs. It is also worth
+investigating whether our adaptive Selector
+ConductorŒ
+RL framework can be applied to solve other challenging
+optimization problems in EDA.
+
+===== PAGE 7 =====
+R
+EFERENCES
+[1]
+M. Hanan, On steiner's problem with rectilinear distance,Œ
+SIAM
+Journal on Applied mathematics
+, vol. 14, no. 2, pp. 255Š265, 1966.
+[2]
+C. Chu and Y.-C. Wong, Flute: Fast lookup table based rectilinear
+steiner minimal tree algorithm for vlsi design,Œ
+IEEE Transactions on
+Computer-Aided Design of Integrated Circuits and Systems
+, vol. 27,
+no. 1, pp. 70Š83, 2007.
+[3]
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems
+, vol. 27, no. 11, pp. 2017Š2026, 2008.
+[4]
+J. Liu, G. Chen, and E. F. Young, Rest: Constructing rectilinear steiner
+minimum tree via reinforcement learning,Œ in
+2021 58th ACM/IEEE
+Design Automation Conference (DAC)
+. IEEE, 2021, pp. 1135Š1140.
+[5]
+L. Yang, G. Sun, and H. Ding, Towards timing-driven routing: An
+2023 IEEE/ACM In-
+ternational Conference on Computer Aided Design (ICCAD)
+. IEEE,
+2023, pp. 1Š9.
+[6]
+R. Cheng, X. Lyu, Y. Li, J. Ye, J. Hao, and J. Yan, The policy-
+gradient placement and generative routing neural networks for chip
+design,Œ
+Advances in Neural Information Processing Systems
+, vol. 35,
+pp. 26350Š26362, 2022.
+[7]
+V. Soteriou, N. Eisley, H. Wang, B. Li, and L.-S. Peh, Polaris: A
+system-level roadmap for on-chip interconnection networks,Œ in
+2006
+International Conference on Computer Design
+. IEEE, 2006, pp. 134Š
+141.
+[8]
+A. B. Kahng, J. Lienig, I. L. Markov, and J. Hu,
+VLSI physical design:
+from graph partitioning to timing closure
+. Springer, 2011, vol. 312.
+[9]
+M. R. Guthaus, G. Wilke, and R. Reis, Revisiting automated physical
+synthesis of high-performance clock networks,Œ
+ACM Transactions on
+Design Automation of Electronic Systems (TODAES)
+, vol. 18, no. 2, pp.
+1Š27, 2013.
+[10]
+K. D. Boese and A. B. Kahng, Zero-skew clock routing trees with
+minimum wirelength,Œ in
+[1992] Proceedings. Fifth Annual IEEE Inter-
+national ASIC Conference and Exhibit
+. IEEE, 1992, pp. 17Š21.
+[11]
+J. Cong, A. B. Kahng, C.-K. Koh, and C.-W. A. Tsao, Bounded-skew
+clock and steiner routing,Œ
+ACM Transactions on Design Automation of
+Electronic Systems (TODAES)
+, vol. 3, no. 3, pp. 341Š388, 1998.
+[12]
+D. J. Huang, A. B. Kahng, and C.-W. A. Tsao, On the bounded-skew
+clock and steiner routing problems,Œ in
+Proceedings of the 32nd annual
+ACM/IEEE Design Automation Conference
+, 1995, pp. 508Š513.
+[13]
+A. B. Kahng and C.-W. A. Tsao, Practical bounded-skew clock rout-
+ing,Œ
+High Performance Clock Distribution Networks
+, pp. 87Š103, 1997.
+[14]
+M. R. Garey and D. S. Johnson, The rectilinear steiner tree problem
+is np-complete,Œ
+SIAM Journal on Applied Mathematics
+, vol. 32, no. 4,
+pp. 826Š834, 1977.
+[15]
+A. Z. Zelikovsky and I. I. Mandoiu, Practical approximation algorithms
+for zero-and bounded-skew trees,Œ
+SIAM Journal on Discrete Mathemat-
+ics
+, vol. 15, no. 1, pp. 97Š111, 2001.
+[16]
+M. Charikar, J. Kleinberg, R. Kumar, S. Rajagopalan, A. Sahai, and
+A. Tomkins, Minimizing wirelength in zero and bounded skew clock
+trees,Œ
+SIAM Journal on Discrete Mathematics
+, vol. 17, no. 4, pp. 582Š
+595, 2004.
+[17]
+K. Han, A. B. Kahng, C. Moyes, and A. Zelikovsky, A study of
+optimal cost-skew tradeoff and remaining suboptimality in interconnect
+tree constructions,Œ in
+Proceedings of the 20th System Level Interconnect
+Prediction Workshop
+, 2018, pp. 1Š8.
+[18]
+C. J. Alpert, T. C. Hu, J.-H. Huang, A. B. Kahng, and D. Karger, Prim-
+dijkstra tradeoffs for improved performance-driven routing tree design,Œ
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems
+, vol. 14, no. 7, pp. 890Š896, 1995.
+[19]
+A. B. Kahng, S. Thumathy, and M. Woo, An effective cost-skew
+tradeoff heuristic for vlsi global routing,Œ in
+2023 24th International
+Symposium on Quality Electronic Design (ISQED)
+. IEEE, 2023, pp.
+1Š8.
+[20]
+K. Arulkumaran, M. P. Deisenroth, M. Brundage, and A. A. Bharath,
+Deep reinforcement learning: A brief survey,Œ
+IEEE Signal Processing
+Magazine
+, vol. 34, no. 6, pp. 26Š38, 2017.
+[21]
+A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez,
+Advances in
+neural information processing systems
+, vol. 30, 2017.
+[22]
+O. Vinyals, M. Fortunato, and N. Jaitly, Pointer networks,Œ
+Advances
+in neural information processing systems
+, vol. 28, 2015.
+[23]
+D. P. Kingma and J. Ba, Adam: A method for stochastic optimization,Œ
+arXiv preprint arXiv:1412.6980
+, 2014.
+[24]
+C. J. Alpert, W.-K. Chow, K. Han, A. B. Kahng, Z. Li, D. Liu, and
+S. Venkatesh, Prim-dijkstra revisited: Achieving superior timing-driven
+routing trees,Œ in
+Proceedings of the 2018 International Symposium on
+Physical Design
+, 2018, pp. 10Š17.
+[25]
+TILOS-AI-Institute, Mspd,Œ Github, 2023. [Online]. Available:
+https://github.com/TILOS-AI-Institute/multi-source-Prim-Dijkstra

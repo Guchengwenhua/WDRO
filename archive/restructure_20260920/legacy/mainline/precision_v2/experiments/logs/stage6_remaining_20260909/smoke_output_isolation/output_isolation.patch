@@ -1,0 +1,11 @@
+--- controller_before.py
++++ precision_stage6_completion.py
+@@ -22,7 +22,7 @@
+             lease.update(update=0,status='waiting_corrected_validation_freeze',detail=dict(prerequisite=str(EXP/'logs/precision_wdro_replay/heartbeat.json')));time.sleep(15)
+         assert read(ROOT/'manifests/stage5_delivery_verification_v1.json')['status']=='pass'
+         step(lease,'stage6_corrected_plan','prepare_stage6.py',outputs=[ROOT/'configs/stage6_plan_v1.json',ROOT/'manifests/stage6_training_contract_v1.json'])
+-        step(lease,'stage6_corrected_training_smoke','run_stage6_smoke.py',outputs=[EXP/'logs/stage6_smoke/audit.json'])
++        step(lease,'stage6_corrected_training_smoke','precision_stage6_isolated_smoke.py',outputs=[EXP/'logs/stage6_smoke/audit.json'])
+         step(lease,'stage6_corrected_evaluation_smoke','run_stage6_evaluation_smoke.py',outputs=[EXP/'logs/stage6_evaluation_smoke/audit.json'])
+         step(lease,'stage6_corrected_regression','run_precision_unit_tests.py',['--include-stage6','--output',EXP/'logs/stage6_pipeline/unit_tests_final_pass.log'],[EXP/'logs/stage6_pipeline/unit_tests_final_pass.log'])
+         step(lease,'stage6_corrected_statistics_smoke','benchmark_precision_statistics.py',outputs=[EXP/'logs/stage6_pipeline/statistics_validation_benchmark.json'])

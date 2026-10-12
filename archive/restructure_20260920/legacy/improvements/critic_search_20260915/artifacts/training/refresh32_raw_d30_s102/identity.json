@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "experiment": "tmp2_candidate07_refresh_dual_2x2",
+  "degree": 30,
+  "seed": 102,
+  "variant": "refresh32_raw",
+  "smoke": false,
+  "settings": {
+    "updates": 128,
+    "batch_size": 16,
+    "learning_rate": 1e-05,
+    "gradient_clip": 1.0,
+    "lambda_learning_rate": 1.0,
+    "ema_beta": 0.9,
+    "critic_learning_rate": 0.0001,
+    "validation_interval": 32,
+    "validation_count": 64,
+    "evaluation_count": 256,
+    "evaluation_batch_size": 64,
+    "nominal_degradation_max": 0.002,
+    "greedy_microbatch": 256,
+    "torch_threads": 1,
+    "reference_workers": 3,
+    "gpu_memory_fraction": 0.1,
+    "true_search_budget_per_center": 4,
+    "critic_interval": 32,
+    "lambda_cost_smoothing": false
+  },
+  "dependencies": {
+    "surrogate": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/fixed/erm_d30_s102/critic/best.pt",
+      "sha256": "ba69f06096f8ea38f76849054f518b2f282469b987ba07bf5db4158801d8ecf8"
+    },
+    "erm": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s102_u2000/best.pt",
+      "sha256": "580f2bc2532e49c96bddbdd217af5f464255e1092ef0005346be28afacc32912"
+    },
+    "wdro_rest": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d30_s102_u2000_v1/best.pt",
+      "sha256": "1c12452fbf4ca553b3c81040b2f4f386bb3063161d684a0a6c8429a3d9488877"
+    }
+  },
+  "source_sha256": {
+    "training.py": "46c8e4375d6ce05e6e5d3d56ea62cc3501c09d84e650844c7affbc5430cadb34",
+    "adv_v3/common.py": "5ff462a4c76ece32e0a2b57a45049c14c42aedbcd736ebbbcd949fec7c6eaca2",
+    "adv_v3/joint.py": "262b8cb657ee387f84311c74c60b9e3b7ad6c5ba7359ba520cb514fd36f9c947",
+    "adv_v3/critic.py": "8f8cc12bf1039641b6b0ef69b4a6d28448514b6b647e87e08360919e022a1719",
+    "adv_v3/search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f"
+  },
+  "theory": {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/THEORY_07.md",
+    "sha256": "4766f6293622b7201d1e305414f928ad283f9c6d390039f169ff1cfad44e2759"
+  },
+  "protocol": {
+    "path": "/remote-home/Guilin/DRO/Codex/improvements/critic_search_20260915/protocol.json",
+    "sha256": "ecf055200083c8e4afd2cc63a24875e9b5987b97c87dee1571f6246dc900fe9e"
+  },
+  "model_selection": "minimum validation OOD worst-group mean subject to nominal degradation <=0.002; initial eligible; earliest ties",
+  "data_namespaces": {
+    "train": "tmp2-candidate07-train-u{step:06d}",
+    "validation": "tmp2-candidate07-validation",
+    "evaluation": "tmp2-candidate07-test"
+  },
+  "label_freshness": "current Actor before outer update; current batch only; no regret replay",
+  "optimizer_initialization": "fresh Adam for Actor plus baseline Critic and independent surrogate",
+  "fixed_inference_batch": 256
+}

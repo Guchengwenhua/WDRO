@@ -1,0 +1,25 @@
+--- report.py.before
++++ report.py.after
+@@ -198,8 +198,11 @@
+     for record in done.get("artifacts", []):
+         artifact = Path(record["path"])
+         require(artifact.exists() and sha256(artifact) == record["sha256"], f"{path}: artifact hash mismatch {artifact}")
+-        require(str(artifact) not in listed, f"{path}: duplicate artifact binding")
+-        listed[str(artifact)] = record["sha256"]
++        # Fixed producers bind logical paths; joint producers bind resolved
++        # paths. Compare physical identity across the experiments symlink.
++        artifact_key = str(artifact.resolve())
++        require(artifact_key not in listed, f"{path}: duplicate artifact binding")
++        listed[artifact_key] = record["sha256"]
+     require(bool(listed), f"{path}: no artifact bindings")
+     require((path / "exit.json").exists(), f"{path}: no exit evidence")
+     exit_record = read_json(path / "exit.json")
+@@ -221,7 +224,7 @@
+ 
+ 
+ def require_bound(path, listed):
+-    require(str(path) in listed, f"unbound required artifact: {path}")
++    require(str(Path(path).resolve()) in listed, f"unbound required artifact: {path}")
+ 
+ 
+ def ledger_details(ledger):

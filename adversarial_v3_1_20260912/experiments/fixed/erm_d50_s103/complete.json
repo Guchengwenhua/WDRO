@@ -1,0 +1,997 @@
+{
+  "status": "pass",
+  "task": "erm_d50_s103",
+  "smoke": false,
+  "degree": 50,
+  "parent": "erm",
+  "seed": 103,
+  "parent_checkpoint": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d50_s103_u2000/best.pt",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d50_s103_u2000/best.pt",
+    "sha256": "093f9fbf3b33d028909f706702809fb2eb33168f29932a8c35040774f7567fc8"
+  },
+  "price": 0.031949828751383594,
+  "rho": 0.02593563970178366,
+  "evaluation_centers": 1024,
+  "methods": [
+    "random_top4",
+    "critic_raw4",
+    "critic_calibrated4",
+    "rl4",
+    "random64",
+    "cem64",
+    "es64",
+    "critic_calibrated64",
+    "rl64"
+  ],
+  "critic_summary": {
+    "status": "complete",
+    "identity": {
+      "schema_version": 1,
+      "degree": 50,
+      "seed": 2741792965,
+      "namespace": "adversarial_v3_critic",
+      "settings": {
+        "train_count": 8192,
+        "validation_count": 1024,
+        "epochs": 16,
+        "batch_size": 128,
+        "learning_rate": 0.0001,
+        "label_microbatch": 128
+      },
+      "parent_critic_sha256": "fe480d1cc2226085868a910e869f8e1cc31b44e736d865e58fca81f900a180d2",
+      "label_actor_sha256": "89befcb3dc2802c3453eeddad0451284dcfe22ba82caac1476e44667d10beb91",
+      "output_head": "linear"
+    },
+    "best_epoch": 15,
+    "validation": {
+      "mse": 4.840717231058534e-05,
+      "spearman": 0.038069417227948155
+    },
+    "raw_validation": {
+      "mse": 5.2989073096778336e-05,
+      "spearman": 0.05570023357372651
+    },
+    "raw_gradient": {
+      "nets": 1024,
+      "zero_gradient_fraction": 0.0,
+      "zero_prediction_fraction": 0.0,
+      "gradient_l2_mean": 0.03408802750891482,
+      "gradient_l2_min": 0.015925131738185883,
+      "gradient_l2_max": 0.08829423785209656
+    },
+    "calibrated_gradient": {
+      "nets": 1024,
+      "zero_gradient_fraction": 0.0,
+      "zero_prediction_fraction": 0.0,
+      "gradient_l2_mean": 0.027020030529456562,
+      "gradient_l2_min": 0.011816578917205334,
+      "gradient_l2_max": 0.06374777108430862
+    },
+    "label_requests": 9216,
+    "label_distribution": "uniform_normalized",
+    "oracle_ledger_snapshot": {
+      "actor_requested": 265856,
+      "reference_requests": 265792,
+      "geosteiner_misses_started": 0,
+      "geosteiner_misses_completed": 0,
+      "actor_forward_rows_requested": 325120,
+      "actor_padding_rows_requested": 59264,
+      "actor_forward_rows_completed": 324864,
+      "actor_padding_rows_completed": 59072,
+      "actor_completed": 265792,
+      "rest_requested": 265792,
+      "rest_completed": 265792
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "train_mse": 9.545425854184941e-05,
+        "mse": 6.316411766743197e-05,
+        "spearman": 0.00889541078668998
+      },
+      {
+        "epoch": 2,
+        "train_mse": 5.250854513860759e-05,
+        "mse": 0.00013450815826400401,
+        "spearman": -0.03273495567968823
+      },
+      {
+        "epoch": 3,
+        "train_mse": 5.234371781170921e-05,
+        "mse": 0.0001347686410564931,
+        "spearman": 0.006348047002099557
+      },
+      {
+        "epoch": 4,
+        "train_mse": 5.208670057754716e-05,
+        "mse": 5.26632164821781e-05,
+        "spearman": 0.03543326094415738
+      },
+      {
+        "epoch": 5,
+        "train_mse": 5.0411575671205355e-05,
+        "mse": 6.176910462766822e-05,
+        "spearman": 0.030061337941433508
+      },
+      {
+        "epoch": 6,
+        "train_mse": 4.7791058193524805e-05,
+        "mse": 5.2740789248743265e-05,
+        "spearman": 0.016332771134249312
+      },
+      {
+        "epoch": 7,
+        "train_mse": 4.915636134228407e-05,
+        "mse": 5.029700374394931e-05,
+        "spearman": 0.03671003855612729
+      },
+      {
+        "epoch": 8,
+        "train_mse": 5.054608288901363e-05,
+        "mse": 0.000134081472666804,
+        "spearman": 0.021940985837630374
+      },
+      {
+        "epoch": 9,
+        "train_mse": 5.1143833502464986e-05,
+        "mse": 5.879486889997189e-05,
+        "spearman": 0.009193873926156983
+      },
+      {
+        "epoch": 10,
+        "train_mse": 4.864614857069682e-05,
+        "mse": 6.959719520203133e-05,
+        "spearman": 0.013720631930039676
+      },
+      {
+        "epoch": 11,
+        "train_mse": 4.8213744321401464e-05,
+        "mse": 6.996701725245287e-05,
+        "spearman": 0.05150497462035196
+      },
+      {
+        "epoch": 12,
+        "train_mse": 4.8307380836831726e-05,
+        "mse": 5.791077800730046e-05,
+        "spearman": -0.025007480577488597
+      },
+      {
+        "epoch": 13,
+        "train_mse": 4.863232345542201e-05,
+        "mse": 4.92182195167797e-05,
+        "spearman": 0.024218720261673325
+      },
+      {
+        "epoch": 14,
+        "train_mse": 4.858008514929679e-05,
+        "mse": 4.945327136232442e-05,
+        "spearman": 0.06065988941731768
+      },
+      {
+        "epoch": 15,
+        "train_mse": 4.7466884666391707e-05,
+        "mse": 4.840717231058534e-05,
+        "spearman": 0.038069417227948155
+      },
+      {
+        "epoch": 16,
+        "train_mse": 4.7589963116934086e-05,
+        "mse": 5.1898274110229344e-05,
+        "spearman": 0.055902494709728696
+      }
+    ],
+    "best_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/best.pt",
+    "latest_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/latest.pt",
+    "labels_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/labels.pt"
+  },
+  "rl_summary": {
+    "status": "complete",
+    "identity": {
+      "schema_version": 1,
+      "algorithm": "v3_one_step_reinforce_raw_f_baseline_X",
+      "degree": 50,
+      "seed": 2780943531,
+      "price": 0.031949828751383594,
+      "config": {
+        "updates": 256,
+        "batch_size": 64,
+        "learning_rate": 0.0003,
+        "initial_std": 0.02,
+        "maximum_motion": 0.08,
+        "validation_interval": 32,
+        "validation_count": 128,
+        "hidden_size": 64,
+        "parent_checkpoint_sha256": "093f9fbf3b33d028909f706702809fb2eb33168f29932a8c35040774f7567fc8",
+        "protocol_sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63"
+      }
+    },
+    "identity_sha256": "fc339d95c37a5f8dfef43fb811fde3285e9ca8ddc954a0c86e629d738e0c8b7c",
+    "update": 256,
+    "best_update": 256,
+    "best_f": 0.01084353343406452,
+    "counts": {
+      "training_requests": 32768,
+      "validation_requests": 2048,
+      "baseline_requests": 17408,
+      "candidate_requests": 17408
+    },
+    "validation_history": [
+      {
+        "update": 32,
+        "mean_f": 0.010624840708507072,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.000386998668859741,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 64,
+        "mean_f": 0.010630596333969452,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.00038124304339736136,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 96,
+        "mean_f": 0.0102370382027714,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.0007748011745954114,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 128,
+        "mean_f": 0.010270804924905348,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.0007410344524614661,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 160,
+        "mean_f": 0.010184964342715212,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.000826875034651601,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 192,
+        "mean_f": 0.010485713533946518,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.0005261258434202952,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 224,
+        "mean_f": 0.010532653334147497,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.00047918604321931646,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      },
+      {
+        "update": 256,
+        "mean_f": 0.01084353343406452,
+        "mean_baseline_f": 0.011011839377366814,
+        "mean_delta_f": -0.000168305943302295,
+        "real_score_requests": 256,
+        "baseline_requests": 128,
+        "candidate_requests": 128,
+        "centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b"
+      }
+    ],
+    "validation_centers_sha256": "9f2dafdee17a19738ca8c78208d9f8edb7a85f3cdbf5f6eb764aec50404abd3b",
+    "data_namespace": "adv_v3_rl_d50_seed2780943531",
+    "training_wall_seconds": 338.66113132983446,
+    "oracle_ledger_snapshot": {
+      "actor_requested": 265856,
+      "reference_requests": 265792,
+      "geosteiner_misses_started": 0,
+      "geosteiner_misses_completed": 0,
+      "actor_forward_rows_requested": 325120,
+      "actor_padding_rows_requested": 59264,
+      "actor_forward_rows_completed": 324864,
+      "actor_padding_rows_completed": 59072,
+      "actor_completed": 265792,
+      "rest_requested": 265792,
+      "rest_completed": 265792
+    },
+    "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/latest.pt",
+    "best_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/best.pt",
+    "reward_normalization": "none",
+    "baseline": "real_f_of_original_X"
+  },
+  "critic_seconds": 5.107117637991905,
+  "rl_seconds": 0.3155723437666893,
+  "task_seconds": 1030.8197288885713,
+  "ledger": {
+    "actor_requested": 388736,
+    "reference_requests": 388672,
+    "geosteiner_misses_started": 0,
+    "geosteiner_misses_completed": 0,
+    "actor_forward_rows_requested": 455680,
+    "actor_padding_rows_requested": 66944,
+    "actor_forward_rows_completed": 455424,
+    "actor_padding_rows_completed": 66752,
+    "actor_completed": 388672,
+    "rest_requested": 388672,
+    "rest_completed": 388672
+  },
+  "geometry": {
+    "proposals": 357312,
+    "repairs": 69820,
+    "fallbacks": 0
+  },
+  "identity": {
+    "parent": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d50_s103_u2000/best.pt",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d50_s103_u2000/best.pt",
+      "sha256": "093f9fbf3b33d028909f706702809fb2eb33168f29932a8c35040774f7567fc8"
+    },
+    "price_parent": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d50_s103_u2000_v1/best.pt",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d50_s103_u2000_v1/best.pt",
+      "sha256": "accfb2e0b901153e530a6abed12f8f172c5f1cc93578923a86c7f68b80f2e70c"
+    },
+    "smoke": false,
+    "protocol_sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63",
+    "parent_snapshot_sha256": "809872fce3854abd7872b905921846c8402b58b09dc429ecace4129e34087bb4",
+    "source_hashes": {
+      "common.py": "5ff462a4c76ece32e0a2b57a45049c14c42aedbcd736ebbbcd949fec7c6eaca2",
+      "worker.py": "61ed332dc0900a684b627839c2ce832a45ea8939e3cb1280924b6eacda0ce076",
+      "search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f",
+      "critic.py": "8f8cc12bf1039641b6b0ef69b4a6d28448514b6b647e87e08360919e022a1719",
+      "rl.py": "5b8d37c25af8e21174cb92404b704b5b037c0e86418c6cc610d9a31db825f8bb"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/identity.json",
+      "sha256": "b69cf5fb34919919101fedd4bbfde0575b3d7218e9836fc8e5c5354fb087f8c7"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/inputs/uniform.npz",
+      "sha256": "36a30bb6b5ef8ab7f0739fbfe723f4865d33cf92f12655ce9f7f96e0b0d666c1"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random_top4_00000.npz",
+      "sha256": "3cde0569bb8454cc6e12f8a7bbe2e85c2be9aa75d30d26ae69a40d2a90935008"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random_top4_00064.npz",
+      "sha256": "7b9d1918de4857862f2e3d67bd59c2afaf6692e268faf39de83e83f4ae23f056"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random_top4_00128.npz",
+      "sha256": "5a285b60dbc615727ae9881eae93df8d9001010e476dab5141190e093280da05"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random_top4_00192.npz",
+      "sha256": "ce7b1d311533c027dffe935d598534695944361342be9a1a2b7a3fb87a7b79f0"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_raw4_00000.npz",
+      "sha256": "c456944e1cfda02bfd80bc38ed50d28ca2e178fdf4a800e8d73065e49920225d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_raw4_00064.npz",
+      "sha256": "f2778f93f0484098f8a1f285c8fd0cea0f6f62410e5a7237cfa0b70a6a0b996c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_raw4_00128.npz",
+      "sha256": "f96537903e13d716152025271f292ad7d34c1aa01c0e92bc2a8e749ef7368175"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_raw4_00192.npz",
+      "sha256": "3ee018e81deba7570ab8cf405c895eda426f05ffa83ee4929efd5d7da9ff6060"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated4_00000.npz",
+      "sha256": "966a109c793138374422e0b20c7b556c1593c67cbd898ea22f16f07947282112"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated4_00064.npz",
+      "sha256": "7b035201c4b4532387e379006519f8d0cafae3c9eeb421e7c772a3dc05aef0c5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated4_00128.npz",
+      "sha256": "61e3a41d502678b39bcbbc18b834fa46e40f443eb63cb4813acae2a887747588"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated4_00192.npz",
+      "sha256": "dbd36d9c65df377d4dea8dbfb894c6c1b16203b818d344105fa3e525b9bf976e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl4_00000.npz",
+      "sha256": "3f6f3602733a59a9dba4513bf9a5a0df6d12ee1283e6b94b076983a7d1b1a80d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl4_00064.npz",
+      "sha256": "261d2309c36f2f8e80e4f79526959448c32afd75f5410655a776ed39ba50be75"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl4_00128.npz",
+      "sha256": "c1ea6b9de227a36b793fb71fd2718ee13359a95a543b735fa870016b24cdac6d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl4_00192.npz",
+      "sha256": "528f27005d5f8a70989095a5c513d0d7467041e0e3ccc523ae43c18ee2549ecd"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random64_00000.npz",
+      "sha256": "29a3ae7c21bb54e84864518fa234e79a39265a5f8c5722a31e149033b4b29f33"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random64_00064.npz",
+      "sha256": "ddfc52a8b0878683e2b87197ae93b653658770504a4376da7902db6798dda641"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random64_00128.npz",
+      "sha256": "9fea7c763ea98fbb676e47af10c974b98ade90f1502a55d1e0acb0e4d21b465b"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_random64_00192.npz",
+      "sha256": "2a279d7bd2f263600c4aaf59bd30e8041b3b2f3d37ba50949b9e46ea5fc1ccf6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_cem64_00000.npz",
+      "sha256": "de8b8d1e627159bf69b0718586661fb6429e652e578297f417fd2ca7b295b05d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_cem64_00064.npz",
+      "sha256": "5c11bc0b961db6f71636cfd4867824cf73e82f97159a1cee232e3bcda573d8ee"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_cem64_00128.npz",
+      "sha256": "56b84fc666aef9d463d441f2a1afbab723644fa97906ea3dbd0e140fb70843d6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_cem64_00192.npz",
+      "sha256": "1f774431c93ac8591b4c5b3758a59387f234e49f53847be32705352e83f9a210"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_es64_00000.npz",
+      "sha256": "bd42c56f558b8671d808e1274e33dc9dcdea59cf879d84072f9ec614fcef102e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_es64_00064.npz",
+      "sha256": "696e2137bb7bd49d47c2541c993cb697b0307ce77b6aa0bbef65b1b1ec23e3cd"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_es64_00128.npz",
+      "sha256": "fefbb49d9ad1ff050b639cb7e55389098fbaec3d5d9e853d12167b4e454cca7d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_es64_00192.npz",
+      "sha256": "982dd9fb968f06e5ea30483affaf0446bf2ccdab759a09869decb200a8feb5de"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated64_00000.npz",
+      "sha256": "9fc630338ee56644ee1327a67cd2a1672dd47bdb30a723a3c1b5307d5b1e412d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated64_00064.npz",
+      "sha256": "1caa257a8291b9842d9a756e380bd956b7215d32baf26149b9d0d6419e4db1ad"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated64_00128.npz",
+      "sha256": "d2615bab2727c7ca9b1c27c06b7a55a9365e1792da57070dab035518852de235"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_critic_calibrated64_00192.npz",
+      "sha256": "a091df1dcd876a7441d2c8d5d346f566913c4ac0ec3cedd0d0a4bb4cb5de5eae"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl64_00000.npz",
+      "sha256": "fd5857522df150c608e6b67006eb62ac1349eb4c6e7959aa0281a906ea828809"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl64_00064.npz",
+      "sha256": "9ff8dc8509272ee728dedf428418a289a3be15f9aa4c0cc8cf973e39714807af"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl64_00128.npz",
+      "sha256": "12f84569df96a726bf0565ee8f8777a085c5ec459a121fcebec679cfd78f7c70"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/uniform_rl64_00192.npz",
+      "sha256": "3c33e62afbf33ca1e499d525dbc6fb2dc9a10ba57c24c6917b5a9d51e7075b82"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/inputs/mix_gauss.npz",
+      "sha256": "b90a4643d451f56611a122f2ed2b9df89f7c3829c28b6cbe316e33671b87a71a"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random_top4_00000.npz",
+      "sha256": "673eaf073c4c86a11f33ec787e22559376a599c92c4dd2f4b66bb3c7422bfeb4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random_top4_00064.npz",
+      "sha256": "4201e11ca64a37bba135d91c772cdb9ddf719c16fed356f0e49eeb15b65e4bd5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random_top4_00128.npz",
+      "sha256": "efd29dd4ccb554e3bcc9e3c42c158a752393a35baefab5fab0b6c52abb7af3ff"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random_top4_00192.npz",
+      "sha256": "50918a6684157506f62201444f475c29db6caa65073cf34e79093f6c40d0f9bf"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_raw4_00000.npz",
+      "sha256": "1d3c776df7d120c78f5c0a44f1564c926f96d44b9bb7e9a2dc9025f57e8fa1b6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_raw4_00064.npz",
+      "sha256": "b65b40760a91c7b2f383dba37dd852e241b59f992cf42a30b0a45cde15b8a7ee"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_raw4_00128.npz",
+      "sha256": "0d8c4989aa1da5735755e359138c576498aeec8367cdb981f451a2a22b429843"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_raw4_00192.npz",
+      "sha256": "54a07cb18bd166af3765caa5ee8dab247fc230224eef933335720a91b819f75d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated4_00000.npz",
+      "sha256": "3ed8b60660a46ab2303373fc920a7a552690bf4be52ce820782bed42fd9d7a6a"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated4_00064.npz",
+      "sha256": "3b71680f8587b4c183873876cff738f0ddb44bf54f2ef3cba37c6f8b364e3a43"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated4_00128.npz",
+      "sha256": "8b988ed489d8f5941216b767d26ad0199a12a8955166b0f402af6e298a69bce2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated4_00192.npz",
+      "sha256": "f6113cbb2d6d2af397f26603cf59d6355c3510fb439520d6fa2cddc85aab5c08"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl4_00000.npz",
+      "sha256": "10d3e4dbb5ea3115d55503f6777ff2c9839e1276ce94efd1fd54fb35ba0fabd9"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl4_00064.npz",
+      "sha256": "9b62390837a2f4ffd3de120fc657794face76e31e861ed8b07c61c912811699e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl4_00128.npz",
+      "sha256": "134ee6c3f954150f2f16e7002a9ef8539ea882c9d1e040d33b8e046382617f00"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl4_00192.npz",
+      "sha256": "d1f1c5d267c8277cfd36b51c6d0d31615acb71155b4d14a2a898dfa3423e0285"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random64_00000.npz",
+      "sha256": "0c71bc10b0e849d6f2384d16f6689b618f85455158c218789a10c48d81758025"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random64_00064.npz",
+      "sha256": "783bca7c1858357c7aed9834cc04e8cc6671983126abf47658ffe8a6bf9e5a53"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random64_00128.npz",
+      "sha256": "00779ca482920b056885c472ebac45720f08266f918bc4b48a1504cfadfad06b"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_random64_00192.npz",
+      "sha256": "1952a36d90920f1f84dd39bd58c1a0506b1ab0ad66e2b20543e35832f86d748f"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_cem64_00000.npz",
+      "sha256": "e7006dd1bd3926ad7e59512f4dd57807345c65f0ce4816e7c2b4991a40a95324"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_cem64_00064.npz",
+      "sha256": "252f7833121820ad508a04fdefa7f46c7681500fd69b53b7c838fbdda9db2203"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_cem64_00128.npz",
+      "sha256": "8dec500f3980e63cc6d3685cc6e10bc64ff1f01382e8c54012e340fbae6599af"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_cem64_00192.npz",
+      "sha256": "dbbd98ffc9bedb0aca2e089a0ea28ff4af0948120549707eae159b12aa765aa3"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_es64_00000.npz",
+      "sha256": "e213f2c86cd6054637eb9ba1ee5a2fc2ae6397f914e3d745adf1bf23829f7695"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_es64_00064.npz",
+      "sha256": "2fb08402df93448d038ad8b058a4233814c90a5b209a3744a4480c7005e02114"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_es64_00128.npz",
+      "sha256": "d711fbe708dfeafb7e5c03cf77584fbb62768773bd23c03c7d94f7af3c7f6afa"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_es64_00192.npz",
+      "sha256": "b63a1173603e0ae41cce3cf57a6a47d04af531033697864e3f89d8ab3e933b2d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated64_00000.npz",
+      "sha256": "582a69f151b03c8d3bdf285b33d0d35f57d228161434d2ad15f91d56de4b8e2c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated64_00064.npz",
+      "sha256": "b3cdb9c8ac09b9d1c8a04612c411c0ecd2a85f3f1ce55c33a4edd461b52045e8"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated64_00128.npz",
+      "sha256": "509005cfb2dd03b6d998a1d529c56d8cb228dee1158c7d2c49829b107902bf08"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_critic_calibrated64_00192.npz",
+      "sha256": "41da7ef16f158689b51c3d7d8a7f9bc9be7823e2d26021f40f5fb8eeef60e631"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl64_00000.npz",
+      "sha256": "2490bc1a43d64cffc60cbff56575bff3e4f0f50d9ccd7e3cefff27d3823438c4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl64_00064.npz",
+      "sha256": "7212b0a5b7dfda42e57e83833ae22eca2c5f3e972cda098179b6344b96d757f0"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl64_00128.npz",
+      "sha256": "41824da2bb10f4356bc5a907e7483ac311224a9e10cc214e8a4afc19b87081c7"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/mix_gauss_rl64_00192.npz",
+      "sha256": "e04126761676166529bfb347ee55ce3a6f8055f4796733cac050fc1a3582d53e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/inputs/edge_bias.npz",
+      "sha256": "e08e3addf890f07055980b065a6da550b0186d5cad8a3fd1d122d244782ec5c6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random_top4_00000.npz",
+      "sha256": "7ef22d5d32fe71868af2271425db553a6466cd62528e455510bae458820d9c09"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random_top4_00064.npz",
+      "sha256": "0d5ede68e7e7b118d5d05095dc40c9f4f77813305a30c5ffe4b47a67366e3e9d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random_top4_00128.npz",
+      "sha256": "764e4ab7ccdaf19e7cf8a480693475d3789cdcce7c57781e6d87438e133fd9dd"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random_top4_00192.npz",
+      "sha256": "cdc26e297383f2f19b00da978e52d817b3cd23ae6eed66ee5163846c8e914cbb"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_raw4_00000.npz",
+      "sha256": "e17ff936fa55131aead47887f87466c0443f151747420835d1105cb2d2127766"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_raw4_00064.npz",
+      "sha256": "26bafc6d3142b9cf337439f74fe5b5b87dabf16fd29a9005ca0571d655f37439"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_raw4_00128.npz",
+      "sha256": "a5b67eea9e798797b6333ce40530623c613260ae263e14ff57a0ac0cdcaf41d2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_raw4_00192.npz",
+      "sha256": "352a8bcde273edbaf305f1db158d28bf9143aa16c0d4751e7bcd228cf9dde2c4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated4_00000.npz",
+      "sha256": "2364acecac9557f1ce5422560bb4ba6eb882c0817367bead53c1377b4ac7dca6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated4_00064.npz",
+      "sha256": "49b6c3286aa72ac8b3e4e739f7d894f90cacefdb6a997565c0a85dfaee6a45ee"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated4_00128.npz",
+      "sha256": "9015197a04b39b382cb0d640743baeaf541ad95ea085703b88fe835108bd7b83"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated4_00192.npz",
+      "sha256": "5eb5d09b0fb5458a8cb9aa981038887f0b91b530483fe470f536dc8a3dd7b375"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl4_00000.npz",
+      "sha256": "109fb3743dc44649bd7c51927ef0f4522ac866b4f084739e16a0519f9bb46eb3"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl4_00064.npz",
+      "sha256": "83e616888443e050c9b121033dfa48c10094e2307852d28179567d201a6034dd"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl4_00128.npz",
+      "sha256": "c187f311516e1fa0d94246e16de2de623b97703ffea45dd03f1eeffae1a15d08"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl4_00192.npz",
+      "sha256": "518ecf461072c295867cd5edf94c752922139e6b7198500013c59204947377f2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random64_00000.npz",
+      "sha256": "9a7d84959cc142988916e40476183fb5cf6a9df240307e72376e223bbbb91fae"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random64_00064.npz",
+      "sha256": "d2c61df7b228c501ce29146a0afb4b389e5c5a77f7e8d1bdf23ddd651f53dc93"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random64_00128.npz",
+      "sha256": "8881fc243f09b689c666077b4de0745e9f196f5a3e0bf6cefbc59ebb7bd0541c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_random64_00192.npz",
+      "sha256": "9242e01581d2b271d19decc957e3fd4e2f44ad1b984b59d004b04c4c3f7ab2cb"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_cem64_00000.npz",
+      "sha256": "dd10defea92e5ab423e80525af20dfb11bafdf0270b4bd40d2c9668f45fe9b85"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_cem64_00064.npz",
+      "sha256": "47d7fb76394992b670fde02e47c5a0bb701c0ab6a445f9f9c5e454032a301812"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_cem64_00128.npz",
+      "sha256": "14cd3fe378303221e0a32364a5c125dace898c1a4096ed35b2eeab7247e61866"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_cem64_00192.npz",
+      "sha256": "05e96c3b4f208b609e2c32fcd232eae16beefb6ed3b6672ef8b7187de8b0e46a"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_es64_00000.npz",
+      "sha256": "a62ee047766cc0966c8c2fc89eb3c51904ab9d83023fa4859cb495db0749638e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_es64_00064.npz",
+      "sha256": "dffbc9ea7d9884a63c934f5d45a4c4c4f4aa89eee4f3e2bd0a1a50f94fdd1ec5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_es64_00128.npz",
+      "sha256": "50c404f7e9518a845561e4ecd58492ff163e00cfce996651dd4dd48538f1be99"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_es64_00192.npz",
+      "sha256": "2dc56c1f1d174d4bcb3a98cc48823fd067a5f9727a7350b55cfe133adcdf639d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated64_00000.npz",
+      "sha256": "ac42453a3b94993423209e525b6672b664b676a7085b41d3b22ad8d9952304b7"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated64_00064.npz",
+      "sha256": "525685ec3911333b2e45e6095b37fbbb2b84840ce791b6cfe8d61de723f81389"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated64_00128.npz",
+      "sha256": "df4b97227359bf1a965bb468f92f019bd918e6f1d6e0877f72f970b6c9fbb08c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_critic_calibrated64_00192.npz",
+      "sha256": "02fef7c8e9794784328c15ffbd32554db48864795da4072e04c83f73346650fa"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl64_00000.npz",
+      "sha256": "dc06b93290339e130d63b449c42a6b56b0c8e9d1d81f5a5f1c14e868c7aa6505"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl64_00064.npz",
+      "sha256": "73ef85334b1ef42ea1e1cf1d650f79de001342e6f1e49cd6d5b57881ef04e1f1"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl64_00128.npz",
+      "sha256": "e2b6ecf8ece2046ef5ceb8f80b5908252529122d530c347841f58beca01b9bd3"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/edge_bias_rl64_00192.npz",
+      "sha256": "3664dfc9d739f28a163f785d3ccd6211c9afa7392984647266cceacd8059f8e9"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/inputs/grid_cluster.npz",
+      "sha256": "45863a39db8d21a05a9bc90ae76b9c76034ab21cfae701cec4a34d9e9f6a551a"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random_top4_00000.npz",
+      "sha256": "c6a8c0eb3d4c42de9a61cadad71e4e8b829e5ecd32c9a156cc74d822aa5b15aa"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random_top4_00064.npz",
+      "sha256": "b80c09d65b6d84fd317de2b5960328d51e56348b1a1b781ec3f68bf2e13fb6c4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random_top4_00128.npz",
+      "sha256": "ff2d3f79ff85878a3cefe6b1ce2e72fb2abd57b11d93bf8c16579e5c12a2282e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random_top4_00192.npz",
+      "sha256": "b644a07ec0c2dae6292add269d5bc909f6984bb690ce1cbda9a5f695efe07400"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_raw4_00000.npz",
+      "sha256": "4fb892bdfe2592ce20ac46f7ade0739fc7a7f9c8f032d29c2b2f6eb2c977f992"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_raw4_00064.npz",
+      "sha256": "40ce81d596dd7b0ea08ac368a2695d9b637915daa789b1056adad72b5b838df0"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_raw4_00128.npz",
+      "sha256": "98ff86b0174942cacad3ce73225001044904c16d2c1cabcdc8a05883d95bc4cb"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_raw4_00192.npz",
+      "sha256": "feb77d933ea4f553346687aaa4e35ac6c4fd7641052901a8653ba4f1f9f02d86"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated4_00000.npz",
+      "sha256": "fda3dbf13af1e73c432620f59e2597d8947e40deedf9a1ab46c7517b4f1d6891"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated4_00064.npz",
+      "sha256": "cf4772edeba7ee4886581c33927d32c7d57d13c4d4dbf0d57621e329609f60dc"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated4_00128.npz",
+      "sha256": "a91cfbd0479be764068d9ee753f085a96b070cb35afd98245ff8064c4ca2f186"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated4_00192.npz",
+      "sha256": "9090883621193412f13a2674465c3f35899a7fb33e36efaadf3fc9696458eac6"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl4_00000.npz",
+      "sha256": "d4d9a70f4b32948b0e20e2ceca9311fd9c9e73f9b8eaa57e571af9035929f23d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl4_00064.npz",
+      "sha256": "3b9911547464e6a67516f1b59fb9ff84691a5b9c9123d4d6bd5d38a47e9b0f53"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl4_00128.npz",
+      "sha256": "81e6aed66af6594c760b2b7ba301c736266ec3f44d58145ac9770b4a38aacda2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl4_00192.npz",
+      "sha256": "ab65dc311fc5ad1cff443d1ba17914eaeca822fd8796826dcfbc3d58342fe6d3"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random64_00000.npz",
+      "sha256": "b5b88b93d310c698f331f0513109770179d637d1f2dc60e5cc66ad078a091313"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random64_00064.npz",
+      "sha256": "013f2a265da23e2c1915958eabe71f72401c9da57be05961a6b32c404b77dc26"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random64_00128.npz",
+      "sha256": "4c06cb68b05d43843e8c9bb79df68cf28f57a4ee2867c47d47ae9f3b809de079"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_random64_00192.npz",
+      "sha256": "7b330eb28938fc581f7965c663e2d8aed71d0e5466dfd3d01244bc307476bbbc"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_cem64_00000.npz",
+      "sha256": "27bfebfa654a36264db0ec16b9e14cf5791c45d2807ae2e489f6538a25bed435"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_cem64_00064.npz",
+      "sha256": "8f924ec15b4a831f56070012a536c7dcfb1eeef335643459f926c58bad4d5cb2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_cem64_00128.npz",
+      "sha256": "24190fc9c184a12881941cbd95cbf818cf5e1f12e6a397d8dcbb23b62c3a2fd0"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_cem64_00192.npz",
+      "sha256": "096d861b8109ff87ba1bed9a86db225f74390fbb965d917a2cb1eb773e1f18f5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_es64_00000.npz",
+      "sha256": "fe07ba1c6b7dce490a4dccedd092dd972b8f31d0e245aae18bcbf341c575079e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_es64_00064.npz",
+      "sha256": "7181d1dca8ed396bd8fde9bebfe74f8791914a1fecdf30cd2c5c9285d383be80"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_es64_00128.npz",
+      "sha256": "384f357d9f9f31caad5e6ff1112051066d805eba3f05636f2e0e2782854bfdd5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_es64_00192.npz",
+      "sha256": "9e33224fa93ebd94f5a4bd950d145e81950b957d594ac93199f6623ba9b4dc41"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated64_00000.npz",
+      "sha256": "d81186915802e6082b12e9e6aecde073f2d749211c2c1fde7b76da0573a5f8c0"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated64_00064.npz",
+      "sha256": "d26848ab7b831c31b4a1e228accf03006a8d5ca834e9be86b96af037a9db9e9f"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated64_00128.npz",
+      "sha256": "ceb7d9196b568761901ffd43fa32965f4e4b68f0633cd7b2a47c5d17a698b843"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_critic_calibrated64_00192.npz",
+      "sha256": "036adfe3980dcb8ff59ca5e4a58ea68e9f8635b034755b3e9857d1228a1cf573"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl64_00000.npz",
+      "sha256": "3846d749fd8e235ea90264fc19b6877edbb957961a88c7870bfd40109dd835ea"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl64_00064.npz",
+      "sha256": "e01d6a0f5b673afe3c32cb53b6ba776f680269e2ee6a66a501644f9081767fe4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl64_00128.npz",
+      "sha256": "04140b22aa19aa117621cc6ee1a4701ed325b9080360f74da195594f0ea86584"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/evaluation/grid_cluster_rl64_00192.npz",
+      "sha256": "ce4d27c29e0fb6cf3277c787b708bbd153154b821817bac58f2b620dc180b21b"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/best.pt",
+      "sha256": "4421639ce8d932c0f952c9bd9bef06fabade151acb9ac873b3122bb213f0fd70"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/latest.pt",
+      "sha256": "ac4e474b92b21a0f940757aef3260f7f39644e57109a218d82811fbb52053b7c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/summary.json",
+      "sha256": "148315b991548fecf7ea1d13ccbf47498ef2d51220427c3adb8cfc360890999c"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/rl/training.jsonl",
+      "sha256": "7479365378372e4352e924e8b687f773b22e8131692a532d6f92337f51e71af5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/best.pt",
+      "sha256": "34b6c0e250a2e93243446eeeb550a989d2fbb146c3d25e589774c410a9d7d7e5"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/labels.pt",
+      "sha256": "d8003499e857a94b6802d8406814a9d0252428104a070f93ed9f446fd541b77a"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/latest.pt",
+      "sha256": "6fb90acdcfbb58575fa10a274d1f42d18ec1cec3da65e26a696b190b47c0a2a1"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/fixed/erm_d50_s103/critic/summary.json",
+      "sha256": "23e4163be264ffaa6c00bc01cd59e67ce740fb14b3fc43bc26dd687caed81d64"
+    }
+  ],
+  "peak_allocated_mib": 353.85107421875,
+  "peak_reserved_mib": 556.0
+}

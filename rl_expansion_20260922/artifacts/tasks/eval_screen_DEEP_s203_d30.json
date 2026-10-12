@@ -1,0 +1,48 @@
+{
+  "id": "eval_screen_DEEP_s203_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "DEEP",
+  "seed": 203,
+  "config": {
+    "width": 128,
+    "depth": 6,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "original",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 0,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_DEEP_s203_d30",
+  "endpoints": [
+    20480
+  ],
+  "parent": null,
+  "inherit_training": false,
+  "models": {
+    "step20480": {
+      "path": "artifacts/runs/screen_DEEP_s203/step20480.pt",
+      "sha256": "33266f4aa09bdfdfe74580dce4d615e5e7437369c1453b541c3dfb470f703395",
+      "step": 20480,
+      "actor_sha256": "ee4b4d87a81ee375cf2241eac438040c2a368d435b6545c19d9c63da024c5d15"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_DEEP_s203/best.pt",
+      "sha256": "c4912866035f27c11364d27355dfd14d599b076607e4f5ff109d29285ac066f8",
+      "step": 17408,
+      "actor_sha256": "0920a1ff2bfbb5d1c29a8f0d02fd1eae2bfedfbab9bcf9b5cfc05aee598a6e42"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

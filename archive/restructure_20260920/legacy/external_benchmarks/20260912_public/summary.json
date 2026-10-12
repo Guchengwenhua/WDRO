@@ -1,0 +1,1313 @@
+{
+  "aggregation": "Each seed metric is computed from all eligible nets in its scope, then three seed metrics are equally averaged; P95 is not a quantile of seed-averaged per-net scores.",
+  "at_utc": "2026-09-12T06:42:23.589590+00:00",
+  "checks": {
+    "all_75_frozen_models_verified": true,
+    "all_predictions_covered": true,
+    "design_family_clusters_preserved": true,
+    "no_claim_support_flags": true,
+    "per_seed_aggregation_before_averaging": true
+  },
+  "confidence_intervals": {
+    "baselines": [
+      "erm",
+      "mixed_erm",
+      "hard_mining",
+      "group_dro"
+    ],
+    "candidate": "wdro_rest",
+    "cluster_unit": "design_family",
+    "confidence_level": 0.95,
+    "coupled_models": "Same family draw for every method and seed; seed metrics averaged inside each replicate.",
+    "coupled_variants": "All physical implementations of one logical family share their bootstrap multiplicity.",
+    "point_weighting": "Net-weighted mean and equal-design macro mean retain their declared weights within resampled families.",
+    "samples": 2000,
+    "seed": 20260912,
+    "single_family": "A scope with one family produces a degenerate empirical interval, not informative distributional uncertainty.",
+    "training_seeds": "Fixed fitted models; training seeds are not treated as independent design clusters."
+  },
+  "datasets": [
+    "circuitops_asap7",
+    "circuitops_nangate45",
+    "circuitops_sky130hd",
+    "ispd2008_global_routing"
+  ],
+  "design_count": 29,
+  "design_family_count": 25,
+  "evaluator_source": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/evaluate.py",
+    "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/evaluate.py",
+    "sha256": "1c7a482f3702e1125790f4f5030257da852c13b8af62399a5bd8e4c199afde21"
+  },
+  "input_manifest": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/cache/input_manifest.json",
+    "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/cache/input_manifest.json",
+    "sha256": "4c249c0bce91ef223bfd83a281d2ef9c11c3850eb1321fec8f14f52b335761a7"
+  },
+  "metric_scale": "dimensionless relative regret; multiply by 100 for percent",
+  "model_tasks": 75,
+  "net_count": 134550,
+  "prediction_bindings": [
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s101/predictions.npz",
+        "sha256": "da39d805cd3099e296f2a4133076b279f1fca5979822f3b19c7de38f0aab3ccc"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s101/result.json",
+        "sha256": "5258e479082091116fcf9d94003b6758572498d730a0c61051c0ec88d2fee14b"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s102/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/erm_d10_s102/predictions.npz",
+        "sha256": "9fd51584cf6359498ce3d7a906e1a2863b9b5510d17c33a2735e1c2bacb552dd"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s102/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/erm_d10_s102/result.json",
+        "sha256": "2230e23f332b553bc0cdd23510aa49831ae6171cd186cff7c8538f0b1343284f"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s103/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/erm_d10_s103/predictions.npz",
+        "sha256": "ffc3c53f8eede246bf7b408ed1f76eb4698eed73e6c75507fef46812770a252e"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d10_s103/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/erm_d10_s103/result.json",
+        "sha256": "43ce0c7f099bca317758630726d3614688d696bc6a87e5d01ca94b4c60cb83ef"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s101/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s101/predictions.npz",
+        "sha256": "0b6aac44974f51fca3d21e4c8fa1b30ffb6511b06bb24dadff33bec7b02d5146"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s101/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s101/result.json",
+        "sha256": "de7c5adfa70348979d055d8315ea37f9e07c501a5bd7fde5b63e088ba47e38bd"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s102/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s102/predictions.npz",
+        "sha256": "fb4688efbb0298a60792946719bba4fe4ce933122425ca01244cbd647dfa3513"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s102/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s102/result.json",
+        "sha256": "2cd2c5c3986b212d6fe2193acb131bd53976710edb776767d5eb787981de791c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s103/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s103/predictions.npz",
+        "sha256": "2c2463ba889ea0c8ab878cedff1de7f9c9b2ed1523ee140b8e9adbd5cfc8503c"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d10_s103/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/mixed_erm_d10_s103/result.json",
+        "sha256": "4936e2d620b953e88f48a66464d9e8b5b5b290b42128f8d76a6512f6d3167841"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s101/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s101/predictions.npz",
+        "sha256": "62d49ea9100d74c3b0bc494da14ad68661e29517053c56a3c7ac6a370d4f0a1b"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s101/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s101/result.json",
+        "sha256": "a810140e7b674b67a21861b2acffbe8d9f0fadce2dbacd94a16e6a36a43e55da"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s102/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s102/predictions.npz",
+        "sha256": "a788a6a45dd0baaf6663b8d313d0b2b2198f5bdf65f2e53496eb980610197d2b"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s102/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s102/result.json",
+        "sha256": "fd0f571862fd52222990559a5acafe9cf3b5b538608431cbb100e81a267c8005"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s103/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s103/predictions.npz",
+        "sha256": "8849aac4ed835ca02e89f28d32b2f394c3ca3df2aaf4089c9ee91bb5b688be97"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d10_s103/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/hard_mining_d10_s103/result.json",
+        "sha256": "a4f8601a1c56dba2b9964b57ec518d8b644fe67e3cc5e8147881c14b5170e0fc"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s101/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s101/predictions.npz",
+        "sha256": "02e30af476ca8348886758ec1d2c81b0b5e0a301a6a3d7189392a9676934982b"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s101/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s101/result.json",
+        "sha256": "8a3e7e05b779335b24fb63c97b7f732d0be6ad02d6eb02e6b3bea25b478f491b"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s102/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s102/predictions.npz",
+        "sha256": "586994633fb375df6a497a205b9ebbaa5e64ae05dd4d06af45144fcb6aa44345"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s102/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s102/result.json",
+        "sha256": "707d00b46e2f7aabb967bbac87ea951226eaddca1e2a1069e9d5cb2f76b9f7cf"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s103/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s103/predictions.npz",
+        "sha256": "69f64f1e6be166eedb1e432d23b5a56f07f096f7e6a28d6f43a5b1312e481b98"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d10_s103/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/group_dro_d10_s103/result.json",
+        "sha256": "3a00b5c8d6ee8a8dbb80057fddde9b454f1f690fb957d8a5c85891e3190c2a32"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s101/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s101/predictions.npz",
+        "sha256": "96b536e29148a0c903d4682d94ef8d357cecad166b0ad85ef3b51bc936ca746c"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s101/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s101/result.json",
+        "sha256": "d7f51ed18cb46aaa6f256b8aedc3df44dd326f7edd53cb60ef43a5235af19d60"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s102/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s102/predictions.npz",
+        "sha256": "f0ba763aec6211c88929fb74472e1f3d3b193dca8bcca56011e15033cb8bab01"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s102/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s102/result.json",
+        "sha256": "567a7850e34c6bef5853e3ab83b65c7d5361267b78b835117f269fba353f81f7"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s103/predictions.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s103/predictions.npz",
+        "sha256": "8849aac4ed835ca02e89f28d32b2f394c3ca3df2aaf4089c9ee91bb5b688be97"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d10_s103/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/public_external_20260912/results/wdro_rest_d10_s103/result.json",
+        "sha256": "d21fc772a5d8ece460732bba3510753b87c7aea3d855a89ac370437511a296f1"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s101/predictions.npz",
+        "sha256": "b9c6a040a8b9248780ba55576e2f3be03f70f6c202aba5c0957821e2aa9c1821"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s101/result.json",
+        "sha256": "aadbbd38092cd6cad85604e0ee45aab6fa1ff60d68a0e748b927b3840e019448"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s102/predictions.npz",
+        "sha256": "889dbfd73e3e1baf7e507cdc4460bc8a2e8277ef86e3f6200c55066c75829c54"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s102/result.json",
+        "sha256": "082a4c29169b8435fe1e04beaa41253690c9d8c072325f6b31dc57666f257963"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s103/predictions.npz",
+        "sha256": "9a6d89ab41d0f00c61272bfe90b0498f882e7bc4cf23fbc814aef635ad6371ea"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d20_s103/result.json",
+        "sha256": "50c012f362e9dfb1e7e2a75f26afbe23cdf76ddcb3f5446bc5f8f1da124e092a"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s101/predictions.npz",
+        "sha256": "2940dbe41c9e048d9e4e88b2780745f3e888e5224453f0d30367ffd411e25ea5"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s101/result.json",
+        "sha256": "247c2307907888e2b7edaff48a7335280829e9cb8358eceda6d502cf9434a37e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s102/predictions.npz",
+        "sha256": "67384f9c03900e8978ef6028fb445ae28036843200d99a26bba6648e3efea330"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s102/result.json",
+        "sha256": "bbe9a95b2a48a78baad69297b805c34676b725bddf1aa2fd0aad078da5032d54"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s103/predictions.npz",
+        "sha256": "fdd5a29b66783f539d8a228aa6278e49386ec68b3720b9bf085ebce489cc901c"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d20_s103/result.json",
+        "sha256": "d84bb07992af3548fcf9aa191c0df79386a4970ab7029bb7d5f37a3017011ca0"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s101/predictions.npz",
+        "sha256": "751a8816db3614d23ba229cb5ba32a588347e90b687e547f6e448c1ad151bf07"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s101/result.json",
+        "sha256": "81258beb1da1fd9217cef816102ac6e0f5d585c69641e02aa6182eb6c7df9416"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s102/predictions.npz",
+        "sha256": "1d9c607522d7f975c853488dae3352437b03ccac2fc15820ddc3ce6922853e86"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s102/result.json",
+        "sha256": "d1d5044fc7a86decc41d06ab302b46b1d4aaa815404f577a7691a6d8dfe9f530"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s103/predictions.npz",
+        "sha256": "2182fade98e56638c9fad29067cd05e02d5f423443415fe0ccf916c35961348b"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d20_s103/result.json",
+        "sha256": "e80732b6114052ffb6e155aef58b9dee82fbe90654784c9ae95d067ed57e1700"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s101/predictions.npz",
+        "sha256": "e0fe1ea0f2241f0fe369df156ea4c057ae596efa1e8d70dba0496e0d5feb34d5"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s101/result.json",
+        "sha256": "75ee63c9a3509d251eecdda3926f9ba25db5eb87a4a06f29f3d7748a6ef2a47b"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s102/predictions.npz",
+        "sha256": "981ecb7334592ea4050a6d85d86cdcd3b6dfab7a1f3306513364af4b27601b94"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s102/result.json",
+        "sha256": "e2576a86e8b2bed52cb03d13db6f81e06af50339178894e7035448ff7dad61fa"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s103/predictions.npz",
+        "sha256": "1de3617abac641ad2e6c5810c74a0402f9db86b01d8f822b6a23239b67af1a59"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d20_s103/result.json",
+        "sha256": "97f13a757b5e2649aa898bb95b389976f661d17a7fc34f9d14d801f132f7a41c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s101/predictions.npz",
+        "sha256": "c2a9c7990b9c88fac966ee9b31e008750d1b17e20d74330223460cd1579a19c1"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s101/result.json",
+        "sha256": "e94f433a3c931c04f815632bc08d83635393e7db547359727356951e6d64eb4c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s102/predictions.npz",
+        "sha256": "2111c0e3b5f340a5dbb3a4144028a18936d4020bddc0ef891828ed09135ceb10"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s102/result.json",
+        "sha256": "c519d2aa2c98684e91f645d2dc468fadb4a374b26b2adf2ad57068a82f420fc2"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s103/predictions.npz",
+        "sha256": "b6e24503c43aac56f66ee93f706455e9e8bd7c50e0bac67fd6f6cb84bb69518f"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d20_s103/result.json",
+        "sha256": "2b678d58f85602409988549749f70db21212aeb9eaf9552f41d0c79e7f48696e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s101/predictions.npz",
+        "sha256": "d1ee46d2b24899ca1b9b3f7965e1f7531da012a0be73a7a5777542d65e717252"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s101/result.json",
+        "sha256": "eac6ae792b9bd992e84452ecf6a351e6a2cc728f6ba0ec121432660681824d0e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s102/predictions.npz",
+        "sha256": "d256cfac6a5b930fe8f04fcabc4dab9de638938741c3deba5573d5ca0985f924"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s102/result.json",
+        "sha256": "3d5dd46bbf65200597f0ba5801c90ef2493dac7e7b0e19e83139415b177c8bee"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s103/predictions.npz",
+        "sha256": "195430d80e6bd358f10e42535aba274a05dc3f5b51f44d3a15999668afd7a420"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d30_s103/result.json",
+        "sha256": "80a08432f0ea8d2b281d34683dc538a8aa71dc24c062d693deb888991253546e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s101/predictions.npz",
+        "sha256": "4531b9e77e98159cfffdac390d77277fcaf7d388141849db204454a7fd512cf2"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s101/result.json",
+        "sha256": "10f97d5f67622596d38cab98dfe649d02923608f747c56316bd73971bb009008"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s102/predictions.npz",
+        "sha256": "b4b9e4ebe4ebc82ff8399700661227aef803c57cd4ef23cabab4a63f742df0b6"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s102/result.json",
+        "sha256": "22406a8d047bd8aa365c35d04f4b3ffffce044ceb79b968aabb3403c94e761d3"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s103/predictions.npz",
+        "sha256": "7287246d44c88ccd14cdb9f863fa568bd69e3735cfff5056e9ba9a06d4b770d2"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d30_s103/result.json",
+        "sha256": "269d16466c0389e3090aab07f81e3988976a1c8593a747ad90c943400f8a9a81"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s101/predictions.npz",
+        "sha256": "66e3e664139628f5d949f75302f173984d2b7c59d66ca6ac90df73d508ed3e35"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s101/result.json",
+        "sha256": "a314a28a641514947665e0a9cc11740ba1c6fde85d12fffa9ceaa7ba62d63b4c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s102/predictions.npz",
+        "sha256": "db6bb6d61b704343e6b1e91b114a9c4e2b1beb6c7e19f32a1ea39a91d9178493"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s102/result.json",
+        "sha256": "d997d767a528eef702b1bcd1536e9c31d9f2ac93fad2a35af674df15be08a78c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s103/predictions.npz",
+        "sha256": "a88e84b7cc250c9c43bb2aad8d1f688d0ae213411f94364c63dad49e02637b4c"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d30_s103/result.json",
+        "sha256": "cfed29f1a0552c7b717b4889d398948ed554c4de83e01be42ca43fd61df2d99d"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s101/predictions.npz",
+        "sha256": "e4c58cb0038dc925a5f14ae7468c81f3dca137728eddb81b73fbe44889bf1c58"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s101/result.json",
+        "sha256": "7526fe027faab47c5af1b7e52081af89a2125247234ccdcb1552e2c78bc66564"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s102/predictions.npz",
+        "sha256": "cdfe130b84b6b03ec1a45d76896c9113859dbffa168a9d9cbb411875123a3db6"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s102/result.json",
+        "sha256": "cd1956b06c3959e55056efe347b3aff4d3f91369c584bd614a3a677ba3263140"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s103/predictions.npz",
+        "sha256": "20bc8c1f4f91d7b31972d85ab48d7910a57ea0348eb9d02c3a513d047d0caad3"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d30_s103/result.json",
+        "sha256": "52b1f1295a68dbe4cbd3248408285414026d355b3cebd72fa7913ffc2431c553"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s101/predictions.npz",
+        "sha256": "f9e2ead5537745cc0f203b431ce568eeafb7b3d2ef55c2b1cccf155d751d7100"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s101/result.json",
+        "sha256": "57fbaae07bd39f86445ead647391656ba362fa5efe550a7ac7a5db504acdbb0f"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s102/predictions.npz",
+        "sha256": "689e891dcc52fbb0cbe69fc99b5c0fbf36d130dcd979eb50ea549013939bf120"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s102/result.json",
+        "sha256": "169430f338c071574669bdb33089a6cff25963199e2e9ed21b6e5d22acbed279"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s103/predictions.npz",
+        "sha256": "39ffbab103445b50dbda9ba0f9123ee04e1874a846cfaaf2aff9f5b99c50e0f5"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d30_s103/result.json",
+        "sha256": "44a03e3a29d4ada8243023a1d368ed76ed7787f0303327e6f3ba9d3d534aaa25"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s101/predictions.npz",
+        "sha256": "9d3c58b2ed30fa6ad4d0a4a15c16169cf619b243a19a322c645f4a7ce6b84768"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s101/result.json",
+        "sha256": "d2257ad90345155426c571ea4e30e7073a5b562333d6af280e0b88352ba28317"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s102/predictions.npz",
+        "sha256": "829623bea3ee9bf001792af33a3f66553db36c1d1c33690d862e9360d02bd601"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s102/result.json",
+        "sha256": "9cb9aea7c61296300cf388edcbc55ce54f7529447d4fabdbcbecd5ca7e6b2f11"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s103/predictions.npz",
+        "sha256": "a4c666c260b75db18233c022f8be4515680a2cb336dedcf643b9f9cb78b1b3af"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d40_s103/result.json",
+        "sha256": "bb84ca4b8cd988bc322b8c0adc4591aa3d38cb128f11ff5d61053e811e375499"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s101/predictions.npz",
+        "sha256": "63d441c59b07bbd9a0bc7e1a50a28ee4dd13d6ebc283d216638be524294748b0"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s101/result.json",
+        "sha256": "e277ef35e2fd2004381f72fdec73a92ef0769f1bbab772f29e254ab26a88bd8c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s102/predictions.npz",
+        "sha256": "b11f3f692fa8baf05b2613f8a74cf5bb09d2f6b9e353a28dfede02a33255ff1f"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s102/result.json",
+        "sha256": "29494b4a0db543d2c2c6bd96a2968d3ab992925907209370e91783847d00a8f9"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s103/predictions.npz",
+        "sha256": "a2c8607fa66686b9a4edfef249ef1f46d8044d8489d98d79e4cd2f90f5aabae4"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d40_s103/result.json",
+        "sha256": "35ac5ca8f35518f647bb6abf7cbc95fe1afec0c26afad6ebf407a2c5a3b446b4"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s101/predictions.npz",
+        "sha256": "829623bea3ee9bf001792af33a3f66553db36c1d1c33690d862e9360d02bd601"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s101/result.json",
+        "sha256": "50326fe58d926b16ca6c9246f9ad7b1d51698c8c54dc5382f65eac0d9e8b9289"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s102/predictions.npz",
+        "sha256": "39aa7eda97eb3c21f929ca87f02f81f2fc6c9d8b3ff8e3a7a9b0e06ca46b393e"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s102/result.json",
+        "sha256": "113c0791768fb6d8d634406526740fb226b682e57ddf6c2145f10bd85d02da00"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s103/predictions.npz",
+        "sha256": "2541b76ae546bd822c4ea2e715204b1cbeb8a949fc23eb4592700f62fb13256b"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d40_s103/result.json",
+        "sha256": "75e7f87af0608ea6c82e1d60d8a285f4f288659622644533cdebd5e77da2a2ac"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s101/predictions.npz",
+        "sha256": "68c120bd062279811e71a9bce14978895a049ed37d00184fc07b648bb6bb6f43"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s101/result.json",
+        "sha256": "3c4af7f103224e277c88bade24ef08865a2a133801b54064044eead4a76a3f5c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s102/predictions.npz",
+        "sha256": "e7a00f82cb1bc543511c98b10479f6977e87f324b905c61f502797be8a5f7ae4"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s102/result.json",
+        "sha256": "fa184384eba3ce9a2435517a8242af64defd88e7d095f97a0ba02d09fb515808"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s103/predictions.npz",
+        "sha256": "984f79793fb680dafa0a6f6f1dc03b81deef68f7f3a5072a0751b0b11d18e6e7"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d40_s103/result.json",
+        "sha256": "6196266def44d6141fd3e8eebcb5879ac326a1f33553baeebcecaadd0268ae93"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s101/predictions.npz",
+        "sha256": "a4fa73710203c2572afbcf4c907d89c2b3a5bf278dfcd940f89bcc839134e6bf"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s101/result.json",
+        "sha256": "ae7695bb35d2cd1c15fb560b5df62cd45e712cc258afe9d09d5b6602a98b1ee0"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s102/predictions.npz",
+        "sha256": "f29e968f2bb6dc20c23048820ea374d6e6e6011419bcf33bf6c715ba0bf3078e"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s102/result.json",
+        "sha256": "cc82ad672ffeba1237f2e7928b22ecefe2ca639559f2ecc493cd1420c2fcbf1a"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s103/predictions.npz",
+        "sha256": "ce818a96731901824c571c97ac18b2e5345b5bc58b8bfae9099253443bd5d147"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d40_s103/result.json",
+        "sha256": "470bd2f4812cac3aa3a0770df113bc78d948114b2d0e296e79f8d08982bab2ff"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s101/predictions.npz",
+        "sha256": "62c89299388880157878b9d0705d042e993abd537e7150ce7db392bb5abe7abe"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s101/result.json",
+        "sha256": "9f05367b1cc51136d484ff773f5f36a90f20a8a2cfc582a512abf5d57fab5d7f"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s102/predictions.npz",
+        "sha256": "bb9a0c5025b70a0070906e7b45fa24ae15b8ba013a96513488156ffd95c38318"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s102/result.json",
+        "sha256": "448c9049e60f9483236632051857ab09fb429342c4542d506f3ac6292063a05e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s103/predictions.npz",
+        "sha256": "96c385f2f49d24ffe09cc9c7c50d9828d4a723db00c7aff20bd37a2d85ff3d87"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/erm_d50_s103/result.json",
+        "sha256": "a7f3ac14d09dfc67465999ca99d89ad634b8e1563ca063caef451dd83b58d769"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s101/predictions.npz",
+        "sha256": "04ce9c87385a6bc88bba89712946c3d350e0a7636c0d5227a9f0f8cb34c82703"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s101/result.json",
+        "sha256": "37f85779d101ed15913fd305b770aecf4644a7b0473a19762fa366be4ba9d869"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s102/predictions.npz",
+        "sha256": "c608ca16a37ef1b496920103cba331c9cccf50a3e76b5aa856fead246a0f7a64"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s102/result.json",
+        "sha256": "597aa151f7170ac38763d3d454caa05770dcf658fe093f45c13ca5d2614bcbbb"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s103/predictions.npz",
+        "sha256": "61f8fdbeb6bea29bbd5bb6d518c7ab43ae790fbeaaa5da7610e1f5f2a4a1ad09"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/mixed_erm_d50_s103/result.json",
+        "sha256": "b7d7c5c0195d0e26538714e7fd469765b4e31e67fd6a24c1a1a9d739991ee310"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s101/predictions.npz",
+        "sha256": "ea8bd08f8287790a85ac449848671c18cd0d71fed283e2385fc7fced1caa1387"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s101/result.json",
+        "sha256": "f7c9dae87f93d6a388444c6fab961ea6b85302cdb5fdd03c26ba0a3cbd44e702"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s102/predictions.npz",
+        "sha256": "68e3b9096efc793d3aa060ce093f5f0cb5b414722b4d9418898e381f3d8c4acb"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s102/result.json",
+        "sha256": "86ef2f5f57df9aaaaa3ad32d330776dd9276e3a93e1940d29f372736756ff4d3"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s103/predictions.npz",
+        "sha256": "0f6f1cd66d0bda63defccc90125f7b093c5454cc52fba373e34f75c2ddf57d81"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/hard_mining_d50_s103/result.json",
+        "sha256": "6ff4a3d593af3ba0b081f3660a0cbaa6f7f2d69d47c07e2259ac381d24c9da09"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s101/predictions.npz",
+        "sha256": "ecc9fa767d52156ad475122e1548476e693f11658115d65bfb87984d50dfa35a"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s101/result.json",
+        "sha256": "60e6963db26ce1e4bad50540634fd1d462ac7abd96178c682cc363814d76deb5"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s102/predictions.npz",
+        "sha256": "4a4d5cbf322f7ae814f0c8ebf0d96630b2756c9bd38ff73bb461be7415a39818"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s102/result.json",
+        "sha256": "9bf0d69bc72dd15cb9e52766db78668a851d50b654d0031bd58ce2bf2fea0964"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s103/predictions.npz",
+        "sha256": "891b849419c7be7e0cc3697471cd4696004f07a04e7abe87013e789610e82d31"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/group_dro_d50_s103/result.json",
+        "sha256": "fc9264976f5ffbdc123f9a72c580828392bd4329cacfc5853b03446682b2f346"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s101/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s101/predictions.npz",
+        "sha256": "20d943b55ef574f77601d3e24d2c8fb7ccf44441046f1f22a140bcdf57f3769c"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s101/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s101/result.json",
+        "sha256": "329b85681d09932183d27a560e47a98b6ea17d7cdd7e03d3f3063e2810dbfe9c"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s102/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s102/predictions.npz",
+        "sha256": "f5e624774cfa221b24ec849290879a58050b5c39c6406b145f0c722fc26281a0"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s102/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s102/result.json",
+        "sha256": "675cf9c13b3fd91488a8de06dc9f379ee89052adf9f9facfaf352591c162df9e"
+      }
+    },
+    {
+      "predictions": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s103/predictions.npz",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s103/predictions.npz",
+        "sha256": "56148edd2c5ba2ca8b493c02c445575dfe93f9ed92fa224530585e4afd678df6"
+      },
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s103/result.json",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/results/wdro_rest_d50_s103/result.json",
+        "sha256": "8d5b1c96794c1e585c64d2aee46aea56507dbf7091948c834ee4bd45155b0d16"
+      }
+    }
+  ],
+  "predictions": 2018250,
+  "source": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/summarize.py",
+    "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/summarize.py",
+    "sha256": "e56458b0efa72abe77836c9225e90d694ab1584cc5cede9f734e09fee5522073"
+  },
+  "status": "pass",
+  "summary": [
+    {
+      "count": 134550,
+      "design_count": 28,
+      "design_macro_mean": 0.006804977787706878,
+      "family_count": 25,
+      "method": "erm",
+      "net_weighted_mean": 0.008278479980709163,
+      "p95": 0.035545033264027026,
+      "scope": "overall",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.011624580285218988
+    },
+    {
+      "count": 968,
+      "design_count": 4,
+      "design_macro_mean": 0.005677954488943502,
+      "family_count": 2,
+      "method": "erm",
+      "net_weighted_mean": 0.005721891034005901,
+      "p95": 0.026384055620886502,
+      "scope": "dataset:circuitops_asap7",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010555893572032649
+    },
+    {
+      "count": 2330,
+      "design_count": 7,
+      "design_macro_mean": 0.004548261001714481,
+      "family_count": 6,
+      "method": "erm",
+      "net_weighted_mean": 0.004118944756730616,
+      "p95": 0.0202361547472744,
+      "scope": "dataset:circuitops_nangate45",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.0074338406535536744
+    },
+    {
+      "count": 43,
+      "design_count": 1,
+      "design_macro_mean": 0.004271058541827363,
+      "family_count": 1,
+      "method": "erm",
+      "net_weighted_mean": 0.004271058541827363,
+      "p95": 0.018356615313922645,
+      "scope": "dataset:circuitops_sky130hd",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.004271058541827363
+    },
+    {
+      "count": 131209,
+      "design_count": 16,
+      "design_macro_mean": 0.008232417159136866,
+      "family_count": 16,
+      "method": "erm",
+      "net_weighted_mean": 0.008372519370493024,
+      "p95": 0.03585434367800461,
+      "scope": "dataset:ispd2008_global_routing",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.011624580285218988
+    },
+    {
+      "count": 134550,
+      "design_count": 28,
+      "design_macro_mean": 0.006705717854245154,
+      "family_count": 25,
+      "method": "mixed_erm",
+      "net_weighted_mean": 0.007881861078822007,
+      "p95": 0.033456077877095536,
+      "scope": "overall",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010960064755456746
+    },
+    {
+      "count": 968,
+      "design_count": 4,
+      "design_macro_mean": 0.006170432186532231,
+      "family_count": 2,
+      "method": "mixed_erm",
+      "net_weighted_mean": 0.005739096164823182,
+      "p95": 0.02445582425498416,
+      "scope": "dataset:circuitops_asap7",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010457202531886395
+    },
+    {
+      "count": 2330,
+      "design_count": 7,
+      "design_macro_mean": 0.0047215400131173655,
+      "family_count": 6,
+      "method": "mixed_erm",
+      "net_weighted_mean": 0.004459162177108349,
+      "p95": 0.02223369694555483,
+      "scope": "dataset:circuitops_nangate45",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.007084908674208623
+    },
+    {
+      "count": 43,
+      "design_count": 1,
+      "design_macro_mean": 0.0053328797636955985,
+      "family_count": 1,
+      "method": "mixed_erm",
+      "net_weighted_mean": 0.0053328797636955985,
+      "p95": 0.023049557697693138,
+      "scope": "dataset:circuitops_sky130hd",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.0053328797636955985
+    },
+    {
+      "count": 131209,
+      "design_count": 16,
+      "design_macro_mean": 0.007793419457326141,
+      "family_count": 16,
+      "method": "mixed_erm",
+      "net_weighted_mean": 0.007959284815564868,
+      "p95": 0.03368010664916329,
+      "scope": "dataset:ispd2008_global_routing",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010595235755620625
+    },
+    {
+      "count": 134550,
+      "design_count": 28,
+      "design_macro_mean": 0.006759060081395031,
+      "family_count": 25,
+      "method": "hard_mining",
+      "net_weighted_mean": 0.008222243745372889,
+      "p95": 0.03545270563139169,
+      "scope": "overall",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.011693900916742217
+    },
+    {
+      "count": 968,
+      "design_count": 4,
+      "design_macro_mean": 0.005878636840146581,
+      "family_count": 2,
+      "method": "hard_mining",
+      "net_weighted_mean": 0.0058025030696905,
+      "p95": 0.02543154497133504,
+      "scope": "dataset:circuitops_asap7",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010770493791979703
+    },
+    {
+      "count": 2330,
+      "design_count": 7,
+      "design_macro_mean": 0.004412069624244346,
+      "family_count": 6,
+      "method": "hard_mining",
+      "net_weighted_mean": 0.004061795963538634,
+      "p95": 0.020208604164678054,
+      "scope": "dataset:circuitops_nangate45",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.0067369456451115695
+    },
+    {
+      "count": 43,
+      "design_count": 1,
+      "design_macro_mean": 0.0041786856119636695,
+      "family_count": 1,
+      "method": "hard_mining",
+      "net_weighted_mean": 0.0041786856119636695,
+      "p95": 0.0203583716419066,
+      "scope": "dataset:circuitops_sky130hd",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.0041786856119636695
+    },
+    {
+      "count": 131209,
+      "design_count": 16,
+      "design_macro_mean": 0.008167247621050028,
+      "family_count": 16,
+      "method": "hard_mining",
+      "net_weighted_mean": 0.008315301579099774,
+      "p95": 0.03575975048451663,
+      "scope": "dataset:ispd2008_global_routing",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.011693900916742217
+    },
+    {
+      "count": 134550,
+      "design_count": 28,
+      "design_macro_mean": 0.006591659921451355,
+      "family_count": 25,
+      "method": "group_dro",
+      "net_weighted_mean": 0.00789387818598357,
+      "p95": 0.033421776166478394,
+      "scope": "overall",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.01122450024041696
+    },
+    {
+      "count": 968,
+      "design_count": 4,
+      "design_macro_mean": 0.005889378500697332,
+      "family_count": 2,
+      "method": "group_dro",
+      "net_weighted_mean": 0.005650241184587381,
+      "p95": 0.025925571048023708,
+      "scope": "dataset:circuitops_asap7",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.011100493020726342
+    },
+    {
+      "count": 2330,
+      "design_count": 7,
+      "design_macro_mean": 0.004551788131532519,
+      "family_count": 6,
+      "method": "group_dro",
+      "net_weighted_mean": 0.004188034199342462,
+      "p95": 0.020956620444104176,
+      "scope": "dataset:circuitops_nangate45",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.007152704403639638
+    },
+    {
+      "count": 43,
+      "design_count": 1,
+      "design_macro_mean": 0.003943201484156754,
+      "family_count": 1,
+      "method": "group_dro",
+      "net_weighted_mean": 0.003943201484156754,
+      "p95": 0.023054731077491248,
+      "scope": "dataset:circuitops_sky130hd",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.003943201484156754
+    },
+    {
+      "count": 131209,
+      "design_count": 16,
+      "design_macro_mean": 0.007825202837060263,
+      "family_count": 16,
+      "method": "group_dro",
+      "net_weighted_mean": 0.007977533546548805,
+      "p95": 0.03369262280205334,
+      "scope": "dataset:ispd2008_global_routing",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010724441926484104
+    },
+    {
+      "count": 134550,
+      "design_count": 28,
+      "design_macro_mean": 0.0067004903740358794,
+      "family_count": 25,
+      "method": "wdro_rest",
+      "net_weighted_mean": 0.00819454502195187,
+      "p95": 0.03521469485078374,
+      "scope": "overall",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.01169080853867841
+    },
+    {
+      "count": 968,
+      "design_count": 4,
+      "design_macro_mean": 0.005583396327147619,
+      "family_count": 2,
+      "method": "wdro_rest",
+      "net_weighted_mean": 0.0055966190873398105,
+      "p95": 0.025340219453429957,
+      "scope": "dataset:circuitops_asap7",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.010034846596693014
+    },
+    {
+      "count": 2330,
+      "design_count": 7,
+      "design_macro_mean": 0.0044583220979814335,
+      "family_count": 6,
+      "method": "wdro_rest",
+      "net_weighted_mean": 0.004158750765144601,
+      "p95": 0.020329539142942128,
+      "scope": "dataset:circuitops_nangate45",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.006744486883816416
+    },
+    {
+      "count": 43,
+      "design_count": 1,
+      "design_macro_mean": 0.003961964860475651,
+      "family_count": 1,
+      "method": "wdro_rest",
+      "net_weighted_mean": 0.003961964860475651,
+      "p95": 0.014790742968166487,
+      "scope": "dataset:circuitops_sky130hd",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.003961964860475651
+    },
+    {
+      "count": 131209,
+      "design_count": 16,
+      "design_macro_mean": 0.00813187035112928,
+      "family_count": 16,
+      "method": "wdro_rest",
+      "net_weighted_mean": 0.008286765783256421,
+      "p95": 0.035538752564914664,
+      "scope": "dataset:ispd2008_global_routing",
+      "training_seeds": "101,102,103",
+      "worst_design_mean": 0.01169080853867841
+    }
+  ],
+  "tables": {
+    "paired_design_cluster_ci": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/paired_design_cluster_ci.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/paired_design_cluster_ci.csv",
+        "sha256": "904e595cf57cf22f1575a42c7822f17086e85edc6022973eeded318c06f1f60d"
+      },
+      "rows": 160
+    },
+    "per_dataset_seed": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_dataset_seed.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_dataset_seed.csv",
+        "sha256": "6383c82609fd1f48ce7d056f03261f5df4575544b16fa63d1b75da6e494d54c6"
+      },
+      "rows": 75
+    },
+    "per_degree_seed": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_degree_seed.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_degree_seed.csv",
+        "sha256": "d5db74b9897eef658b700233017657c1a638d419b37df57a50c822e9c5c74623"
+      },
+      "rows": 375
+    },
+    "per_design_degree_seed": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_design_degree_seed.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_design_degree_seed.csv",
+        "sha256": "dc7c225fdc1826e573fca7ef360a1bb4f47282abc11be74eb787331ca7867a92"
+      },
+      "rows": 2175
+    },
+    "per_design_seed": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_design_seed.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/per_design_seed.csv",
+        "sha256": "5a470b40d23386d4cf8ecfa29efe34229d1869f6b9c46323acd2b8114143790b"
+      },
+      "rows": 435
+    },
+    "summary": {
+      "artifact": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/summary.csv",
+        "resolved_path": "/remote-home/Guilin/DRO/Codex/external_benchmarks/20260912_public/tables/summary.csv",
+        "sha256": "0245d1d576a8dd19a3799a12e0db3d735ae03b964bc7732eb8f2ead24e6fdeac"
+      },
+      "rows": 25
+    }
+  },
+  "valid_design_count": 28,
+  "wall_seconds": 34.351026587188244
+}

@@ -1,0 +1,394 @@
+{
+  "arm": "entropy",
+  "seed": 102,
+  "exploratory": true,
+  "gate_override": {
+    "allow": true,
+    "metric": "G",
+    "reason": "User explicitly requested direct geometry and ordinary entropy training after acceptance; original failed gate retained unchanged",
+    "exploratory": true,
+    "original_gate": "/remote-home/Guilin/DRO/Codex/accelerated_geometry_20261006/artifacts/gate.json"
+  },
+  "protocol": {
+    "schema_version": 1,
+    "protocol_id": "geometry_exploratory_20261008",
+    "status": "frozen",
+    "frozen_at_utc": "2026-09-04T07:42:05Z",
+    "scope": {
+      "methods": [
+        "erm",
+        "mixed_erm",
+        "hard_mining",
+        "group_dro",
+        "wdro_rest"
+      ],
+      "degrees": [
+        10,
+        20,
+        30,
+        40,
+        50
+      ],
+      "excluded_methods": [
+        "canonicalized_erm",
+        "kl_dro",
+        "cvar"
+      ],
+      "excluded_shifts": [
+        "anisotropic_gauss",
+        "hotspots_with_void"
+      ],
+      "excluded_costs": [
+        "gw",
+        "fgw"
+      ]
+    },
+    "data": {
+      "dimension": 2,
+      "nominal_distribution": "uniform",
+      "distributions": {
+        "uniform": {
+          "nonuniform": 0.0
+        },
+        "mix_gauss": {
+          "nonuniform": 0.8,
+          "clusters": 6,
+          "sigma": 0.04
+        },
+        "edge_bias": {
+          "nonuniform": 0.8,
+          "clusters": 4,
+          "sigma": 0.06
+        },
+        "grid_cluster": {
+          "nonuniform": 0.8,
+          "clusters": 8,
+          "sigma": 0.03
+        }
+      },
+      "seeds": {
+        "training": [
+          101,
+          102,
+          103
+        ],
+        "validation": 202,
+        "test": 303
+      },
+      "sizes_per_degree_distribution": {
+        "validation": 2000,
+        "test": 10000
+      },
+      "fixed_pool_required": true,
+      "readonly_after_generation": true,
+      "id_fields": [
+        "split",
+        "distribution",
+        "degree",
+        "seed",
+        "net_index"
+      ],
+      "seed_namespace_required": true
+    },
+    "preprocessing": {
+      "shared_implementation_required": true,
+      "translate_bbox_to_origin": true,
+      "preserve_aspect_ratio": true,
+      "scale_by_longest_bbox_side": true,
+      "normalized_interval": [
+        0.1,
+        0.9
+      ],
+      "inverse_transform_required": true,
+      "rules_requiring_stage_1_implementation_and_tests": [
+        "duplicate_pins",
+        "zero_span",
+        "minimum_spacing",
+        "invalid_net"
+      ]
+    },
+    "training": {
+      "policy_updates": 125,
+      "batch_size": 4096,
+      "initial_actor_checkpoint_template": "DRO/WDRO-REST/save/DAC21/rsmt{degree}b.pt",
+      "same_degree_checkpoint_for_all_methods": true,
+      "critic_initialization_policy": "identical_per_degree_and_seed_across_methods",
+      "checkpoint_retention": [
+        "latest",
+        "best"
+      ],
+      "candidate_refresh_updates": 10,
+      "selection": {
+        "source": "synthetic_validation_only",
+        "objective": "minimum_worst_group_relative_regret",
+        "worst_group_scope": [
+          "mix_gauss",
+          "edge_bias",
+          "grid_cluster"
+        ],
+        "nominal_mean_regret_degradation_max_absolute": 0.002,
+        "test_data_used_for_selection": false,
+        "ispd_used_for_selection": false
+      }
+    },
+    "inference": {
+      "symmetry_transforms": 1,
+      "mode": "deterministic_greedy",
+      "shared_batches": true,
+      "shared_hardware_required": true
+    },
+    "loss_and_metrics": {
+      "training_loss": "per_net_relative_regret",
+      "formula": "(L_REST - L_star) / L_star",
+      "reference": "GeoSteiner",
+      "reference_cache_key": "data_content_sha256",
+      "primary": [
+        "mean",
+        "p95",
+        "worst_group"
+      ],
+      "confidence_level": 0.95,
+      "paired_per_net_bootstrap": true,
+      "retain_all_degrees_distributions_seeds": true,
+      "ispd": [
+        "net_weighted_mean",
+        "design_macro_mean",
+        "p95",
+        "worst_design_mean",
+        "counts_by_design_and_degree",
+        "invalid_counts"
+      ]
+    },
+    "method_contracts": {
+      "erm": {
+        "training_groups": [
+          "uniform"
+        ]
+      },
+      "mixed_erm": {
+        "training_groups": [
+          "uniform",
+          "mix_gauss",
+          "edge_bias",
+          "grid_cluster"
+        ],
+        "sampling": "equal_proportion"
+      },
+      "group_dro": {
+        "training_groups": [
+          "uniform",
+          "mix_gauss",
+          "edge_bias",
+          "grid_cluster"
+        ],
+        "group_update": "exponential_weights"
+      },
+      "hard_mining": {
+        "transport_penalty": false,
+        "candidate_budget_must_match_wdro": true,
+        "exact_rescore_top_k": 4
+      },
+      "wdro_rest": {
+        "searcher": "random_sobol",
+        "candidate_count": 32,
+        "include_nominal_candidate": true,
+        "candidate_families": [
+          "jitter",
+          "sparse",
+          "correlated",
+          "axis_biased"
+        ],
+        "ground_cost": "hungarian_l1_mean",
+        "lambda": "learned_nonnegative",
+        "exact_rescore_top_k": 4,
+        "selection_unit": "one_argmax_per_nominal_center",
+        "lambda_update_signal": "mean_selected_cost_minus_rho",
+        "rho_calibration": "per_degree_perturbation_cost_quantile"
+      }
+    },
+    "required_ablations": {
+      "rho": [
+        "0",
+        "q50",
+        "q75"
+      ],
+      "lambda": [
+        "fixed",
+        "learned"
+      ],
+      "candidate_count": [
+        1,
+        8,
+        32
+      ],
+      "equal_call_searchers": [
+        "random_64",
+        "cem_64"
+      ],
+      "ground_costs": [
+        "hungarian_l1_mean",
+        "symmetric_chamfer_l1"
+      ],
+      "independent_attack": "cem_256"
+    },
+    "ispd": {
+      "protocol": "A",
+      "role": "zero_shot_external_test_after_configuration_freeze",
+      "exclude_metal5_variants": true,
+      "retain_design_and_net_ids": true,
+      "researcher_blind_claim_allowed": false
+    },
+    "runtime": {
+      "python": "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+      "allowed_gpu_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forbidden_gpu_indices": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "allowed_gpu_idle_memory_mib_max": 1024,
+      "minimum_free_disk_gib_for_batch": 100,
+      "scheduler": "single_host_manifest_queue",
+      "trusted_legacy_checkpoint_load": {
+        "required": true,
+        "torch_load_weights_only": false,
+        "reason": "DAC21 checkpoints contain legacy NumPy scalar metadata and fail PyTorch 2.6 safe weights-only loading"
+      }
+    },
+    "artifacts": {
+      "root": "Codex/experiments",
+      "cache": "Codex/experiments/cache",
+      "checkpoints": "Codex/experiments/checkpoints",
+      "logs": "Codex/experiments/logs",
+      "tables": "Codex/experiments/tables",
+      "figures": "Codex/experiments/figures",
+      "manifests": "Codex/wdro_rest_min/manifests"
+    },
+    "tracked_legacy_assets": [
+      "DRO/WDRO-REST/models/actor_critic.py",
+      "DRO/WDRO-REST/models/self_attn.py",
+      "DRO/WDRO-REST/models/utils.py",
+      "DRO/WDRO-REST/utils/rsmt_utils.py",
+      "DRO/WDRO-REST/algorithms/libeval.so"
+    ]
+  },
+  "trainer": {
+    "schema_version": 1,
+    "config_id": "wdro-rest-stage2-unified-trainer-v1",
+    "status": "frozen",
+    "frozen_at_utc": "2026-09-04T17:50:45Z",
+    "frozen_after_smoke_audit": "Codex/experiments/logs/stage2/stage2_smoke_audit_d30_s101_u200.json",
+    "research_protocol_override": false,
+    "applies_to_methods": [
+      "erm",
+      "mixed_erm",
+      "hard_mining",
+      "group_dro",
+      "wdro_rest"
+    ],
+    "loss": "per_net_relative_regret",
+    "optimizer": {
+      "name": "adam_joint_actor_critic",
+      "learning_rate": 5e-05,
+      "epsilon": 1e-05,
+      "weight_decay": 0.0
+    },
+    "scheduler": {
+      "name": "constant",
+      "step_per_policy_update": true
+    },
+    "gradient_clip_l2": 1.0,
+    "validation_interval_updates": 6,
+    "validation_batch_size": 1024,
+    "checkpoint_interval_updates": 6,
+    "structured_log_interval_updates": 1,
+    "stage2_smoke_updates": 200,
+    "training_pool": {
+      "kind": "stateless_immutable_per_update",
+      "identity_fields": [
+        "protocol_id",
+        "training_seed",
+        "degree",
+        "update",
+        "net_index"
+      ],
+      "reuse_across_methods": true,
+      "materialized_nets_per_formal_run": 512000
+    },
+    "initialization": {
+      "actor": "trusted_degree_specific_dac21_actor_only",
+      "critic": "deterministic_fresh_per_degree_and_training_seed",
+      "policy_rng": "deterministic_per_degree_and_training_seed"
+    },
+    "checkpoint_schema": {
+      "retention": [
+        "latest",
+        "best"
+      ],
+      "includes": [
+        "actor",
+        "critic",
+        "optimizer",
+        "scheduler",
+        "rng",
+        "task_cursor",
+        "call_ledger"
+      ]
+    },
+    "selection": {
+      "split": "synthetic_validation_only",
+      "erm_objective": "minimum_ood_worst_group_relative_regret",
+      "test_or_ispd_allowed": false
+    },
+    "determinism": {
+      "torch_deterministic_algorithms": true,
+      "cudnn_benchmark": false
+    }
+  },
+  "wdro": {
+    "batch_size": 256,
+    "calibration_artifact": "experiments/cache/stage6/calibration_d10_s101.json",
+    "config_id": "stage6_d10_q75",
+    "degree": 10,
+    "ground_cost": "hungarian_l1_mean",
+    "lambda_initial": 0.0,
+    "lambda_learning_rate": 1.0,
+    "lambda_mode": "learned",
+    "research_protocol_override": false,
+    "rho_mode": "q75",
+    "schema_version": 1,
+    "search_overrides": {
+      "candidate_count": 32,
+      "cem": {
+        "elite": 4,
+        "initial_std": 0.02,
+        "maximum_motion": 0.08,
+        "minimum_std": 0.001,
+        "population": 16,
+        "rounds": 4
+      },
+      "exact_rescore_top_k": 4,
+      "searcher": "random_sobol"
+    },
+    "stability_gate": {
+      "maximum_lambda": 100.0
+    },
+    "stage": 6,
+    "status": "frozen",
+    "training_seed": "per_run_protocol_seed",
+    "updates": 2000
+  },
+  "physical_gpu": "4",
+  "resource_override": "rootcontroller selects CUDA_VISIBLE_DEVICES; memoryfraction0.55/threads1; original scientific loop preserved",
+  "bookkeeping": "no content hashes, no unsolicited inverse audit, no scalar cache; source and input metadata recorded",
+  "reference": "GeoSteiner exact binary scale v2 for every arm",
+  "geometry_metric": "G",
+  "search_arm": "entropy",
+  "change": "only shortlist ranking; no hard candidate radius; same32+nominal candidates and4exact budget"
+}

@@ -1,0 +1,142 @@
+--- wdro_rest_min/scripts/stage5_pipeline.py
++++ wdro_rest_min/scripts/precision_stage5_capacity_pipeline.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Resumable stage-5 queue, fresh shared-GPU scheduling, full audits and freeze."""
++"""Stage-5 recovery: original gates and semantics, corrected capacity accounting."""
+ from __future__ import annotations
+ import json,os,shlex,signal,subprocess,sys,time,re
+ from pathlib import Path
+@@ -10,8 +10,10 @@
+ from stage5.configuration import initial_tasks,select_rho,remaining_tasks
+ from capture_host_runtime import gpu_sample,compute_processes,disk_snapshot
+ JOB=EXP/'logs/stage5_pipeline'
++import precision_queue_runtime as runtime
+ 
+ def gate(smoke=True):
++    runtime.gate()
+     contract=json.loads((ROOT/'manifests/stage5_training_contract_v1.json').read_text())
+     for path,digest in contract['files'].items():assert file_sha256(CODEX/path)==digest,'frozen file changed: '+path
+     if smoke:
+@@ -26,11 +28,9 @@
+ 
+ def preflight(purpose):
+     profile=json.loads((EXP/'logs/stage5_smoke/memory_profile.json').read_text())
+-    command=[sys.executable,str(ROOT/'scripts/capture_host_runtime.py'),'--purpose',purpose,
+-        '--measured-peak-mib',str(profile['maximum_reserved_mib']+1024),'--safety-margin-mib','2048']
+-    p=subprocess.run(command,capture_output=True,text=True)
+-    append_jsonl(JOB/'preflights.jsonl',{'at_utc':utc_now(),'command':command,'exit_code':p.returncode,'stdout':p.stdout,'stderr':p.stderr})
+-    return json.loads(p.stdout.strip().splitlines()[-1]) if p.returncode==0 else None
++    return runtime.capture(purpose, profile['maximum_reserved_mib'], JOB)
++
++process_is_alive=runtime.process_is_alive
+ 
+ def observe():return {'at_utc':utc_now(),'time':time.time(),'gpus':gpu_sample(),'compute_processes':compute_processes(),'disk':[disk_snapshot(CODEX),disk_snapshot(EXP)]}
+ 
+@@ -38,7 +38,7 @@
+     p=CODEX/'01_WDRO-REST_项目进度.md';s=p.read_text();now=utc_now()
+     for key,value in {'更新时间':now,'实验状态':message,'下一动作':action}.items():
+         s=re.sub(r'\| '+re.escape(key)+r' \| .*? \|',f'| {key} | {value} |',s,count=1)
+-    s=s.replace('## 8. 变更记录\n\n',f'## 8. 变更记录\n\n### {now}\n\n- {message}。证据 `experiments/logs/stage5_pipeline/heartbeat.json`、`queue.json`、`launches.jsonl`。下一步：{action}。恢复入口 `scripts/launch_stage5.py` 将重新动态预检。\n\n')
++    s=s.replace('## 8. 变更记录\n\n',f'## 8. 变更记录\n\n### {now}\n\n- {message}。证据 `experiments/logs/stage5_pipeline/heartbeat.json`、`queue.json`、`launches.jsonl`。下一步：{action}。恢复入口 `scripts/precision_stage5_capacity_pipeline.py` 将重新动态预检。\n\n')
+     temp=p.with_suffix('.md.partial');temp.write_text(s);temp.replace(p)
+     from precision_replay_pipeline import progress as publish
+     publish(message,str(JOB/'heartbeat.json'))
+@@ -54,25 +54,24 @@
+     p=EXP/'logs/stage5'/task['run_id']/'result.json'
+     return json.loads(p.read_text()) if p.exists() else None
+ 
+-def choose_gpu(rows,active,history,blocked,need,now):
+-    eligible=[]
+-    for row in rows:
+-        gpu=row['index'];count=sum(a['gpu']==gpu for a in active.values())
+-        minfree=min([row['minimum_free_memory_mib']]+[g['memory_free_mib'] for h in history for g in h['gpus'] if g['index']==gpu])
+-        if row['eligible'] and minfree>need and count<2 and now>blocked.get(gpu,0):eligible.append((count,-minfree,gpu))
+-    return min(eligible)[2] if eligible else None
++choose_gpu=runtime.choose_gpu
+ 
+ def run_queue(tasks,lease,phase):
+     for task in tasks:
+         assert file_sha256(Path(task['config']))==task['config_sha256'],'run config hash changed'
+     active={};blocked={};history=[];last_progress=0;attempts={};monitor_times={}
++    if (JOB/'resource_monitor.jsonl').exists():
++        with (JOB/'resource_monitor.jsonl').open() as saved:
++            for line in saved:
++                row=json.loads(line)
++                if row['time']>time.time()-600:history.append(row)
+     # Adopt surviving project children after a controller restart.
+     for t in tasks:
+         job=EXP/'logs/jobs'/t['run_id']/'job.json'
+         if job.exists():
+             j=json.loads(job.read_text());pid=j['pid']
+             cmdline=Path('/proc')/str(pid)/'cmdline'
+-            if process_is_alive(pid) and cmdline.exists() and t['run_id'] in cmdline.read_text():
++            if runtime.process_matches(pid,t['run_id'],ROOT/'scripts/train_stage5.py'):
+                 active[t['run_id']]={'pid':pid,'gpu':j['physical_gpu_index'],'adopted':True,'saturated':[],'task':t,'log':None,'stopping':False}
+     try:
+         while True:
+@@ -87,10 +86,12 @@
+                 if not alive:
+                     code=a['proc'].returncode if 'proc' in a else None
+                     append_jsonl(JOB/'segments.jsonl',{'at_utc':utc_now(),'run_id':rid,'gpu':a['gpu'],'pid':a['pid'],'exit_code':code,'log':a['log']})
+-                    if code and a['log']:
+-                        tail=Path(a['log']).read_text()[-40000:]
+-                        if 'out of memory' not in tail.lower():raise RuntimeError(f'training error in {a["log"]}')
++                    tail=Path(a['log']).read_text()[-40000:] if a['log'] else ''
++                    resource=runtime.capacity_exit(a,code,result_for(a['task']),tail)
++                    if resource:
++                        attempts[rid]=max(0,attempts.get(rid,0)-1)
+                         blocked[a['gpu']]=time.time()+600
++                        append_jsonl(JOB/'capacity_requeues.jsonl',dict(at_utc=utc_now(),run_id=rid,pid=a['pid'],gpu=a['gpu'],exit_code=code,failure_attempts=attempts[rid],reason='verified capacity pause or CUDA OOM; resume unchanged checkpoint'))
+                     del active[rid];continue
+                 row=next(g for g in snapshot['gpus'] if g['index']==a['gpu'])
+                 a['saturated']=(a['saturated']+[row['utilization_gpu_percent']>=95])[-6:]
+@@ -110,6 +111,7 @@
+                 if reason and not a['stopping']:
+                     # Stop only one tenant of this project per GPU per cycle.
+                     if not any(x['gpu']==a['gpu'] and x['stopping'] for x in active.values()):
++                        assert runtime.process_matches(a['pid'],rid,ROOT/'scripts/train_stage5.py')
+                         os.kill(a['pid'],signal.SIGTERM);a['stopping']=True;blocked[a['gpu']]=time.time()+600
+                         append_jsonl(JOB/'recoveries.jsonl',{'at_utc':utc_now(),'run_id':rid,'pid':a['pid'],'gpu':a['gpu'],'reason':reason})
+             state={'phase':phase,'at_utc':utc_now(),'tasks':tasks,'complete':completed,
+@@ -122,7 +124,7 @@
+             if time.time()-last_progress>600:
+                 progress(f'阶段 5 {phase}：{len(completed)}/{len(tasks)} run 训练完成，累计 {total_updates} updates', '继续当前阶段队列；完整审计后再选择/冻结')
+                 last_progress=time.time()
+-            pending=[t for t in tasks if t['run_id'] not in completed and t['run_id'] not in active]
++            pending=sorted([t for t in tasks if t['run_id'] not in completed and t['run_id'] not in active],key=runtime.task_priority)
+             if pending and len(active)<6:
+                 summary=preflight('stage5_'+phase+'_start_or_resume')
+                 if summary:
+@@ -138,7 +140,8 @@
+                             '8' if json.loads(Path(t['config']).read_text())['search_overrides']['searcher'] in ('random_64','cem_64') else '3']
+                         if (EXP/'checkpoints/stage5'/rid/'latest.pt').exists():cmd+=['--resume']
+                         log=JOB/(rid+'_'+str(int(time.time()))+'.log')
+-                        with log.open('a') as out:proc=subprocess.Popen(cmd,stdout=out,stderr=subprocess.STDOUT)
++                        runtime.cleanup_dead_lock(EXP/'logs/jobs'/rid)
++                        with log.open('a') as out:proc=subprocess.Popen(cmd,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
+                         a={'pid':proc.pid,'gpu':gpu,'task':t,'log':str(log),'stopping':False,'saturated':[],'proc':proc,'update':0}
+                         active[rid]=a
+                         record={'at_utc':utc_now(),'run_id':rid,'pid':proc.pid,'gpu':gpu,'command':cmd,'exact_command':shlex.join(cmd),
+@@ -147,8 +150,7 @@
+                         append_jsonl(JOB/'postlaunch.jsonl',dict(observe(),run_id=rid,pid=proc.pid))
+             time.sleep(15)
+     except BaseException:
+-        for a in active.values():
+-            if process_is_alive(a['pid']):os.kill(a['pid'],signal.SIGTERM)
++        runtime.stop_children(active,ROOT/'scripts/train_stage5.py',JOB)
+         raise
+ 
+ def audited(tasks,lease,phase):
+@@ -187,8 +189,10 @@
+ 
+ def main():
+     JOB.mkdir(parents=True,exist_ok=True);gate()
++    def stop(signum,frame):raise KeyboardInterrupt('controller stop requested; saving children')
++    signal.signal(signal.SIGTERM,stop)
+     command=shlex.join(['bash',str(ROOT/'scripts/stage3_env.sh'),sys.executable,str(Path(__file__))])
+-    with JobLease(JOB,run_id='stage5_pipeline',exact_command=command,resume_command=f'bash {ROOT}/scripts/stage3_env.sh {sys.executable} {ROOT}/scripts/launch_stage5.py',
++    with JobLease(JOB,run_id='stage5_pipeline',exact_command=command,resume_command=f'bash {ROOT}/scripts/stage3_env.sh {sys.executable} {ROOT}/scripts/precision_stage5_capacity_pipeline.py',
+         monitor_command=f'cat {JOB}/heartbeat.json',expected_updates=18000,physical_gpu_index=None,host_runtime_manifest=None) as lease:
+         substep('5.1','DONE','80单测、三种搜索精确恢复、八变体完整smoke审计与64-call真实重算/8-worker等价通过；证据stage5_smoke/audit.json与stage5_audit/smoke_gate.json')
+         substep('5.2','DOING','rho三配置的2000-update训练及完整审计；见stage5_pipeline/queue.json')

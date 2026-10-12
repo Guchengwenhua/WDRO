@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "contract_id": "wdro-rest-data-contract-v1",
+  "status": "frozen",
+  "frozen_at_utc": "2026-09-04T07:50:00Z",
+  "coordinates": {
+    "compute_dtype": "float64",
+    "storage_dtype": "float32",
+    "dimension": 2,
+    "normalized_lower": 0.1,
+    "normalized_upper": 0.9,
+    "zero_bbox_span_epsilon": 1e-12,
+    "minimum_normalized_l1_spacing": 1e-6
+  },
+  "duplicates": {
+    "definition": "exact_coordinate_equality_after_float64_conversion",
+    "action": "stable_deduplicate_preserving_first_occurrence",
+    "synthetic_fixed_degree": "reject_and_regenerate_if_degree_changes",
+    "ispd_fixed_model_degree": "record_invalid_if_degree_changes"
+  },
+  "zero_span": {
+    "both_axes": "invalid",
+    "one_axis_only": "valid"
+  },
+  "invalid_net_reasons": [
+    "invalid_shape",
+    "nonfinite_coordinate",
+    "degree_below_two",
+    "degree_changed_by_deduplication",
+    "zero_bbox_span",
+    "minimum_spacing_violation",
+    "source_degree_mismatch",
+    "malformed_source_block"
+  ],
+  "normalization": {
+    "translation": "subtract_per_axis_bbox_minimum",
+    "scale": "(normalized_upper-normalized_lower)/maximum_bbox_side",
+    "placement": "add_normalized_lower_to_both_axes",
+    "preserve_pin_order": true,
+    "preserve_aspect_ratio": true,
+    "inverse_metadata": ["offset_xy", "scale"]
+  },
+  "content_identity": {
+    "hash": "sha256",
+    "pin_set_hash_is_order_invariant": true,
+    "dataset_hash_includes_order_and_net_ids": true,
+    "seed_namespace": "sha256(protocol_id,base_seed,split,distribution,degree,attempt)"
+  },
+  "projection": {
+    "clip_to_normalized_interval": true,
+    "resolve_spacing_deterministically": true,
+    "failure_is_invalid": true
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "at_utc": "2026-09-07T09:52:59.479232Z",
+  "baseline_counts": {
+    "complete": 9,
+    "failed": 0,
+    "pending": 28,
+    "running": 8,
+    "total": 45
+  },
+  "checks": {
+    "all_audits_pass": true,
+    "all_streams_complete_no_heldout_overlap": true,
+    "completed_baselines_all_audited": true,
+    "corrected_test_not_started": true,
+    "cpu_auditor_alive": true,
+    "current_source_and_operations_gates": true,
+    "no_training_failures": true,
+    "persistent_duplicate_rejected": true,
+    "replay_controller_alive": true,
+    "replay_runner_alive": true,
+    "replay_tmux_alive": true,
+    "resource_fix_accepted": true,
+    "stage6_completion_controller_alive": true,
+    "stage6_completion_runner_alive": true,
+    "stage6_completion_tmux_alive": true,
+    "wdro_replay_controller_alive": true,
+    "wdro_replay_runner_alive": true,
+    "wdro_replay_tmux_alive": true
+  },
+  "controllers": {
+    "replay": {
+      "launch": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/replay/launch.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/replay/launch.json",
+        "sha256": "59f6b8302e976aef342f28680ca9e25c79d047352ca42584c91c5b054d5ff846"
+      },
+      "monitor_command": "cat /remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/replay/heartbeat.json",
+      "pid": 134152,
+      "recovery_command": "bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/precision_job.py --name replay -- bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_replay_pipeline.py"
+    },
+    "stage6_completion": {
+      "launch": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/stage6_completion/launch.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/stage6_completion/launch.json",
+        "sha256": "ff4ee9f993197e3e7b38b121b8ba8471bab500b2556c38914e5c6aa9a62f8a52"
+      },
+      "monitor_command": "cat /remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/stage6_completion/heartbeat.json",
+      "pid": 126684,
+      "recovery_command": "bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/precision_job.py --name stage6_completion -- bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_stage6_completion.py"
+    },
+    "wdro_replay": {
+      "launch": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/wdro_replay/launch.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/wdro_replay/launch.json",
+        "sha256": "a40174de3d3a628cdf072a19d84b5d6ea1630df52837a96216c539388d2c61fd"
+      },
+      "monitor_command": "cat /remote-home/Guilin/DRO/Codex/experiments/logs/precision_v2/jobs/wdro_replay/heartbeat.json",
+      "pid": 126353,
+      "recovery_command": "bash /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/precision_job.py --name wdro_replay -- bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_wdro_replay.py"
+    }
+  },
+  "early_audit_checks": 337,
+  "early_audit_job": {
+    "at_utc": "2026-09-07T09:37:33.375396Z",
+    "command": [
+      "env",
+      "WDRO_TMUX_SESSION=precision_completed_baseline_audit",
+      "WDRO_HOST_RUNTIME_MANIFEST=/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/precision_completed_audit_persistent_launch_1788773853367679719.json",
+      "CUDA_VISIBLE_DEVICES=",
+      "bash",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh",
+      "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_completed_baseline_audit.py"
+    ],
+    "exact_command": "env WDRO_TMUX_SESSION=precision_completed_baseline_audit WDRO_HOST_RUNTIME_MANIFEST=/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/precision_completed_audit_persistent_launch_1788773853367679719.json CUDA_VISIBLE_DEVICES= bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_completed_baseline_audit.py",
+    "log": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/controller.log",
+    "log_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_completed_audit/controller.log",
+    "monitor_command": "cat /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/heartbeat.json",
+    "operations": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_completed_baseline_audit_operations_v1.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_completed_baseline_audit_operations_v1.json",
+      "sha256": "2cd71756791e008ba2478fbcbe3d20569b9156b5b47beedabb4d36001a1920dc"
+    },
+    "pid": 153156,
+    "postlaunch_preflight": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/precision_completed_audit_postlaunch_review_1788773934376272268.json",
+    "preflight": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/precision_completed_audit_persistent_launch_1788773853367679719.json",
+    "recovery_command": "bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_completed_baseline_audit.py --launch",
+    "session": "precision_completed_baseline_audit",
+    "socket": "/remote-home/Guilin/DRO/Codex/experiments/tmp/precision_v2.sock",
+    "socket_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/tmp/precision_v2.sock",
+    "tmux_command": [
+      "tmux",
+      "-S",
+      "/remote-home/Guilin/DRO/Codex/experiments/tmp/precision_v2.sock",
+      "new-session",
+      "-d",
+      "-s",
+      "precision_completed_baseline_audit",
+      "-c",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex",
+      "exec env WDRO_TMUX_SESSION=precision_completed_baseline_audit WDRO_HOST_RUNTIME_MANIFEST=/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/precision_completed_audit_persistent_launch_1788773853367679719.json CUDA_VISIBLE_DEVICES= bash /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage3_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/precision_completed_baseline_audit.py >> /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/controller.log 2>&1"
+    ]
+  },
+  "early_audited_runs": 9,
+  "erm_complete": 15,
+  "evidence": [
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_completed_baseline_audit_operations_v1.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_completed_baseline_audit_operations_v1.json",
+      "sha256": "2cd71756791e008ba2478fbcbe3d20569b9156b5b47beedabb4d36001a1920dc"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/foreground_acceptance.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_completed_audit/foreground_acceptance.json",
+      "sha256": "78b9018ac2a67307fdcd3206592a62b069f0a962ec4bf343112e9159134c9de8"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/launch_verification.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_completed_audit/launch_verification.json",
+      "sha256": "0af1c12fed51417c3140f66d2d5fcfcd4c11cb970da93710f8db08ae5d16daaf"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/launch.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_completed_audit/launch.json",
+      "sha256": "8ac8481a25aba7cbd41fc17cc69befb60b9a01d3cffeb66488e99ae5698455be"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_completed_audit/result.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_completed_audit/result.json",
+      "sha256": "12bcc7ffb9234e7efbf5bdcf478b3c09a44b0f3534b3b35dcead2a4dbef127b5"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_capacity_wait_operations_v2.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/precision_capacity_wait_operations_v2.json",
+      "sha256": "a2d79712bed8595e06612dde09992a3c3b125504ed548bb708150e2d5419111d"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/acceptance_v2.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/precision_capacity_wait/acceptance_v2.json",
+      "sha256": "81752fe5096bdd25641303178c24a46c590da0a35c89e6bb80b49f35dbabe28e"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_capacity_wait/preflight_collision_diagnosis.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/precision_capacity_wait/preflight_collision_diagnosis.json",
+      "sha256": "2aaec8b09bce8b4d7f25a130604a6d8a671efd0319310eae7b2f7cec66d61fa5"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/precision_status.py",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/precision_status.py",
+      "sha256": "334a21360a13367e6dcf42d382610fa64d26eb33b9c3f05183df5939f4d6934b"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_group_dro_d10_s101_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_group_dro_d10_s101_u2000.json",
+      "sha256": "bc4a084cc83f1f9db44dd4111242a9a0ec223b1302f62392cf71b8dac9adc366"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_group_dro_d10_s102_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_group_dro_d10_s102_u2000.json",
+      "sha256": "a56dc2e662e3263f49b6c2c7ab081b7011ee5b594daf5ad8722e0b8269c8194f"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_group_dro_d20_s103_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_group_dro_d20_s103_u2000.json",
+      "sha256": "afe587d8b1f9174fcd502dada68781e0ef5107ddec8bac568f24a513d61f49c7"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_group_dro_d50_s101_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_group_dro_d50_s101_u2000.json",
+      "sha256": "2df81c9aef3294687516e1c8c74f8e9ff028545a5f235451800ce31c5d97856a"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_mixed_erm_d10_s101_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_mixed_erm_d10_s101_u2000.json",
+      "sha256": "42d037f8a632a49389ff392229caa3c5c41e9f3f847b38f253205b0391b410c9"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_mixed_erm_d10_s102_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_mixed_erm_d10_s102_u2000.json",
+      "sha256": "3f95e33f0d409ad5279a2292800232505e5e75078d27bd6013e5caa830028962"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_mixed_erm_d50_s101_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_mixed_erm_d50_s101_u2000.json",
+      "sha256": "70b9fed42c6fe8e64d44e08aec1ed70cd1a5645d60509498a3500baa62e06684"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_mixed_erm_d50_s102_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_mixed_erm_d50_s102_u2000.json",
+      "sha256": "2f58b9928f54e53fdbdf3a2a5d4fcc028510bc9ba96922b00dd022311f662787"
+    },
+    {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3_audit/runs/formal_mixed_erm_d50_s103_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3_audit/runs/formal_mixed_erm_d50_s103_u2000.json",
+      "sha256": "7e53153bea4ee3ebdc58dd6d507c0f12dc73efb3982df68840e249ef6caae240"
+    }
+  ],
+  "heldout_intersections": 0,
+  "preflight": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/precision_replay/preflights/stage6_remaining_handoff_review_1788774779460304844.json",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/precision_replay/preflights/stage6_remaining_handoff_review_1788774779460304844.json",
+    "sha256": "2d32d980e671b5b09985e917cb0b5ca39b7af49f36d2a261e8afad4fbf82a469"
+  },
+  "remaining_gate_sequence": [
+    "R3 complete 45 baseline trainings/full audit/export/delivery",
+    "R4 original 500-update diagnostic and audits",
+    "R5 original 9-run validation/ablations and frozen selection",
+    "6.1 corrected training/evaluation smoke",
+    "6.2 freeze all 75 models",
+    "6.3 all 300 synthetic test cells",
+    "6.4 main/degree tables, paired CI, delivery verification"
+  ],
+  "research_protocol_override": false,
+  "runtime_collision_limit": "One denied preflight body was replaced in a filename collision; original sidecar and later body preserved, zero admitted runs affected; new helper uses unique output paths",
+  "scope": "Stage6 continuation operations and completed-run audits only; Stage6 remains DOING",
+  "stage6_complete": false,
+  "stage7_started": false,
+  "status": "pass",
+  "training_nets_rebuilt": 4608000
+}

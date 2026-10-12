@@ -1,0 +1,157 @@
+{
+  "status": "pass",
+  "kind": "degree50_formal_batch_memory_profile_with_fake_labels",
+  "at_utc": "2026-09-12T06:49:54.155283+00:00",
+  "physical_gpu_index": 2,
+  "CUDA_VISIBLE_DEVICES": "2",
+  "pid": 347639,
+  "device_name": "NVIDIA RTX 6000 Ada Generation",
+  "torch_version": "2.6.0+cu124",
+  "scope": "One step per component; real architectures, fake finite labels/rewards; not formal training or quality evaluation",
+  "degree": 50,
+  "parent_checkpoint": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d50_s101_u2000_v1/best.pt",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d50_s101_u2000_v1/best.pt",
+    "sha256": "d80c1799e2228c180f9165d5357a32cf9327a1b64a35d554e022fac3c57f2284"
+  },
+  "resident_networks": [
+    "REST Actor",
+    "main Critic",
+    "calibrated InputCritic",
+    "raw InputCritic",
+    "RL Policy"
+  ],
+  "deterministic_algorithms": true,
+  "cudnn_deterministic": true,
+  "cudnn_benchmark": false,
+  "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+  "real_actor_scoring_calls": 0,
+  "real_rest_calls": 0,
+  "real_geosteiner_calls": 0,
+  "fake_gpu_reward_requests": 320,
+  "phases": [
+    {
+      "phase": "all_networks_resident",
+      "allocated_mib": 15.7421875,
+      "reserved_mib": 16.0,
+      "peak_allocated_mib": 15.7421875,
+      "peak_reserved_mib": 16.0,
+      "nvidia_processes": [
+        {
+          "nvidia_pid": 3769197,
+          "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+          "used_mib": 508,
+          "matches_visible_python_pid": false
+        }
+      ],
+      "visible_python_pid": 347639,
+      "nvidia_process_scope": "all processes on the selected physical GPU; host PID may differ from container PID"
+    },
+    {
+      "phase": "critic_calibrated_batch128_adam_step",
+      "batch_size": 128,
+      "loss": 0.12832306325435638,
+      "allocated_mib": 89.5537109375,
+      "reserved_mib": 492.0,
+      "peak_allocated_mib": 415.07666015625,
+      "peak_reserved_mib": 492.0,
+      "nvidia_processes": [
+        {
+          "nvidia_pid": 3769197,
+          "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+          "used_mib": 1058,
+          "matches_visible_python_pid": false
+        }
+      ],
+      "visible_python_pid": 347639,
+      "nvidia_process_scope": "all processes on the selected physical GPU; host PID may differ from container PID"
+    },
+    {
+      "phase": "actor_and_main_critic_batch64_reinforce_adam_step",
+      "batch_size": 64,
+      "actor_loss": -5.437715530395508,
+      "main_critic_mse": 0.12809595465660095,
+      "sampled_topology_shape": [
+        64,
+        98
+      ],
+      "allocated_mib": 116.88720703125,
+      "reserved_mib": 982.0,
+      "peak_allocated_mib": 909.2216796875,
+      "peak_reserved_mib": 982.0,
+      "nvidia_processes": [
+        {
+          "nvidia_pid": 3769197,
+          "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+          "used_mib": 1548,
+          "matches_visible_python_pid": false
+        }
+      ],
+      "visible_python_pid": 347639,
+      "nvidia_process_scope": "all processes on the selected physical GPU; host PID may differ from container PID"
+    },
+    {
+      "phase": "rl_batch64_reinforce_fake_gpu_reward",
+      "batch_size": 64,
+      "detail": {
+        "loss": 2.015674591064453,
+        "gradient_norm": 1.2198354005813599,
+        "mean_f": 0.3659097117907368,
+        "mean_baseline_f": 0.37398962350562215,
+        "mean_advantage": -0.008079911714885382,
+        "mean_regret": 0.3721758765168488,
+        "mean_cost": 0.031330823630560195,
+        "policy_std": [
+          0.020005997270345688,
+          0.01999400183558464
+        ],
+        "baseline_requests": 64,
+        "candidate_requests": 64,
+        "real_score_requests": 128,
+        "policy_updates": 1,
+        "centers_sha256": "b790bce3bb5f2b4928e8eb214dfa22417af79dc03ffb3994249386342dbda858",
+        "candidates_sha256": "7edf1433ce1587931de3e284ec554ec505adcec103268b09bd5efc6b375f91b3",
+        "reward_normalization": "none",
+        "baseline": "real_f_of_original_X"
+      },
+      "allocated_mib": 117.03564453125,
+      "reserved_mib": 982.0,
+      "peak_allocated_mib": 909.2216796875,
+      "peak_reserved_mib": 982.0,
+      "nvidia_processes": [
+        {
+          "nvidia_pid": 3769197,
+          "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+          "used_mib": 1548,
+          "matches_visible_python_pid": false
+        }
+      ],
+      "visible_python_pid": 347639,
+      "nvidia_process_scope": "all processes on the selected physical GPU; host PID may differ from container PID"
+    }
+  ],
+  "combined_memory": {
+    "allocated_mib": 117.03564453125,
+    "reserved_mib": 982.0,
+    "peak_allocated_mib": 909.2216796875,
+    "peak_reserved_mib": 982.0,
+    "nvidia_processes": [
+      {
+        "nvidia_pid": 3769197,
+        "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+        "used_mib": 1548,
+        "matches_visible_python_pid": false
+      }
+    ],
+    "visible_python_pid": 347639,
+    "nvidia_process_scope": "all processes on the selected physical GPU; host PID may differ from container PID"
+  },
+  "wall_seconds": 3.445159651339054,
+  "preflight_path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/experiments/diagnostics/gpu_memory_profile_preflight.json",
+  "source_hashes": {
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/diagnostics/gpu_memory_profile.py": "9fe31ed1f2257f2080787b7bc5672450926ebaa0339b3973266525bc1ae892b5",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/adv_v3/critic.py": "8f8cc12bf1039641b6b0ef69b4a6d28448514b6b647e87e08360919e022a1719",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/adv_v3/rl.py": "5b8d37c25af8e21174cb92404b704b5b037c0e86418c6cc610d9a31db825f8bb",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/adv_v3/common.py": "aba18059a91dbb7c5fac345a3dde5e38c7dc55393429d531d2490abf00af9db1"
+  }
+}

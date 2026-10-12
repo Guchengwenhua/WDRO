@@ -1,0 +1,41 @@
+{
+  "batch_size": 256,
+  "calibration_artifact": "experiments/cache/stage5/calibration_d30_s101.json",
+  "config_id": "lambda_fixed",
+  "degree": 30,
+  "fixed_lambda_source": {
+    "aggregation": "mean_lambda_after",
+    "result_sha256": "bfcb1d3b53e975a292a4034ef71a04f7a667a8f7c139b7f8ba011bcc6f74784a",
+    "updates": [
+      1901,
+      2000
+    ]
+  },
+  "ground_cost": "hungarian_l1_mean",
+  "lambda_initial": 0.03640592644136467,
+  "lambda_learning_rate": 1.0,
+  "lambda_mode": "fixed",
+  "research_protocol_override": false,
+  "rho_mode": "q75",
+  "schema_version": 1,
+  "search_overrides": {
+    "candidate_count": 32,
+    "cem": {
+      "elite": 4,
+      "initial_std": 0.02,
+      "maximum_motion": 0.08,
+      "minimum_std": 0.001,
+      "population": 16,
+      "rounds": 4
+    },
+    "exact_rescore_top_k": 4,
+    "searcher": "random_sobol"
+  },
+  "stability_gate": {
+    "maximum_lambda": 100.0
+  },
+  "stage": 5,
+  "status": "frozen",
+  "training_seed": 101,
+  "updates": 2000
+}

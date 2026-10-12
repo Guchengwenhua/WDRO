@@ -1,0 +1,841 @@
+{
+  "actual_hard_mining_pair": {
+    "applicable": false,
+    "budget": {
+      "centers": 512000,
+      "exact_rescore_nets": 1024000,
+      "perturbations": 512000,
+      "reference_requests": 1024000,
+      "surrogate_nets": 1024000
+    },
+    "comparison": "only unchanged K32 Random support has HM call parity; changed-budget ablations are explicit",
+    "paired_updates": [],
+    "run_id": "formal_hard_mining_d30_s101_u2000"
+  },
+  "at_utc": "2026-09-08T05:12:20.803599Z",
+  "binding": {
+    "auditor_sha256": "ae2fbfe37b9830ae4efe4fe89cad7407512174bf64dab1c3eb557d6bf83abf97",
+    "events_sha256": "27421af2a9de58296c8a407148aa58638de5b10f30a10b5af28c2f118ae370de",
+    "heldout_files": {
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/test/edge_bias_d30_s303_n10000.npz": "71c3e6ad078e37d50e90a55b91cc55c9c0528d7069440bb6f2bfd23d354f0195",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/test/grid_cluster_d30_s303_n10000.npz": "039f8dc4a3a58207f892b8f160e1e014ae611f8e05e5add589e7388c4dd71eaf",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/test/mix_gauss_d30_s303_n10000.npz": "26028d5e184366ffd4ad8de154513d50132c65ce07e376df6b2e092402f5a640",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/test/uniform_d30_s303_n10000.npz": "0f398ef10f3926ac1fb6c440852098f30297c7ab5be485475329a50b6383fd84",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/validation/edge_bias_d30_s202_n2000.npz": "d78f23ce848a33f08e8678ea11afea0daa983bb6c82cfcb0a2ba7ad1d08a547a",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/validation/grid_cluster_d30_s202_n2000.npz": "2fbf72b4becaa5af7b34b08c2e13052f2199d463f1249cf3980c285eeca35511",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/validation/mix_gauss_d30_s202_n2000.npz": "22ace27c6a2b2c596cffa26cb14f4f7b6da49f790d408bfd757b3c161a4b1840",
+      "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/datasets/protocol_v1/validation/uniform_d30_s202_n2000.npz": "83476db766e113b8d667306af4a663b961b9d6c257ae7f48fe9fd019c70c627e"
+    },
+    "hm_events_sha256": "f27db0caea05f1c45b714300145ac0acdb07deba3070cbef594a60253d83690e",
+    "hm_result_sha256": "6e3123cb5ca904076f5ea8a1e205bd512f960c2c908e747b977d33713174844e",
+    "result_sha256": "22a4f5c6b42ac4ca8101e4a09f9e7bd66109087c0bee45c1fa58c8f7c41feb9d",
+    "training_contract_sha256": "9cfd82f38723e0fbca37b99cc7ea46160bad1fea7534ffb83fe7aa334e3f2550"
+  },
+  "cache_values_checked": 1024000,
+  "candidate_nets_checked": 1024000,
+  "checks": {
+    "actual_hm_prefix_paired_when_applicable": true,
+    "all_21_validation_updates_present": true,
+    "all_finite": true,
+    "all_validation_data_and_lstar_verified": true,
+    "baseline_configuration": true,
+    "best_model_optimizer_rng_finite": true,
+    "best_optimizer_hyperparameters_match": true,
+    "best_optimizer_steps_match_checkpoint": true,
+    "best_rng_state_complete": true,
+    "best_scheduler_steps_match_checkpoint": true,
+    "budget_sum": true,
+    "call_ledger": true,
+    "checkpoint_hashes": true,
+    "checkpoint_identity": true,
+    "complete_updates": true,
+    "duplicate_validation_replays_agree": true,
+    "frozen_protocol": true,
+    "frozen_trainer": true,
+    "full_heldout_firewall": true,
+    "inverse_length": true,
+    "lambda_finite_nonnegative_bounded": true,
+    "lambda_recurrence": true,
+    "latest_model_optimizer_rng_finite": true,
+    "latest_optimizer_hyperparameters_match": true,
+    "latest_optimizer_steps_match_checkpoint": true,
+    "latest_rng_state_complete": true,
+    "latest_scheduler_steps_match_checkpoint": true,
+    "method_state": true,
+    "no_checkpoint_partial": true,
+    "nominal_guard": true,
+    "only_latest_best": true,
+    "ood_objective_independently_recomputed": true,
+    "real_candidate_lp": true,
+    "reference_cache_receipts": true,
+    "run_lock_released": true,
+    "selection_stream": true,
+    "source_hash": true,
+    "stored_references_replayed": true,
+    "support_stream": true,
+    "test_ispd_metrics_locked": true,
+    "training_stream": true,
+    "validation_hash": true,
+    "validation_selection": true,
+    "wdro_configuration": true
+  },
+  "completed_updates": 2000,
+  "diagnostics": {
+    "budget_active_at_tail": false,
+    "lambda_final": 0.0,
+    "lambda_max": 0.0,
+    "lambda_min": 0.0,
+    "mean_cost": 0.005209324413332312,
+    "rho": 0.027471832682689032,
+    "tail_100_update_window_means": [
+      0.00522245891749238,
+      0.005244421105327395
+    ],
+    "tail_relative_budget_gap": -0.80909824379383
+  },
+  "raw_cache_receipts": {
+    "misses_completed": 1024000,
+    "misses_started": 1024000,
+    "receipts": 2000,
+    "requested": 1024000
+  },
+  "real_lp": [
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          -0.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.009654045353333156
+        ],
+        [
+          0.0,
+          0.013614766548077266
+        ],
+        [
+          0.0,
+          0.010815058151880901
+        ],
+        [
+          0.0,
+          0.01210335170229276
+        ],
+        [
+          0.0,
+          0.009747118751207987
+        ],
+        [
+          0.0,
+          0.00943401629726092
+        ],
+        [
+          0.0,
+          0.011637165645758311
+        ],
+        [
+          0.0,
+          0.011532421906789143
+        ]
+      ],
+      "dual_value": 0.007346687763664537,
+      "explicit_dual_value": 0.007346687763664537,
+      "gap": 0.0,
+      "lambda": 0.6101866002484532,
+      "mean_cost": 0.0,
+      "primal_value": 0.007346687763664537,
+      "regrets": [
+        [
+          0.007517782905274826,
+          0.0032553699620357576
+        ],
+        [
+          0.005223726867417731,
+          0.003522059334499858
+        ],
+        [
+          0.00896017262398903,
+          0.012898042330697662
+        ],
+        [
+          0.012855200486146388,
+          0.010174961598415152
+        ],
+        [
+          0.0035960957686116016,
+          0.0010402988509757149
+        ],
+        [
+          0.016122480642702636,
+          0.019057338327194175
+        ],
+        [
+          0.0044980428151740895,
+          0.005676458274197232
+        ],
+        [
+          0.0,
+          0.007036929315934451
+        ]
+      ],
+      "rho": 0.0,
+      "status": "pass",
+      "update": 1
+    },
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.009654045353333156
+        ],
+        [
+          0.0,
+          0.013614766548077266
+        ],
+        [
+          0.0,
+          0.010815058151880901
+        ],
+        [
+          0.0,
+          0.01210335170229276
+        ],
+        [
+          0.0,
+          0.009747118751207987
+        ],
+        [
+          0.0,
+          0.00943401629726092
+        ],
+        [
+          0.0,
+          0.011637165645758311
+        ],
+        [
+          0.0,
+          0.011532421906789143
+        ]
+      ],
+      "dual_value": 0.00923269678443426,
+      "explicit_dual_value": 0.00923269678443426,
+      "gap": 0.0,
+      "lambda": 0.0,
+      "mean_cost": 0.00542733275021116,
+      "primal_value": 0.00923269678443426,
+      "regrets": [
+        [
+          0.007517782905274826,
+          0.0032553699620357576
+        ],
+        [
+          0.005223726867417731,
+          0.003522059334499858
+        ],
+        [
+          0.00896017262398903,
+          0.012898042330697662
+        ],
+        [
+          0.012855200486146388,
+          0.010174961598415152
+        ],
+        [
+          0.0035960957686116016,
+          0.0010402988509757149
+        ],
+        [
+          0.016122480642702636,
+          0.019057338327194175
+        ],
+        [
+          0.0044980428151740895,
+          0.005676458274197232
+        ],
+        [
+          0.0,
+          0.007036929315934451
+        ]
+      ],
+      "rho": 0.027471832682689032,
+      "status": "pass",
+      "update": 1
+    },
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.009654045353333156
+        ],
+        [
+          0.0,
+          0.013614766548077266
+        ],
+        [
+          0.0,
+          0.010815058151880901
+        ],
+        [
+          0.0,
+          0.01210335170229276
+        ],
+        [
+          0.0,
+          0.009747118751207987
+        ],
+        [
+          0.0,
+          0.00943401629726092
+        ],
+        [
+          0.0,
+          0.011637165645758311
+        ],
+        [
+          0.0,
+          0.011532421906789143
+        ]
+      ],
+      "dual_value": 0.00923269678443426,
+      "explicit_dual_value": 0.00923269678443426,
+      "gap": 0.0,
+      "lambda": 0.0,
+      "mean_cost": 0.00542733275021116,
+      "primal_value": 0.00923269678443426,
+      "regrets": [
+        [
+          0.007517782905274826,
+          0.0032553699620357576
+        ],
+        [
+          0.005223726867417731,
+          0.003522059334499858
+        ],
+        [
+          0.00896017262398903,
+          0.012898042330697662
+        ],
+        [
+          0.012855200486146388,
+          0.010174961598415152
+        ],
+        [
+          0.0035960957686116016,
+          0.0010402988509757149
+        ],
+        [
+          0.016122480642702636,
+          0.019057338327194175
+        ],
+        [
+          0.0044980428151740895,
+          0.005676458274197232
+        ],
+        [
+          0.0,
+          0.007036929315934451
+        ]
+      ],
+      "rho": 0.013614766548077266,
+      "status": "pass",
+      "update": 1
+    },
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          -0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.010009594758351644
+        ],
+        [
+          0.0,
+          0.008287157863378525
+        ],
+        [
+          0.0,
+          0.012560979773600897
+        ],
+        [
+          0.0,
+          0.007923877735932668
+        ],
+        [
+          0.0,
+          0.012577106803655624
+        ],
+        [
+          0.0,
+          0.010611981650193532
+        ],
+        [
+          0.0,
+          0.010507382949193319
+        ],
+        [
+          0.0,
+          0.012702262649933497
+        ]
+      ],
+      "dual_value": 0.010961805163810578,
+      "explicit_dual_value": 0.010961805163810576,
+      "gap": 0.0,
+      "lambda": 0.9650875717725642,
+      "mean_cost": 0.0,
+      "primal_value": 0.010961805163810578,
+      "regrets": [
+        [
+          0.00402846558667443,
+          0.0003418725327794375
+        ],
+        [
+          0.007862611298445206,
+          0.001268725238732216
+        ],
+        [
+          0.03456179834317488,
+          0.03856850861875155
+        ],
+        [
+          0.0032725355149256065,
+          0.000847362254659512
+        ],
+        [
+          0.007884470917083273,
+          0.006112600986653635
+        ],
+        [
+          0.0026302821675126993,
+          0.012871773769992984
+        ],
+        [
+          0.02745427748266851,
+          0.011850848690526534
+        ],
+        [
+          0.0,
+          0.009955558011534077
+        ]
+      ],
+      "rho": 0.0,
+      "status": "pass",
+      "update": 2000
+    },
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.010009594758351644
+        ],
+        [
+          0.0,
+          0.008287157863378525
+        ],
+        [
+          0.0,
+          0.012560979773600897
+        ],
+        [
+          0.0,
+          0.007923877735932668
+        ],
+        [
+          0.0,
+          0.012577106803655624
+        ],
+        [
+          0.0,
+          0.010611981650193532
+        ],
+        [
+          0.0,
+          0.010507382949193319
+        ],
+        [
+          0.0,
+          0.012702262649933497
+        ]
+      ],
+      "dual_value": 0.013987275150009457,
+      "explicit_dual_value": 0.013987275150009455,
+      "gap": 0.0,
+      "lambda": 0.0,
+      "mean_cost": 0.0044844030092159905,
+      "primal_value": 0.013987275150009457,
+      "regrets": [
+        [
+          0.00402846558667443,
+          0.0003418725327794375
+        ],
+        [
+          0.007862611298445206,
+          0.001268725238732216
+        ],
+        [
+          0.03456179834317488,
+          0.03856850861875155
+        ],
+        [
+          0.0032725355149256065,
+          0.000847362254659512
+        ],
+        [
+          0.007884470917083273,
+          0.006112600986653635
+        ],
+        [
+          0.0026302821675126993,
+          0.012871773769992984
+        ],
+        [
+          0.02745427748266851,
+          0.011850848690526534
+        ],
+        [
+          0.0,
+          0.009955558011534077
+        ]
+      ],
+      "rho": 0.027471832682689032,
+      "status": "pass",
+      "update": 2000
+    },
+    {
+      "checks": {
+        "budget_feasible": true,
+        "complementarity": true,
+        "dual_price_nonnegative": true,
+        "explicit_dual_matches_lp": true,
+        "mass_nonnegative": true,
+        "row_marginals": true,
+        "weak_and_strong_duality": true
+      },
+      "conditional_mass": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "costs": [
+        [
+          0.0,
+          0.010009594758351644
+        ],
+        [
+          0.0,
+          0.008287157863378525
+        ],
+        [
+          0.0,
+          0.012560979773600897
+        ],
+        [
+          0.0,
+          0.007923877735932668
+        ],
+        [
+          0.0,
+          0.012577106803655624
+        ],
+        [
+          0.0,
+          0.010611981650193532
+        ],
+        [
+          0.0,
+          0.010507382949193319
+        ],
+        [
+          0.0,
+          0.012702262649933497
+        ]
+      ],
+      "dual_value": 0.013987275150009457,
+      "explicit_dual_value": 0.013987275150009455,
+      "gap": 0.0,
+      "lambda": 0.0,
+      "mean_cost": 0.0044844030092159905,
+      "primal_value": 0.013987275150009457,
+      "regrets": [
+        [
+          0.00402846558667443,
+          0.0003418725327794375
+        ],
+        [
+          0.007862611298445206,
+          0.001268725238732216
+        ],
+        [
+          0.03456179834317488,
+          0.03856850861875155
+        ],
+        [
+          0.0032725355149256065,
+          0.000847362254659512
+        ],
+        [
+          0.007884470917083273,
+          0.006112600986653635
+        ],
+        [
+          0.0026302821675126993,
+          0.012871773769992984
+        ],
+        [
+          0.02745427748266851,
+          0.011850848690526534
+        ],
+        [
+          0.0,
+          0.009955558011534077
+        ]
+      ],
+      "rho": 0.012702262649933497,
+      "status": "pass",
+      "update": 2000
+    }
+  ],
+  "run_id": "stage5_k1_d30_s101_u2000_v1",
+  "status": "pass",
+  "stream_cursor": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage5_audit/cursors/stage5_k1_d30_s101_u2000_v1.json",
+  "test_ispd_model_metrics_read": false,
+  "training_nets_checked": 512000
+}

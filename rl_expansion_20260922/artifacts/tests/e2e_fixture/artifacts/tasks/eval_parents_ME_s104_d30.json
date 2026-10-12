@@ -1,0 +1,48 @@
+{
+  "id": "eval_parents_ME_s104_d30",
+  "mode": "eval",
+  "stage": "parents",
+  "arm": "ME",
+  "seed": 104,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "original",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 0,
+  "target": 2,
+  "outdir": "artifacts/eval/parents_ME_s104_d30",
+  "endpoints": [
+    2
+  ],
+  "parent": null,
+  "inherit_training": false,
+  "models": {
+    "step2": {
+      "path": "artifacts/runs/parents_ME_s104/step2.pt",
+      "sha256": "9618826c8a6d884372b0facdfb1dc4fc05ded8a4194553d45e4dc33f9735ce61",
+      "step": 2,
+      "actor_sha256": "48944f15e05b1f3c651a28d91bb8117641f1a1a7c582205793d4948c26284f07"
+    },
+    "best": {
+      "path": "artifacts/runs/parents_ME_s104/best.pt",
+      "sha256": "9bec928cffa025dc3683be00eb9e742d4aa2dd6332ba7ab47ba0ee78719f5afc",
+      "step": 0,
+      "actor_sha256": "8999e7b8a1935100be302c8bbe29d9212af958c3d87408fd1c7799a28e70d51c"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "8044a51da2ececcad34dceb2386793669d67839df1a06d701742960aedfa93e9"
+}

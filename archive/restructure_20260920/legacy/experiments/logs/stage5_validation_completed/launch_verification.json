@@ -1,0 +1,28 @@
+{
+  "at_utc": "2026-09-06T07:48:47.760971Z",
+  "duplicate_guard": {
+    "command": [
+      "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+      "/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/recheck_stage5_completed_validation.py",
+      "--launch"
+    ],
+    "exit_code": 1,
+    "expected_rejection": true,
+    "stderr": "odex/wdro_rest_min/scripts/recheck_stage5_completed_validation.py\", line 238, in main\n    launch(tasks)\n  File \"/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/recheck_stage5_completed_validation.py\", line 112, in launch\n    assert not lock.exists() or not process_is_alive(json.loads(lock.read_text())['pid']), 'Validation controller already running'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Validation controller already running\n"
+  },
+  "environment": {
+    "CUDA_CACHE_PATH": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/cuda",
+    "MPLCONFIGDIR": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/matplotlib",
+    "TEMP": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TMP": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TMPDIR": "/remote-home/Guilin/DRO/Codex/experiments/tmp",
+    "TORCH_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/torch",
+    "TRITON_CACHE_DIR": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime/triton",
+    "XDG_CACHE_HOME": "/remote-home/Guilin/DRO/Codex/experiments/cache/runtime"
+  },
+  "launch_sha256": "ff059b0dbcc5b7698f04b4b51c198a116ee5894ad8cd6bcd01c4c77bbb6b891d",
+  "original_source_gates": "pass",
+  "pid": 95431,
+  "session": "wdro_stage5_validation_completed_v1",
+  "status": "pass"
+}

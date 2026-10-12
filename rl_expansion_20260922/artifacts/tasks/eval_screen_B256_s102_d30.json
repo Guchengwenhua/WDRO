@@ -1,0 +1,58 @@
+{
+  "id": "eval_screen_B256_s102_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "B256",
+  "seed": 102,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 256,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_B256_s102_d30",
+  "endpoints": [
+    14336,
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s102.pt",
+    "sha256": "2a713cd7bae248d140bc6f421481bbfaf8ea4e28ba0606931b0e15435157bcba"
+  },
+  "inherit_training": false,
+  "models": {
+    "step14336": {
+      "path": "artifacts/runs/screen_B256_s102/step14336.pt",
+      "sha256": "d4d4bf9dcacf6db7b0094380592de5d88c1c13504f3eebe5d39421edd6b5d96d",
+      "step": 14336,
+      "actor_sha256": "a07e731a4db832a0064a7aaf1bb2227f0520905f3d9069ca62dc45925313beeb"
+    },
+    "step20480": {
+      "path": "artifacts/runs/screen_B256_s102/step20480.pt",
+      "sha256": "d98fcfc22bafd9a470b4994e990d53738ea9965a953c0537575a6eacea38c064",
+      "step": 20480,
+      "actor_sha256": "2c00d8d727bc20666c542806e7d84974abd70d6f1c9e1c451e93de29c6b9379c"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_B256_s102/best.pt",
+      "sha256": "59578790f8d644d591b59a9011bfaed2b5dca4a725e46a841878d20771e5acfa",
+      "step": 20480,
+      "actor_sha256": "2c00d8d727bc20666c542806e7d84974abd70d6f1c9e1c451e93de29c6b9379c"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

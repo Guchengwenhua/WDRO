@@ -1,0 +1,109 @@
+{
+  "status": "complete",
+  "run_id": "pre8192_s303",
+  "kind": "warmup",
+  "method": "erm",
+  "seed": 303,
+  "initial_step": 2048,
+  "step": 8192,
+  "task": {
+    "id": "pre8192_s303",
+    "kind": "warmup",
+    "method": "erm",
+    "seed": 303,
+    "start": 2048,
+    "end": 8192,
+    "milestones": [
+      2048,
+      4096,
+      8192
+    ],
+    "parents": {
+      "resume": {
+        "run": "warmup_s303",
+        "step": 2048,
+        "source": "legacy"
+      }
+    },
+    "priority": 0
+  },
+  "identity": {
+    "pid": 975967,
+    "start_ticks": "3446512898",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "time": "2026-09-22T10:01:33Z",
+    "device": "cuda:0",
+    "physical_gpu_index": 0,
+    "gpu_uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "duty_fraction": 1.0
+  },
+  "binding": {
+    "protocol_sha256": "737de52e8aba578c9013ab6b52f55073f7b2e2ec2c241ef18d9b8da609bcf855",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/runner.py": "1f59115dfd17c67dfec68c79c3f5784d1e13d9a1c7fe4a599b02a0433872186a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/engine.py": "39bcc94df8423e677a60529dbd8d4098beaf1b6ae20d064d54242ec836fc1c9a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/policies.py": "fbab7457b63b09c2afd879e9b10bfc15942ff7104f5fbab53e8f21f214284a3f",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/env_geometry.py": "388e4f956865bb25ee54c6ec8785fd8ce80d87f47e3a216dcfb08d27e1393914"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "parents": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/lineage/warmup_s303/latest.pt": "c21f88b8d30c1668bc0f16c859b65ab34d243a25170634ea61840db92707ded5"
+    },
+    "task": {
+      "id": "pre8192_s303",
+      "kind": "warmup",
+      "method": "erm",
+      "seed": 303,
+      "start": 2048,
+      "end": 8192,
+      "milestones": [
+        2048,
+        4096,
+        8192
+      ],
+      "parents": {
+        "resume": {
+          "run": "warmup_s303",
+          "step": 2048,
+          "source": "legacy"
+        }
+      },
+      "priority": 0
+    }
+  },
+  "device": "cuda:0",
+  "calls": {
+    "search_greedy_scores": 0,
+    "evaluation_greedy_scores": 49152,
+    "sampled_actor_scores": 393216,
+    "search_padded_forward_rows": 0,
+    "evaluation_padded_forward_rows": 49152,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 6576.803102970123,
+  "peak_allocated_bytes": 375944192,
+  "artifacts_sha256": {
+    "latest.pt": "49fb57dfc29db2ea80fca0b2a91e255f7f2b6f374ac8abbd18ad4e07aeedad18",
+    "run.json": "919aa1547df2f62bd91fe5750318338fe5256aa0c15e6d4a967d1beaecc90b56",
+    "progress.jsonl": "0e5ad3a111b4ba4ec2f9264e3ebf0c769a6e82bdaa9e299a816a436809d48e7d",
+    "actual_calls.jsonl": "d51e8a08de8743e7f7fb467653d67b38c8bdd2e0f519e1cd9ac070bd16041a6f",
+    "inherited_budget.json": "9c9e4dbab35f9ddd09b004a5eac44636ea59cbb6841f3409bbce2c9b90863d91",
+    "checkpoints/step_2048.json": "d92b15091a8c7d0cc772b389dba51aa8f20cd86feab805184b558a5ea85820b0",
+    "checkpoints/step_2048.pt": "77ff398d86d079ae1e47c98cdb42f89e06277fcd65a72cd1e62e296e17d5afcd",
+    "checkpoints/step_4096.json": "bdc4e952113090b294e11119f0e10ad20fcd7434af957c9069cc293ee2252935",
+    "checkpoints/step_4096.pt": "9ebb9a27c43b6ee79113882c9eca564f6e462e0e8ccee8725989349bec5f2c20",
+    "checkpoints/step_8192.json": "cf55617fe75eb58ab04f6ce04a75112c21d22c12183f5ba59c9800fcb22fcf56",
+    "checkpoints/step_8192.pt": "49fb57dfc29db2ea80fca0b2a91e255f7f2b6f374ac8abbd18ad4e07aeedad18",
+    "evaluations/step_2048.json": "631a12c79a75d99f23df09d5647dcfa0e096b4f8a84bee6acbf089d83699fbad",
+    "evaluations/step_2048.npz": "c60e64d596ac4ad5aef0e21a6316df5a155a20dbf1a95a58144a1b6932e27920",
+    "evaluations/step_4096.json": "94bf8891abdf57ee9f1abe3f7db522f2e4d1aad1355e14f0a1f4fcd241d358aa",
+    "evaluations/step_4096.npz": "532b6805d0e39993f867da68d2cf5422a3a7c17384db02ed8c17393cd71755e7",
+    "evaluations/step_8192.json": "cf0b225fe1e9846abd008013b3a2654f1c190c0b8e533928d578f5a4a2e37a06",
+    "evaluations/step_8192.npz": "214edf8841e986bbc010ab78c2a2b99d6d5a38bcead3478cc10ac9ab439ffd40"
+  }
+}

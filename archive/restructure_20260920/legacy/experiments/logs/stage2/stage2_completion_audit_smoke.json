@@ -1,0 +1,119 @@
+{
+  "accounting_scope": "effective checkpoint trajectory; failed/replayed work is not included in call ledger or completed_segment_wall_seconds",
+  "artifact_root": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/experiments",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments"
+  },
+  "audit_code_sha256": "c50fe0cc7016cf53cc5323f34c90aa3909009b3ab2e2bca18b9504ff763692e8",
+  "audit_scope": "one_run_smoke",
+  "captured_at_utc": "2026-09-05T02:31:58.675957Z",
+  "checks": {
+    "all_run_audits_passed": true,
+    "expected_run_matrix": true,
+    "full_stream_rebuild_not_skipped": true,
+    "no_nan_any_run": true,
+    "queue_complete": true,
+    "three_seeds_per_degree": true,
+    "training_sources_and_frozen_configs_unchanged": true
+  },
+  "expected_call_ledger_per_run": {
+    "actor_forward_nets": 680001,
+    "exact_rest_evaluator_nets": 680002,
+    "geosteiner_nets": 512002,
+    "surrogate_evaluator_nets": 0
+  },
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260905T022707Z.json",
+  "kind": "stage2_formal_erm_audit",
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "queue_id": "stage2_erm_formal_v1",
+  "records": [
+    {
+      "attempts": 1,
+      "best_checkpoint_sha256": "38aa2003c8a9688b82bbbe856b9a77f835985cbfcff6ccc04fb896edebeb4978",
+      "best_nominal_mean": 0.0022488933202665278,
+      "best_ood_worst_group_mean": 0.002222145402778801,
+      "best_update": 700,
+      "completed_segment_wall_seconds": 1310.315028,
+      "degree": 10,
+      "final_nominal_mean": 0.0022791660141825254,
+      "final_ood_worst_group_mean": 0.0024499562816891916,
+      "final_physical_gpu_index": 5,
+      "initial_nominal_mean": 0.0023355427666092916,
+      "initial_ood_worst_group_mean": 0.0024519282544485247,
+      "latest_checkpoint_sha256": "a4cd5d5a276f8a5a626ab002ef8a00e892c51405b3a53e8b55d0b0a82b964c42",
+      "peak_memory_reserved_mib": 390.0,
+      "run_audit_passed": true,
+      "run_id": "formal_erm_d10_s101_u2000",
+      "training_seed": 101
+    }
+  ],
+  "run_checks": {
+    "formal_erm_d10_s101_u2000": {
+      "all_21_validation_updates_present": true,
+      "all_train_and_validation_events_finite": true,
+      "all_validation_data_and_lstar_verified": true,
+      "best_checkpoint_matches_result": true,
+      "best_model_optimizer_rng_finite": true,
+      "best_nominal_within_reasonable_gate": true,
+      "best_objective_not_worse_than_initial": true,
+      "best_optimizer_hyperparameters_match": true,
+      "best_optimizer_steps_match_checkpoint": true,
+      "best_rng_state_complete": true,
+      "best_scheduler_steps_match_checkpoint": true,
+      "call_ledger_exact": true,
+      "checkpoint_hashes_match": true,
+      "complete_2000_updates": true,
+      "duplicate_validation_replays_agree": true,
+      "exact_budget_and_checkpoint_identities": true,
+      "finite_metrics": true,
+      "frozen_identity_matches": true,
+      "inverse_audit_passed": true,
+      "job_and_task_complete": true,
+      "latest_checkpoint_complete": true,
+      "latest_model_optimizer_rng_finite": true,
+      "latest_optimizer_hyperparameters_match": true,
+      "latest_optimizer_steps_match_checkpoint": true,
+      "latest_rng_state_complete": true,
+      "latest_scheduler_steps_match_checkpoint": true,
+      "lock_released": true,
+      "no_partial_artifacts": true,
+      "no_test_or_ispd_selection": true,
+      "only_latest_and_best": true,
+      "ood_objective_independently_recomputed": true,
+      "selected_best_is_earliest_global_validation_minimum": true,
+      "training_ids_and_content_disjoint_from_validation_test": true,
+      "training_stream_reproduced": true,
+      "validation_zero_and_final_present": true
+    }
+  },
+  "schema_version": 1,
+  "status": "smoke_pass",
+  "stream_artifacts": {
+    "formal_erm_d10_s101_u2000": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage2/formal_stream_audit_v1/formal_erm_d10_s101_u2000.json",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/stage2/formal_stream_audit_v1/formal_erm_d10_s101_u2000.json"
+    }
+  },
+  "table_path": "/remote-home/Guilin/DRO/Codex/experiments/tables/stage2_completion_audit_smoke.csv",
+  "trainer_config_canonical_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_source_checks": {
+    "configs/data_contract_v1.json": true,
+    "configs/protocol_v1.json": true,
+    "configs/stage2_trainer_v1.json": true,
+    "scripts/capture_host_runtime.py": true,
+    "scripts/train_erm.py": true,
+    "src/accounting.py": true,
+    "src/checkpoints.py": true,
+    "src/datasets.py": true,
+    "src/geometry.py": true,
+    "src/geosteiner.py": true,
+    "src/io_utils.py": true,
+    "src/job_control.py": true,
+    "src/metrics.py": true,
+    "src/protocol.py": true,
+    "src/rest.py": true,
+    "src/trainer.py": true,
+    "src/training_data.py": true,
+    "src/validation.py": true
+  }
+}

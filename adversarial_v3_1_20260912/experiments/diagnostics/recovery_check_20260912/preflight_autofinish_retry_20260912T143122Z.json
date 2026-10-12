@@ -1,0 +1,23 @@
+{
+  "at": 1789223482.4321675,
+  "scope": "autofinish delivery retry only; reuse PASS extraction and do not restart scientific pipeline",
+  "archive": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/autofinish_before_delivery_retry_20260912T143122Z.tar.gz",
+  "archive_sha256": "58b703fdb4e3c36b9fb3181bb78be91aa2670e5f650fd98821b3f42d8ab09ec3",
+  "source_repair": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/delivery_process_change.json",
+  "experiments_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912",
+  "disk_free_gib": 2604.664806365967,
+  "gpu": "index, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, 40964 MiB, 7676 MiB, 97 %\n1, 40964 MiB, 7676 MiB, 97 %\n2, 550 MiB, 48089 MiB, 0 %\n3, 550 MiB, 48089 MiB, 0 %\n4, 12200 MiB, 36439 MiB, 9 %\n5, 12718 MiB, 35921 MiB, 0 %\n6, 47316 MiB, 1324 MiB, 96 %\n7, 47316 MiB, 1324 MiB, 95 %\n",
+  "gpu_processes": "gpu_uuid, pid, used_gpu_memory [MiB]\nGPU-083009f1-983e-376f-f560-5aa9181b2363, 2085096, 40940 MiB\nGPU-10987c98-562e-dfb7-500c-2b418a8decae, 2085685, 40940 MiB\nGPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4, 185901, 544 MiB\nGPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef, 182901, 544 MiB\nGPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba, 1058617, 10664 MiB\nGPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba, 187526, 1526 MiB\nGPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f, 1059026, 12712 MiB\nGPU-3101bbe4-c59e-8827-0733-a684b9b87f09, 2085298, 47292 MiB\nGPU-454b1963-256e-690b-7984-79d10659716d, 2085874, 47292 MiB\n",
+  "command": [
+    "tmux",
+    "-S",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/tmp/adv_v3.sock",
+    "new-session",
+    "-d",
+    "-s",
+    "adv_v3_autofinish_delivery_retry",
+    "-c",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex",
+    "bash run_env.sh /remote-home/Guilin/miniconda3/envs/py311/bin/python -u -B diagnostics/autofinish.py --poll-seconds 15 > experiments/logs/autofinish_delivery_retry_20260912T143122Z.log 2>&1"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "experiment": "rl_only_v1",
+  "degree": 30,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "methods": [
+    "erm_critic",
+    "erm_rollout",
+    "wdro_random",
+    "wdro_es",
+    "wdro_critic",
+    "wdro_rl"
+  ],
+  "updates": 2048,
+  "batch_size": 64,
+  "actor_lr": 0.0001,
+  "baseline_lr": 0.0001,
+  "surrogate_lr": 0.0001,
+  "proposal_lr": 0.0001,
+  "candidates": 8,
+  "epsilon": 0.08,
+  "search_sigma": 0.04,
+  "es_step_size": 0.04,
+  "critic_steps": 4,
+  "critic_step_size": 0.01,
+  "lambda_init": 1.0,
+  "lambda_lr": 10.0,
+  "rho": 0.04,
+  "validation_every": 128,
+  "checkpoint_every": 32,
+  "val_per_distribution": 256,
+  "test_per_distribution": 1024,
+  "attack_per_distribution": 128,
+  "attack_candidates": 32,
+  "greedy_microbatch": 64,
+  "distributions": [
+    "uniform",
+    "mix_gauss",
+    "edge_bias",
+    "grid_cluster"
+  ],
+  "parameters": {
+    "uniform": {},
+    "mix_gauss": {
+      "nonuniform": 0.8,
+      "clusters": 6,
+      "sigma": 0.04
+    },
+    "edge_bias": {
+      "nonuniform": 0.8,
+      "clusters": 4,
+      "sigma": 0.06
+    },
+    "grid_cluster": {
+      "nonuniform": 0.8,
+      "clusters": 8,
+      "sigma": 0.03
+    }
+  },
+  "initialization": "fresh matched random weights; no pretrained reference",
+  "loss": "own-action wirelength only",
+  "environment": "fixed [.1,.9] square, no per-net bbox rescaling",
+  "transport": "direct average L1 between correspondingly labeled pins; no assignment minimization",
+  "radius": "a priori fixed .04; no quantile or reference optimization",
+  "model_selection": "minimum validation worst-group mean own-action length; earliest ties",
+  "references": "none: no optimal labels, MST, geometric bound, Hungarian, external pretrained weights or solver",
+  "pure_rl_mainline": "erm_critic,erm_rollout,wdro_rl; remaining adversaries are diagnostic controls",
+  "acceptance_scope": "degree30 from-scratch proof of concept; no exact regret or optimality claim",
+  "statistics": {
+    "bootstrap_replicates": 2000,
+    "paired": true,
+    "training_seeds": 3,
+    "primary": "own-action length mean/P95/worst group; matched before/after and methods; candidate budget and actual time"
+  }
+}

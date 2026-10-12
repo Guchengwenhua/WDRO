@@ -1,0 +1,150 @@
+{
+  "accounting": "committed rounds; completed replay attempts and unfinished-call bounds kept in calls.jsonl",
+  "at_utc": "2026-09-10T00:21:05.955157Z",
+  "binding": {
+    "attack": {
+      "calls_per_center": 256,
+      "cem": {
+        "elite": 4,
+        "initial_std": 0.02,
+        "maximum_motion": 0.08,
+        "minimum_std": 0.001,
+        "population": 16,
+        "rounds": 16
+      },
+      "center_batch": 16,
+      "cost_interpretation": "Unconstrained local search stress test; measure actual cost. Not a certified Wasserstein ball.",
+      "elite": 4,
+      "ground_cost": "hungarian_l1_mean",
+      "objective": "maximum_true_relative_regret",
+      "original_included_once": true,
+      "population": 16,
+      "refresh_updates": 10,
+      "rounds": 16,
+      "score_microbatch": 256,
+      "searcher": "cem_256",
+      "seed": 303,
+      "source": "stage5.cem_round with independent attack net IDs; 16 rounds",
+      "tie_break": "earliest candidate",
+      "transport_penalty": 0
+    },
+    "count": 2000,
+    "hardware": {
+      "cuda": "12.4",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "torch": "2.6.0+cu124"
+    },
+    "input": {
+      "count": 2000,
+      "degree": 30,
+      "distribution": "mix_gauss",
+      "input": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/stage8/inputs/mix_gauss_d30.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/cache/stage8/inputs/mix_gauss_d30.npz",
+        "sha256": "ad239e48f0f2fe95f635b0497e266b042b284bea4db67e936e0b9cc0727b35cd"
+      },
+      "metadata": {
+        "array_bundle_sha256": "a69008a74d167f72b7ac61dcc0801197ea7b322c439b6619d5c265d1829060e5",
+        "attempt_streams_used": 1,
+        "base_seed": 303,
+        "count": 2000,
+        "degree": 30,
+        "distribution": "mix_gauss",
+        "kind": "synthetic_fixed_split",
+        "parameters": {
+          "clusters": 6,
+          "nonuniform": 0.8,
+          "sigma": 0.04
+        },
+        "protocol_id": "wdro-rest-min-protocol-v1",
+        "rejections": {},
+        "schema_version": 1,
+        "split": "attack"
+      }
+    },
+    "model": {
+      "best": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d30_s103_u2000_v1/best.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d30_s103_u2000_v1/best.pt",
+        "sha256": "8bbb44bf46d49e23c3ec5fb4e0d3e56197ca986bef2c5eccd893c4ab73eb88e3"
+      },
+      "degree": 30,
+      "latest": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage6/formal_wdro_d30_s103_u2000_v1/latest.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d30_s103_u2000_v1/latest.pt",
+        "sha256": "f2662b1934c1f9714b66e84ff0d22f9fea0f57d5a75f2cd71733cf1abc743aca"
+      },
+      "method": "wdro_rest",
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage6/formal_wdro_d30_s103_u2000_v1/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage6/formal_wdro_d30_s103_u2000_v1/result.json",
+        "sha256": "4931408741e0b3adada14474398177fe4583b693ccca25aa247a4e33038ac8a5"
+      },
+      "seed": 103
+    },
+    "model_selection": false,
+    "plan": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "sha256": "ad3e145992f33a6bfa01a55dce73d7c7fce93ceff74795657b6f0ba510499ece"
+    },
+    "reference_identity": {
+      "implementation_sha256": "508cf6ec03af543f04b7c54598e8447cf578321c1bc5533bdbbd6f31054118e2",
+      "library_sha256": "8b0e1599f072711b739158f30b10da8e41f585b87d9b5bcd55cfcde4c8020a6a",
+      "reference_id": "geosteiner_exact_binary_scale_v2",
+      "require_status": "optimal",
+      "rounding": "none",
+      "scale": 134217728,
+      "validate_embedding": true
+    },
+    "role": "independent_attack",
+    "source_sha256": "ffd8e962ae73a49adb3865fdd3ea7a102688d50831c1c0b14f295e2702ecc4eb"
+  },
+  "call_ledger": {
+    "actor_forward_nets": 512000,
+    "exact_rest_evaluator_nets": 512000,
+    "geosteiner_search_nets": 512000,
+    "geosteiner_selected_verification_nets": 2000
+  },
+  "changed_fraction": 0.998,
+  "completed_nets": 2000,
+  "cost": {
+    "count": 2000,
+    "maximum": 0.06599357649683953,
+    "mean": 0.02925917993100981,
+    "minimum": 0.0,
+    "p95": 0.03741853290547927
+  },
+  "legal_fraction": 1.0,
+  "model_selection": false,
+  "original_summary": {
+    "count": 2000,
+    "maximum": 0.27256106866694496,
+    "mean": 0.018388457919086554,
+    "minimum": 0.0,
+    "p95": 0.049190196438785735
+  },
+  "peak_reserved_mib": 156.0,
+  "predictions": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage8/attacks/wdro_rest_d30_s103_mix_gauss/predictions.npz",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage8/attacks/wdro_rest_d30_s103_mix_gauss/predictions.npz",
+    "sha256": "dddb1a2ec31142ccadc9834c1ed7344ef0d31582cf86638603140c20fd2c129c"
+  },
+  "repaired_candidates": 13,
+  "selected_update": 1300,
+  "status": "complete",
+  "summary": {
+    "count": 2000,
+    "maximum": 0.3111464713603636,
+    "mean": 0.09098120615140763,
+    "minimum": 0.021427453601875018,
+    "p95": 0.15571415191019794
+  },
+  "times": {
+    "actor_seconds": 139.4178434163332,
+    "reference_seconds": 901.2235783189535,
+    "rest_seconds": 6.2056991420686245,
+    "wall_seconds": 1141.3527749441564
+  },
+  "verification_seconds": 9.250396717339754
+}

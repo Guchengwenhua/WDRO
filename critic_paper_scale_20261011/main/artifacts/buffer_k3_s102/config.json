@@ -1,0 +1,143 @@
+{
+  "arm": "k3",
+  "bank": [
+    {
+      "mtime_ns": 1789531168883929572,
+      "path": "/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/artifacts/runs/buffer_erm_s103/best.pt",
+      "run": "buffer_erm_s103",
+      "score": 0.7167789936065674,
+      "size_bytes": 6872541,
+      "update": 1280
+    },
+    {
+      "mtime_ns": 1789515484244819635,
+      "path": "/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/artifacts/runs/buffer_erm_s101/best.pt",
+      "run": "buffer_erm_s101",
+      "score": 0.7176358103752136,
+      "size_bytes": 6872541,
+      "update": 1664
+    },
+    {
+      "mtime_ns": 1789530843280913910,
+      "path": "/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/artifacts/runs/buffer_wdro_s102/best.pt",
+      "run": "buffer_wdro_s102",
+      "score": 0.7215492725372314,
+      "size_bytes": 6872541,
+      "update": 2048
+    }
+  ],
+  "family": "buffer",
+  "parent": {
+    "mtime_ns": 1789523434845438213,
+    "path": "/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/artifacts/runs/buffer_erm_s102/latest.pt",
+    "size_bytes": 20027616
+  },
+  "protocol": {
+    "bank": "REST historical frozen first K3; papers three lowest historical validation OOD objectives from six completed ERM/WDRO best checkpoints, same family",
+    "batch_size": 128,
+    "checkpoint_every": 8,
+    "critic_inverse": "reference = current greedy length / (1 + current critic prediction); detach before sampled update; no calibration, clipping, or test feedback; reject nonpositive denominator",
+    "degree": 10,
+    "distributions": {
+      "edge_bias": {
+        "clusters": 4,
+        "nonuniform": 0.8,
+        "sigma": 0.06
+      },
+      "grid_cluster": {
+        "clusters": 8,
+        "nonuniform": 0.8,
+        "sigma": 0.03
+      },
+      "mix_gauss": {
+        "clusters": 6,
+        "nonuniform": 0.8,
+        "sigma": 0.04
+      },
+      "uniform": {
+        "nonuniform": 0.0
+      }
+    },
+    "evaluation": "REST historical cached exact validation/test references; paper fresh deterministic validation/test under this experiment namespace; 4 groups equally weighted",
+    "experiment": "critic-paper-bank-20261011-v1",
+    "extension": {
+      "milestone_snapshots": [
+        512,
+        1024,
+        2048
+      ],
+      "name": "critic_paper_scale_20261011",
+      "origin": "/remote-home/Guilin/DRO/Codex/critic_paper_bank_20261011",
+      "preserved": "Adam, RNG, lambda, best, data namespace, batch128, validation32, checkpoints8"
+    },
+    "families": {
+      "buffer": [
+        "original",
+        "k3"
+      ],
+      "rest": [
+        "geo",
+        "k3",
+        "critic_inverse"
+      ],
+      "timing": [
+        "original",
+        "k3"
+      ]
+    },
+    "gradient_clip": 1.0,
+    "greedy_microbatch": 128,
+    "lambda_initial": 0.0,
+    "lambda_lr": 1.0,
+    "learning_rate": 0.0001,
+    "paper_k3": "task cost / minimum same-family teacher task cost - 1, in both search and sampled training; original uses fixed-scale task cost; objective and lambda scale change explicitly acknowledged",
+    "parameters": {
+      "buffer": {
+        "buffer_penalty": 0.25,
+        "delay_scale": 1e+18,
+        "objective_scale": 10.0,
+        "phase_bins": 16
+      },
+      "timing": {
+        "alpha": 0.5
+      }
+    },
+    "parent": "REST same-seed precision_v2 ERM best actor+critic; papers same-seed completed ERM latest adapter+critic; fresh matched Adam for every arm",
+    "precision": "float32 networks, float64 physical evaluators, no TF32, deterministic torch, single CPU math thread",
+    "recovery": "tmux controller, exclusive locks, atomic latest with actor critic Adam lambda RNG update and best state, checkpoint every8; completed jobs skipped",
+    "resource": "up to8 admitted GPUs, one job/card, per-process fraction0.2; 3 samples free>=16GiB util<=35; threads1",
+    "rho": "historical degree10 q75, REST unrooted; papers rooted calibration; no retuning",
+    "scope": "exploratory exact-state continuation of 21 completed short runs to cumulative update2048",
+    "search": {
+      "amplitudes": [
+        0.01,
+        0.02,
+        0.04,
+        0.08
+      ],
+      "candidate_count": 32,
+      "exact_rescore_top_k": 4,
+      "refresh_updates": 10,
+      "score_microbatch": 128
+    },
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "selection": "minimum true validation worst OOD mean, earliest tie including update0; true test reports best and final; no test selection",
+    "statistics": "all 3 seed values, mean, paired differences and descriptive seed bootstrap 95% interval; no significant general-benefit claim from 3 seeds",
+    "storage": "/attached/remote-home1/Guilin/DRO/Codex/critic_paper_scale_20261011/artifacts/main",
+    "test_count": 1024,
+    "training_namespace": 20261011,
+    "updates": {
+      "buffer": 2048,
+      "rest": 2048,
+      "timing": 2048
+    },
+    "validation_count": 256,
+    "validation_every": 32
+  },
+  "rho": 0.029526113346219063,
+  "seed": 102
+}

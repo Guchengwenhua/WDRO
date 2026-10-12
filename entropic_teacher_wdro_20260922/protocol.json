@@ -1,0 +1,15 @@
+{
+  "experiment": "entropic_teacher_wdro_20260922_v1",
+  "namespace": "entropic-teacher-20260922-v1",
+  "methods": ["erm", "hard", "soft_dual", "soft_budget", "anneal", "excess", "tail"],
+  "degrees": {"30": {"seeds": [901,902,903,904,905,906,907,908], "pre":4096,"post":8192}, "20":{"seeds":[901,902,903],"pre":2048,"post":4096}, "40":{"seeds":[901,902,903],"pre":2048,"post":4096}},
+  "pilot": {"degree":30,"seed":801,"pre":1024,"post":512,"taus":[0.005,0.02,0.08]},
+  "batch":128,"candidates":16,"microbatch":256,"sigma":0.04,"epsilon":0.08,"rho":0.04,
+  "lambda_init":1.0,"lambda_lr":2.0,"tau_default":0.02,"pre_lr":0.0001,"post_lr":0.00003,
+  "alpha":0.9,"beta":0.5,"eta_lr":0.01,"nominal_tolerance":0.005,
+  "validation_every":256,"validation_n":256,"checkpoint_every":64,
+  "test_n":4096,"attack_n":128,"attack_k":64,
+  "distributions":["uniform","mix_gauss","edge_bias","grid_cluster"],
+  "resources":{"max_workers":8,"min_free_mib":6144,"max_util":75,"memory_fraction":0.15,"disk_reserve_gib":25,"max_load":56,"cpu_threads":1,"max_retries":2},
+  "primary_pairs":[["soft_budget","hard"],["anneal","soft_budget"],["excess","soft_budget"],["tail","soft_budget"]]
+}

@@ -1,0 +1,163 @@
+{
+  "at": 1789203560.9740238,
+  "action": "Restart only controllers with GPU busy-sharing flag; live workers untouched and adopted",
+  "scientific_protocol_sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63",
+  "prior_controllers": [
+    {
+      "name": "pipeline",
+      "pid": 354026,
+      "at": 1789201606.184459,
+      "command": [
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/adv_v3/pipeline.py",
+        "--fixed-concurrency",
+        "16",
+        "--joint-concurrency",
+        "8",
+        "--peak-mib",
+        "2500"
+      ],
+      "process_start_ticks": "3359544262"
+    },
+    {
+      "name": "queue/fixed",
+      "pid": 354032,
+      "at": 1789201608.403774,
+      "command": [
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/adv_v3/queue.py",
+        "--phase",
+        "fixed",
+        "--max-concurrent",
+        "16",
+        "--max-per-gpu",
+        "6",
+        "--peak-mib",
+        "2500",
+        "--reference-workers",
+        "0"
+      ],
+      "process_start_ticks": "3359544479"
+    }
+  ],
+  "prior_active_workers": [
+    {
+      "task": "erm_d50_s101",
+      "gpu": 4,
+      "pid": 354141
+    },
+    {
+      "task": "wdro_rest_d50_s101",
+      "gpu": 2,
+      "pid": 354193
+    },
+    {
+      "task": "erm_d50_s102",
+      "gpu": 2,
+      "pid": 354194
+    },
+    {
+      "task": "wdro_rest_d50_s102",
+      "gpu": 2,
+      "pid": 354195
+    },
+    {
+      "task": "erm_d50_s103",
+      "gpu": 2,
+      "pid": 354196
+    },
+    {
+      "task": "wdro_rest_d50_s103",
+      "gpu": 2,
+      "pid": 354259
+    },
+    {
+      "task": "erm_d40_s101",
+      "gpu": 2,
+      "pid": 354260
+    },
+    {
+      "task": "wdro_rest_d40_s101",
+      "gpu": 4,
+      "pid": 354286
+    },
+    {
+      "task": "erm_d40_s102",
+      "gpu": 4,
+      "pid": 354287
+    },
+    {
+      "task": "erm_d10_s102",
+      "gpu": 3,
+      "pid": 355427
+    }
+  ],
+  "prior_gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+      "total": 49140,
+      "used": 46934,
+      "free": 1706,
+      "util": 66
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+      "total": 49140,
+      "used": 46934,
+      "free": 1706,
+      "util": 85
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+      "total": 49140,
+      "used": 35707,
+      "free": 12932,
+      "util": 100
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+      "total": 49140,
+      "used": 30208,
+      "free": 18431,
+      "util": 100
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+      "total": 49140,
+      "used": 27341,
+      "free": 21298,
+      "util": 100
+    },
+    {
+      "index": 5,
+      "uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+      "total": 49140,
+      "used": 28078,
+      "free": 20561,
+      "util": 100
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09",
+      "total": 49140,
+      "used": 47316,
+      "free": 1324,
+      "util": 96
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+      "total": 49140,
+      "used": 47316,
+      "free": 1324,
+      "util": 99
+    }
+  ],
+  "archived_operational_source": [
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/operations/admission_share_20260912/queue.py",
+    "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/operations/admission_share_20260912/pipeline.py"
+  ]
+}

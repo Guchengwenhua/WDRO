@@ -1,0 +1,165 @@
+{
+  "status": "handoff_preflight",
+  "at_unix": 1789206686.3707895,
+  "root": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex",
+  "resolved_experiments": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912",
+  "protocol_sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63",
+  "counts": {
+    "fixed": {
+      "total": 30,
+      "complete": 17,
+      "active": 12,
+      "failed": 0,
+      "pending": 1
+    },
+    "joint": {
+      "total": 18,
+      "complete": 0,
+      "active": 0,
+      "failed": 0,
+      "pending": 18
+    }
+  },
+  "actor_completed": 9859072,
+  "observed_actor_rates": {
+    "5min": 2042.3683560618454,
+    "10min": 1962.9917376991668,
+    "15min": 1982.3056715892187
+  },
+  "pipeline": {
+    "launch": {
+      "pid": 356032,
+      "at": 1789203564.9580605,
+      "command": [
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/adv_v3/pipeline.py",
+        "--fixed-concurrency",
+        "16",
+        "--joint-concurrency",
+        "8",
+        "--peak-mib",
+        "2500",
+        "--share-busy-gpus"
+      ],
+      "process_start_ticks": "3359740157"
+    },
+    "heartbeat": {
+      "pid": 356032,
+      "child_pid": 356034,
+      "phase": "fixed",
+      "at": 1789206665.7097826
+    },
+    "process": {
+      "pid": 356032,
+      "alive": true,
+      "state": "S",
+      "start_ticks": "3359740157",
+      "identity_matches": true
+    },
+    "state": {
+      "phase": "fixed",
+      "status": "running",
+      "at": 1789203564.958841,
+      "command": [
+        "bash",
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/run_env.sh",
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "-u",
+        "-m",
+        "adv_v3.queue",
+        "--phase",
+        "fixed",
+        "--max-concurrent",
+        "16",
+        "--max-per-gpu",
+        "6",
+        "--peak-mib",
+        "2500",
+        "--reference-workers",
+        "0",
+        "--share-busy-gpus"
+      ]
+    },
+    "complete": null
+  },
+  "gpus": [
+    {
+      "index": 0,
+      "uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+      "total_mib": 49140,
+      "used_mib": 47847,
+      "free_mib": 792,
+      "utilization_percent": 32,
+      "our_active_count": 1
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+      "total_mib": 49140,
+      "used_mib": 47847,
+      "free_mib": 792,
+      "utilization_percent": 70,
+      "our_active_count": 1
+    },
+    {
+      "index": 2,
+      "uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+      "total_mib": 49140,
+      "used_mib": 31481,
+      "free_mib": 17158,
+      "utilization_percent": 100,
+      "our_active_count": 4
+    },
+    {
+      "index": 3,
+      "uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+      "total_mib": 49140,
+      "used_mib": 32497,
+      "free_mib": 16142,
+      "utilization_percent": 99,
+      "our_active_count": 4
+    },
+    {
+      "index": 4,
+      "uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+      "total_mib": 49140,
+      "used_mib": 39576,
+      "free_mib": 9063,
+      "utilization_percent": 100,
+      "our_active_count": 1
+    },
+    {
+      "index": 5,
+      "uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+      "total_mib": 49140,
+      "used_mib": 42486,
+      "free_mib": 6153,
+      "utilization_percent": 100,
+      "our_active_count": 0
+    },
+    {
+      "index": 6,
+      "uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09",
+      "total_mib": 49140,
+      "used_mib": 40223,
+      "free_mib": 8416,
+      "utilization_percent": 64,
+      "our_active_count": 1
+    },
+    {
+      "index": 7,
+      "uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+      "total_mib": 49140,
+      "used_mib": 39264,
+      "free_mib": 9376,
+      "utilization_percent": 98,
+      "our_active_count": 0
+    }
+  ],
+  "disk_free_bytes": 2808370868224,
+  "eta_remaining_hours": [
+    4,
+    8
+  ],
+  "eta_scope": "A tail 0.5-1h; B18 training plus independent evaluation 3-6h; CPU audits and export 0.3-1h. Shared-resource estimate, not deadline.",
+  "background_actions": "Keep existing pipeline and queues; add CPU-only post-completion finalizer."
+}

@@ -1,0 +1,1017 @@
+===== PAGE 1 =====
+Achieving Simultaneous Buffering and Steiner Tree
+Synthesis via Harmonic Based Reinforcement Learning
+Lin Chen *1, Yuxuan Li *2, Hu Ding †1
+1School of Computer Science and Technology, 2School of Artificial Intelligence and Data Science,
+University of Science and Technology of China, Hefei 230026, China
+{ischenlin, li yx}@mail.ustc.edu.cn, huding@ustc.edu.cn
+Abstract—Buffer insertion is a critical technique for delay
+reduction, and in particular the construction of Steiner trees with
+buffers has garnered great attention in recent years. However,
+constructing Steiner tree and buffer insertion are often addressed
+as separate tasks, due to the large computational complexity for
+integrating them concurrently. Considering the interdependence
+between tree topology and buffer placement, it should gain
+significant benefit for circuit design if we can combine them
+jointly in the optimization. In this paper, we introduce a novel
+reinforcement learning-based approach to simultaneously achieve
+the construction of Steiner trees and buffer insertion, where
+the key idea is employing an appropriately designed harmonic
+function in the optimization. We also conduct a set of experiments
+to validate the efficiency and effectiveness of the proposed method
+in depth.
+Index Terms —Steiner tree, Elmore delay, buffer, simple har-
+monic function.
+I. I NTRODUCTION
+As the VLSI industry continues to advance, the feature
+size of integrated devices has significantly decreased, and the
+issue of interconnect delay becomes one of the predominant
+factors that should be considered in chip design [1]. To
+mitigate this delay issue, buffer insertion has emerged as an
+increasingly common technique [2, 3]. A buffer is typically
+a gate consisting of two serially-connected inverters, which
+regenerate a signal without altering its functionality [1]. In
+advanced technology nodes, buffers constitute more than 30%
+of cells in VLSI circuits [4], and this proportion reaches even
+an alarming 70% at the 32-nm technology node [5]. As a
+consequence, judicious buffer insertion plays a key role in
+designing circuits. As demonstrated in Fig. 1(a) and Fig. 1(b),
+inserting a buffer can help manage signal integrity and timing,
+thereby leading to decreased delay. The “placement” and
+“quantity” of buffers are two critical factors for constructing an
+ideal circuit. Improper placement or excessive use of buffers,
+as shown in Fig. 1(c) and Fig. 1(d), can even increase the
+delay. Additionally, it has been proved that the problem of
+finding optimal buffering is NP-complete [6, 7].
+Existing methods for buffer insertion often require a pre-
+defined tree topology, which can take the form of rectilinear
+Steiner tree. A rectilinear Steiner tree is defined as a tree that
+*First two authors contributed equally. †Corresponding author. This work
+was supported in part by the Fundamental Research Funds for the Central Uni-
+versities (Grant No. WK2150110025, No. WK2100000060) and the National
+Natural Science Foundation of China (No. 62272432, No. 62432016).
+=
+30
+=
+2
+0
+(a)
+(b)
+=
+40
+(c)
+=
+45
+(d)
+20
+15
+15
+40
+30
+1
+5
+10
+15
+20
+35
+4
+0
+15
+10
+15
+10
+15
+15
+15
+45
+Fig. 1: The delay of each node and maximum delay with different
+buffer configurations. The solid square denotes the source, the red
+triangle denotes a buffer, and the round points denote sinks, where
+the number inside each sink denotes the delay of the corresponding
+node. τmax represents the maximum delay among the nodes for each
+configuration. (a) The net without a buffer. (b) Appropriate buffer
+insertion can reduce delay. (c) Improper insertion can even increase
+delay. (d) If excess buffers are inserted, the delay can also increase.
+connects a given set of nodes on a plane using rectilinear
+edges (i.e., vertical and horizontal line segments) along with
+additional auxiliary points (i.e., Steiner points, as illustrated
+in Fig. 2(a)). For the sake of simplicity, we will refer to
+the rectilinear Steiner tree as “Steiner tree” henceforth. As a
+representative example, Van Ginneken [8] proposed a dynamic
+programming approach for buffer insertion. This algorithm
+utilizes a Steiner tree and a set of “buffer candidates” along
+the tree as inputs, providing the final buffer placement as the
+output. Subsequent extensions to this algorithm have further
+demonstrated its efficiency [9], and the algorithm proposed by
+Shi and Li in [10] achieves a time complexity of O(n log2n)
+and a space complexity of O(n logn), where n is the number
+of nodes in the tree. However, these methods are limited to
+determining the optimal positions for buffer insertion, since
+the positions can only be selected from the given candidates.
+Therefore, the effectiveness of their models is highly depen-
+dent on the initially constructed Steiner tree and the chosen
+buffer candidates.
+To explore a broader optimization space, several studies try
+to simultaneously construct a Steiner tree while performing
+buffer insertion . For instance, Lillis et al. [11] presented
+an algorithm employing dynamic programming to dynami-
+cally determine both the tree structure and buffer positions
+based on timing constraints, but it suffers from a high time
+complexity of O(n5). Subsequent works were proposed with
+utilizing more efficient data structures to reduce the compu-
+tational cost [12–14]. However, these approaches still cannot
+achieve satisfying computational efficiency. For example, the
+approaches of [13] and [14] still take relatively high time
+
+===== PAGE 2 =====
+complexities, which are O(n3 logn) and O(n2 logn) respec-
+tively. Overall, while these algorithms generally yield high-
+quality solutions, the expanded joint optimization space leads
+to significantly increased computational complexities.
+To tackle the high complexity challenge, we can consider
+developing a deep learning-based method for this problem,
+as the majority of computational cost taken by deep learning
+comes from the offline training stage and the testing stage is
+usually fast (namely, once the model has been built after the
+training stage, we can apply it to solve any given new instance
+within a short time). Actually, deep learning has already been
+widely applied to various tasks in the area of EDA [15],
+especially for the placement and routing problems [16–18].
+For instance, Liu et al. [16] proposed a promising method
+for constructing Steiner trees using reinforcement learning.
+Recently, Liang et al. [19] proposed a transformer-based model
+to generate optimized buffer tree topology.
+In this paper, we aim to address the issue caused by
+the separating Steiner tree construction from buffer insertion.
+Specifically, we consider to develop a learning-based approach
+to handle both tasks in an integrated way. Central to our
+method is the identification of buffer candidates (i.e.,
+the predetermined locations where buffers can potentially be
+inserted, each offering the option to include a buffer or not).
+Together with the prior algorithms (e.g., [10]) that can operate
+on Steiner trees with predefined buffer candidates, we pro-
+pose a reinforcement learning-based approach for constructing
+Steiner trees that incorporates the identification of appropriate
+buffer candidates at each step of the construction process.
+The highlights of our approach: As discussed before, the
+“quantity” and “placement” are two critical factors for buffer-
+ing, but both contribute to high variability and combinatorial
+complexity. The core part of our approach for resolving this
+issue relies on the following idea:
+We convert the buffering task, which is a challenging
+“discrete” optimization problem, to a “continuous” predicting
+problem, which is built upon a trainable parameterized simple
+harmonic function.
+This harmonic-based parameterization has flexible repre-
+sentation capability to handle the complicated scenarios en-
+countered in the rectilinear Steiner tree, such as overlapping
+edges and varied topologies. More importantly, this continuous
+problem can be efficiently solved by using some appropriately
+designed neural network with the stochastic gradient descent
+method [20]. To the best of our knowledge, this is the
+first study to employ reinforcement learning to tackle this
+challenging problem of simultaneous Steiner tree construction
+and buffering. We have conducted a comparative analysis of
+our method against several open-source algorithms, utilizing
+both synthetic data and various industrial benchmarks. The
+experimental results demonstrate the superior performance of
+our method in reducing timing delays, achieving an average
+reduction of around 20% compared to the baseline methods.
+(a)
+(b)
+Fig. 2: (a) Illustration of a rectilinear Steiner tree, where the
+intersection of various edge pairs defines the Steiner points . These
+additional points help to minimize the total wire length. (b) A toy
+example illustrating the Elmore delay. v0 is the source node, and
+Elmore delay of sink v1 is the sum of wire delay (i.e., the delays
+caused by the wire segments v0 to b0, b0 to s0, and s0 to v1) and
+buffer delay (i.e., the delay caused by the buffer b0).
+II. P ROBLEM FORMULATION
+Before delving into the formulation of our problem, we
+briefly explain the impact of buffers in a circuit. Properly
+inserting a set of buffers in a circuit can reduce the capaci-
+tance that upstream nodes must drive [9]. Moreover, a lower
+capacitance corresponds to a decreased electrical load on these
+nodes, leading to faster signal propagation. Therefore, we can
+effectively enhance the timing performance of the circuit .
+We consider a set of n nodes, denoted as V =
+{v0,v 1,...,v n−1}, where v0 serves as the source and the
+remaining nodes {v1,...,v n−1} act as sinks. The input pa-
+rameters are defined as follows:
+• Node: each node vi (0≤ i < n) is characterized by its
+coordinates (xi,yi) and its capacitance Ci.
+• Buffer: for a buffer b, the resistance, capacitance, and
+intrinsic delay are denoted as Rb, Cb, and Kb.
+• Wire: the resistance and capacitance per unit length of
+the wire are respectively represented by Rw and Cw.
+For each sink node vi, we use “ τi” to represent its signal
+delay, defined as the propagation time from the source node v0
+to vi. We utilize the widely adopted Elmore delay model [1]
+to compute this signal delay, which depends on the above
+mentioned parameters of buffer and wire delay, as illustrated in
+Fig. 2 (we also refer the reader to the textbook [1] for the strict
+definition and more details of Elmore delay in mathematics).
+Our objective is to construct a Steiner tree incorporating
+buffer candidates. Subsequently, we will apply an existing
+efficient buffer insertion algorithm, like the algorithm proposed
+by Shi and Li [10], to derive the final Steiner tree with
+integrated buffers. As we know, the goal of chip design is
+to optimize performance, power, and area (PPA) [1]. While
+the inserted buffers can effectively reduce signal propagation
+delay and enhance the timing performance of the circuit,
+they also occupy certain silicon area, which directly affect
+layout resources [21]. Additionally, the inclusion of buffers can
+contribute to increased power consumption [22]. Therefore, to
+achieve a promising PPA, it is crucial to control the number
+of inserted buffers. That is, we should minimize the maximum
+delay across all sink nodes while avoiding placing too many
+buffers, i.e., minimize
+Obj = max
+1≤i≤n−1
+τi +λIB, (1)
+
+===== PAGE 3 =====
+Reward
+Insert 
+Buffers
+Encoder
+Encoder
+Critic
+Inputs
+Process Overlapped Segments
+Candidates
+...
+Actor
+Construct an 
+Edge
+Predict Buffer Candidates
+t < n
+t = n
+Detailed Process of Actor
+t = 1
+t = 2
+t = 3
+t = n
+-
+1
+Candidate
+Predicted Objective Value
+Steiner Tree with Inserted Buffers
+Fig. 3: The actor-critic framework: The actor is responsible for constructing the Steiner tree and predicting buffer candidates for each
+edge. At step t, the actor first establishes a rectilinear edge, followed by the prediction of buffer candidates. Based on the outputs from
+the actor, overlapping segments are processed to finalize the locations of the buffer candidates. Subsequently, the buffer insertion algorithm
+proposed in [10] is employed, resulting in a Steiner tree that incorporates the inserted buffers. Furthermore, the critic aids in the training of
+the actor [23]. Both the actor and the critic share the same encoder framework, albeit with distinct parameters.
+where IB is the number of inserted buffers and λ > 0 is a
+regularization coefficient to penalize this number.
+III. O UR PROPOSED HARMONIC BASED REINFORCEMENT
+LEARNING METHOD
+As discussed before, there should be a large space to
+improve the performance, if we could conduct a joint opti-
+mization on both the tree topology and buffering. Motivated
+by such a “global” goal, we employ a Reinforcement Learning
+(RL) framework that incorporates the identification of buffer
+candidates at each step of the Steiner tree construction. To
+realize this purpose, we need to address two fundamental chal-
+lenges: how to determine the number of buffer candidates
+for each edge? Further, how to determine their locations?
+As illustrated in Fig. 1(c) & 1(d), these two issues can
+greatly impact the overall delay. Moreover, these two issues
+are inherently difficult to solve due to the high variability
+and combinatorial complexity , which can also dramatically
+complicate the training process of RL. Actually, because an RL
+model typically can be optimized using neural networks with
+an efficient stochastic gradient descent method, it is natural to
+ask the following question:
+Is it possible to build a parameterized and differentiable
+model for the discrete buffering problem, so as to integrate it
+seamlessly into the RL training process?
+If we can build such a trainable model, the overall com-
+putational efficiency for the joint optimization can be largely
+improved. We begin by providing an overview of our frame-
+work in Section III-A. The methodology for constructing edges
+at each step is outlined in Section III-B. Additionally, the
+key insight of our framework, parameterizing the locations
+of buffer candidates, is detailed in Section III-C. Finally,
+Section III-D discusses the detailed model architectures for
+predicting buffer candidates and other essential modules.
+A. Overall Reinforcement Learning Framework
+In our RL framework, we utilize the classical “Actor-Critic”
+architecture [23]. Both the actor and critic modules receive
+n nodes, characterized by their coordinates and capacitance,
+as the input. The “actor” is tasked with the incremental
+construction of the Steiner tree and predicting the buffer
+candidates for each edge, as illustrated in Fig. 3. Thus, the
+actor’s output consists of the Steiner tree topology together
+with the buffer candidates for each edge. After obtaining these
+outputs, we address the overlapping edges and finalize the
+buffer candidates. Subsequently, we apply a buffer insertion
+algorithm, as described in [10], to derive the final Steiner
+tree. For each input instance V (as described in Section II),
+we represent the corresponding Steiner tree with the inserted
+buffers produced by the actor as “ B”, and let the objective
+value derived from Eq. 1, be denoted as Obj(V,B). The
+“critic” network serves to establish a baseline by predicting
+the objective value, where the predicted value is denoted as
+Pre(V ). The performance of the actor with B is evaluated
+using the advantage value [23]: Pre(V )− Obj(V,B). This
+advantage value serves as the reward signal aimed at enhancing
+the actor’s performance. Then, we can define the following
+loss functions for training our model.
+Loss functions for actor and critic. During each iteration
+of the training process, we sample N ≥ 1 sets of points,
+denoted as V ={V1,...,V N} (where N represents the batch
+size and each Vj contains a set of n nodes). For each Vj, we
+have the corresponding “Bj” outputted from the actor (similar
+to the previously defined B). The loss function for the actor
+is expressed as:
+Lactor(θ|V) = 1
+N
+NX
+j=1
+(Obj(Vj,Bj)− Pre(Vj))pθ(Vj,Bj),
+(2)
+whereθ represents the parameters of the actor, and pθ(Vj,Bj)
+denotes the probability of generating Bj. The optimization
+objective for the critic is defined as:
+Lcritic(ψ|V) = 1
+N
+NX
+j=1
+|Preψ(Vj)− Obj(Vj,Bj)|2, (3)
+
+===== PAGE 4 =====
+whereψ represents the parameters of the critic. The parameters
+of both the actor and critic are updated using the stochastic
+gradient descent method [20].
+Encoder in our model. To conduct the above training
+process, we also need to specify the details for encoding each
+input instance V (and similarly for each sampled Vj) in our
+model. The encoder receives the nodes as input and produces
+an encoding for each node. The original input V ∈ Rn×3
+keeps three key values for each node, the x andy coordinates
+and the capacitance . This input V is subsequently fed
+into the encoder module, which is based on the multi-head
+attention mechanism [24]. Utilizing this multi-head attention
+layer allows for the aggregation of information from various
+nodes, thereby creating a new representation for each node and
+leading to an enriched embedding E∈ Rn×d, where d = 128
+is a pre-specified hyperparameter in our model.
+B. Constructing an Edge at Each Step
+Before introducing our method, we present some notations
+that will be used throughout this work. To achieve joint
+optimization of topology and buffering, the Steiner tree is
+constructed incrementally by adding an edge at each step.
+This stepwise procedure enables the identification of buffer
+candidates during the Steiner tree construction process. Specif-
+ically, the nodes are categorized into two sets: visited nodes
+and unvisited nodes. At the t-th step ( 1≤ t≤ n− 1), the
+visited nodes collectively form a subtree, with one unvisited
+node (denoted as ut) selected to connect to a visited node
+(denoted as wt), and then ut is labeled as visited.
+The task that selecting a couple of unvisited and visited
+nodes is analogous to that addressed in “ REST” [16], which
+aims to construct a Steiner tree with minimal wire length. We
+adopt the same network structure to select ut and wt, but we
+need to further consider the buffer information for a joint opti-
+mization. The selection is based on the Pointer Network [25],
+which is capable of selecting specific components from the
+input. This methodology is commonly employed to address
+combinatorial problems using learning-based approaches [26].
+Using the Pointer mechanism, we let an n-dimenional vector
+p denote the probabilities of selecting those n nodes:
+p = PTM(E,q ;θp), (4)
+where PTM denotes the neural network module that imple-
+ments the Pointer mechanism, θp represents the trainable
+parameters of the pointer mechanism module, E ∈ Rn×d
+represents the encoding of inputs, and q is the query vec-
+tor that encodes the environment to facilitate selection. The
+critical aspect is the formulation of this query vector, which
+is crucial for the selection process. At step t, the query vector
+for selecting an unvisited node ut, denoted as qu
+t ∈ R ˆd, can
+be calculated as follows:
+qu
+t = max(⃗0, edget−1 +Tt +Bt), (5)
+where Tt ∈ R ˆd and Bt ∈ R ˆd ( ˆd = 360 is a predefined
+hyperparameter in our experiments). Here, Tt denotes the en-
+coding of the subtree with a focus on topological information,
+(a)
+(b)
+Uniformly
+Distributed
+(c)
+Fig. 4: Figures (a) and (b) illustrate distinct connection patterns
+between ut and wt using rectilinear edges. Figure (c) presents a
+simple scenario involving only two nodes, where the optimal solution
+is to place buffers uniformly.
+and Bt represents the encoding of the subtree with a focus
+on buffer candidates locations. Notably, when selecting ut to
+generate edge topology, Bt provides the buffer information,
+thereby facilitating the concurrent integration of Steiner tree
+construction and buffering. Additionally, edget−1 represents
+the encoding of the edge constructed in stept−1, which aids in
+retaining information about the last constructed edge. Through
+the element-wise maximum operation, we aim to integrate
+information from various aspects to support the selection at
+the current step. For ease of presentation, we temporarily
+ignore the details for computing {Tt,Bt, edget−1}, and we
+will discuss them in Sec. III-D.
+After selecting ut, a visited node wt on the constructed
+subtree will be chosen to connect with ut. Note that when
+using rectilinear edges to connect two given nodes, there are
+different connection methods, as illustrated in Fig. 4(a) and
+Fig. 4(b). The selection of wt and the connection pattern can
+be simultaneously determined by setting the output length of
+the PTM vector in Eq. 4 to 2n, providing each node with two
+distinct connection patterns. The corresponding query vector
+for selecting wt is obtained as follows:
+qw
+t = max(qu
+t,W 1
+θeut ), (6)
+where eut is the embedding of ut, and W 1
+θ ∈ R ˆd×d is a
+trainable parameter utilized to obtain a transformed embedding
+of ut. Subsequently, an element-wise maximum operation
+is performed with qu
+t (defined in Eq.5) to further integrate
+information, leading to the final query vector of wt. Upon
+selecting wt and determining the connection pattern, an edge
+between ut and wt can be constructed. We will then consider
+the locations of buffer candidates along this edge, a topic that
+will be addressed in the next section.
+C. Parameterizing the Location of Buffer Candidates
+As we discussed, to facilitate the joint optimization of
+topology and buffers, we integrate the identification of buffer
+candidates into each step of the Steiner tree construction.
+Traditionally, the identification of buffer candidates at each
+step involves determining both their number and positions,
+which presents a discrete optimization problem. Consequently,
+a key difficulty lies in parameterizing this task as a continuous
+prediction problem to ensure compatibility with the training
+processes of neural networks. It is noteworthy that in the do-
+main of chip design, several other tasks have been modeled as
+parameterized problems that can be efficiently solved through
+differentiable algorithms, such as “DREAMPlace” [27] and
+
+===== PAGE 5 =====
+Peak
+Rotate
++
+Overlapping
+Segment
+=
++
+=
+Distribution Pattern of 
+Overlapping Segment
+(a)
+(b)
+(c)
+(d)
+Fig. 5: Illustration of the buffer candidate prediction mechanism based on simple harmonic functions employed in our model. (a) The
+buffer locations correspond to the peaks of the function. (b) When an edge has a corner, it still follows the simple harmonic wave but just
+changes direction. (c) and (d) The buffer candidate distributions can be obtained by combining the simple harmonic functions involved in
+the overlapping regions.
+“Differentiable Global Router” [28]. The line of this research
+also motivates us to consider developing a parameterized
+model for selecting buffer candidates.
+First, we consider the simplest scenario that there are only
+two nodes and they are connected by an edge (as depicted
+in Fig. 4(c)). In previous studies [29, 30], it has been proved
+that uniformly distributing the buffers along the wire should
+minimize the total delay, and the optimal number of inserted
+buffers can be precisely calculated:
+ξ =l×
+r
+RwCw
+2RbCb
+, (7)
+wherel denotes the length of the wire,ξ represents the optimal
+number of buffers (if it is a decimal, we can round it to
+be integer), Rw and Cw are the resistance and capacitance
+per unit length of the wire, respectively, and Rb and Cb
+correspond to the resistance and capacitance of the buffers.
+Given that
+q
+RwCw
+2RbCb
+is a constant value, the number of required
+buffersξ is proportional to the length of the wire. Inspired by
+this uniform pattern, several widely adopted buffer insertion
+techniques for Steiner trees [29, 31] first approximate the
+required number of buffers and then select their positions
+uniformly. Although these methods are straightforward and
+computationally efficient, they often lack the flexibility needed
+for more complex scenarios.
+In a practical buffering scenario, a Steiner tree involves
+much more complicated connections among nodes and edges,
+and thus we cannot directly adopt the above simple “uniform”
+pattern. So, this raises the question of whether we can leverage
+the insights gained from the simple scenario to guide our
+modeling of more complex situations.
+Our key idea: parameterized approximation via simple
+harmonic functions. Specifically, at step t, for the edge con-
+nectingwt andut, we model the buffer candidates distribution
+using a simple harmonic function, where the buffer candidates
+locations correspond to the peaks of the simple harmonic wave
+extending fromwt tout (with the position ofwt corresponding
+to x = 0 ), as illustrated in Fig. 5(a) and Fig. 5(b). Formally,
+the harmonic function for this edge can be expressed as:
+ft(x) = sin(2π
+r
+RwCw
+2RbCb
+x +ϕt), (8)
+where ϕt represents the phase of the sine function, which de-
+termines the locations of the peaks. In other words, it governs
+the positions of the buffer candidates and parameterizes the
+buffer distribution along this edge. Consequently, to predict the
+locations of buffer candidates along this edge, we only need to
+predict the phaseϕt. For clarity, the detailed model for predict-
+ingϕt will be illustrated in Section III-D. The rationale behind
+this approach is to relax the aforementioned strict uniformity
+of buffer placement and adopt a “relaxed uniform” pattern
+that approximates buffer candidates distribution. Specifically,
+for edges that may require multiple buffers, we assume that
+the intervals between adjacent buffer candidates are consistent,
+with these intervals being approximately derived from Eq. 7,
+expressed as
+q
+2RbCb
+RwCw
+. Below, we outline two significant
+benefits of employing simple harmonic functions.
+(i) More flexible for parameterizing the locations of
+buffer candidates. As previously mentioned, predicting buffer
+candidates for the edge constructed at step t requires only
+the prediction of the phase ϕt. This single-value prediction
+task is particularly suitable for integration with learning-based
+methods. Moreover, this parameterization can uniformly ac-
+commodate various scenarios. If an edge is too short to require
+buffers, an appropriate ϕt can shift all peaks outside the edge
+length, resulting in zero candidates. If one buffer is needed,
+adjusting ϕt allows its continuous placement along the edge.
+For multiple buffers, this method maintains consistent inter-
+buffer intervals conforming to the relaxed uniform pattern.
+(ii) Effective handling of overlapping segments. After
+identifying buffer candidates for each individual edge, synthe-
+sizing these candidates to obtain the final buffer placements for
+overlapping segments remains a critical issue (as illustrated in
+Fig. 5(c)). Using the harmonic function-based method, we can
+effectively manage the overlapping segments by summing the
+functions associated with each edge, as depicted in Fig. 5(d).
+The underlying intuition is that the harmonic function can
+be interpreted as representing the “probability” of placing
+buffer candidates. By summing these “probabilities”, buffer
+candidates will be positioned at locations corresponding to
+the maximum values of the summed function. Furthermore,
+the sum of functions of the form presented in Eq. 8 yields
+a function of the same form but with a scaled amplitude.
+
+===== PAGE 6 =====
+Consequently, the buffer candidates remain positioned at the
+peaks of the resultant function, governed by the new phase of
+the summed function, which can be directly computed.
+D. Detailed Architecture of Essential Modules
+In this section, we will present the model design for
+predicting buffer candidates based on our harmonic function-
+based parameterization method, along with the details of other
+essential module architectures.
+Buffer Candidates Prediction. As described in Sec-
+tion III-C, at step t for the constructed edge, the “discrete”
+problem of identifying buffer candidates is reformulated as
+a “continuous” prediction problem parameterized by a phase
+variableϕt. Thus, determining the buffer candidates locations
+at step t reduces to predicting ϕt. The prediction module is
+defined as:
+ϕt = 2π·σ
+ 
+h⊤ tanh
+ 
+max
+ 
+Bt,qw
+t +W 2
+θewt
+
+, (9)
+where W 2
+θ ∈ R ˆd×d and h ∈ R ˆd are trainable parameters.
+Here, qw
+t denotes the query vector when selecting wt (as
+defined in Eq. 6), and ewt represents the encoding of the
+selected wt. The combination of these terms encodes the
+current edge construction context, providing vital topological
+features for predicting ϕt. The vector Bt contains information
+regarding buffer candidates within the subtree. The element-
+wise maximum operation integrates topological and buffering-
+related information, enabling joint optimization of Steiner
+tree topology and buffer candidates prediction. The sigmoid
+function σ(x) = 1
+1+e−x constrains the output to the range
+(0, 1), and multiplying by 2π scales this normalized value to
+cover the entire range of possible phase angles.
+Updating Essential Vectors. To jointly optimize topol-
+ogy and buffering, our model employs an iterative process
+in which, at each step, an edge is constructed and buffer
+candidates prediction is performed. At the end of each step, Tt
+and Bt are updated to capture the latest topology and buffer
+information of the subtree. The updates for Tt and Bt are
+defined as follows:
+Tt+1 = max( Tt,W 3
+θ· edget); (10)
+Bt+1 = max( Bt,W 4
+θ· (edget + 1
+2πϕt)), (11)
+where W 3
+θ,W 4
+θ ∈ R ˆd× ˆd are trainable parameter matrices.
+In these updates, Tt is modified by taking the element-wise
+maximum with the transformed edge encoding edget, thereby
+integrating the current edge information into the subtree.
+Likewise,Bt is updated analogously, using the combination of
+edget and the normalized phase ϕt
+2π to incorporate information
+about the buffer candidates associated with this edge. The
+encoding edget, which encodes the currently constructed
+edge, is defined as follows:
+edget =Wu
+θeut +Ww
+θ ewt +Wc
+θ· connect(ut,wt), (12)
+where Wu
+θ , Ww
+θ ∈ R ˆd×d, and Wc
+θ ∈ R ˆd×2d are trainable
+parameter matrices. Here,eut andewt denote the encodings of
+nodesut andwt, respectively.Wc
+θ· connect(ut,wt) captures
+the topological patterns of this edge, where connect(ut,wt)
+integrates the encodings ofut andwt with the point connecting
+the vertical line first. For instance, if the connection follows the
+pattern shown in Fig. 4(a), then connect(ut,wt) = [eut,ewt ];
+otherwise, it becomes [ewt,eut ].
+Remark 1: After completing step n− 1, we can obtain the
+Steiner tree, with the phases {ϕt}n−1
+t=1 of the harmonic func-
+tions corresponding to its edges. We then resolve the overlaps
+among different edges in order to determine the final buffer
+candidates. Next, we employ the buffer insertion algorithm
+proposed by Shi and Li [10] to derive the final Steiner tree with
+integrated buffers. Additionally, the critic network takes the
+enriched node embeddings as input, processes them through
+two fully connected layers, and outputs the predicted objective
+value as defined in Eq. 1. Consequently, we can obtain the
+loss functions Lactor(θ|V) (Eq. 2) and Lcritic(ψ|V) (Eq. 3)
+for training our neural network.
+IV. E XPERIMENTS
+We trained our model using PyTorch and conducted our
+experiments on a 64-bit Linux system equipped with one
+NVIDIA RTX A6000 GPU. The models were trained for
+degrees ranging from 10 to 50, aligning with the most common
+degrees in industrial benchmarks [32] and utilized in recent
+learning-based Steiner tree construction algorithms [16, 17].
+For the degree of 10, we employed a batch size of 1024
+over 50k iterations, which required approximately 2 hours of
+training. For higher degrees, we built upon the models trained
+at lower degrees, adjusting both the batch size and the number
+of iterations downward as the degree increased. For the degree
+of 50, the training time was 20 hours, utilizing a batch size of
+256 for 10k iterations.
+We compare our proposed harmonic-based RL algorithm
+named “ HarRL”, with several open-source baseline algo-
+rithms (implemented by their publicly available codes). As
+outlined in Section I, the buffering algorithms can be catego-
+rized into two groups based on whether they consider buffers
+during the construction of Steiner trees. For algorithms that
+incorporate buffers in the Steiner tree construction, in addition
+to our “ HarRL”, we include the algorithm proposed in [14],
+labeled as “ BCTS”, which is a heuristic specifically designed
+for buffered clock-tree synthesis that incorporates buffers
+into the construction of tree topology. For the algorithms
+that separate the Steiner tree construction from the buffering
+process, we select various Steiner tree construction methods
+and combine them with a widely used buffer candidates
+identification technique proposed in [31], employing the same
+buffer insertion algorithm as in our approach [10]. Specifically,
+the algorithm “ PD” [33, 34] combines Prim [35] and Dijkstra
+algorithm [36], serving as a trade-off method to construct a
+Steiner tree that considers both wire length and maximum
+delay. The algorithm “TRST” [17] is capable of constructing a
+Steiner tree minimizing the maximum delay using a learning-
+based approach. Additionally, we utilize another two baselines
+
+===== PAGE 7 =====
+TABLE I: The average results for each degree setting on the synthetic
+data (max delay and skew unit 100ps, wire length unit 100µm).
+Evaluation Method 10 20 30 40 50
+Max Delay
+HarRL 3.44 3.38 3.13 3.27 3.29
+PD 3.68 3.55 3.27 3.41 3.56
+REST 4.19 4.38 4.10 4.48 4.86
+TRST 3.66 3.54 3.19 3.42 3.69
+FLUTE 5.60 5.93 5.30 6.02 6.64
+BCTS 3.53 3.39 3.34 3.27 3.70
+Buffer Count
+HarRL 3.61 7.18 14.99 14.36 13.47
+PD 4.53 9.05 15.36 16.71 17.97
+REST 5.01 9.98 17.05 18.53 20.05
+TRST 5.77 11.61 20.06 22.42 24.63
+FLUTE 7.13 14.56 23.77 27.85 31.36
+BCTS 19.25 47.23 64.01 78.27 104.14
+Wire Length
+HarRL 2.52 3.69 4.50 5.21 6.04
+PD 2.38 3.48 4.27 4.94 5.53
+REST 2.32 3.38 4.18 4.81 5.38
+TRST 2.51 3.63 4.48 5.29 6.04
+FLUTE 2.31 3.39 4.18 4.85 5.45
+BCTS 4.13 7.12 9.84 12.25 16.01
+Skew
+HarRL 2.85 3.05 2.89 3.07 3.10
+PD 3.00 3.16 2.99 3.19 3.35
+REST 3.44 3.99 3.82 4.23 4.64
+TRST 2.93 3.16 2.98 3.13 3.42
+FLUTE 4.44 5.26 4.86 5.61 6.26
+BCTS 2.12 2.11 2.09 2.14 2.17
+TABLE II: The average running time ( s) over 10k test instances for
+each degree.
+Degree 10 20 30 40 50
+HarRL 0.62 1.13 1.79 2.41 3.13
+REST 0.59 0.98 1.67 2.07 2.81
+TRST 1.32 3.84 6.58 17.49 41.79
+FLUTE 1.18 6.20 26.84 50.56 75.47
+PD 2.82 6.23 18.36 31.66 44.01
+BCTS 42.56 102.32 212.83 307.20 401.55
+that focus on minimizing total wire length, the fundamen-
+tal Steiner tree construction method “ FLUTE” [37], and a
+learning-based method “ REST” [16].
+A. Results on Synthetic Data
+We first compare these algorithms using synthetic data.
+Specifically, we randomly generate 10k point sets for each de-
+gree ranging from 10 to 50. The average Elmore delay values
+and buffer count for each algorithm are presented in Table I,
+where our method demonstrates superior delay performance.
+The timing performance-oriented algorithms “PD”, “TRST”
+and “BCTS” exhibit better delay metrics compared to “REST”
+and “FLUTE”. For the buffer count objective, our method also
+demonstrates superior performance, which indicates less area
+and power consumption. As can be seen, “BCTS” has a higher
+buffer count, as it primarily focuses on minimizing skew,
+which leads to increased wire length and additional buffers.
+The results reveal that our method can effectively select buffer
+candidate locations, allowing for optimization of buffer counts.
+Furthermore, to verify that our algorithm does not sig-
+nificantly compromise other objectives in the Steiner tree
+construction, we also conduct the experiments on another two
+important metrics, “wire length” and “skew” (defined as the
+(a)
+(b)
+(c)
+(d)
+(e)
+(f)
+Fig. 6: The results for skew (unit 100ps) and wire length (unit
+100µm) on the real industrial benchmarks for degrees 10 (Panels
+(a) and (b)), 30 (Panels (c) and (d)) and 50 (Panels (e) and (f)). In
+Panels (d) and (f), the method “BCTS” is omitted to enhance clarity,
+as it requires an average wire length greater than 10. The results show
+that both our method and “BCTS” outperform other baselines in terms
+of skew, but “BCTS” sacrifices significantly on other objectives. In
+terms of wire length, our method performs only slightly worse than
+wire length-focused methods, while our approach achieves superior
+delay and buffer count performance, as shown in Table III.
+difference in delay between the longest and shortest root-leaf
+paths [1]). The results are also illustrated in Table I. Our
+method and “BCTS” outperform other baselines in terms of
+skew. Although “BCTS” performs slightly better than ours, it
+sacrifices a considerable amount of wire length and requires
+significantly more buffers to achieve a smaller skew. For wire
+length, since “FLUTE”, “REST”, and “PD” are specifically
+designed to minimize this metric, they perform the best, and
+our method is just slightly worse than them. Additionally, the
+running times of the different algorithms used to solve these
+10k instances are shown in Table II. Note that although our
+“HarRL” considers the extra buffering task at each step, it is
+only slightly slower than “REST”, indicating the efficiency of
+our method; for example, it only takes 0.32 seconds longer
+than “REST” for degree 50.
+B. Results on Industrial Benchmarks
+We then evaluate our model on real industrial bench-
+marks using the nets extracted from ICCAD 2024 Prob-
+lem C Contest [38]. Due to space constraints, we fo-
+cus on six benchmarks: “ariane136”, “mempool tile wrap”,
+
+===== PAGE 8 =====
+TABLE III: The average results for max delay (unit 100ps) and buffer count on the real industrial benchmarks for various degrees.
+Max Delay Buffer Count
+Degree Method B1 B2 B3 B4 B5 B6 Degree Method B1 B2 B3 B4 B5 B6
+10
+HarRL 4.47 3.97 4.26 4.31 4.41 4.20
+10
+HarRL 5.27 5.35 5.41 5.88 5.16 5.60
+PD 4.92 4.41 4.61 4.78 4.78 4.59 PD 5.36 5.41 5.42 6.03 5.28 5.74
+REST 5.11 4.65 5.12 5.16 5.07 4.77 REST 5.60 5.53 5.92 6.41 5.84 5.92
+TRST 4.98 4.48 4.78 4.87 4.92 4.74 TRST 6.59 6.46 6.76 7.35 6.69 6.81
+FLUTE 6.72 6.68 6.91 6.81 6.65 6.74 FLUTE 8.88 8.66 9.15 9.24 8.62 8.66
+BCTS 4.50 4.02 4.31 4.34 4.46 4.23 BCTS 25.67 22.54 23.27 24.76 24.22 22.66
+20
+HarRL 3.47 3.29 3.58 3.24 3.50 3.50
+20
+HarRL 6.75 8.15 6.59 6.06 7.03 6.93
+PD 4.21 3.87 4.40 3.67 4.22 4.18 PD 7.57 8.20 7.00 6.63 7.46 7.00
+REST 4.55 4.47 5.00 4.18 4.69 4.70 REST 8.43 8.92 7.76 7.88 8.38 8.01
+TRST 4.29 3.99 4.58 4.01 4.34 4.37 TRST 10.42 11.92 10.14 10.13 10.59 10.56
+FLUTE 6.45 7.03 6.53 7.05 6.48 6.52 FLUTE 13.49 15.03 13.73 13.38 14.17 13.99
+BCTS 3.80 3.54 3.90 3.50 3.69 3.76 BCTS 47.09 49.08 50.79 39.81 49.71 48.48
+30
+HarRL 3.53 3.14 3.30 3.40 3.42 3.26
+30
+HarRL 12.29 12.41 10.16 9.81 9.91 10.30
+PD 3.90 3.56 3.83 3.67 3.96 3.63 PD 12.80 12.94 10.48 10.88 10.07 10.61
+REST 4.66 4.40 4.46 4.18 4.40 4.26 REST 14.68 14.65 11.86 11.31 12.44 12.32
+TRST 3.85 3.49 3.82 3.66 3.90 3.77 TRST 17.31 18.36 16.16 15.81 16.42 15.95
+FLUTE 5.85 5.77 6.20 5.69 5.67 6.05 FLUTE 21.44 22.45 20.14 21.56 20.91 21.21
+BCTS 3.71 3.55 3.86 3.84 3.79 3.60 BCTS 63.70 61.91 60.07 63.00 69.00 61.06
+40
+HarRL 3.48 3.02 3.22 3.22 3.26 3.14
+40
+HarRL 9.12 9.82 9.13 5.73 8.29 8.37
+PD 4.21 3.38 3.69 3.90 3.71 3.72 PD 9.82 11.84 10.48 7.62 8.57 9.76
+REST 4.85 4.36 4.69 4.43 4.60 4.23 REST 12.82 13.47 13.91 10.32 11.36 11.94
+TRST 4.32 3.56 3.79 4.26 3.90 3.98 TRST 16.88 17.63 16.04 14.46 16.71 15.72
+FLUTE 6.60 7.24 7.31 6.42 6.85 7.54 FLUTE 22.41 22.37 22.43 21.81 22.86 20.81
+BCTS 3.97 3.54 3.69 3.97 3.63 3.97 BCTS 73.18 61.57 67.30 71.30 71.00 66.46
+50
+HarRL 2.94 2.84 3.46 3.60 3.11 3.26
+50
+HarRL 10.10 9.56 10.00 8.00 8.83 6.97
+PD 3.78 3.31 4.16 3.96 3.69 3.81 PD 12.20 11.11 11.78 9.92 11.75 10.24
+REST 5.59 3.72 5.59 4.66 5.01 4.66 REST 16.90 15.11 17.33 12.42 15.54 13.97
+TRST 3.81 3.49 4.07 4.24 3.92 4.49 TRST 19.60 18.22 20.11 16.25 18.67 17.32
+FLUTE 7.01 8.96 7.01 9.01 6.85 7.44 FLUTE 26.20 24.67 28.44 23.33 27.33 24.35
+BCTS 3.65 3.82 4.16 4.27 3.92 4.55 BCTS 99.20 69.67 99.89 76.50 86.21 106.5
+“NV NVDLA partition p”, “hidden1”, “hidden2”, and “hid-
+den3”, which are referred to as B1,B 2,B 3,B 4,B 5,B 6. We
+evaluate those algorithms on different nets with degrees rang-
+ing from 10 to 50. The Elmore delay and the buffer count
+results are presented in Table III. The results are consistent
+with those obtained from synthetic data, demonstrating the
+superior performance of our method on both delay and buffer
+count objectives. Additionally, we present the wire length and
+skew performance in Fig. 6, which also illustrates that our al-
+gorithm does not significantly compromise other performance
+metrics.
+Fig. 7: The results of max delay and buffer count for different λ
+values (max delay unit 100ps). Each point represents the average
+values calculated across all synthetic datasets for a specific λ.
+C. Hyperparameter Selection
+Recall that there is a regularization coefficient λ in Eq. 1
+that penalizes the number of inserted buffers. We investigated
+the effects of varying λ on the maximum delay and buffer
+count. In Fig. 7, we present the average delay values and
+buffer counts of our synthetic datasets for different λ settings.
+Upon analyzing the results, we observed that when λ is in
+the range of [0.25, 0.5], the reduction in buffer count slows,
+and the maximum delay begins to increase significantly. Since
+we prioritize the maximum delay objective in this study, we
+selected λ = 0.25 for the experiments discussed above.
+V. C ONCLUSION
+In this paper, we focus on the simultaneous construction
+of Steiner trees and buffering. We integrate the identification
+of buffer candidates into each step of the Steiner tree con-
+struction process. By parameterizing the task of identifying
+buffer candidates with simple harmonic functions, we can
+substantially reduce the complexity of the prediction process.
+The experimental results demonstrate the effectiveness and
+efficiency of our method across synthetic datasets and various
+industrial benchmarks. Following this work, it is interesting to
+consider developing efficient parameterization techniques for
+other optimization problems in EDA, such as global routing
+and other significant yet challenging tasks.
+
+===== PAGE 9 =====
+REFERENCES
+[1] A. B. Kahng, J. Lienig, I. L. Markov, and J. Hu, VLSI physical design:
+from graph partitioning to timing closure . Springer, 2011, vol. 312.
+[2] H. Zhou, D. Wong, I.-M. Liu, and A. Aziz, “Simultaneous routing and
+buffer insertion with restrictions on buffer locations,” in Proceedings of
+the 36th annual ACM/IEEE Design Automation Conference , 1999, pp.
+96–99.
+[3] C. Alpert, C. Chu, G. Gandham, M. Hrki ´c, J. Hu, C. Kashyap, and
+S. Quay, “Simultaneous driver sizing and buffer insertion using a delay
+penalty estimation technique,” in Proceedings of the 2002 international
+symposium on Physical design , 2002, pp. 104–109.
+[4] P. Saxena, N. Menezes, P. Cocchini, and D. A. Kirkpatrick, “Repeater
+scaling and its impact on cad,” IEEE Transactions on Computer-Aided
+Design of Integrated Circuits and Systems , vol. 23, no. 4, pp. 451–463,
+2004.
+[5] H. Wu, Z. Huang, X. Li, and W. Zhu, “Aito: Simultaneous gate
+sizing and buffer insertion for timing optimization with gnns and rl,”
+Integration, vol. 98, p. 102211, 2024.
+[6] C. L. Berman, J. L. Carter, and K. F. Day, “The fanout problem: From
+theory to practice,” in Proceedings of the decennial Caltech Conference
+on VLSI on Advanced Research in VLSI , 1989, pp. 69–99.
+[7] W. Shi, Z. Li, and C. J. Alpert, “Complexity analysis and speedup
+techniques for optimal buffer insertion with minimum cost,” in ASP-
+DAC 2004: Asia and South Pacific Design Automation Conference 2004
+(IEEE Cat. No. 04EX753) . IEEE, 2004, pp. 609–614.
+[8] L. P. Van Ginneken, “Buffer placement in distributed rc-tree networks
+for minimal elmore delay,” in 1990 IEEE International Symposium on
+Circuits and Systems (ISCAS) . IEEE, 1990, pp. 865–868.
+[9] J. Lillis, C.-K. Cheng, and T.-T. Lin, “Optimal wire sizing and buffer
+insertion for low power and a generalized delay model,” IEEE Journal
+of Solid-State Circuits , vol. 31, no. 3, pp. 437–447, 1996.
+[10] W. Shi and Z. Li, “A fast algorithm for optimal buffer insertion,”
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems, vol. 24, no. 6, pp. 879–891, 2005.
+[11] J. Lillis, C.-K. Cheng, and T.-T. Y . Lin, “Simultaneous routing and buffer
+insertion for high performance interconnect,” in Proceedings of the Sixth
+Great Lakes Symposium on VLSI . IEEE, 1996, pp. 148–153.
+[12] M. Hrki ´c and J. Lillis, “Buffer tree synthesis with consideration of tem-
+poral locality, sink polarity requirements, solution cost and blockages,”
+in Proceedings of the 2002 international symposium on Physical design ,
+2002, pp. 98–103.
+[13] ——, “S-tree: A technique for buffered routing tree synthesis,” in
+Proceedings of the 39th annual Design Automation Conference , 2002,
+pp. 578–583.
+[14] X.-W. Shih and Y .-W. Chang, “Fast timing-model independent buffered
+clock-tree synthesis,” in Proceedings of the 47th Design Automation
+Conference, 2010, pp. 80–85.
+[15] G. Huang, J. Hu, Y . He, J. Liu, M. Ma, Z. Shen, J. Wu, Y . Xu, H. Zhang,
+K. Zhong et al., “Machine learning for electronic design automation: A
+survey,”ACM Transactions on Design Automation of Electronic Systems
+(TODAES), vol. 26, no. 5, pp. 1–46, 2021.
+[16] J. Liu, G. Chen, and E. F. Young, “Rest: Constructing rectilinear steiner
+minimum tree via reinforcement learning,” in 2021 58th ACM/IEEE
+Design Automation Conference (DAC) . IEEE, 2021, pp. 1135–1140.
+[17] L. Yang, G. Sun, and H. Ding, “Towards timing-driven routing: An
+efficient learning based geometric approach,” in 2023 IEEE/ACM In-
+ternational Conference on Computer Aided Design (ICCAD) . IEEE,
+2023, pp. 1–9.
+[18] R. Cheng and J. Yan, “On joint learning for solving placement and
+routing in chip design,” Advances in Neural Information Processing
+Systems, vol. 34, pp. 16 508–16 519, 2021.
+[19] R. Liang, S. Nath, A. Rajaram, J. Hu, and H. Ren, “Bufformer: A
+generative ml framework for scalable buffering,” in Proceedings of the
+28th Asia and South Pacific Design Automation Conference , 2023, pp.
+264–270.
+[20] D. P. Kingma and J. Ba, “Adam: A method for stochastic optimization,”
+arXiv preprint arXiv:1412.6980 , 2014.
+[21] J. Cong, L. He, C. Wu, and Y . Zhang, “Simultaneous buffer and wire
+sizing for performance and power optimization,” IEEE Transactions on
+Very Large Scale Integration (VLSI) Systems, vol. 12, no. 5, pp. 447–452,
+2004.
+[22] N. H. E. Weste and D. Harris, CMOS VLSI Design: A Circuits and
+Systems Perspective. Addison-Wesley, 2010.
+[23] K. Arulkumaran, M. P. Deisenroth, M. Brundage, and A. A. Bharath,
+“Deep reinforcement learning: A brief survey,” IEEE Signal Processing
+Magazine, vol. 34, no. 6, pp. 26–38, 2017.
+[24] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez,
+Ł. Kaiser, and I. Polosukhin, “Attention is all you need,” Advances in
+neural information processing systems , vol. 30, 2017.
+[25] O. Vinyals, M. Fortunato, and N. Jaitly, “Pointer networks,” Advances
+in neural information processing systems , vol. 28, 2015.
+[26] N. Mohseni, P. L. McMahon, and T. Byrnes, “Ising machines as hard-
+ware solvers of combinatorial optimization problems,” Nature Reviews
+Physics, vol. 4, no. 6, pp. 363–379, 2022.
+[27] Y . Lin, S. Dhar, W. Li, H. Ren, B. Khailany, and D. Z. Pan, “Dreamplace:
+Deep learning toolkit-enabled gpu acceleration for modern vlsi place-
+ment,” in Proceedings of the 56th Annual Design Automation Conference
+2019, 2019, pp. 1–6.
+[28] W. Li, R. Liang, A. Agnesina, H. Yang, C.-T. Ho, A. Rajaram, and
+H. Ren, “Dgr: Differentiable global router,” in Proceedings of the 61st
+ACM/IEEE Design Automation Conference , 2024, pp. 1–6.
+[29] R. H. Otten, “Global wires: harmful?” in Proceedings of the 1998
+international symposium on Physical design , 1998, pp. 104–109.
+[30] C. J. Alpert, J. Hu, S. S. Sapatnekar, and C. Sze, “Accurate estimation of
+global buffer delay within a floorplan,” IEEE Transactions on Computer-
+Aided Design of Integrated Circuits and Systems , vol. 25, no. 6, pp.
+1140–1145, 2006.
+[31] C. Alpert and A. Devgan, “Wire segmenting for improved buffer inser-
+tion,” in Proceedings of the 34th Annual Design Automation Conference,
+1997, pp. 588–593.
+[32] Z. Guo, F. Gu, and Y . Lin, “Gpu-accelerated rectilinear steiner tree gen-
+eration,” in Proceedings of the 41st IEEE/ACM International Conference
+on Computer-Aided Design , 2022, pp. 1–9.
+[33] C. J. Alpert, T. C. Hu, J.-H. Huang, A. B. Kahng, and D. Karger, “Prim-
+dijkstra tradeoffs for improved performance-driven routing tree design,”
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems, vol. 14, no. 7, pp. 890–896, 1995.
+[34] C. J. Alpert, W.-K. Chow, K. Han, A. B. Kahng, Z. Li, D. Liu, and
+S. Venkatesh, “Prim-dijkstra revisited: Achieving superior timing-driven
+routing trees,” in Proceedings of the 2018 International Symposium on
+Physical Design, 2018, pp. 10–17.
+[35] R. C. Prim, “Shortest connection networks and some generalizations,”
+The Bell System Technical Journal, vol. 36, no. 6, pp. 1389–1401, 1957.
+[36] E. W. Dijkstra, “A note on two problems in connexion with graphs,” in
+Edsger Wybe Dijkstra: His Life, Work, and Legacy , 2022, pp. 287–290.
+[37] Y .-C. Wong and C. Chu, “A scalable and accurate rectilinear steiner
+minimal tree algorithm,” in2008 IEEE International Symposium on VLSI
+Design, Automation and Test (VLSI-DAT) . IEEE, 2008, pp. 29–34.
+[38] B.-Y . Wu, R. Liang, G. Pradipta, A. Agnesina, H. Ren, and V . A.
+Chhabria, “2024 iccad cad contest problem c: Scalable logic gate sizing
+using ml techniques and gpu acceleration,” in Proceedings of the 43rd
+IEEE/ACM International Conference on Computer-Aided Design , ser.
+ICCAD ’24, 2025.

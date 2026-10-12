@@ -1,0 +1,17 @@
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage6_remaining_20260908/test_stage6_before.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/tests/test_stage6.py
+@@ -24,11 +24,12 @@
+     def test_shared_gpu_process_is_not_automatic_exclusion(self):
+         rows=[dict(index=0,eligible=True,minimum_free_memory_mib=12000),dict(index=1,eligible=True,minimum_free_memory_mib=6000)]
+         self.assertEqual(choose_gpu(rows,{},[],{},5000,1),0)
+-        self.assertEqual(choose_gpu(rows,{'run':{'gpu':0}},[],{},5000,1),1)
++        self.assertEqual(choose_gpu(rows,{'run':{'gpu':0}},[],{},5000,1),0)
++        self.assertEqual(choose_gpu(rows,{'one':{'gpu':0},'two':{'gpu':0}},[],{},5000,1),1)
+         self.assertIsNone(choose_gpu(rows,{},[],{},13000,1))
+     def test_dynamic_capacity_history_and_cooldown(self):
+         rows=[dict(index=0,eligible=True,minimum_free_memory_mib=12000)]
+-        self.assertIsNone(choose_gpu(rows,{},[{'gpus':[{'index':0,'memory_free_mib':1000}]}],{},5000,1))
++        self.assertIsNone(choose_gpu(rows,{},[{'time':1,'gpus':[{'index':0,'memory_free_mib':1000,'utilization_gpu_percent':0}]}],{},5000,1))
+         self.assertIsNone(choose_gpu(rows,{},[],{0:5},5000,1))
+     def test_stage5_and_stage6_update_loop_unchanged(self):
+         def loop(path):

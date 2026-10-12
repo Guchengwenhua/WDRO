@@ -1,0 +1,898 @@
+[
+  {
+    "distribution": "uniform",
+    "method": "baseline",
+    "score": 0.031912152195769705,
+    "seconds": 14.677872613072395,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "no_move",
+    "score": 0.030322672392307102,
+    "seconds": 8.628261283040047,
+    "spec": {
+      "config": {
+        "steps": 0,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "random_direction",
+    "score": 0.029114761370978084,
+    "seconds": 18.250302225351334,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "random",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "direction3",
+    "score": 0.03166417033360743,
+    "seconds": 35.85015320032835,
+    "spec": {
+      "config": {
+        "steps": 16,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "adam",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "adam16"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "direction4",
+    "score": 0.03256726035358531,
+    "seconds": 20.796563178300858,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "direction5",
+    "score": 0.03256726035358531,
+    "seconds": 11.230748869478703,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "direction6",
+    "score": 0.03331695039280119,
+    "seconds": 17.55915480852127,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "remove_rigid",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "remove_rigid"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "uniform_mse",
+    "score": 0.03158952822592198,
+    "seconds": 16.767485812306404,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "uniform_mse"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "region_mse",
+    "score": 0.02987072838275192,
+    "seconds": 17.086652986705303,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_mse"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "region_huber",
+    "score": 0.031574537963345355,
+    "seconds": 21.459076710045338,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_huber"
+    }
+  },
+  {
+    "distribution": "uniform",
+    "method": "region_rankdiff",
+    "score": 0.028182784216701458,
+    "seconds": 25.730900786817074,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_rankdiff"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "baseline",
+    "score": 0.04721054244467265,
+    "seconds": 22.63502136617899,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "no_move",
+    "score": 0.0434371157723247,
+    "seconds": 9.438885487616062,
+    "spec": {
+      "config": {
+        "steps": 0,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "random_direction",
+    "score": 0.04135220095622854,
+    "seconds": 17.067324928939342,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "random",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "direction3",
+    "score": 0.051462550939621224,
+    "seconds": 28.15018966048956,
+    "spec": {
+      "config": {
+        "steps": 16,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "adam",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "adam16"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "direction4",
+    "score": 0.05034414978210714,
+    "seconds": 18.297587007284164,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "direction5",
+    "score": 0.05034414978210714,
+    "seconds": 20.209636718034744,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "direction6",
+    "score": 0.05181848852416291,
+    "seconds": 29.77360252290964,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "remove_rigid",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "remove_rigid"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "uniform_mse",
+    "score": 0.04969848625384092,
+    "seconds": 30.231227099895477,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "uniform_mse"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "region_mse",
+    "score": 0.04825523794675089,
+    "seconds": 31.478545621037483,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_mse"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "region_huber",
+    "score": 0.04996611059549709,
+    "seconds": 27.013162955641747,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_huber"
+    }
+  },
+  {
+    "distribution": "mix_gauss",
+    "method": "region_rankdiff",
+    "score": 0.045965675398581596,
+    "seconds": 29.204081386327744,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_rankdiff"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "baseline",
+    "score": 0.032718552147560157,
+    "seconds": 42.30417501181364,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "no_move",
+    "score": 0.035551434364181664,
+    "seconds": 13.759282149374485,
+    "spec": {
+      "config": {
+        "steps": 0,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "random_direction",
+    "score": 0.03295112227273889,
+    "seconds": 26.26102054864168,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "random",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "direction3",
+    "score": 0.035184032935965115,
+    "seconds": 104.0430728122592,
+    "spec": {
+      "config": {
+        "steps": 16,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "adam",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "adam16"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "direction4",
+    "score": 0.03292339342540417,
+    "seconds": 53.53695172071457,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "direction5",
+    "score": 0.03292339342540417,
+    "seconds": 50.318642131984234,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "direction6",
+    "score": 0.033633060683973016,
+    "seconds": 25.890659742057323,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "remove_rigid",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "remove_rigid"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "uniform_mse",
+    "score": 0.032922951959839186,
+    "seconds": 45.983347088098526,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "uniform_mse"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "region_mse",
+    "score": 0.033235697557027176,
+    "seconds": 33.02771461009979,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_mse"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "region_huber",
+    "score": 0.027197539775567985,
+    "seconds": 28.663524121046066,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_huber"
+    }
+  },
+  {
+    "distribution": "edge_bias",
+    "method": "region_rankdiff",
+    "score": 0.030757191335171876,
+    "seconds": 43.98255459219217,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_rankdiff"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "baseline",
+    "score": 0.029102543759671383,
+    "seconds": 28.951881654560566,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "no_move",
+    "score": 0.029299050424596643,
+    "seconds": 14.144830770790577,
+    "spec": {
+      "config": {
+        "steps": 0,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "random_direction",
+    "score": 0.02804267166838878,
+    "seconds": 24.545032680034637,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "random",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "direction3",
+    "score": 0.03199590489640569,
+    "seconds": 37.677741162478924,
+    "spec": {
+      "config": {
+        "steps": 16,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "adam",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "adam16"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "direction4",
+    "score": 0.0323857255759315,
+    "seconds": 25.216489151120186,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "direction5",
+    "score": 0.0323857255759315,
+    "seconds": 20.613322518765926,
+    "spec": {
+      "config": {
+        "steps": 24,
+        "step": 0.01,
+        "starts": 21,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "checkpoints",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "narrow21_long24"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "direction6",
+    "score": 0.031020711449681503,
+    "seconds": 25.05440539866686,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "remove_rigid",
+        "max_motion": 0.08
+      },
+      "model": "old",
+      "selected_name": "remove_rigid"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "uniform_mse",
+    "score": 0.02908633278113596,
+    "seconds": 25.770282119512558,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "uniform_mse"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "region_mse",
+    "score": 0.030802548505207503,
+    "seconds": 24.17828220874071,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_mse"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "region_huber",
+    "score": 0.03181524828730689,
+    "seconds": 24.758476175367832,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_huber"
+    }
+  },
+  {
+    "distribution": "grid_cluster",
+    "method": "region_rankdiff",
+    "score": 0.030767587143163338,
+    "seconds": 23.38606073707342,
+    "spec": {
+      "config": {
+        "steps": 8,
+        "step": 0.01,
+        "starts": 63,
+        "init": "gaussian",
+        "mode": "gradient",
+        "select": "endpoint",
+        "update": "rms",
+        "geometry": "post",
+        "max_motion": 0.08
+      },
+      "model": "region_rankdiff"
+    }
+  }
+]

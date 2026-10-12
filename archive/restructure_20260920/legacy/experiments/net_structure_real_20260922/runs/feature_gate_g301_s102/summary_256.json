@@ -1,0 +1,112 @@
+{
+  "phase": "main",
+  "method": "feature_gate",
+  "seed": 102,
+  "generator": 301,
+  "recipe": "frozen_bn_1e5",
+  "setting": {
+    "lr": 1e-05,
+    "freeze_bn": true
+  },
+  "device_type": "cuda",
+  "update": 256,
+  "best_update": 256,
+  "validations": [
+    {
+      "update": 0,
+      "nets": 1085,
+      "mean": 0.019486507546591342,
+      "p95": 0.053549629715306135,
+      "macro": 0.01973299327017415
+    },
+    {
+      "update": 128,
+      "nets": 1085,
+      "mean": 0.019829087744706965,
+      "p95": 0.056792520611479776,
+      "macro": 0.01995343800164707
+    },
+    {
+      "update": 256,
+      "nets": 1085,
+      "mean": 0.019164534871879364,
+      "p95": 0.05182569206735139,
+      "macro": 0.019636381941279507
+    }
+  ],
+  "last_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.019164534871879364,
+    "p95": 0.05182569206735139,
+    "macro": 0.019636381941279507
+  },
+  "best_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.019164534871879364,
+    "p95": 0.05182569206735139,
+    "macro": 0.019636381941279507
+  },
+  "training_seconds": 167.8817596361041,
+  "new_training_seconds": 167.8817596361041,
+  "test_seconds": 7.465688638389111,
+  "process_seconds": 177.45473977923393,
+  "initial_update": 0,
+  "new_updates": 256,
+  "ledger": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "candidate_requested": 131072,
+    "candidate_forward_rows": 131072,
+    "candidate_gpu_rows": 131072,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 11870,
+    "test_forward_rows": 12288,
+    "test_gpu_rows": 12288
+  },
+  "ledger_delta": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "candidate_requested": 131072,
+    "candidate_forward_rows": 131072,
+    "candidate_gpu_rows": 131072,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 11870,
+    "test_forward_rows": 12288,
+    "test_gpu_rows": 12288
+  },
+  "tests": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/feature_gate_g301_s102_u256_last.npz",
+      "nets": 5935,
+      "method": "feature_gate",
+      "seed": 102,
+      "generator": 301,
+      "budget": 256,
+      "role": "last",
+      "update": 256
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/feature_gate_g301_s102_u256_val_best.npz",
+      "nets": 5935,
+      "method": "feature_gate",
+      "seed": 102,
+      "generator": 301,
+      "budget": 256,
+      "role": "val_best",
+      "update": 256
+    }
+  ],
+  "rho": 0.07090420840928952,
+  "lambda_final": 0.0,
+  "nominal_fraction": 0.1226806640625,
+  "mean_selected_cost": 0.04520645769107433,
+  "mean_budget_gap": -0.025697750718215194
+}

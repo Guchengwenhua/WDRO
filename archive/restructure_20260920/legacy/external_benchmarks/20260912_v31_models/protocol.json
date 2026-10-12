@@ -1,0 +1,18 @@
+{
+  "extension": "all_real_v31_joint_20260912",
+  "authorization": "User requests evaluation of newly trained v3.1 models on all existing real data and unattended tmux execution.",
+  "degree": 30,
+  "new_methods": ["random_top4", "critic_calibrated4", "rl_frozen4", "rl_joint4", "random64", "es64"],
+  "control_methods": ["erm", "mixed_erm", "hard_mining", "group_dro", "wdro_rest"],
+  "training_seeds": [101, 102, 103],
+  "checkpoint": "best selected on original synthetic validation only; no real-data model selection",
+  "inference": {"mode": "deterministic_greedy", "forward_rows": 256, "tail_padding": "repeat_last_requested_point_then_discard", "T": 1},
+  "data_scope": "All existing ISPD2018/2019 Protocol A and ISPD2008/CircuitOps normalized legal degree-30 nets; all 49 design coverage rows retained including zero eligible.",
+  "data_change": "No coordinate changes, truncation, pin padding, sampling, training, or tuning.",
+  "reference": "Reuse and verify existing GeoSteiner exact float32 references at 2^27 and 2^28.",
+  "metrics": ["relative_regret_mean", "relative_regret_p95", "design_macro_mean", "worst_design_mean"],
+  "seed_aggregation": "Compute metrics separately for each seed, then arithmetic mean of three seed metrics.",
+  "confidence_intervals": "2000 paired family-cluster percentile bootstrap replicates, seed 20260912; known families union designs with exact shared normalized geometry.",
+  "limits": "Degree30 only. Fixed-budget trained Actors; nominal real-data evaluation, no new adversarial attacks or robustness certificate. No claim of taped-out silicon from CircuitOps physical designs.",
+  "completion_gate": "33 full results, independent tree-length/connectivity and reference/input/shard checks, all seeds/designs metrics, worker locks released, model/source hashes unchanged, completion manifest."
+}

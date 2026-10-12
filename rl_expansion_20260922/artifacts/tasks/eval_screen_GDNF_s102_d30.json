@@ -1,0 +1,51 @@
+{
+  "id": "eval_screen_GDNF_s102_d30",
+  "mode": "eval",
+  "stage": "screen",
+  "arm": "GDNF",
+  "seed": 102,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "group",
+    "eta": 0.01,
+    "uniform_mix": 0.2,
+    "normalize_risk": true
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/eval/screen_GDNF_s102_d30",
+  "endpoints": [
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s102.pt",
+    "sha256": "2a713cd7bae248d140bc6f421481bbfaf8ea4e28ba0606931b0e15435157bcba"
+  },
+  "inherit_training": false,
+  "models": {
+    "step20480": {
+      "path": "artifacts/runs/screen_GDNF_s102/step20480.pt",
+      "sha256": "9cc4a4ecd1afb7347386a3daa812516f49237eb43eeefbee5eab71092f4f8c93",
+      "step": 20480,
+      "actor_sha256": "c725d917449a2213e0a1255985c3fc75d07cf694af66a6b4101d010ce5678467"
+    },
+    "best": {
+      "path": "artifacts/runs/screen_GDNF_s102/best.pt",
+      "sha256": "8f43e86c3c90b030381e8aed06d76c498b082c34ff025a1fcab080a7e456a257",
+      "step": 17408,
+      "actor_sha256": "00f79a774e77294ca2b115c0856efd2794991cef09611644165293b01b0ba27f"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

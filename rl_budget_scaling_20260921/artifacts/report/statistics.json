@@ -1,0 +1,168 @@
+{
+  "comparisons": [
+    {
+      "baseline_value": 3.6420277677275408,
+      "candidate_value": 3.461859932198422,
+      "improvement": 0.18016783552911875,
+      "improvement_percent": 4.946909991340765,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.28498109523252424,
+        0.1262906767055938,
+        0.1292317346492382
+      ],
+      "ci95": [
+        0.12594204105800297,
+        0.28325197546989783
+      ],
+      "simultaneous_ci99": [
+        0.12480992533539696,
+        0.28707744669079605
+      ],
+      "name": "training_budget",
+      "baseline": "U/step2048",
+      "candidate": "U/step8192",
+      "metric": "mean",
+      "mean_degradation_percent": -4.946909991340764,
+      "primary": true,
+      "conclusion": "supports_preregistered_exploratory_hypothesis"
+    },
+    {
+      "baseline_value": 3.461859932198422,
+      "candidate_value": 3.4495109622043856,
+      "improvement": 0.012348969994036452,
+      "improvement_percent": 0.35671489418678914,
+      "improved_seeds": 2,
+      "seed_improvement": [
+        0.04284433791781339,
+        -0.0092841985965606,
+        0.003486770660856564
+      ],
+      "ci95": [
+        -0.009004761463006616,
+        0.04225824083561065
+      ],
+      "simultaneous_ci99": [
+        -0.0103203255330709,
+        0.04472085231322581
+      ],
+      "name": "data_coverage",
+      "baseline": "U/step8192",
+      "candidate": "M/step8192",
+      "metric": "mean",
+      "mean_degradation_percent": -0.3567148941867937,
+      "primary": true,
+      "conclusion": "not_established_at_this_budget"
+    },
+    {
+      "baseline_value": 3.8042260204789877,
+      "candidate_value": 3.8669665777027453,
+      "improvement": -0.0627405572237576,
+      "improvement_percent": -1.6492331655903552,
+      "improved_seeds": 0,
+      "seed_improvement": [
+        -0.056660507716514985,
+        -0.05808510383394605,
+        -0.07347606012081087
+      ],
+      "ci95": [
+        -0.07275609959165194,
+        -0.055047133513608064
+      ],
+      "simultaneous_ci99": [
+        -0.07598301223671115,
+        -0.053837410928102444
+      ],
+      "name": "robust_finetuning",
+      "baseline": "ME/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "mean_degradation_percent": 2.013517928968356,
+      "primary": true,
+      "conclusion": "not_established_at_this_budget"
+    },
+    {
+      "baseline_value": 3.914141728921701,
+      "candidate_value": 3.8669665777027453,
+      "improvement": 0.04717515121895577,
+      "improvement_percent": 1.205248927763072,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.029180808742239606,
+        0.08863169394680881,
+        0.02371295096781978
+      ],
+      "ci95": [
+        0.022599959122453585,
+        0.08643342987925279
+      ],
+      "simultaneous_ci99": [
+        0.020384712703880724,
+        0.09226534388501934
+      ],
+      "name": "pretraining_order",
+      "baseline": "D/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "mean_degradation_percent": -3.0942563659071887,
+      "primary": true,
+      "conclusion": "supports_preregistered_exploratory_hypothesis"
+    },
+    {
+      "baseline_value": 3.871225432104135,
+      "candidate_value": 3.8669665777027453,
+      "improvement": 0.004258854401389733,
+      "improvement_percent": 0.11001308180275385,
+      "improved_seeds": 2,
+      "seed_improvement": [
+        0.012437204630259657,
+        0.015235842336551286,
+        -0.014896483762640855
+      ],
+      "ci95": [
+        -0.01414596089225597,
+        0.01750783748457252
+      ],
+      "simultaneous_ci99": [
+        -0.017445924420799203,
+        0.019872661532881475
+      ],
+      "name": "stage_allocation",
+      "baseline": "SG/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "mean_degradation_percent": -1.664837944747688,
+      "primary": true,
+      "conclusion": "not_established_at_this_budget"
+    },
+    {
+      "baseline_value": 4.025516725029472,
+      "candidate_value": 3.871225432104135,
+      "improvement": 0.1542912929253366,
+      "improvement_percent": 3.832831993120262,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.10488361177704064,
+        0.12777735149393266,
+        0.2302129155050352
+      ],
+      "ci95": [
+        0.10577106257628657,
+        0.22915366512179386
+      ],
+      "simultaneous_ci99": [
+        0.10160394440293202,
+        0.23326603587181127
+      ],
+      "name": "posttraining_scale_exploratory",
+      "baseline": "SG/step6144",
+      "candidate": "SG/step12288",
+      "metric": "worst",
+      "mean_degradation_percent": -3.7697416393540406,
+      "primary": false,
+      "conclusion": "exploratory_only"
+    }
+  ],
+  "bootstrap_replicates": 5000,
+  "caveat": "Three training seeds; paired hierarchical bootstrap intervals are exploratory."
+}

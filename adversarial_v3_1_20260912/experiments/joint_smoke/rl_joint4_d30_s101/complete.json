@@ -1,0 +1,964 @@
+{
+  "status": "pass",
+  "phase": "joint",
+  "task": "rl_joint4_d30_s101",
+  "method": "rl_joint4",
+  "degree": 30,
+  "seed": 101,
+  "parent": "erm",
+  "smoke": true,
+  "identity": {
+    "schema_version": 1,
+    "experiment": "adversarial_v3_joint",
+    "method": "rl_joint4",
+    "degree": 30,
+    "seed": 101,
+    "smoke": true,
+    "config": {
+      "updates": 4,
+      "batch_size": 4,
+      "learning_rate": 1e-05,
+      "gradient_clip": 1.0,
+      "lambda_learning_rate": 1.0,
+      "validation_interval": 2,
+      "validation_count": 4,
+      "evaluation_count": 8,
+      "independent_attack_count": 2,
+      "evaluation_batch_size": 4,
+      "rl_interval": 4,
+      "critic_interval": 2,
+      "rl_learning_rate": 0.0003,
+      "critic_learning_rate": 0.0001,
+      "nominal_degradation_max": 0.002,
+      "initial_checkpoint_is_candidate": true,
+      "optimizer_initialization": "fresh_for_main_policy_and_search_surrogate"
+    },
+    "protocol": {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/protocol.json",
+      "sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63"
+    },
+    "dependencies": {
+      "parent_erm": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s101_u2000/best.pt",
+        "sha256": "22e95d658b68b5adb8bad4e77f1e2f6d55c71e800f946e244a54d24be333612e"
+      },
+      "parent_wdro_rest": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage5/stage5_rho_q75_d30_s101_u2000_v1/best.pt",
+        "sha256": "1235ffb73db7555c494d588c03ee3f68b16b1c1b2be1bfc749d21d1245186746"
+      },
+      "learned_policy": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/smoke/erm_d30_s101/rl/best.pt",
+        "sha256": "113eb8cd202f30abccdf0ef8722d24fdd55eaae1e1fbec7fd1acd3ed4648e8f6"
+      }
+    },
+    "source": {
+      "common.py": "5ff462a4c76ece32e0a2b57a45049c14c42aedbcd736ebbbcd949fec7c6eaca2",
+      "search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f",
+      "joint.py": "262b8cb657ee387f84311c74c60b9e3b7ad6c5ba7359ba520cb514fd36f9c947",
+      "rl.py": "5b8d37c25af8e21174cb92404b704b5b037c0e86418c6cc610d9a31db825f8bb"
+    },
+    "data_namespaces": {
+      "train": "joint-training-u{update:06d}",
+      "validation": "joint-validation",
+      "evaluation": "joint-evaluation",
+      "independent_attack": "joint-independent-attack",
+      "rl_online": "joint-attacker-training-u{update:06d}"
+    }
+  },
+  "identity_hash": "e5b6caf0cc7c7acb20e18393123aa7aedfb24dbe6a741216eccb249ed79f3c72",
+  "updates": 4,
+  "best_update": 2,
+  "no_training_improvement": false,
+  "initial_price": 0.0384167150312949,
+  "final_price": 0.030780230030843483,
+  "best_price": 0.024016263214676453,
+  "rho": 0.027471832682689032,
+  "initial_validation": {
+    "uniform": {
+      "count": 4,
+      "mean": 0.00358892037766545,
+      "p95": 0.006320235652094529,
+      "maximum": 0.006689539077198825
+    },
+    "mix_gauss": {
+      "count": 4,
+      "mean": 0.0172019264259044,
+      "p95": 0.02592031724069724,
+      "maximum": 0.026208025420935144
+    },
+    "edge_bias": {
+      "count": 4,
+      "mean": 0.010258002049977455,
+      "p95": 0.020847716323331315,
+      "maximum": 0.0232275433450424
+    },
+    "grid_cluster": {
+      "count": 4,
+      "mean": 0.006153299052773342,
+      "p95": 0.016746626622068234,
+      "maximum": 0.019215305019966378
+    },
+    "ood_worst_group_mean": 0.0172019264259044,
+    "nominal_mean": 0.00358892037766545
+  },
+  "best_validation": {
+    "uniform": {
+      "count": 4,
+      "mean": 0.00358892037766545,
+      "p95": 0.006320235652094529,
+      "maximum": 0.006689539077198825
+    },
+    "mix_gauss": {
+      "count": 4,
+      "mean": 0.011388218273121031,
+      "p95": 0.022197900786294928,
+      "maximum": 0.02428997088601581
+    },
+    "edge_bias": {
+      "count": 4,
+      "mean": 0.010258002049977455,
+      "p95": 0.020847716323331315,
+      "maximum": 0.0232275433450424
+    },
+    "grid_cluster": {
+      "count": 4,
+      "mean": 0.006682970570849156,
+      "p95": 0.018547509783525998,
+      "maximum": 0.021333991092269633
+    },
+    "ood_worst_group_mean": 0.011388218273121031,
+    "nominal_mean": 0.00358892037766545
+  },
+  "initial_evaluation": {
+    "uniform": {
+      "count": 8,
+      "mean": 0.011100153809573327,
+      "p95": 0.017998224568659026,
+      "maximum": 0.018226348138143056
+    },
+    "mix_gauss": {
+      "count": 8,
+      "mean": 0.017902772326868516,
+      "p95": 0.049289096307026894,
+      "maximum": 0.06810411115970294
+    },
+    "edge_bias": {
+      "count": 8,
+      "mean": 0.008166220125253226,
+      "p95": 0.02222479514797589,
+      "maximum": 0.02533889671571643
+    },
+    "grid_cluster": {
+      "count": 8,
+      "mean": 0.00947913902633618,
+      "p95": 0.017624198303111415,
+      "maximum": 0.017646031601437295
+    },
+    "ood_worst_group_mean": 0.017902772326868516,
+    "nominal_mean": 0.011100153809573327
+  },
+  "final_evaluation": {
+    "uniform": {
+      "count": 8,
+      "mean": 0.00990005272478145,
+      "p95": 0.016336333495430653,
+      "maximum": 0.01757456651104583
+    },
+    "mix_gauss": {
+      "count": 8,
+      "mean": 0.020410239583793593,
+      "p95": 0.05091736413747273,
+      "maximum": 0.06810411115970294
+    },
+    "edge_bias": {
+      "count": 8,
+      "mean": 0.007538342901834055,
+      "p95": 0.0182205859206222,
+      "maximum": 0.019178574827479977
+    },
+    "grid_cluster": {
+      "count": 8,
+      "mean": 0.00947913902633618,
+      "p95": 0.017624198303111415,
+      "maximum": 0.017646031601437295
+    },
+    "ood_worst_group_mean": 0.020410239583793593,
+    "nominal_mean": 0.00990005272478145
+  },
+  "independent_attack": {
+    "uniform": {
+      "count": 2,
+      "mean": 0.026123899052308386,
+      "p95": 0.02924954992903749,
+      "maximum": 0.029596844470896277
+    },
+    "mix_gauss": {
+      "count": 2,
+      "mean": 0.06063704760998445,
+      "p95": 0.0673975877346112,
+      "maximum": 0.06814875885956972
+    },
+    "edge_bias": {
+      "count": 2,
+      "mean": 0.026869849164518178,
+      "p95": 0.035577499974043636,
+      "maximum": 0.036545016730657576
+    },
+    "grid_cluster": {
+      "count": 2,
+      "mean": 0.026938095941390405,
+      "p95": 0.030295076105649067,
+      "maximum": 0.030668073901677806
+    },
+    "ood_worst_group_mean": 0.06063704760998445,
+    "nominal_mean": 0.026123899052308386
+  },
+  "history": [
+    {
+      "update": 1,
+      "input_sha256": "49ec7e136839ef0d63173397fdd3362070b34203fd1a54e36c6b9f91f33d0261",
+      "selected_sha256": "d11eea3ca3c8060777edf177f356a50c670d6c564c942dfee2758da6513d9234",
+      "lambda_before": 0.0384167150312949,
+      "lambda_after": 0.026326824168790258,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.015381941820184389,
+      "mean_search_score": 0.010683036922330639,
+      "mean_search_regret": 0.011273960597864618,
+      "mean_search_improvement": 0.0038779026477443485,
+      "search_method": "rl4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240
+      },
+      "search_diagnostics": {
+        "method": "rl4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.03869803622364998,
+        "critic_loss": 6.59978759358637e-05,
+        "mean_regret": 0.013522665092089492,
+        "p95_regret": 0.020016365372967426,
+        "actor_grad_norm_before_clip": 1.6445459127426147,
+        "critic_grad_norm_before_clip": 0.01693442277610302,
+        "ledger_delta": {
+          "sampled_rest_completed": 4,
+          "actor_padding_rows_requested": 0,
+          "rest_completed": 0,
+          "sampled_actor_completed": 4,
+          "actor_requested": 0,
+          "geosteiner_misses_started": 0,
+          "actor_forward_rows_completed": 0,
+          "sampled_rest_requested": 4,
+          "geosteiner_misses_completed": 0,
+          "actor_completed": 0,
+          "actor_forward_rows_requested": 0,
+          "sampled_reference_reuses": 4,
+          "reference_requests": 0,
+          "rest_requested": 0,
+          "actor_padding_rows_completed": 0,
+          "sampled_actor_requested": 4
+        }
+      },
+      "online": null,
+      "validation": null,
+      "validation_feasible": false,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_rest_completed": 4,
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "sampled_actor_completed": 4,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "sampled_rest_requested": 4,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "sampled_reference_reuses": 4,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240,
+        "sampled_actor_requested": 4
+      },
+      "geometry_delta": {
+        "repairs": 0,
+        "proposals": 12,
+        "fallbacks": 0
+      },
+      "wall_seconds": 0.7286485061049461
+    },
+    {
+      "update": 2,
+      "input_sha256": "450d5e122c68d09cd9501dd9e95635488a4a385ecf8839f2010ca628b0af9cda",
+      "selected_sha256": "4cf79385c9820863443f46197a3ace93acf092bd476f352c6e7c8edf0f318853",
+      "lambda_before": 0.026326824168790258,
+      "lambda_after": 0.024016263214676453,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.025161271728575227,
+      "mean_search_score": 0.01829724494481262,
+      "mean_search_regret": 0.018959661321473975,
+      "mean_search_improvement": 0.009134356206300112,
+      "search_method": "rl4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_rest_completed": 0,
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "sampled_actor_completed": 0,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "sampled_rest_requested": 0,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "sampled_reference_reuses": 0,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240,
+        "sampled_actor_requested": 0
+      },
+      "search_diagnostics": {
+        "method": "rl4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.007931781932711601,
+        "critic_loss": 2.5004268536577e-05,
+        "mean_regret": 0.012298699605393038,
+        "p95_regret": 0.01707477417564429,
+        "actor_grad_norm_before_clip": 1.1888701915740967,
+        "critic_grad_norm_before_clip": 0.009643497876822948,
+        "ledger_delta": {
+          "sampled_rest_completed": 4,
+          "actor_padding_rows_requested": 0,
+          "rest_completed": 0,
+          "sampled_actor_completed": 4,
+          "actor_requested": 0,
+          "geosteiner_misses_started": 0,
+          "actor_forward_rows_completed": 0,
+          "sampled_rest_requested": 4,
+          "geosteiner_misses_completed": 0,
+          "actor_completed": 0,
+          "actor_forward_rows_requested": 0,
+          "sampled_reference_reuses": 4,
+          "reference_requests": 0,
+          "rest_requested": 0,
+          "actor_padding_rows_completed": 0,
+          "sampled_actor_requested": 4
+        }
+      },
+      "online": null,
+      "validation": {
+        "uniform": {
+          "count": 4,
+          "mean": 0.00358892037766545,
+          "p95": 0.006320235652094529,
+          "maximum": 0.006689539077198825
+        },
+        "mix_gauss": {
+          "count": 4,
+          "mean": 0.011388218273121031,
+          "p95": 0.022197900786294928,
+          "maximum": 0.02428997088601581
+        },
+        "edge_bias": {
+          "count": 4,
+          "mean": 0.010258002049977455,
+          "p95": 0.020847716323331315,
+          "maximum": 0.0232275433450424
+        },
+        "grid_cluster": {
+          "count": 4,
+          "mean": 0.006682970570849156,
+          "p95": 0.018547509783525998,
+          "maximum": 0.021333991092269633
+        },
+        "ood_worst_group_mean": 0.011388218273121031,
+        "nominal_mean": 0.00358892037766545
+      },
+      "validation_feasible": true,
+      "best_improved": true,
+      "ledger_delta": {
+        "sampled_rest_completed": 4,
+        "actor_padding_rows_requested": 1248,
+        "rest_completed": 32,
+        "sampled_actor_completed": 4,
+        "actor_requested": 32,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 1280,
+        "sampled_rest_requested": 4,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 32,
+        "actor_forward_rows_requested": 1280,
+        "sampled_reference_reuses": 4,
+        "reference_requests": 32,
+        "rest_requested": 32,
+        "actor_padding_rows_completed": 1248,
+        "sampled_actor_requested": 4
+      },
+      "geometry_delta": {
+        "repairs": 0,
+        "proposals": 12,
+        "fallbacks": 0
+      },
+      "wall_seconds": 0.7234387248754501
+    },
+    {
+      "update": 3,
+      "input_sha256": "0784cf82275bed962bdce1f53b040f4e5fa69fb96083c906fef562867a0a1a8a",
+      "selected_sha256": "039a88ca84014d7ddabb8d971194ff2667dc0b2cfd4b9ff64f4bd1d408717663",
+      "lambda_before": 0.024016263214676453,
+      "lambda_after": 0.024315394898681713,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.02777096436669429,
+      "mean_search_score": 0.01656344413435773,
+      "mean_search_regret": 0.01723039892431366,
+      "mean_search_improvement": 0.00911305221064218,
+      "search_method": "rl4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_rest_completed": 0,
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "sampled_actor_completed": 0,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "sampled_rest_requested": 0,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "sampled_reference_reuses": 0,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240,
+        "sampled_actor_requested": 0
+      },
+      "search_diagnostics": {
+        "method": "rl4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.14759531617164612,
+        "critic_loss": 0.0004141723329667002,
+        "mean_regret": 0.02976113362451016,
+        "p95_regret": 0.04036832658277185,
+        "actor_grad_norm_before_clip": 7.226901531219482,
+        "critic_grad_norm_before_clip": 0.05893817916512489,
+        "ledger_delta": {
+          "sampled_rest_completed": 4,
+          "actor_padding_rows_requested": 0,
+          "rest_completed": 0,
+          "sampled_actor_completed": 4,
+          "actor_requested": 0,
+          "geosteiner_misses_started": 0,
+          "actor_forward_rows_completed": 0,
+          "sampled_rest_requested": 4,
+          "geosteiner_misses_completed": 0,
+          "actor_completed": 0,
+          "actor_forward_rows_requested": 0,
+          "sampled_reference_reuses": 4,
+          "reference_requests": 0,
+          "rest_requested": 0,
+          "actor_padding_rows_completed": 0,
+          "sampled_actor_requested": 4
+        }
+      },
+      "online": null,
+      "validation": null,
+      "validation_feasible": false,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_rest_completed": 4,
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "sampled_actor_completed": 4,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "sampled_rest_requested": 4,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "sampled_reference_reuses": 4,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240,
+        "sampled_actor_requested": 4
+      },
+      "geometry_delta": {
+        "repairs": 0,
+        "proposals": 12,
+        "fallbacks": 0
+      },
+      "wall_seconds": 0.39855004101991653
+    },
+    {
+      "update": 4,
+      "input_sha256": "29c2195b9f38f694b5d340f26d65aa8aa443c5887d56aec8b91e8e7d87415db4",
+      "selected_sha256": "07724d8567a233a0da4d21eda2c38a16f593c1347cd7fe30a3909521ad2c5d1a",
+      "lambda_before": 0.024315394898681713,
+      "lambda_after": 0.030780230030843483,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.0339366678148508,
+      "mean_search_score": 0.014201904288868358,
+      "mean_search_regret": 0.015027087768331837,
+      "mean_search_improvement": 0.009783902155804044,
+      "search_method": "rl4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_rest_completed": 0,
+        "actor_padding_rows_requested": 240,
+        "rest_completed": 16,
+        "sampled_actor_completed": 0,
+        "actor_requested": 16,
+        "geosteiner_misses_started": 16,
+        "actor_forward_rows_completed": 256,
+        "sampled_rest_requested": 0,
+        "geosteiner_misses_completed": 16,
+        "actor_completed": 16,
+        "actor_forward_rows_requested": 256,
+        "sampled_reference_reuses": 0,
+        "reference_requests": 16,
+        "rest_requested": 16,
+        "actor_padding_rows_completed": 240,
+        "sampled_actor_requested": 0
+      },
+      "search_diagnostics": {
+        "method": "rl4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.029941394925117493,
+        "critic_loss": 8.383768727071583e-05,
+        "mean_regret": 0.0179600276750726,
+        "p95_regret": 0.026597386409740985,
+        "actor_grad_norm_before_clip": 2.4214649200439453,
+        "critic_grad_norm_before_clip": 0.01715608313679695,
+        "ledger_delta": {
+          "sampled_rest_completed": 4,
+          "actor_padding_rows_requested": 0,
+          "rest_completed": 0,
+          "sampled_actor_completed": 4,
+          "actor_requested": 0,
+          "geosteiner_misses_started": 0,
+          "actor_forward_rows_completed": 0,
+          "sampled_rest_requested": 4,
+          "geosteiner_misses_completed": 0,
+          "actor_completed": 0,
+          "actor_forward_rows_requested": 0,
+          "sampled_reference_reuses": 4,
+          "reference_requests": 0,
+          "rest_requested": 0,
+          "actor_padding_rows_completed": 0,
+          "sampled_actor_requested": 4
+        }
+      },
+      "online": {
+        "loss": -0.3414801359176636,
+        "gradient_norm": 5.048332214355469,
+        "mean_f": 0.010258991600259074,
+        "mean_baseline_f": 0.008093613649908127,
+        "mean_advantage": 0.002165377950350945,
+        "mean_regret": 0.011273932861348479,
+        "mean_cost": 0.03297380364189545,
+        "policy_std": [
+          0.019982006400823593,
+          0.01999635621905327
+        ],
+        "baseline_requests": 4,
+        "candidate_requests": 4,
+        "real_score_requests": 8,
+        "policy_updates": 1,
+        "centers_sha256": "ead0b0c374f390f191a44833bff5906e4d672f5cb70554b2ffc3005daa64bdc2",
+        "candidates_sha256": "9748ff2b38cd7b98e897dd2c8e44a2985e401cf0195daebfb4a54f987b3a9e9c",
+        "reward_normalization": "none",
+        "baseline": "real_f_of_original_X",
+        "ledger_delta": {
+          "sampled_rest_completed": 0,
+          "actor_padding_rows_requested": 248,
+          "rest_completed": 8,
+          "sampled_actor_completed": 0,
+          "actor_requested": 8,
+          "geosteiner_misses_started": 8,
+          "actor_forward_rows_completed": 256,
+          "sampled_rest_requested": 0,
+          "geosteiner_misses_completed": 8,
+          "actor_completed": 8,
+          "actor_forward_rows_requested": 256,
+          "sampled_reference_reuses": 0,
+          "reference_requests": 8,
+          "rest_requested": 8,
+          "actor_padding_rows_completed": 248,
+          "sampled_actor_requested": 0
+        },
+        "kind": "rl",
+        "opponent_update": 4,
+        "optimizer_initialization": "fresh_at_B_start"
+      },
+      "validation": {
+        "uniform": {
+          "count": 4,
+          "mean": 0.004071745176694619,
+          "p95": 0.00649159702358042,
+          "maximum": 0.006689539077198825
+        },
+        "mix_gauss": {
+          "count": 4,
+          "mean": 0.013834771105977639,
+          "p95": 0.023665832486008898,
+          "maximum": 0.02428997088601581
+        },
+        "edge_bias": {
+          "count": 4,
+          "mean": 0.010258002049977455,
+          "p95": 0.020847716323331315,
+          "maximum": 0.0232275433450424
+        },
+        "grid_cluster": {
+          "count": 4,
+          "mean": 0.00622752039024943,
+          "p95": 0.016746626622068234,
+          "maximum": 0.019215305019966378
+        },
+        "ood_worst_group_mean": 0.013834771105977639,
+        "nominal_mean": 0.004071745176694619
+      },
+      "validation_feasible": true,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_rest_completed": 4,
+        "actor_padding_rows_requested": 1496,
+        "rest_completed": 40,
+        "sampled_actor_completed": 4,
+        "actor_requested": 40,
+        "geosteiner_misses_started": 24,
+        "actor_forward_rows_completed": 1536,
+        "sampled_rest_requested": 4,
+        "geosteiner_misses_completed": 24,
+        "actor_completed": 40,
+        "actor_forward_rows_requested": 1536,
+        "sampled_reference_reuses": 4,
+        "reference_requests": 40,
+        "rest_requested": 40,
+        "actor_padding_rows_completed": 1496,
+        "sampled_actor_requested": 4
+      },
+      "geometry_delta": {
+        "repairs": 0,
+        "proposals": 16,
+        "fallbacks": 0
+      },
+      "wall_seconds": 0.8426458835601807
+    }
+  ],
+  "data_audit": {
+    "train": 16,
+    "validation": 16,
+    "evaluation": 32,
+    "independent_attack": 8,
+    "rl_online": 4
+  },
+  "ledger": {
+    "actor_requested": 696,
+    "reference_requests": 696,
+    "geosteiner_misses_started": 632,
+    "geosteiner_misses_completed": 632,
+    "actor_forward_rows_requested": 12544,
+    "actor_padding_rows_requested": 11848,
+    "actor_forward_rows_completed": 12544,
+    "actor_padding_rows_completed": 11848,
+    "actor_completed": 696,
+    "rest_requested": 696,
+    "rest_completed": 696,
+    "sampled_actor_requested": 16,
+    "sampled_actor_completed": 16,
+    "sampled_rest_requested": 16,
+    "sampled_rest_completed": 16,
+    "sampled_reference_reuses": 16
+  },
+  "geometry_ledger": {
+    "proposals": 52,
+    "repairs": 0,
+    "fallbacks": 0
+  },
+  "task_seconds_this_attempt": 12.984574377536774,
+  "peak_allocated_mib": 183.3486328125,
+  "peak_reserved_mib": 236.0,
+  "artifacts": [
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/attacks/edge_bias/cem64_00000.npz",
+      "sha256": "08aeb793a1e41e6af462bb2cc594e3f489d458d22a1e470d1a4d616fa275a2d5"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/attacks/grid_cluster/cem64_00000.npz",
+      "sha256": "fb681baef314d81bbc1e6775968bd4aa7fc9abc624a254eae3fb10de9b057599"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/attacks/mix_gauss/cem64_00000.npz",
+      "sha256": "40b393b25748ac6a6cd46259dcedde02e3355df8836bcd7ceb29c9ae3917a2b9"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/attacks/uniform/cem64_00000.npz",
+      "sha256": "fdbf89a3a09379c41ec095c5d62b646efb3b3019a78caaf5c49d98496d4b9ed7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/best.pt",
+      "sha256": "17393f163679c295626f4947c5ed2b2a8e577f3db2fad5b011e2f69a2f9883dc"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/checkpoints/u000002.pt",
+      "sha256": "390b0f1d8e23bfdfd60940548befb33504b553e85d5b2e67c42087dca5183b00"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/checkpoints/u000004.pt",
+      "sha256": "b3334783115b7cc96741345966a361f1d05ed507cef44b913a72dec19e3fe0dc"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/edge_bias/final_00000.npz",
+      "sha256": "88c0f9cd0fd8d3346b25b4230b9be31aefee127f3b65a8ba60a1f4fd67727567"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/edge_bias/final_00004.npz",
+      "sha256": "13a37d8f964b7434a728dd9cf22143ce21921c2664d8ffa1ab8502bb897ccfce"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/edge_bias/initial_00000.npz",
+      "sha256": "d3825c26de1ff4c40bd56a89c5ffa50b2bfc4d628fe2548917c5fd2c6e7487e6"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/edge_bias/initial_00004.npz",
+      "sha256": "3808cc6e5a154175137edcfcc53ab6b755d87c10a69557e6b6fb6bedae856c3a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/grid_cluster/final_00000.npz",
+      "sha256": "bb9fa7e0192260a75fca838141d0363f48801ec1d4cac6476c945b3668b8f0d9"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/grid_cluster/final_00004.npz",
+      "sha256": "6b4038bd97f5d9b334a776d6f6bca3f4c13a87fa41d4e052c9550469ddb8fe8c"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/grid_cluster/initial_00000.npz",
+      "sha256": "91c0a7cfb4f760c7879f473e2fb950a24523273e464142f2dffe57b6304b4cf7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/grid_cluster/initial_00004.npz",
+      "sha256": "81a996e90ade32ab39b8afdff6d0260bb90cac6a514a679daed05409dee7d4f4"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/mix_gauss/final_00000.npz",
+      "sha256": "cdfb1039bf8e38e43c592796a4f907238df270098336e7937d31ea1c2c584572"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/mix_gauss/final_00004.npz",
+      "sha256": "433163e9284f6b356e8544ec12124b0a59e92ef658bc19322f1075458277b5fa"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/mix_gauss/initial_00000.npz",
+      "sha256": "70de5b5068f5812aa3152fdb98a728edf542d69f4e45013cbb84edc5c7123cd2"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/mix_gauss/initial_00004.npz",
+      "sha256": "7f8ae8132a370be9835c01e46b0a3aa628bb92995893a2a04ba103e75cec5ce1"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/uniform/final_00000.npz",
+      "sha256": "4ee33f301afd2139185e488755568ad34d9e319d1f28efaf2717fc0a0deaeefa"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/uniform/final_00004.npz",
+      "sha256": "5be5feea333c45fc43c0cd580c5795d4935c291e6ab871f1819227e1fb30e592"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/uniform/initial_00000.npz",
+      "sha256": "bc9fd1953d8fb3bc15217d28f3f1728629aeaf40c90c547ce86a3ac4abd47106"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/evaluation/uniform/initial_00004.npz",
+      "sha256": "b6b2f8181df0a01019e44c19d67b7a6be6d653c23219381d5cf2534642a15b12"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/identity.json",
+      "sha256": "d8e6552cd9d5df40dc76a586e18132b50d51d0a6ab67d7c04bc6dfce3e4657e7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/initial.pt",
+      "sha256": "c4c021f81a2dcb98ade406a6557bfb593acd997d3bceadcd0cdb049ea81340ed"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/evaluation__edge_bias.npz",
+      "sha256": "253f32a855f83602377e4c46c6db9d674c1c1f06f875eafbabceb689705c46cf"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/evaluation__grid_cluster.npz",
+      "sha256": "5c52bbfb71d25a21b48da9faf05e0e5441152efc2f4b23b12438ad1d7afa6c31"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/evaluation__mix_gauss.npz",
+      "sha256": "ce72b7b80ca0d903acc3254336b22a6d36dcb3d4770e04fba83e8c6c5a8b088e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/evaluation__uniform.npz",
+      "sha256": "3f6adf958eae803a1b53de8339cb5e61fe932f058b29813a2e724e6ab5e8702a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/independent_attack__edge_bias.npz",
+      "sha256": "bf590094721ee0d5118f743d5f0543855673ac0d75925b3a8b2db7b8f3bcd989"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/independent_attack__grid_cluster.npz",
+      "sha256": "72bcbadc25f6bbe269b53ae1568fb32534ae3ba6be7c7227b2889d933a4fb6f1"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/independent_attack__mix_gauss.npz",
+      "sha256": "1d8b6b421f0d713dde6786ed8d5d5c4e00974de192f679069707ea5668ab9032"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/independent_attack__uniform.npz",
+      "sha256": "0384bf9bdb4beb189bdf270d220dc0d321f421b3888ea158eb5a742324afbabc"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/rl_online__u000004.npz",
+      "sha256": "264c86bc26446f4759c117b4e2c192782d3b1584294eff6660dc23ca53c48567"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/train__u000001.npz",
+      "sha256": "dc89f7390254dea34597c5cd27fdd328f6b08bd6e315a9f723382452e98dfdae"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/train__u000002.npz",
+      "sha256": "89e6d99a3dc54272fd3ae7248ccd6f0ca1e5c7041faa45c7166acec5f63d7535"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/train__u000003.npz",
+      "sha256": "b63fbb902b74c936cdb868d521ccf31ee5fe200251b5a6fdcfffb4dff931720e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/train__u000004.npz",
+      "sha256": "d15baabd7b2646e8ead5f971b297ab0ff02e22123757121f1a27efba4cabc6fb"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/validation__edge_bias.npz",
+      "sha256": "235674c3d4e4e8af62d2bdb58b750a19bf47070d3a45abdf6f8689903c38dca1"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/validation__grid_cluster.npz",
+      "sha256": "83ce523d843f9ca2805a42b530ff42ece77976d31de2abf6d0650ebabde94175"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/validation__mix_gauss.npz",
+      "sha256": "980a5ffe52e339a0e984ca088c813e5e95dca4a3245fb81e0721d2fbbaaa0ee1"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/inputs/validation__uniform.npz",
+      "sha256": "577a1d0c2d91127336ef931fbd733bdad851de5e0db2dddada3f020f3b50816e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/latest.pt",
+      "sha256": "a50ff9f88a5b81aeb9e0058df5ae8c886859b4814f976a6e2ea8fbcbaaacf9dd"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/oracle/oracle_ledger.json",
+      "sha256": "2ccd64532e64e60a4cb060405e5b5982db0cf2df64392aee1b188361128b76c4"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/training.jsonl",
+      "sha256": "cc6634a6963858bbdcb3465a8eab0ad353b1f6e28d275d36eacab5b2d33ec9e6"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/updates/u000001.json",
+      "sha256": "316d0c90564bab5228806b4935b97a6055cd8202e2c2cccb71127844d300e695"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/updates/u000002.json",
+      "sha256": "9de0dcf3cf13156a6082dff5b1fc8fe0d742576c7a4e7b7c7aeedb578855b624"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/updates/u000003.json",
+      "sha256": "45b0bb1ab92205a88fb8be7b61b1de3bfa8497e8344e8dd5e8e3bfbf100d8a10"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/updates/u000004.json",
+      "sha256": "755e68c8fd7c7739e084bc51b75ffb5a899b63ac104fc28ccf5728e76bf2f9b8"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000000/edge_bias_00000.npz",
+      "sha256": "d5ed7cfef612af4fe95cb59d3052cc79e01cdf37552ca4bd872d46173e9b36a3"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000000/grid_cluster_00000.npz",
+      "sha256": "045df8b66d362a108a64e763a5bb9e4f875fc8e78cf273b98607083a2764b361"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000000/mix_gauss_00000.npz",
+      "sha256": "eb27a3745fa9bc4a918b62b23c4f1e834d2d457b07b4956a0faf3986566666fd"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000000/uniform_00000.npz",
+      "sha256": "915b32d12dbd0cf923654cdc6150134c3551dd6eccd1a9880e3f99980bbedd64"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000002/edge_bias_00000.npz",
+      "sha256": "23ba273dda0607037e99c174cd6f09db0fc47e770196e50cfb4dd0293aacc6bf"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000002/grid_cluster_00000.npz",
+      "sha256": "aa8ae3ee6c3b4db7e8c8f498496bf513f2e703020c2501ed2ae0c37c12d146c9"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000002/mix_gauss_00000.npz",
+      "sha256": "a1aa54238efca8903824a21967be11269f7669cb92688079cfa100edfffed91c"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000002/uniform_00000.npz",
+      "sha256": "3e337de117723ff76ce55b8ee6549c84079e029d2a048d7c320e7ff07c29960b"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000004/edge_bias_00000.npz",
+      "sha256": "d6af1098016336bb418b87826b4b7223149b7db9a00fe2151d93e672d177c369"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000004/grid_cluster_00000.npz",
+      "sha256": "c09d181bb73dd7bf48297b27ebc7fdb10e6b1e0dfdbbad043d751d0f0171350b"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000004/mix_gauss_00000.npz",
+      "sha256": "31845e70799e0d59ab7d5f9534e24d3a48e231d71367780c63bfa7e82d08003d"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/joint_smoke/rl_joint4_d30_s101/validation/u000004/uniform_00000.npz",
+      "sha256": "3065d820175bd0f3e97f9eee9f3a082a1e3ae9a46113fbe69fe62837571ddd47"
+    }
+  ],
+  "accounting": "greedy search/evaluation and sampled main updates separate; actual attempts never rolled back"
+}

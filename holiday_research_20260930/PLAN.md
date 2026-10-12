@@ -1,0 +1,7 @@
+# Seven-day staged research plan
+Window ends2026-10-07 15:29UTC; training stops2026-10-06 15:29UTC. Existing scale/geometry processes are prerequisites and remain untouched.
+Authoritative matrix, gates, and job commands reside in the two week_* stage directories. policy.json fixes controller resource/deadline limits; PLAN.json states scientific acceptance and phase order. Negative development findings can stop expensive branches. This is bounded research, not an obligation to occupy7days.
+Controller uses one GPU job at a time after both existing tasks finish; GPU candidates1/5/7 must have>=10GiB free and<=85% utilization immediately before launch. Every worker limits memory fraction0.10 and CPU/BLAS1. GPU load may change after launch; no exclusive reservation is claimed.
+New artifacts cap200GiB; attached disk must retain200GiB free, root10GiB. Current snapshots: root21GiB free, attached~2TiB. Checkpoints and bulk outputs use attached-disk symlinks inside project; no old files removed.
+One additional retry for transient resource/I/O errors only; deterministic failures block dependent jobs and are retained. Completion markers deduplicate successful jobs. Atomic state and checkpoints record RNG/optimizer/dual/bank. Retry is from saved progress, never a request to blindly repeat completed trials.
+Scientific reports are separate from operational inventory. ACCEPTANCE_INVENTORY.md and artifacts/acceptance_inventory.json enumerate successes and missing/failed/gated outcomes. Stage reports supply actual numbers only.

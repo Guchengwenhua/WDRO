@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "parents_ME_s104",
+      "kind": "training",
+      "args": [
+        "worker.py",
+        "--task-json",
+        "artifacts/tasks/parents_ME_s104.json"
+      ],
+      "complete": "artifacts/runs/parents_ME_s104/complete.json",
+      "checkpoint": "artifacts/runs/parents_ME_s104/latest.pt",
+      "resume_args": [
+        "--resume"
+      ],
+      "depends_on": [],
+      "cpu_threads": 3,
+      "required_free_mib": 6144,
+      "verify_artifacts": true,
+      "required_artifacts": [
+        "latest.pt",
+        "best.pt",
+        "results.npz",
+        "run.json"
+      ],
+      "completion_checks": {
+        "acceptance": "training_complete"
+      },
+      "binding_checks": {
+        "arm": "ME",
+        "seed": 104
+      }
+    },
+    {
+      "id": "parents_ME_s105",
+      "kind": "training",
+      "args": [
+        "worker.py",
+        "--task-json",
+        "artifacts/tasks/parents_ME_s105.json"
+      ],
+      "complete": "artifacts/runs/parents_ME_s105/complete.json",
+      "checkpoint": "artifacts/runs/parents_ME_s105/latest.pt",
+      "resume_args": [
+        "--resume"
+      ],
+      "depends_on": [],
+      "cpu_threads": 3,
+      "required_free_mib": 6144,
+      "verify_artifacts": true,
+      "required_artifacts": [
+        "latest.pt",
+        "best.pt",
+        "results.npz",
+        "run.json"
+      ],
+      "completion_checks": {
+        "acceptance": "training_complete"
+      },
+      "binding_checks": {
+        "arm": "ME",
+        "seed": 105
+      }
+    }
+  ],
+  "cpu_diagnostic_gate": {
+    "report": "artifacts/tests/preflight.json"
+  },
+  "source_paths": [
+    "protocol.json",
+    "docs/THEORY_PROTOCOL.md",
+    "artifacts/data/manifest.json",
+    "artifacts/inputs/lineage.json",
+    "artifacts/tasks/parents_ME_s104.json",
+    "artifacts/tasks/parents_ME_s105.json",
+    "vendor/models/actor_critic.py",
+    "vendor/models/self_attn.py",
+    "vendor/models/utils.py"
+  ]
+}

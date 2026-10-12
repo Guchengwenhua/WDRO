@@ -1,0 +1,61 @@
+{
+  "status": "fail",
+  "at_unix": 1789223394.6568625,
+  "scope": "Only operational leftover process classifier changed; launch PID/start_ticks gates and lock checks unchanged; no pipeline/training launched",
+  "tests": {
+    "classifier_test_methods": 9,
+    "existing_auditor_selftests": 8
+  },
+  "runs": [
+    {
+      "command": [
+        "bash",
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/run_env.sh",
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "-B",
+        "-m",
+        "unittest",
+        "diagnostics.test_delivery_process_identity",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "bash",
+        "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/run_env.sh",
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "-B",
+        "-c",
+        "from diagnostics import delivery_audit as a; from unittest import mock; import json; from pathlib import Path; o=Path('experiments/diagnostics/recovery_check_20260912');\nwith mock.patch.object(a, 'OUT', o): result=a.self_test()\nprint(json.dumps(result)); assert result['status']=='pass'"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/diagnostics/delivery_audit.py",
+      "sha256": "b550a4b39e91d10a079c19ce5700a72947261052d2b514c61a4abe57cacc2f5d"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/diagnostics/test_delivery_process_identity.py",
+      "sha256": "a42dfd258177e8383b492512bfe359cdf6052d95bab0b4ddfaa0908c30723dd7"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/delivery_process_before.json",
+      "sha256": "f04c347cbcc6d0cc8d0e8223c7722292ce2c5f05388a9972dce6b9dcfc49ffb4"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/delivery_process_before_20260912T142808_612064Z.tar.gz",
+      "sha256": "a9f0881621e7af19426e36d1dfef2948bb0dd8c09e2a63e9f9b50b007de47efa"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/delivery_process_tests.log",
+      "sha256": "fe98c130f74da5590d15616689585c79d515102a4cb6bf12adec372df10ede2e"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/diagnostics/recovery_check_20260912/delivery_process.patch",
+      "sha256": "f9e89bd23dc8edc2a6815896d366bf93574c80e4d34d7ffb89ee2a4249dd443d"
+    }
+  ]
+}

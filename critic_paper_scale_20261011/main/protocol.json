@@ -1,0 +1,106 @@
+{
+  "experiment": "critic-paper-bank-20261011-v1",
+  "scope": "exploratory exact-state continuation of 21 completed short runs to cumulative update2048",
+  "degree": 10,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "families": {
+    "rest": [
+      "geo",
+      "k3",
+      "critic_inverse"
+    ],
+    "timing": [
+      "original",
+      "k3"
+    ],
+    "buffer": [
+      "original",
+      "k3"
+    ]
+  },
+  "updates": {
+    "rest": 2048,
+    "timing": 2048,
+    "buffer": 2048
+  },
+  "batch_size": 128,
+  "greedy_microbatch": 128,
+  "validation_every": 32,
+  "checkpoint_every": 8,
+  "validation_count": 256,
+  "test_count": 1024,
+  "search": {
+    "candidate_count": 32,
+    "refresh_updates": 10,
+    "amplitudes": [
+      0.01,
+      0.02,
+      0.04,
+      0.08
+    ],
+    "exact_rescore_top_k": 4,
+    "score_microbatch": 128
+  },
+  "learning_rate": 0.0001,
+  "lambda_initial": 0.0,
+  "lambda_lr": 1.0,
+  "gradient_clip": 1.0,
+  "training_namespace": 20261011,
+  "distributions": {
+    "uniform": {
+      "nonuniform": 0.0
+    },
+    "mix_gauss": {
+      "nonuniform": 0.8,
+      "clusters": 6,
+      "sigma": 0.04
+    },
+    "edge_bias": {
+      "nonuniform": 0.8,
+      "clusters": 4,
+      "sigma": 0.06
+    },
+    "grid_cluster": {
+      "nonuniform": 0.8,
+      "clusters": 8,
+      "sigma": 0.03
+    }
+  },
+  "parameters": {
+    "timing": {
+      "alpha": 0.5
+    },
+    "buffer": {
+      "phase_bins": 16,
+      "buffer_penalty": 0.25,
+      "objective_scale": 10.0,
+      "delay_scale": 1e+18
+    }
+  },
+  "parent": "REST same-seed precision_v2 ERM best actor+critic; papers same-seed completed ERM latest adapter+critic; fresh matched Adam for every arm",
+  "bank": "REST historical frozen first K3; papers three lowest historical validation OOD objectives from six completed ERM/WDRO best checkpoints, same family",
+  "critic_inverse": "reference = current greedy length / (1 + current critic prediction); detach before sampled update; no calibration, clipping, or test feedback; reject nonpositive denominator",
+  "paper_k3": "task cost / minimum same-family teacher task cost - 1, in both search and sampled training; original uses fixed-scale task cost; objective and lambda scale change explicitly acknowledged",
+  "rho": "historical degree10 q75, REST unrooted; papers rooted calibration; no retuning",
+  "selection": "minimum true validation worst OOD mean, earliest tie including update0; true test reports best and final; no test selection",
+  "evaluation": "REST historical cached exact validation/test references; paper fresh deterministic validation/test under this experiment namespace; 4 groups equally weighted",
+  "statistics": "all 3 seed values, mean, paired differences and descriptive seed bootstrap 95% interval; no significant general-benefit claim from 3 seeds",
+  "precision": "float32 networks, float64 physical evaluators, no TF32, deterministic torch, single CPU math thread",
+  "resource": "up to8 admitted GPUs, one job/card, per-process fraction0.2; 3 samples free>=16GiB util<=35; threads1",
+  "recovery": "tmux controller, exclusive locks, atomic latest with actor critic Adam lambda RNG update and best state, checkpoint every8; completed jobs skipped",
+  "storage": "/attached/remote-home1/Guilin/DRO/Codex/critic_paper_scale_20261011/artifacts/main",
+  "extension": {
+    "name": "critic_paper_scale_20261011",
+    "origin": "/remote-home/Guilin/DRO/Codex/critic_paper_bank_20261011",
+    "preserved": "Adam, RNG, lambda, best, data namespace, batch128, validation32, checkpoints8",
+    "milestone_snapshots": [
+      512,
+      1024,
+      2048
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "experiment": "all_models_all_data_20260928",
+  "catalog_scope": "all discovered trained endpoints, validation-best and saved budget endpoints; exclude initialization, engineering fixtures and intermediate recovery-only snapshots; auxiliary weights remain explicit table rows",
+  "evaluation_scope": "every prepared dataset column for every standalone router; all supported pin counts, no retraining or test-based selection",
+  "batch_size": 256,
+  "dtype": "float32",
+  "decode": "deterministic greedy; model.eval; no test-time adaptation",
+  "primary_metric": "mean wirelength on the identical frozen coordinates within each column; lower is better",
+  "secondary_metrics": ["P95 wirelength", "mean and P95 original task objective", "mean and P95 percent regret where precision_v2 references exist"],
+  "cross_degree": "reuse identical weights and set decoder degree to the input pin count; explicitly label cross-degree results",
+  "rooted_tasks": "pin 0 is a convention, not verified real-chip driver metadata",
+  "data_roles": "keep historical test, validation, calibration, real-chip A/B/C, persisted training and fixed candidate pools distinguishable; do not claim all columns are unseen",
+  "resources": {"max_workers": 8, "max_workers_per_gpu": 2, "min_free_mib": 12288, "foreign_util_limit": 65, "torch_memory_fraction": 0.15, "poll_seconds": 30, "disk_reserve_gib": 50, "max_retries": 2},
+  "resume": "atomic 8192-net prediction shards and cursor; model lock; completed degree/model markers; restart same tmux launch command",
+  "single_table": "/remote-home/Guilin/DRO/Codex/reports/全模型全数据集总表_20260928.html",
+  "layout_after_evaluation": "compat"
+}

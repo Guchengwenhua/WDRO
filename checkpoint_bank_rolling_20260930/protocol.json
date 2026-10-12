@@ -1,0 +1,25 @@
+{
+  "policy": "lagged3",
+  "scope": "independent rolling mechanism, not historical global top3",
+  "seeds": [
+    101,
+    102
+  ],
+  "steps": 200,
+  "batch": 64,
+  "initialization": "same pilot parent including critic and optimizer",
+  "initial_bank": "historical top3 from frozen pilot inputs",
+  "anchor": "historical top1 always retained",
+  "refresh_steps": [
+    50,
+    100,
+    150
+  ],
+  "snapshot_rule": "fixed end-of-window snapshots; no test or validation eligibility selection",
+  "membership_rule": "anchor + most recent up to2 completed-window snapshots; fill initial empty slots with historical rank2 then3; deduplicate IDs and exact state tensors",
+  "freeze": "independent eval copies with requires_grad false; immutable for next50 updates; evaluated on each new candidate Z",
+  "online_geosteiner_new_labels": 0,
+  "evaluation": "same pilot cached independent final test256 per4 groups; best secondary only",
+  "refresh_cost": "separate wallseconds for validation/snapshot/write/load/freeze; summed with update cost",
+  "comparison": "paired against existing geo/k3 pilots; not original formal WDRO"
+}

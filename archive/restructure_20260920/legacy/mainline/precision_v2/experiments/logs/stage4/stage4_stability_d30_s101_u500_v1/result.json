@@ -1,0 +1,350 @@
+{
+  "artifact_paths": {
+    "checkpoints_logical": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage4/stage4_stability_d30_s101_u500_v1",
+    "checkpoints_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage4/stage4_stability_d30_s101_u500_v1",
+    "logs_logical": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage4/stage4_stability_d30_s101_u500_v1",
+    "logs_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage4/stage4_stability_d30_s101_u500_v1"
+  },
+  "batch_size": 256,
+  "best": {
+    "feasible": true,
+    "nominal_mean": 0.007553983686159677,
+    "selection_objective": 0.013621686282342699,
+    "update": 500,
+    "validation_manifest_sha256": "854d2bcc7fdf6083d6038d46a6de7516d6a23f895bf71b63f679d70e8de7efcd"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage4/stage4_stability_d30_s101_u500_v1/best.pt",
+  "best_checkpoint_sha256": "74a751fc10b238ed075aa5437483b6481de756b9e18a06059edb273d8cf8d578",
+  "call_ledger": {
+    "actor_forward_nets": 688001,
+    "exact_rest_evaluator_nets": 688002,
+    "geosteiner_nets": 512002,
+    "surrogate_evaluator_nets": 4224000
+  },
+  "completed_updates": 500,
+  "cuda_visible_devices": "4",
+  "degree": 30,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage4/stage4_stability_d30_s101_u500_v1/events.jsonl",
+  "expected_updates": 500,
+  "finished_at_utc": "2026-09-07T19:05:10.730767Z",
+  "geosteiner_workers": 3,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/host_runtime_20260907T183747Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 21100,
+    "legacy_best_eval": 4.158684459063664,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/DRO/WDRO-REST/save/DAC21/rsmt30b.pt",
+    "sha256": "885ef9ea6cac38e4f1ee83c000c0ec0f1c079151db1b236031a56cb7bbf8d8dc",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 4.440892098500626e-16,
+    "lstar_normalized": 3.26702032238245,
+    "lstar_original": 3.910627654693719,
+    "net_id": "train_u000001:uniform:d30:s101:n000000",
+    "rest_absolute_error": 8.881784197001252e-16,
+    "rest_normalized": 3.2915810719132423,
+    "rest_original": 3.9400269044250704,
+    "scale": 0.8354209632975971,
+    "status": "pass"
+  },
+  "last_validation": {
+    "aggregate": {
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "maximum": 0.10552361398735297,
+          "mean": 0.00863828976796565,
+          "minimum": 0.0,
+          "p95": 0.02494155897249804
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "maximum": 0.051070858727576426,
+          "mean": 0.007453356523253814,
+          "minimum": 0.0,
+          "p95": 0.02113870819013366
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "maximum": 0.13067855376925694,
+          "mean": 0.013621686282342699,
+          "minimum": 0.0,
+          "p95": 0.03655806187703255
+        },
+        "uniform": {
+          "count": 2000,
+          "maximum": 0.046812573183754855,
+          "mean": 0.007553983686159677,
+          "minimum": 0.0,
+          "p95": 0.02057623798423583
+        }
+      },
+      "overall": {
+        "count": 8000,
+        "maximum": 0.13067855376925694,
+        "mean": 0.009316829064930459,
+        "minimum": 0.0,
+        "p95": 0.02651173965519204
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.013621686282342699
+    },
+    "degree": 30,
+    "groups": {
+      "edge_bias": {
+        "dataset_array_bundle_sha256": "7ff51a04997567941229501aab1f69933a6e1f585efd111c7e67482e74fd4cd4",
+        "first_net_id": "validation:edge_bias:d30:s202:n000000",
+        "last_net_id": "validation:edge_bias:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.10552361398735297,
+          "mean": 0.00863828976796565,
+          "minimum": 0.0,
+          "p95": 0.02494155897249804
+        }
+      },
+      "grid_cluster": {
+        "dataset_array_bundle_sha256": "27e18afb8ad9128bde14e7db001188ce5f7ed9733eaed1e45f39de0316a5a052",
+        "first_net_id": "validation:grid_cluster:d30:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.051070858727576426,
+          "mean": 0.007453356523253814,
+          "minimum": 0.0,
+          "p95": 0.02113870819013366
+        }
+      },
+      "mix_gauss": {
+        "dataset_array_bundle_sha256": "051657bf372f12afc2537e1c403cdc5081639125fad64c6f36bf75a286c72a5c",
+        "first_net_id": "validation:mix_gauss:d30:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.13067855376925694,
+          "mean": 0.013621686282342699,
+          "minimum": 0.0,
+          "p95": 0.03655806187703255
+        }
+      },
+      "uniform": {
+        "dataset_array_bundle_sha256": "4b546741528669eec0bd974a84069bdf774194ef1ff8da0c9c7d4cb41029a6a8",
+        "first_net_id": "validation:uniform:d30:s202:n000000",
+        "last_net_id": "validation:uniform:d30:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.046812573183754855,
+          "mean": 0.007553983686159677,
+          "minimum": 0.0,
+          "p95": 0.02057623798423583
+        }
+      }
+    },
+    "inference": {
+      "batch_size": 256,
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1
+    },
+    "seed": 202,
+    "selection": {
+      "nominal_mean": 0.007553983686159677,
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "test_or_ispd_used": false,
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.013621686282342699
+    },
+    "split": "validation"
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage4/stage4_stability_d30_s101_u500_v1/latest.pt",
+  "latest_checkpoint_sha256": "7af351e1825020cf0f4950d996a9438df45b31dfe10cddc5c04b48246b17b3c7",
+  "method": "wdro_rest",
+  "method_state": {
+    "budget": {
+      "centers": 128000,
+      "exact_rescore_nets": 512000,
+      "perturbations": 4096000,
+      "reference_cache_hits": 0,
+      "reference_cache_misses": 512000,
+      "reference_requests": 512000,
+      "repaired_candidates": 1324,
+      "surrogate_nets": 4224000
+    },
+    "cost_history": [
+      0.012707798433257266,
+      0.01261065019837891,
+      0.013708549420698546,
+      0.014721908017721337,
+      0.014983041691205776,
+      0.012204084005982926,
+      0.013968230108730495,
+      0.013765274221077562,
+      0.012665033874024328,
+      0.013444795962035037,
+      0.016087544748249152,
+      0.015690270068201548,
+      0.01581900590584458,
+      0.01277299690603589,
+      0.013480216812846873,
+      0.01251967711529384,
+      0.01360212408277827,
+      0.015094793435613004,
+      0.01502410184281568,
+      0.015216854482423514,
+      0.014237014843577828,
+      0.013480528264578122,
+      0.014434669730447543,
+      0.013820057903649286,
+      0.011994846182642505,
+      0.013602155912667512,
+      0.014232697786064818,
+      0.014044597549946046,
+      0.014966937265126035,
+      0.013008666740885626,
+      0.012695902318228036,
+      0.015041579668953396,
+      0.013650884208618664,
+      0.014795311003884612,
+      0.0160785059434905,
+      0.01254955161033043,
+      0.011843674347619525,
+      0.012415683535315719,
+      0.015418440065695904,
+      0.013675191914080643,
+      0.013543580099940299,
+      0.013198906762409025,
+      0.014927122588657466,
+      0.01379210890736431,
+      0.01339024551756059,
+      0.013381577919547756,
+      0.014053815976755382,
+      0.014503904783244554,
+      0.012512621056521312,
+      0.014899156090298977,
+      0.013552147371228784,
+      0.013591899302749275,
+      0.013410534424474464,
+      0.013049247669793356,
+      0.013943851030974959,
+      0.013303483373601922,
+      0.011405545976595021,
+      0.014273895407677626,
+      0.012243076782518377,
+      0.01445435220375657,
+      0.01404077509068884,
+      0.013897726958384737,
+      0.013069990204530767,
+      0.014011643636816493,
+      0.014010874783465018,
+      0.01226117221910196,
+      0.01424910489489169,
+      0.012608803032586973,
+      0.015244975320335167,
+      0.014414748715353198,
+      0.015470626129535956,
+      0.01701099510731486,
+      0.014236940786940978,
+      0.013629852383746765,
+      0.012120324987336062,
+      0.012987971136074822,
+      0.011880062212003394,
+      0.01355337116207617,
+      0.012431567552266643,
+      0.013094867132410096,
+      0.014667946952977217,
+      0.014988928247475997,
+      0.013691513013327494,
+      0.016400942817563192,
+      0.0139990982444336,
+      0.011365691909062054,
+      0.013507378143064366,
+      0.01660475460618424,
+      0.012750453843424717,
+      0.013895641078124755,
+      0.013083332349197008,
+      0.014156322647856236,
+      0.013491474694455973,
+      0.012316150191084793,
+      0.012919500183003644,
+      0.014354770951710331,
+      0.013777988488436676,
+      0.014841456838378994,
+      0.015504009700574292,
+      0.012463111838830324
+    ],
+    "lambda": 0.20467941765479405,
+    "rho": 0.01381177343428135,
+    "selection_stream_hash": "bc25d4786218b64598347f91b3e10de094054954b77b72a0036eb5288c96f3f9",
+    "support_stream_hash": "7ecd0046530e965631bc45abf548a423df6a755a61d795005df88b72b6a2d3bf"
+  },
+  "nan_detected": false,
+  "nominal_limit": 0.009802540915565372,
+  "peak_memory_allocated_bytes": 1594908160,
+  "peak_memory_reserved_bytes": 1698693120,
+  "physical_gpu_index": 4,
+  "policy_update_nets": 128000,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "reference_cache": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/stage4_references/stage4_stability_d30_s101_u500_v1/lstar.sqlite",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/cache/stage4_references/stage4_stability_d30_s101_u500_v1/lstar.sqlite"
+  },
+  "resumed_from": null,
+  "run_id": "stage4_stability_d30_s101_u500_v1",
+  "run_identity": {
+    "baseline_config_sha256": "1e89baa124c2984ab4c71335a8919da64ea057dd4df67ac2b1bc5631a66392c3",
+    "batch_size": 256,
+    "calibration_sha256": "eb1705033ded9b0916885076879e1dc8640e7c2107b53fc833dff9586d796aeb",
+    "degree": 30,
+    "erm_reference_result_sha256": "d87e218a5975ad8f3415d72f06597685f35914c003bc6ab774e36c0f8c0affe8",
+    "expected_updates": 500,
+    "implementation_sha256": "2e85fb556fa8b81dff05981840853609d62b5dc12b8a3cf8ae262c580da69f6f",
+    "inference": {
+      "mode": "deterministic_greedy",
+      "shared_batches": true,
+      "shared_hardware_required": true,
+      "symmetry_transforms": 1
+    },
+    "method": "wdro_rest",
+    "nominal_limit": 0.009802540915565372,
+    "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+    "reference_solver": {
+      "implementation_sha256": "508cf6ec03af543f04b7c54598e8447cf578321c1bc5533bdbbd6f31054118e2",
+      "library_sha256": "8b0e1599f072711b739158f30b10da8e41f585b87d9b5bcd55cfcde4c8020a6a",
+      "reference_id": "geosteiner_exact_binary_scale_v2",
+      "require_status": "optimal",
+      "rounding": "none",
+      "scale": 134217728,
+      "validate_embedding": true
+    },
+    "rho": 0.01381177343428135,
+    "rho_mode": "q50",
+    "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+    "training_seed": 101,
+    "wdro_config_sha256": "09277cd4c4ebe59490eea150375a36aa1ebce5d86531ab4099cba62ab5801fa5"
+  },
+  "schema_version": 1,
+  "segment_wall_seconds": 1632.417740367353,
+  "selection_feasible": true,
+  "started_this_segment_at_update": 1,
+  "status": "complete",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_seed": 101,
+  "training_stream_hash": "938e869016da91d7f24d404991e3b0749fc90a1f044c5cd5b0519767de018233"
+}

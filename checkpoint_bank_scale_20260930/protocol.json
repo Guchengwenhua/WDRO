@@ -1,0 +1,36 @@
+{
+  "status": "frozen_before_training",
+  "scope": "d10 only, no automatic d30 expansion",
+  "arms": [
+    "geo",
+    "k3",
+    "lagged3"
+  ],
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "updates": 2000,
+  "batch_size": 256,
+  "initialization": "original legacy actor rsmt10b; fresh critic via original derived_seed; fresh Adam lr5e-5 eps1e-5 wd0; original policy RNG namespace",
+  "search": "original random_sobol32+nominal; fixed MST/HPWL shortlist nominal+3; scorebatch256; original generate_support identifier-derived seed",
+  "cost": "Hungarian L1 mean",
+  "rho": 0.029607180878520014,
+  "lambda": "initial0, projected ascent eta1, original finite/max100 gate",
+  "loss": "original per-net relative regret actor-critic; only reference provider differs between arms; no clipping negative targets, original ReLU critic unchanged",
+  "bank": "historical recorded validation-selected top3 for k3; lagged3 anchor=top1 plus legacy step0 then recent2 snapshots every50; warmup2 members; skip tensor-identical snapshots; no validation ranking for lagged",
+  "refresh": "after outer update; bank frozen throughout every search/update; no final2000 refresh",
+  "validation": "original 4groups x2000, every100, exact cached references, nominal limit same-seed ERM+.002",
+  "test": "after training full10000 pergroup, both latest and validationbest, original greedy batch256 unpadded tail",
+  "storage": "artifacts symlink /attached/remote-home1/Guilin/DRO/Codex/checkpoint_bank_scale_20260930/artifacts",
+  "runtime": "GPU5 fraction.1 threads1; wait rolling queue.lock once via flock",
+  "differences_from_historical_execution": [
+    "no content digests/audit",
+    "scalar exact reference cache disabled so every requested net solved; values unchanged, calls/time not equal to cached run",
+    "explicit current library path",
+    "TF32 explicitly off; model train/eval modes and original scientific loop retained",
+    "resource scheduling outside old managed scheduler"
+  ],
+  "correctness": "equivalence.json CPU8 instance one-update passed; not full long-run equivalence claim"
+}

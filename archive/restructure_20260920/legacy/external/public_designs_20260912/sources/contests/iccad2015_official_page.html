@@ -1,0 +1,257 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css"><!--
+  .s1 { font-family: sans-serif; font-weight: normal; font-size: 8pt; }
+ .s2 { font-family: sans-serif; font-weight: normal; font-size: 14pt; }
+ .s3 { font-family: sans-serif; font-weight: normal; font-size: 12pt; }
+ .p, p { font-family: serif; font-weight: normal; font-size: 14.5pt; }
+ .s4, li { font-family: serif; font-weight: normal; font-size: 13.5pt; }
+.auto-style1 {
+	text-align: center;
+}
+.auto-style2 {
+	line-height: 100%;
+}
+.auto-style3 {
+	line-height: 125%;
+	text-align: center;
+}
+.auto-style4 {
+	line-height: 100%;
+}
+.auto-style5 {
+	text-align: left;
+}
+
+  -->
+</style>
+<link href="./Untitled_12.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+</style></head><body>
+<div>
+<h1 class="auto-style1">IEEE CEDA / Taiwan MOE, ICCAD 2015 Contest </h1>
+<h2 class="auto-style1">Incremental Timing-driven Placement</h2>
+<h3 class="auto-style1">Myung-Chul Kim and Jin Hu,<i> IBM Corporation, TX/NY, USA </i></h3>
+<hr>
+<!----------------------------------------------------->
+<h2 class="auto-style5">0. Announcements</h2>
+<p class="auto-style2">
+<ul>
+	<b> Things to be noted when you use read_spef() for incremental timing analysis: <a href="./Docs/incremental_timer_usage.txt">Click here</a></b> <br>
+	<b> TIP: internally increasing MAX_WIRE_SEGMENT_LENGTH (e.g., > 100um) can save memory usage and runtime, while little accuracy is harmed with the current wire model.</b>
+	<li> 11/19/2015: <b>Thank you for your participation in ICCAD Contest 2015. The <a href=#RESULTS>final slides and placements</a> are uploaded.</b>
+	<li> 09/09/2015: The teams must submit a brief abstract describing their methodology in solving the Problem C, along with the final binary. The abstract should be written in README.txt (or .pdf, .doc), and should not be longer than 2000 characters including spaces, containing a maximum of two figures. </font>
+	<li> 08/31/2015: We are now changing default MAX_WIRE_SEGMENT_LENGTH to 100um, to save memory usage, overall runtime, and disk space. Evaluation script tar ball now include the new ICCAD2015.parm. All default outputs are slightly changed. 
+	<li> 08/31/2015: <a href=#RESULTS>Best extra results</a> have been posted.
+	<li> 08/15/2015: Evaluation script updated (ver 1.2.2). No quality changes unless you modify FF-to-LCB association. See <a href=#DOWNLOAD>Download section</a> (<a href="./Docs/release_note.txt">Release Note</a>)
+	<li> 08/11/2015: superblue7 benchmark uploaded in in <a href=#BENCHMARKS>Benchmarks section</a>.
+	<li> 08/11/2015: Timer updated (ver 2.2.2). It does not change the default output on the released benchmarks. Please use the latest timer. The <a href="http://web.engr.illinois.edu/~thuang19/software/timer/OpenTimer.html">timer source codes</a> have been released. 
+	<li> 08/10/2015: <a href=#RESULTS>Best beta results</a> have been posted. Please re-send your binary if you want to get re-evaluation.
+	<li> 07/29/2015: superblue10 benchmark uploaded in <a href=#BENCHMARKS>Benchmarks section</a>.
+	<li> 07/27/2015: superblue4 benchmark uploaded in <a href=#BENCHMARKS>Benchmarks section</a>.
+	<li> 07/01/2015: Evaluation script/timer updated (ver 1.2.1). The default outputs changed a bit, too. See <a href=#DOWNLOAD>Download section</a> and <a href="./Docs/release_note.txt">Release Note</a>. Keep in mind that the new timer API - splice_driver - is NOT to be used for the incremental netlist modification.
+	<li> 06/27/2015: Evaluation script/timer updated (ver 1.2.0). 
+	<li> 06/27/2015: Please make sure to build a static binary that supports <b>GNU/Linux 2.6.18 or lower</b>. Otherwise, it crashes on the contest machine. Type in '<b>file &ltyour binary&gt</b>' and check the minimum kernel version that it supports. You need to rebuild and submit your alpha binary if it is higher than 2.6.18 (<a href="https://stackoverflow.com/questions/11206243/how-to-build-a-static-binary-for-gnu-linux-installations-with-old-kernel">HELP</a>, <a href=#SUBMISSION>contest machine spec.</a>)
+	<li> 06/11/2015: superblue16 benchmark uploaded in <a href=#BENCHMARKS>Benchmarks section</a>. Also two max displacement limits posted per design. We test your placer twice per design, varying the limits.
+	<li> 06/08/2015: Evaluation script slightly updated (ver 1.1.2).
+	<li> 06/06/2015: superblue18 benchmark updated (one macro's dimension and placement modified)
+	<li> 06/03/2015: Evaluation scrip/timer updated (ver 1.1.1).
+	<li> 06/02/2015: Contest file format updated in <a href="#BENCHMARKS">Benchmarks section</a>. See the Sec 4. Updates. 
+	<li> 06/02/2015: superblue18 benchmark uploaded in <a href=#BENCHMARKS>Benchmarks section</a>
+	<li> 06/02/2015: Evaluation script/timer updated (ver 1.1.0).
+	<li> 05/08/2015: Contest file format uploaded in Benchmarks section.
+	<li> 05/07/2015: <a href=#DOWNLOAD>Download section</a> created. Preliminary parser, spef writer, evaluation script (ver 1.0), and simple test case are uploaded.
+	<li> 04/08/2015: <a href=#TIMER>Timer section</a> created.
+	<li> 03/13/2015: <a href=#FAQ>FAQ section</a> is created. See how this year's contest differs from the <a href="http://cad_contest.ee.ncu.edu.tw/CAD-contest-at-ICCAD2014/problem_b/default.html">last year's</a>. 
+	<li> 03/01/2015: The System Specification details are now released in the main contest webpage.
+</ul></p>
+<hr>
+<!----------------------------------------------------->
+
+<h2 class="auto-style5">1. Important Dates</h2>
+<p class="auto-style2">
+<ul>
+	<li>05/24/2015: Registration deadline
+	<li>06/24/2015: Alpha submission deadline : To pass the test, a binary must be executable on the contest machine and handle arguments properly. See <a href=#SUBMISSION>guidelines</a>.
+	<li>07/28/2015: Beta submission deadline : To pass the test, a binary must generate meaningful solutions on the released benchmarks.
+	<li>09/10/2015: Final submission deadline
+	<li>10/01/2015: Email notification to top three teams
+	<li>11/03/2015: Presentation at ICCAD 2015
+</ul></p>
+<hr>
+
+<hr>
+<a name="RESULTS">
+<h2 class="auto-style5">2. Evaluation Results</h2>
+<p class="auto-style2">
+<ul>
+	<li><a href=./Docs/iccad15_problemC_results.pdf>Final results and slides.</a>
+	<ul>
+		<li><a href=./Solutions/cada014.tar.gz>1st Place - Federal University of Santa Catarina (cada014)</a>
+		<li><a href=./Solutions/cada085.tar.gz>2nd place - Federal University of Rio Grande do Sul (cada085)</a>
+		<li><a href=./Solutions/cada070.tar.gz>3rd place - The Chinese University of Hong Kong (cada070)</a>
+	</ul>
+	<li>Extra evaluation best results on quality improvement. <br>
+	<img src="./ExtraResult.PNG">
+	<li>Beta evaluation best results on quality improvement. <br>
+	<img src="./BetaResult.PNG">
+</ul></p>
+<hr>
+
+<!----------------------------------------------------->
+<h2 class="auto-style5">3. Contest Description (<a href=./Docs/contest_description.pdf>contest_description.pdf</a>)</h2>
+	<h3 class="auto-style4">a) Introduction</h3>
+	<p class="auto-style2">
+	&nbsp;&nbsp;&nbsp;&nbsp;Incremental timing-driven placement is one of the crucial steps in the RTL-to-GDSII VLSI design flow. This step optimizes locations of circuit elements to reduce the interconnect delay for timing critical paths, which is becoming a major limiting factor for timing closure in deep-submicron VLSI designs.<br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Although there have been significant advances in the quality of placement algorithms by way of the ISPD-2005, ISPD-2006, ISPD-2011, ICCAD-2012, and ICCAD-2013 placement contests, the most research activities have been driven by innovations in early placement in the flow whereas incremental timing-driven placement is often considered as an after-thought in the flow and implemented as a mixture of ad hoc techniques. The state-of-the-art incremental timing-driven placement algorithms are often hard to be compared, and individual impact of the technique in the flow remains unclear.<br><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Nevertheless, the need for high performance incremental timing-driven placement continues to grow in modern design closure flows. Due to the lack of accurate interconnect information during early placement, placement engines typically try to optimize total wirelength, which is unaware of interconnect length distributions for individual timing paths. During the optimization of routability, density profiles, or other objective, their timing impacts are often harmed and can generate timing violations / other timing-critical paths. Thus, it is important to recover timing while maintaining the solutions that the optimizations provided. Some important metrics that need to be carefully monitored to preserve the overall quality of a given placement include: (a) placement density, (b) pin density, and/or (c) routing congestion. While optimizing wirelength, the impact on such metrics should remain well-bounded. Meanwhile, at different points in the flow, one needs different degrees of timing-driven placement -- earlier one can allow larger moves in order to improve timing.  Late in the flow, only small local moves that clearly improve the design can be accepted.  This contest will frame the problem and in such a way as to capture incremental timing-driven placement that spans the gamut of possible needs in a design closure flow. Some examples include: (a) the relative trade-offs between optimizing timing and preserving the overall quality of an input placement, or (b) placement techniques required to obtain good timing and routing profile, in case the tool needs to explicitly limit the maximum movement from a given placement. <br><br>
+	</p>
+
+<!----------------------------------------------------->
+	<h3 class="auto-style4">b) Contest Objectives</h3>
+	<p class="auto-style2">
+	For a given legal circuit placement of a netlist, <b>timing-driven placement</b> incrementally seeks legal locations of the circuit elements to optimize timing of the network subject to the given constraints. The goal of the ICCAD 2015 contest is to evaluate the performance and impact of different incremental timing-driven placement algorithms after initial wirelength / routability-driven placement during physical synthesis. Specific objectives of the proposed contest include: 
+	<ul type="disc">
+		<li>Provide benchmarks derived from industrial ASIC designs (w/ hierarchy info.) and infrastructure that can be used to perform timing-driven placement in academic environments. Open-source academic timer will be used. All benchmarks will be representative of modern designs with numerous placement blockages, millions of standard cells.</li>
+		<li>Motivate research in the area of timing-driven placement.</li>
+		<li>Provide standard metric(s) as well as a framework to compare timing-driven placement algorithms during physical synthesis flows.</li>
+	</ul>
+	</p>
+<!----------------------------------------------------->
+	<h3 class="auto-style4">c) Evaluation Methodology</h3>
+	<p class="auto-style2">
+	<b>The quality of the placement solutions will be evaluated on the following metrics:</b>
+	<ul type="disc">
+		<li>Timing violation improvement (ΔTNS / ΔWNS)</li>
+	</ul>
+	</p>
+	<p class="auto-style2">
+	<b>The optimization should be subject to the following constraints:</b>
+	<ul type="disc">
+		<li>Soft constraint; Maintaining the similar routing congestion / (pin) density profile of an input solution.
+		<li>Hard constraints; solutions with the following violations are disregarded during the evaluation.
+		<ul>
+			<li>Maximum displacement from an input solution (can be benchmark specific).
+			<li>Legality.
+			<li>Local Clock Buffer (LCB) and clock connection validity.
+			<ul>
+			  <li>The clock signal must be fed to every FF's clock pin via LCBs.
+				<li>Each FFs's clock pins must driven by a single LCB.
+				<li>Each LCB's # of fanouts must be less than MAXIMUM_LCB_FANOUTS from ICCAD15.parm.
+			</ul>
+		</ul>
+	</ul>
+	<p class="auto-style2">
+	For each benchmark design, the teams will be ranked using the contest evaluation metric. The evaluation metric will both consider the quality of placement solutions and runtimes. The team with the lowest total rank across all the contest designs would win the contest. See details here: <a href=./Docs/contest_description.pdf>contest_description.pdf</a>.
+	</p>
+<hr>
+
+<!----------------------------------------------------->
+<a name="DOWNLOAD">
+<h2 class="auto-style5">4. Download</h2>
+	<a name="TIMER">
+	<h3 class="auto-style4">a) Timer</h3>
+		<p class="auto-style2">
+		For this contest, we are using UI-Timer 2.0, based on the 1st place timer from the 
+		<a href="https://sites.google.com/site/taucontest2014">TAU 2014</a> and the 2nd place timer from the 
+		<a href="https://sites.google.com/site/taucontest2015">TAU 2015</a> Timing Contests. 
+		There are two versions available: one as a binary, and one as APIs to use for embedding into your placement tools. 
+		For more information about timer input and usage (<b>e.g., incremental timer usage by feeding a modified spef</b>), please visit the 
+		<a href="https://sites.google.com/site/taucontest2015">TAU 2015 Contest website</a>, and look at 
+		<a href="https://sites/google.com/site/taucontest2015/resources">Resources</a> -&gt; 
+		<a href="https://sites.google.com/site/taucontest2015/resources/documents/contest_file_formats.pdf?attredirects=0">TAU 2015 contest_file_formats</a>.
+		<br>
+		<ul>
+		<li><a href="./Timer/ui-timer2.2.gz">UI-Timer 2.2 Standalone Binary</a>      (Updated 07/01/15)
+		</li><li><a href="./Timer/include-files.zip">include (.h) files</a>          (Updated 08/10/15)
+		</li><li><a href="./Timer/libui-timer.a.gz">static library</a>               (Updated 08/10/15) 
+		If you're experiencing linking error and your gcc version &lt 4.7, try <a href="./Timer/libui-timer44.a.gz">this</a> instead, or just compile and link <a href="http://web.engr.illinois.edu/~thuang19/software/timer/OpenTimer.html">timer</a> at your machine. 
+		</li><li><a href="./Timer/simple.cpp">simple.cpp</a> (example API usage)     (Updated 04/08/15)
+		</li><li><a href="./Timer/simple.tar.gz">simple.tar.gz</a> (example benchmark) (Updated 04/09/15)
+		</li></ul>
+		</p>
+	<h3 class="auto-style4">b) Parser/Evaluation Script</h3>
+		<p class="auto-style2">
+		The start's kit includes benchmark parser (not generic, only for use in the contest), Steiner tree generator, spef writer, usage of timer APIs, evaluation procedures, and technology/timer-related files 
+		that all you need to evaluate timing on testcases. A `simple' testcase is also included. Feel free to use/modify the evaluation script source codes (*.cpp, *.h, makefile) to 
+		build your own infrastructure.  
+		<ul>
+			<li><a href="./Scripts/iccad2015_evaluate_solution_0831.tar.gz">Starter's kit</a> (Updated 08/31/15) 			
+			<li>Example usage: <b>'make test'</b>
+			<li>Be sure to have proper soft links to the FLUTE's dat files in the current directory (i.e., POWV9.dat -&gt; Flute/POWV9.dat PORT9.dat -&gt; Flute/PORT9.dat).
+			<li>Please report any errors to the contest administrators.
+		</ul>
+		</p>
+	<a name="BENCHMARKS">
+	<h3 class="auto-style4">c) Benchmarks</h3>
+	<p class="auto-style2">
+	Disclaimer: The benchmarks are reversed-engineered from bookshelf-format files by individual academic researchers using their published methods/logic mapping. 
+	Therefore, the logic and timing information of the benchmarks can be different from that of the actual designs. 
+	Also, please note that maximum cell displacement limits, target utilization and clock periods may be subject to changes during the final evaluation.</p>
+	<ul>
+		<li><a href="./Docs/contest_file_formats.pdf">ICCAD 2015 contest file formats</a> (it's ICCAD 2014 format + .ops)
+		<li> For future PD / routing research, please refer to the full technology file : <a href=./Benchmarks/tech.lef.gz>tech.lef.gz</a>
+		<li> simple (included in the starter's kit) - <a href=./Benchmarks/simple.txt>default output</a>
+		<li> <a href=./Benchmarks/superblue18.tar.gz>superblue18</a> [ target_util: 0.85, max_disp = {20um, 400um} ]- <a href=./Benchmarks/superblue18.new.txt>default output</a> (Updated 08/31/15)
+		<li> <a href=./Benchmarks/superblue16.tar.gz>superblue16</a> [ target_util: 0.85, max_disp = {30um, 400um} ]- <a href=./Benchmarks/superblue16.new.txt>default output</a> (Updated 08/31/15)
+		<li> <a href=./Benchmarks/superblue4.tar.gz>superblue4</a> [ target_util: 0.90, max_disp = {20um, 400um} ]- <a href=./Benchmarks/superblue4.new.txt>default output</a> (Updated 08/31/15)
+		<li> <a href=./Benchmarks/superblue10.tar.gz>superblue10</a> [ target_util: 0.87, max_disp = {20um, 500um} ]- <a href=./Benchmarks/superblue10.new.txt>default output</a> (Updated 08/31/15)
+		<li> <a href=./Benchmarks/superblue7.tar.gz>superblue7</a> [ target_util: 0.90, max_disp = {50um, 500um} ]- <a href=./Benchmarks/superblue7.new.txt>default output</a> (Updated 08/31/15)
+		<li> <a href=./Benchmarks/superblue1.tar.gz>superblue1</a> [ target_util: 0.80, max_disp = {40um, 400um} ]- <a href=./Benchmarks/superblue1.txt>default output</a> (was hidden for final eval.)
+
+		<li> <a href=./Benchmarks/superblue3.tar.gz>superblue3</a> [ target_util: 0.87, max_disp = {40um, 400um} ]- <a href=./Benchmarks/superblue3.txt>default output</a> (was hidden for final eval.)
+
+		<li> <a href=./Benchmarks/superblue5.tar.gz>superblue5</a> [ target_util: 0.85, max_disp = {30um, 400um} ]- <a href=./Benchmarks/superblue5.txt>default output</a> (was hidden for final eval.)
+
+	</ul>
+<hr>
+
+<!----------------------------------------------------->
+<a name="SUBMISSION">
+<h2 class="auto-style5">5. Submission Information</h2>
+<h3 class="auto-style4">a) Contest Machine Configuration: </h3>
+	<ul>
+		<li> <font color="red"><b>OS: Linux 2.6.18-404.el5</b> : make sure your binary supports this by typing in 'file &ltbinary&gt'</font></li>
+		<li> CPU: 16 x Quad Cores @ 2.3GHz </li>
+		<li> Memory: main memory = 62 GB
+		<li> Library: Standard C/C++ library. For others please contact the contest administator.</li>
+	</ul>
+<h3 class="auto-style4">b) Submission Guidelines: </h3>
+	<ul> 
+
+		<li> <b>Deliverables : A single static binary that generates placement solutions for all benchmarks and "README" file</b></li>
+		<li> The name of the binary must match to your team number (<b>i.e., cadaxxx</b>) and please include binary instructions in <b>README</b><br>
+				 When your binary is ran without any arguments, it should return the same instructions. </li>
+		<li> The naming formats of a final placement solution should be <b>&ltbenchmark&gt-cadaxxx.def</b>, <b>&ltbenchmark&gt-cadaxxx.ops</b> (e.g., superblue18-cada001.def)</li>
+		<li> The output of the placer should be an ASCII text file that conforms to the <a href="./Docs/contest_file_formats.pdf">output DEF/OPS format</a> (See simple/final.def, final.ops). </li>
+		<li> <font color=red>Your binary must be statically linked (i.e, when you type in "ldd &ltbinary&gt", no dynamic library should show up).</font></li>
+		<li> <font color=red>Your binary should be able to parse the following arguments properly:<br>
+		     <b>-settings &lt.parm&gt -input &lt.iccad2015&gt -ut &lttarget_utilization&gt -max_disp &ltmaximum_cell_displacement limit in um&gt</b></font></li>
+		<li> Your binary should be able to read the circuits (.iccad2015) in different directories than current one (e.g., -input &ltpath_to_iccad2015&gt/superblue16.iccad2015)</li>
+		<li> Parallel / multi-threaded implementations of the placement algorithms are allowed, but limited to use a maximum of <font color=red>eight (8)</font> threads. </li>
+		<li> You do not need to upload your source codes / benchmarks to the ftp site, unless requested.</li>
+		<li> <font color=red>In the final submission, please include descriptions of your TDP algorithms in the README file.</font>
+	</ul>
+<hr>
+
+<!----------------------------------------------------->
+
+<a name="FAQ">
+<h2 class="auto-style5">6. FAQ </h2>
+<ul type="disc">
+	<li> <b><font color="#660033">Q: Do you still use FLUTE to generate Steiner trees for clock nets? </h5></font></b><br>A: This year's contest will assume existence of local clock buffers (LCBs), which can drive up to about 40-50 clocked elements. We assume virtual ideal wires from a clock source to each local clock buffer (i.e., no parasitics and thus zero nominal skew) -- which eliminates your concerns. The connection between a LCB to clocked elements will still be routed by Steiner/MST (or any equivalents), but on any reasonable placement solutions, the wirelengh between two should be short so that routes wouldn't make much difference.</li><br>
+	<li> <b><font color="#660033">Q: Are LCBs movable?</font></b><br>A: Yes they are. They are basically large inverters, to be implemented in silicon layers. The contestants are required to place them avoiding overlaps with other cells, while providing lists of clocked elements associated with them. The number of available LCBs is fixed per benchmark. We initially cluster clocked elements and place each LCB in the center of gravity of associated clocked elements. We will be using K-means for this procedure, which you can improve if needed.</li><br>
+	<li> <b><font color="#660033">Q: Is cell flipping / rotation allowed? </font></b><br>A: No. All cells are assumed to be in their default orientations.</li><br>
+	<li> <b><font color="#660033">Q: What tools are available to solve linear program problems and what C++ shared libraries we can use in our placer?</font></b><br>A: If needed, we can install "public" linear program solver, such as lpsolve. Let me know which one you want. Please generate a "static" binary, and avoid using dynamically linked shared libraries. All requests to install third-party tools / libraries to run the placer should be made before or during the preliminary submission. The contest administrator will only install public domain tools / libraries. No proprietary tools can be installed.</li><br>
+	<li> <b><font color="#660033">Q: Are buffering / routability considered?</font></b><br>A: No. But the benchmark circuits will be comprehensive, for future academic research.</li><br>
+	<li> <b><font color="#660033">Q: Which academic timer and delay model will be used in this contest? </font></b><br>A: We are going to use one of the top performers (open source) from the TAU 2015 contest with CPPR capability, and distributed RC model (PI2). We will try our best to avoid unfair advantages to any teams due to choice of the timer infrastructure.</li><br>
+	<li><b><font color="#660033">Q: I read some of the FAQ  questions and you said that this year the contest will assume the existence of local clock buffers (LCB). You also state that the contestants are required to place the LCB. On the other hand, you state that the latency from the clock source to each LCB will be set to an identical number. Does it make sense? Regardless of the positions of LCB the latency will be the same for all? </font></b><br>A: The design stage assumed in the contest does not have clock routing yet. What we meant by the sentence in the contest webpage is that whatever we do before clock routing, clock network can be synthesized such that latencies from a clock source to all clock sinks (here LCBs) can be perfectly matched (i.e., zero skew). With the state-of-the-art techniques in CNS, this is very doable especially when no variability considered like the contest, via wire-snaking / buffering. Even academic CNS tools could readily achieve good nominal skews (less than a few pico-seconds -- see the results of ISPD 2009 CNS contest). Many vendor tools in this stage assume similarly due to lack of clock routing information. Let me know if this makes sense to you now. </li><br>
+	<li> <b><font color="#660033">Q: The LCB will overlap with cells and Macro Blocks or they are purely virtual?</font></b><br>A: They are basically physical buffers, and thus are implemented in silicon layers -- just like other standard cells. </li><br>
+	<li> <b><font color="#660033">Q: In the problem C (Incremental Timing-Driven Placement) the released timer for ICCAD 15 contest has CPPR capability. Will be required to performance CPPR optimization in ICCAD 2015 Contest?</font></b><br>A: Yes, the final timing will have CPPR performed, so CPPR will be required if you are implementing your own timer. The contest timer has this capability built-in. The final results will be judged with post-CPPR slacks.</li><br>
+	<li> <b><font color="#660033">Q: In problem C, how can i know the layout of simple case and how can i transform layout to .spef?</font></b><br>A: Please download starter's kit, equipped with spef writer and simple test case.</li><br>
+	<li> <b><font color="#660033">Q: Will clock buffers be inserted in between LCB and flip-flops? If not, flops connected to the same LCB will have a constant CPPR credit and flops connected to different LCB will have 0 CPPR credit. Is that right?</font></b><br>A: From the contest problem's perspective, we will not be inserting or removing any logic from the design. Therefore, no clock buffers will be additionally inserted as incremental placement (and timing) occurs. However, you will be allowed to disconnect and reconnect each LCB to different flops for rebalancing and/or optimization purposes. That is, while no additional buffers will be inserted, the topology of the clock network can still change. Assuming that you do not modify the clock network at all, please keep in mind that each LCB is still connected to the clock source, meaning that you still would have some CPPR credit from the source to each LCB (common path). Therefore, flops connected to different LCBs may still have some common CPPR credit. Also, for flops connected to the same LCB, if you move some of existing buffers along the common path, the CPPR credit will need to be updated accordingly. If you are modifying the clock network (i.e., reconnecting LCBs), then you will need to recompute the CPPR credit according to the new topology.</li><br>
+	<li> <b><font color="#660033">Q: Will there be buffers between LCBs and flops (in the initial DEF)?</font></b><br>A: Answer is no. Ideal wires connect between the clock source to LCBs.</li><br>
+	<li> <b><font color="#660033">Q: As we have an ideal network driving the LCBs, then the CPPR credit is going to be the same for flops connected to different LCBs (assuming there's no buffer between LCB and flops). Do you agree?</font></b><br>A: Yes, I agree.</li><br>
+	<li> <b><font color="#660033">Q: Can a lowest common ancestor (LCA) be an internal network point (i.e. a Steiner point from Flute)? If not, the LCA for two flops connected to the same LCB will be output of the LCB. If yes, the credit is going to be dependent on the flop positions. As the Flute is very sensitive to small changes in the node positions (in this case, flops), the CPPR credit also becomes very sensitive to flop positions. Therefore, resembling the clock skew problem of the previous contest.</font></b><br>A: Any reasonable placement solutions should have short wire connections between LCBs and FFs. So I do not expect such large skew problem as the previous contest where long clock routing was done by FLUTE. As mentioned, global clock routing is assumed to be ideal (i.e., zero skew among LCBs' inputs. no FLUTE is used) and only short local wires exist between LCBs and FFs.  So avoiding large skew is very doable.</li><br>
+	
+</ul>
+
+</body></html>

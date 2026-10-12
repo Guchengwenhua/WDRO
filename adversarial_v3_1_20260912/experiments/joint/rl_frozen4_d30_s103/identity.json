@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "experiment": "adversarial_v3_joint",
+  "method": "rl_frozen4",
+  "degree": 30,
+  "seed": 103,
+  "smoke": false,
+  "config": {
+    "updates": 512,
+    "batch_size": 64,
+    "learning_rate": 1e-05,
+    "gradient_clip": 1.0,
+    "lambda_learning_rate": 1.0,
+    "validation_interval": 64,
+    "validation_count": 128,
+    "evaluation_count": 512,
+    "independent_attack_count": 64,
+    "evaluation_batch_size": 64,
+    "rl_interval": 4,
+    "critic_interval": 32,
+    "rl_learning_rate": 0.0003,
+    "critic_learning_rate": 0.0001,
+    "nominal_degradation_max": 0.002,
+    "initial_checkpoint_is_candidate": true,
+    "optimizer_initialization": "fresh_for_main_policy_and_search_surrogate"
+  },
+  "protocol": {
+    "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/protocol.json",
+    "sha256": "ee05b4bb6e7955a7a463b71454ba2fd5d85de9643f9bef859f54ae2e2b0f8e63"
+  },
+  "dependencies": {
+    "parent_erm": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s103_u2000/best.pt",
+      "sha256": "ebc5cfeb475b82c252c42f6a940f2e46964aea6b9051a39eeb4f6b5e1a17216c"
+    },
+    "parent_wdro_rest": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage6/formal_wdro_d30_s103_u2000_v1/best.pt",
+      "sha256": "8bbb44bf46d49e23c3ec5fb4e0d3e56197ca986bef2c5eccd893c4ab73eb88e3"
+    },
+    "fixed_opponent_completion": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/fixed/erm_d30_s103/complete.json",
+      "sha256": "8c55afc8a4edad45c139575dc6906e41faeff689688d78d4eb7f56d33d690d48"
+    },
+    "learned_policy": {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_1_20260912/fixed/erm_d30_s103/rl/best.pt",
+      "sha256": "00e32ed43b08919df01fbe550b3137f445680401cf626661cca3917602dd6d5c"
+    }
+  },
+  "source": {
+    "common.py": "5ff462a4c76ece32e0a2b57a45049c14c42aedbcd736ebbbcd949fec7c6eaca2",
+    "search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f",
+    "joint.py": "262b8cb657ee387f84311c74c60b9e3b7ad6c5ba7359ba520cb514fd36f9c947",
+    "rl.py": "5b8d37c25af8e21174cb92404b704b5b037c0e86418c6cc610d9a31db825f8bb"
+  },
+  "data_namespaces": {
+    "train": "joint-training-u{update:06d}",
+    "validation": "joint-validation",
+    "evaluation": "joint-evaluation",
+    "independent_attack": "joint-independent-attack",
+    "rl_online": "joint-attacker-training-u{update:06d}"
+  }
+}

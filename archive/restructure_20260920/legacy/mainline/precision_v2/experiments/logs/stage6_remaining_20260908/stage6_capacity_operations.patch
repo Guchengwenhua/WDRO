@@ -1,0 +1,119 @@
+--- /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage6_remaining_20260908/stage6_pipeline_before.py
++++ /remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/scripts/stage6_pipeline.py
+@@ -10,12 +10,17 @@
+ 
+ from capture_host_runtime import gpu_sample,compute_processes,disk_snapshot
+ JOB=EXP/'logs/stage6_pipeline'
++import precision_queue_runtime as runtime
+ def process_is_alive(pid):
+     try:return Path(f'/proc/{pid}/stat').read_text().split(') ',1)[1].split()[0] not in ('Z','X')
+     except FileNotFoundError:return False
+ 
+ 
+ def gate(smoke=True):
++    runtime.gate()
++    overlay=json.loads((ROOT/'manifests/precision_stage6_runtime_operations_v1.json').read_text())
++    for row in overlay['files']:
++        assert file_sha256(Path(row['logical_path']))==row['sha256'],row['logical_path']
+     for name in ['stage6_training_contract_v1','stage6_operations_contract_v1']:
+         path=ROOT/'manifests'/f'{name}.json'
+         if not path.exists():
+@@ -38,12 +43,7 @@
+         if not process_is_alive(pid):path.rename(path.with_name('run.lock.stale.'+str(time.time_ns())))
+ 
+ def preflight(purpose,degree=None,inference=False):
+-    profile=json.loads((EXP/'logs/stage6_smoke/memory_profile.json').read_text())
+-    command=[sys.executable,str(ROOT/'scripts/capture_host_runtime.py'),'--purpose',purpose,
+-        '--measured-peak-mib',str(measured_peak(degree,inference)+1024),'--safety-margin-mib','2048']
+-    p=subprocess.run(command,capture_output=True,text=True)
+-    append_jsonl(JOB/'preflights.jsonl',{'at_utc':utc_now(),'command':command,'exit_code':p.returncode,'stdout':p.stdout,'stderr':p.stderr})
+-    return json.loads(p.stdout.strip().splitlines()[-1]) if p.returncode==0 else None
++    return runtime.capture(purpose,measured_peak(degree,inference),JOB)
+ 
+ def observe():return {'at_utc':utc_now(),'time':time.time(),'gpus':gpu_sample(),'compute_processes':compute_processes(),'disk':[disk_snapshot(CODEX),disk_snapshot(EXP)]}
+ 
+@@ -67,25 +67,24 @@
+     p=Path(task['result'])
+     return json.loads(p.read_text()) if p.exists() else None
+ 
+-def choose_gpu(rows,active,history,blocked,need,now):
+-    eligible=[]
+-    for row in rows:
+-        gpu=row['index'];count=sum(a['gpu']==gpu for a in active.values())
+-        minfree=min([row['minimum_free_memory_mib']]+[g['memory_free_mib'] for h in history for g in h['gpus'] if g['index']==gpu])
+-        if row['eligible'] and minfree>need and count<2 and now>blocked.get(gpu,0):eligible.append((count,-minfree,gpu))
+-    return min(eligible)[2] if eligible else None
++choose_gpu=runtime.choose_gpu
+ 
+ def run_queue(tasks,lease,phase):
+     for task in tasks:
+         assert file_sha256(Path(task['config']))==task['config_sha256'],'run config hash changed'
+     active={};blocked={};history=[];last_progress=0;attempts={};monitor_times={}
++    if (JOB/'resource_monitor.jsonl').exists():
++        with (JOB/'resource_monitor.jsonl').open() as saved:
++            for line in saved:
++                row=json.loads(line)
++                if row['time']>time.time()-600:history.append(row)
+     # Adopt surviving project children after a controller restart.
+     for t in tasks:
+         job=EXP/'logs/jobs'/t['run_id']/'job.json'
+         if job.exists():
+             j=json.loads(job.read_text());pid=j['pid']
+             cmdline=Path('/proc')/str(pid)/'cmdline'
+-            if process_is_alive(pid) and cmdline.exists() and t['run_id'] in cmdline.read_text():
++            if runtime.process_matches(pid,t['run_id'],ROOT/'scripts/train_stage6.py'):
+                 active[t['run_id']]={'pid':pid,'gpu':j['physical_gpu_index'],'adopted':True,'saturated':[],'task':t,'log':None,'stopping':False}
+     try:
+         while True:
+@@ -100,10 +99,12 @@
+                 if not alive:
+                     code=a['proc'].returncode if 'proc' in a else None
+                     append_jsonl(JOB/'segments.jsonl',{'at_utc':utc_now(),'run_id':rid,'gpu':a['gpu'],'pid':a['pid'],'exit_code':code,'log':a['log']})
+-                    if code and a['log']:
+-                        tail=Path(a['log']).read_text()[-40000:]
+-                        if 'out of memory' not in tail.lower():raise RuntimeError(f'training error in {a["log"]}')
++                    tail=Path(a['log']).read_text()[-40000:] if a['log'] else ''
++                    resource=runtime.capacity_exit(a,code,result_for(a['task']),tail)
++                    if resource:
++                        attempts[rid]=max(0,attempts.get(rid,0)-1)
+                         blocked[a['gpu']]=time.time()+600
++                        append_jsonl(JOB/'capacity_requeues.jsonl',dict(at_utc=utc_now(),run_id=rid,pid=a['pid'],gpu=a['gpu'],exit_code=code,failure_attempts=attempts[rid],reason='verified capacity pause or CUDA OOM; resume unchanged checkpoint'))
+                     del active[rid];continue
+                 row=next(g for g in snapshot['gpus'] if g['index']==a['gpu'])
+                 a['saturated']=(a['saturated']+[row['utilization_gpu_percent']>=95])[-6:]
+@@ -123,6 +124,7 @@
+                 if reason and not a['stopping']:
+                     # Stop only one tenant of this project per GPU per cycle.
+                     if not any(x['gpu']==a['gpu'] and x['stopping'] for x in active.values()):
++                        assert runtime.process_matches(a['pid'],rid,ROOT/'scripts/train_stage6.py')
+                         os.kill(a['pid'],signal.SIGTERM);a['stopping']=True;blocked[a['gpu']]=time.time()+600
+                         append_jsonl(JOB/'recoveries.jsonl',{'at_utc':utc_now(),'run_id':rid,'pid':a['pid'],'gpu':a['gpu'],'reason':reason})
+             state={'phase':phase,'at_utc':utc_now(),'tasks':tasks,'complete':completed,
+@@ -152,7 +154,7 @@
+                         if (EXP/'checkpoints/stage6'/rid/'latest.pt').exists():cmd+=['--resume']
+                         log=JOB/(rid+'_'+str(int(time.time()))+'.log')
+                         cleanup_dead_lock(EXP/'logs/jobs'/rid)
+-                        with log.open('a') as out:proc=subprocess.Popen(cmd,stdout=out,stderr=subprocess.STDOUT)
++                        with log.open('a') as out:proc=subprocess.Popen(cmd,stdout=out,stderr=subprocess.STDOUT,start_new_session=True)
+                         a={'pid':proc.pid,'gpu':gpu,'task':t,'log':str(log),'stopping':False,'saturated':[],'proc':proc,'update':0}
+                         active[rid]=a
+                         record={'at_utc':utc_now(),'run_id':rid,'pid':proc.pid,'gpu':gpu,'command':cmd,'exact_command':shlex.join(cmd),
+@@ -161,8 +163,7 @@
+                         append_jsonl(JOB/'postlaunch.jsonl',dict(observe(),run_id=rid,pid=proc.pid))
+             time.sleep(15)
+     except BaseException:
+-        for a in active.values():
+-            if process_is_alive(a['pid']):os.kill(a['pid'],signal.SIGTERM)
++        runtime.stop_children(active,ROOT/'scripts/train_stage6.py',JOB)
+         raise
+ 
+ def audited(tasks,lease,phase):
+@@ -277,6 +278,8 @@
+ 
+ def main():
+     JOB.mkdir(parents=True,exist_ok=True);gate()
++    def stop(signum,frame):raise KeyboardInterrupt('controller stop requested; saving children')
++    signal.signal(signal.SIGTERM,stop)
+     command=shlex.join(['bash',str(ROOT/'scripts/stage3_env.sh'),sys.executable,str(Path(__file__))])
+     with JobLease(JOB,run_id='stage6_pipeline',exact_command=command,
+         resume_command=f'bash {ROOT}/scripts/stage3_env.sh {sys.executable} {ROOT}/scripts/launch_stage6.py',

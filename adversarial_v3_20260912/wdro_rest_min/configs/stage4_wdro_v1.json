@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "config_id": "wdro-rest-stage4-diagnostic-v1",
+  "status": "frozen",
+  "research_protocol_override": false,
+  "stage": 4,
+  "method": "wdro_rest",
+  "ground_cost": "hungarian_l1_mean",
+  "lambda_initial": 0.0,
+  "lambda_learning_rate": 1.0,
+  "rho_diagnostic_quantile": 0.5,
+  "calibration": {
+    "source": "training_centers_only",
+    "degree": 30,
+    "seed": 101,
+    "update": 1,
+    "batch_size": 256,
+    "exclude_nominal_zero": true
+  },
+  "calibration_artifact": "experiments/cache/stage4/calibration_d30_s101.json",
+  "zero_radius": "exact_zero_cost_feasible_set_lambda_infinity_limit",
+  "search_contract": "unchanged_stage3_baselines_v1",
+  "stability_updates": 500,
+  "stability_gate": {
+    "window_updates": 100,
+    "relative_mean_cost_tolerance": 0.1,
+    "maximum_lambda": 100.0,
+    "minimum_legal_fraction": 0.999,
+    "tail_windows": 2
+  },
+  "notes": [
+    "q50 is a diagnostic radius, not a validation-selected hyperparameter.",
+    "No stage5 sweeps or final hyperparameter selection in this stage.",
+    "The finite-support LP allows fractional conditional mass; online training chooses one support point per center."
+  ],
+  "frozen_at_utc": "2026-09-05T16:41:54.202351+00:00",
+  "freeze_basis": "stage4_dual_tests_v1.log plus training-only q50 calibration; prior to model smoke"
+}

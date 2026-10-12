@@ -1,0 +1,109 @@
+{
+  "status": "complete",
+  "run_id": "post_pre2048_erm_s301",
+  "kind": "coev",
+  "method": "erm",
+  "seed": 301,
+  "initial_step": 2048,
+  "step": 8192,
+  "task": {
+    "id": "post_pre2048_erm_s301",
+    "kind": "coev",
+    "method": "erm",
+    "seed": 301,
+    "start": 2048,
+    "end": 8192,
+    "milestones": [
+      2048,
+      4096,
+      8192
+    ],
+    "parents": {
+      "resume": {
+        "run": "coev_erm_s301",
+        "step": 2048,
+        "source": "legacy"
+      }
+    },
+    "priority": 1
+  },
+  "identity": {
+    "pid": 982752,
+    "start_ticks": "3447167043",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "time": "2026-09-22T11:50:36Z",
+    "device": "cuda:0",
+    "physical_gpu_index": 1,
+    "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "duty_fraction": 1.0
+  },
+  "binding": {
+    "protocol_sha256": "737de52e8aba578c9013ab6b52f55073f7b2e2ec2c241ef18d9b8da609bcf855",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/runner.py": "1f59115dfd17c67dfec68c79c3f5784d1e13d9a1c7fe4a599b02a0433872186a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/engine.py": "39bcc94df8423e677a60529dbd8d4098beaf1b6ae20d064d54242ec836fc1c9a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/policies.py": "fbab7457b63b09c2afd879e9b10bfc15942ff7104f5fbab53e8f21f214284a3f",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/env_geometry.py": "388e4f956865bb25ee54c6ec8785fd8ce80d87f47e3a216dcfb08d27e1393914"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "parents": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/lineage/coev_erm_s301/latest.pt": "887896698c4110f04626d328c48d20681dad12b609261492ba542a40580bbd74"
+    },
+    "task": {
+      "id": "post_pre2048_erm_s301",
+      "kind": "coev",
+      "method": "erm",
+      "seed": 301,
+      "start": 2048,
+      "end": 8192,
+      "milestones": [
+        2048,
+        4096,
+        8192
+      ],
+      "parents": {
+        "resume": {
+          "run": "coev_erm_s301",
+          "step": 2048,
+          "source": "legacy"
+        }
+      },
+      "priority": 1
+    }
+  },
+  "device": "cuda:0",
+  "calls": {
+    "search_greedy_scores": 0,
+    "evaluation_greedy_scores": 442368,
+    "sampled_actor_scores": 393216,
+    "search_padded_forward_rows": 0,
+    "evaluation_padded_forward_rows": 454656,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 10014.856119692326,
+  "peak_allocated_bytes": 375944192,
+  "artifacts_sha256": {
+    "latest.pt": "e59e0b29b3e36d5cbc986618abde0bb5152a2193885f52840bad36178888a91b",
+    "run.json": "fd2035545af81e3e40dac1be4e871f1e3edf11cfccab7e89e7d2444a6682f21b",
+    "progress.jsonl": "8c1d0fddb1ea60c8eeeb63db3e18983e42ab3846392626795d721572fa5ddc66",
+    "actual_calls.jsonl": "ea0aeb9b23d272b4113e7ff1fd2e5ea1bef617b8eb468a7d8252049d2de9cc16",
+    "inherited_budget.json": "1210f5cd7a88df4822137e8bb6e79ac0719100aad2502cc3ca27f41c659fe9e8",
+    "checkpoints/step_2048.json": "79ab130825490f69605d7bf79a5c87aeaf95a4aa59977efcd3136d62e2a1d936",
+    "checkpoints/step_2048.pt": "fe3c125213721488c848afca059314c9d29338f282879d4612025321765cfcbe",
+    "checkpoints/step_4096.json": "4936206fe691c6a60b81669c38d537dca30789f821e151b1e34c7a9ad688b0d1",
+    "checkpoints/step_4096.pt": "801a137134c32233bf1fbe6092ccdeeb780c38b89d327bb5bc3d141122f34fdc",
+    "checkpoints/step_8192.json": "4752e2ea4bc29c42af8a7147281be877a29b3cde60b6ad4621ef4d912aabad5d",
+    "checkpoints/step_8192.pt": "e59e0b29b3e36d5cbc986618abde0bb5152a2193885f52840bad36178888a91b",
+    "evaluations/step_2048.json": "e5ecf996cfc7ee83939945504104870ff6e6600d186147e44c2a6879b01884fd",
+    "evaluations/step_2048.npz": "37f44dc3d794de11b3d77dedb6f8308b721cc56c848242fb219e47d82a1af0a7",
+    "evaluations/step_4096.json": "1d9afa1e94875fbf7e1edfb2f828c5eddacc1f4a1a33fdbbeb90c69206475769",
+    "evaluations/step_4096.npz": "05f19e8ac371f3d2eaeb86f45098894a154f19fe80095cb5bfda9b677b7b4f0f",
+    "evaluations/step_8192.json": "9e29a5c870f56cb342f5986e92dc418c3fe30f2ff9430ae785088cc32a37e802",
+    "evaluations/step_8192.npz": "aee0f09ea90eeee34681d97263fe850b8d80af790a2a6e85776de9be40423c29"
+  }
+}

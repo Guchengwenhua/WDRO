@@ -1,0 +1,659 @@
+{
+  "capacity_model": {
+    "measured_peak_mib": 4626,
+    "mode": "measured_peak_plus_margin",
+    "safety_margin_mib": 2048
+  },
+  "captured_at_utc": "2026-09-06T19:32:31.450242Z",
+  "checks": {
+    "at_least_one_eligible_gpu": true,
+    "experiments_disk_meets_floor": true,
+    "logical_paths_within_codex": true
+  },
+  "disk": {
+    "codex_logical_root": {
+      "free_bytes": 194972946432,
+      "free_gib": 181.583,
+      "logical_path": "/remote-home/Guilin/DRO/Codex",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex",
+      "total_bytes": 15998763663360,
+      "used_bytes": 15803790716928
+    },
+    "experiments_artifact_root": {
+      "free_bytes": 3037663961088,
+      "free_gib": 2829.045,
+      "logical_path": "/remote-home/Guilin/DRO/Codex/experiments",
+      "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments",
+      "total_bytes": 3778190245888,
+      "used_bytes": 548528193536
+    },
+    "minimum_free_gib": 100.0
+  },
+  "eligible_gpu_indices": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "gpu_decisions": [
+    {
+      "average_gpu_utilization_percent": 71.0,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 0,
+      "maximum_gpu_utilization_percent": 81,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 12415,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 71.333,
+      "compute_check_passed": true,
+      "eligible": false,
+      "index": 1,
+      "maximum_gpu_utilization_percent": 97,
+      "memory_check_passed": false,
+      "minimum_free_memory_mib": 4341,
+      "reasons": [
+        "minimum free must exceed measured peak 4626 + margin 2048 MiB"
+      ]
+    },
+    {
+      "average_gpu_utilization_percent": 50.667,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 2,
+      "maximum_gpu_utilization_percent": 77,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 26572,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 68.667,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 3,
+      "maximum_gpu_utilization_percent": 76,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 26600,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 4.0,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 4,
+      "maximum_gpu_utilization_percent": 12,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 33797,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 0.333,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 5,
+      "maximum_gpu_utilization_percent": 1,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 30789,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 0.0,
+      "compute_check_passed": true,
+      "eligible": true,
+      "index": 6,
+      "maximum_gpu_utilization_percent": 0,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 44465,
+      "reasons": []
+    },
+    {
+      "average_gpu_utilization_percent": 98.0,
+      "compute_check_passed": false,
+      "eligible": false,
+      "index": 7,
+      "maximum_gpu_utilization_percent": 100,
+      "memory_check_passed": true,
+      "minimum_free_memory_mib": 11319,
+      "reasons": [
+        "multi-sample compute utilization is persistently near saturation"
+      ]
+    }
+  ],
+  "kind": "host_runtime_preflight",
+  "preflight_passed": true,
+  "purpose": "stage6_single_audit_formal_wdro_d40_s101_u2000_v1",
+  "research_protocol_override": false,
+  "sampling": {
+    "count": 3,
+    "interval_seconds": 2.0,
+    "samples": [
+      {
+        "captured_at_utc": "2026-09-06T19:32:31.450270Z",
+        "compute_processes": [
+          {
+            "gpu_uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+            "pid": 3648459,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 36182
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 3648334,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 42832
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 716880,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1420
+          },
+          {
+            "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+            "pid": 3544138,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22038
+          },
+          {
+            "gpu_uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+            "pid": 3544139,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22010
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 1058617,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 10664
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 241474,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 1059026,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 12712
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 242107,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 785161,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 956
+          },
+          {
+            "gpu_uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09",
+            "pid": 240833,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 2941302,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 35882
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 633871,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1428
+          }
+        ],
+        "gpus": [
+          {
+            "index": 0,
+            "memory_free_mib": 12415,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 36224,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 53,
+            "utilization_gpu_percent": 80,
+            "utilization_memory_percent": 52,
+            "uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363"
+          },
+          {
+            "index": 1,
+            "memory_free_mib": 4341,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 44298,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 60,
+            "utilization_gpu_percent": 97,
+            "utilization_memory_percent": 68,
+            "uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae"
+          },
+          {
+            "index": 2,
+            "memory_free_mib": 26572,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22068,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 61,
+            "utilization_gpu_percent": 75,
+            "utilization_memory_percent": 80,
+            "uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4"
+          },
+          {
+            "index": 3,
+            "memory_free_mib": 26600,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22040,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 52,
+            "utilization_gpu_percent": 66,
+            "utilization_memory_percent": 71,
+            "uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef"
+          },
+          {
+            "index": 4,
+            "memory_free_mib": 33797,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 14842,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 36,
+            "utilization_gpu_percent": 12,
+            "utilization_memory_percent": 5,
+            "uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba"
+          },
+          {
+            "index": 5,
+            "memory_free_mib": 30789,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 17850,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 38,
+            "utilization_gpu_percent": 1,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f"
+          },
+          {
+            "index": 6,
+            "memory_free_mib": 44465,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 4174,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 35,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09"
+          },
+          {
+            "index": 7,
+            "memory_free_mib": 11319,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 37320,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 52,
+            "utilization_gpu_percent": 100,
+            "utilization_memory_percent": 100,
+            "uuid": "GPU-454b1963-256e-690b-7984-79d10659716d"
+          }
+        ],
+        "sample_index": 0
+      },
+      {
+        "captured_at_utc": "2026-09-06T19:32:33.662093Z",
+        "compute_processes": [
+          {
+            "gpu_uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+            "pid": 3648459,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 36182
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 3648334,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 42832
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 716880,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1420
+          },
+          {
+            "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+            "pid": 3544138,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22038
+          },
+          {
+            "gpu_uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+            "pid": 3544139,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22010
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 1058617,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 10664
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 241474,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 1059026,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 12712
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 242107,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 785161,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 956
+          },
+          {
+            "gpu_uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09",
+            "pid": 240833,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 2941302,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 35882
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 633871,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1428
+          }
+        ],
+        "gpus": [
+          {
+            "index": 0,
+            "memory_free_mib": 12415,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 36224,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 51,
+            "utilization_gpu_percent": 81,
+            "utilization_memory_percent": 55,
+            "uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363"
+          },
+          {
+            "index": 1,
+            "memory_free_mib": 4341,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 44298,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 64,
+            "utilization_gpu_percent": 68,
+            "utilization_memory_percent": 43,
+            "uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae"
+          },
+          {
+            "index": 2,
+            "memory_free_mib": 26572,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22068,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 55,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4"
+          },
+          {
+            "index": 3,
+            "memory_free_mib": 26600,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22040,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 53,
+            "utilization_gpu_percent": 64,
+            "utilization_memory_percent": 69,
+            "uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef"
+          },
+          {
+            "index": 4,
+            "memory_free_mib": 33797,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 14842,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 35,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba"
+          },
+          {
+            "index": 5,
+            "memory_free_mib": 30789,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 17850,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 38,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f"
+          },
+          {
+            "index": 6,
+            "memory_free_mib": 44465,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 4174,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 35,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09"
+          },
+          {
+            "index": 7,
+            "memory_free_mib": 11319,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 37320,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 50,
+            "utilization_gpu_percent": 100,
+            "utilization_memory_percent": 100,
+            "uuid": "GPU-454b1963-256e-690b-7984-79d10659716d"
+          }
+        ],
+        "sample_index": 1
+      },
+      {
+        "captured_at_utc": "2026-09-06T19:32:35.870517Z",
+        "compute_processes": [
+          {
+            "gpu_uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363",
+            "pid": 3648459,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 36182
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 3648334,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 42832
+          },
+          {
+            "gpu_uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae",
+            "pid": 716880,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1420
+          },
+          {
+            "gpu_uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4",
+            "pid": 3544138,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22038
+          },
+          {
+            "gpu_uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+            "pid": 3544139,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 22010
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 1058617,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 10664
+          },
+          {
+            "gpu_uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba",
+            "pid": 241474,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 1059026,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 12712
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 242107,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f",
+            "pid": 785161,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 956
+          },
+          {
+            "gpu_uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09",
+            "pid": 240833,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 4168
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 2941302,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 35882
+          },
+          {
+            "gpu_uuid": "GPU-454b1963-256e-690b-7984-79d10659716d",
+            "pid": 633871,
+            "process_name": "[Not Found]",
+            "used_memory_mib": 1428
+          }
+        ],
+        "gpus": [
+          {
+            "index": 0,
+            "memory_free_mib": 12415,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 36224,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 50,
+            "utilization_gpu_percent": 52,
+            "utilization_memory_percent": 35,
+            "uuid": "GPU-083009f1-983e-376f-f560-5aa9181b2363"
+          },
+          {
+            "index": 1,
+            "memory_free_mib": 4341,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 44298,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 60,
+            "utilization_gpu_percent": 49,
+            "utilization_memory_percent": 36,
+            "uuid": "GPU-10987c98-562e-dfb7-500c-2b418a8decae"
+          },
+          {
+            "index": 2,
+            "memory_free_mib": 26572,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22068,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 61,
+            "utilization_gpu_percent": 77,
+            "utilization_memory_percent": 82,
+            "uuid": "GPU-40f300a9-e528-9faf-d4de-5d2ab467a2b4"
+          },
+          {
+            "index": 3,
+            "memory_free_mib": 26600,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 22040,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 53,
+            "utilization_gpu_percent": 76,
+            "utilization_memory_percent": 82,
+            "uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef"
+          },
+          {
+            "index": 4,
+            "memory_free_mib": 33797,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 14842,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 35,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-4dd277f6-e579-091d-44a5-94bcfc89c6ba"
+          },
+          {
+            "index": 5,
+            "memory_free_mib": 30789,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 17850,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 38,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-ebf47abe-d391-fff8-65fe-ac10180fbf6f"
+          },
+          {
+            "index": 6,
+            "memory_free_mib": 44465,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 4174,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 35,
+            "utilization_gpu_percent": 0,
+            "utilization_memory_percent": 0,
+            "uuid": "GPU-3101bbe4-c59e-8827-0733-a684b9b87f09"
+          },
+          {
+            "index": 7,
+            "memory_free_mib": 11319,
+            "memory_total_mib": 49140,
+            "memory_used_mib": 37320,
+            "name": "NVIDIA RTX 6000 Ada Generation",
+            "temperature_c": 51,
+            "utilization_gpu_percent": 94,
+            "utilization_memory_percent": 100,
+            "uuid": "GPU-454b1963-256e-690b-7984-79d10659716d"
+          }
+        ],
+        "sample_index": 2
+      }
+    ]
+  },
+  "schema_version": 1
+}

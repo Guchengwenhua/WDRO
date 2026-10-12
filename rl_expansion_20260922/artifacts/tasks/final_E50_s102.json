@@ -1,0 +1,36 @@
+{
+  "id": "final_E50_s102",
+  "mode": "train",
+  "stage": "final",
+  "arm": "E50",
+  "seed": 102,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 20480,
+  "target": 49152,
+  "outdir": "artifacts/runs/final_E50_s102",
+  "endpoints": [
+    32768,
+    49152
+  ],
+  "parent": {
+    "path": "artifacts/runs/screen_E50_s102/step20480.pt",
+    "sha256": "cd737ce23f5035614fe8531fd4be30cfe87c8f1ebda236a0730b703f729099c5"
+  },
+  "inherit_training": true
+}

@@ -1,0 +1,28 @@
+{
+  "at_utc": "2026-09-06T02:54:57.595472Z",
+  "audit_controller_pid": 86556,
+  "checks": [
+    {
+      "command": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/launch_stage5.py"
+      ],
+      "exit_code": 1,
+      "expected_rejection": true,
+      "output": "stage5 tmux session already exists; inspect heartbeat\n",
+      "script": "launch_stage5.py"
+    },
+    {
+      "command": [
+        "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/launch_stage5_completed_audit.py"
+      ],
+      "exit_code": 1,
+      "expected_rejection": true,
+      "output": "Traceback (most recent call last):\n  File \"/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/launch_stage5_completed_audit.py\", line 56, in <module>\n    main()\n  File \"/remote-home/Guilin/DRO/Codex/wdro_rest_min/scripts/launch_stage5_completed_audit.py\", line 22, in main\n    assert not process_is_alive(json.loads(lock.read_text())['pid']), 'Completed audit is already running'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Completed audit is already running\n",
+      "script": "launch_stage5_completed_audit.py"
+    }
+  ],
+  "status": "pass",
+  "training_pid": 71265
+}

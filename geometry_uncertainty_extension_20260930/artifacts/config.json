@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "stages": [
+    {
+      "name": "d30_multiseed",
+      "degree": 30,
+      "models": [
+        "M0900",
+        "M1118",
+        "M0902",
+        "M1120"
+      ],
+      "dev": [
+        "D0238",
+        "D0243",
+        "D0248",
+        "D0253"
+      ],
+      "test": [
+        "D0218",
+        "D0223",
+        "D0228",
+        "D0233"
+      ],
+      "dev_n": 1024,
+      "test_n": 2048
+    },
+    {
+      "name": "d10_degree_control",
+      "degree": 10,
+      "models": [
+        "M0888",
+        "M1108"
+      ],
+      "dev": [
+        "D0236",
+        "D0241",
+        "D0246",
+        "D0251"
+      ],
+      "test": [
+        "D0216",
+        "D0221",
+        "D0226",
+        "D0231"
+      ],
+      "dev_n": 512,
+      "test_n": 1024
+    }
+  ],
+  "seed": 20261001,
+  "bootstrap": 1000,
+  "budget": 16,
+  "gpu": "7",
+  "batch": 256,
+  "temperature": 1.0,
+  "float": "FP32",
+  "memory_fraction": 0.1,
+  "dev_selection_candidates": [
+    "Q",
+    "G",
+    "C"
+  ],
+  "test_baselines": [
+    "Hnorm",
+    "maxp",
+    "random"
+  ],
+  "scope": "conditional p(second_endpoint,direction|greedy first endpoint,history)"
+}

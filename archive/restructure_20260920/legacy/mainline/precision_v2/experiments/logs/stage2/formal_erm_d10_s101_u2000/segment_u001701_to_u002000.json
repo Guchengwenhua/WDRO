@@ -1,0 +1,187 @@
+{
+  "batch_size": 256,
+  "best": {
+    "nominal_mean": 0.002284700356008086,
+    "selection_objective": 0.0024323108949866005,
+    "update": 900,
+    "validation_manifest_sha256": "03bcfcc4cae3417d19f40629514c384ddd2207bcee31953f5cc675ad5e69b797"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d10_s101_u2000/best.pt",
+  "best_checkpoint_sha256": "035971604d2f523006ef2341bd0e3f3748840c11ee244c72be6c464a1e9f7f2f",
+  "call_ledger": {
+    "actor_forward_nets": 680001,
+    "exact_rest_evaluator_nets": 680002,
+    "geosteiner_nets": 512002,
+    "surrogate_evaluator_nets": 0
+  },
+  "completed_updates": 2000,
+  "cuda_visible_devices": "0",
+  "degree": 10,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage2/formal_erm_d10_s101_u2000/events.jsonl",
+  "expected_updates": 2000,
+  "finished_at_utc": "2026-09-07T05:07:03.256338Z",
+  "geosteiner_workers": 3,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/host_runtime_20260907T050455Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 38500,
+    "legacy_best_eval": 2.322439833959299,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/DRO/WDRO-REST/save/DAC21/rsmt10b.pt",
+    "sha256": "8edeb75f81955f90a924b2ffd14a15273ba277ee7c573bac7e868bff5caa1772",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 4.440892098500626e-16,
+    "lstar_normalized": 2.217922881245613,
+    "lstar_original": 2.3355795314902905,
+    "net_id": "train_u000001:uniform:d10:s101:n000000",
+    "rest_absolute_error": 0.0,
+    "rest_normalized": 2.2362964153289795,
+    "rest_original": 2.354927747106403,
+    "scale": 0.9496242158923175,
+    "status": "pass"
+  },
+  "last_validation": {
+    "aggregate": {
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "maximum": 0.04435651581040381,
+          "mean": 0.002471839278548693,
+          "minimum": 0.0,
+          "p95": 0.014317111347263121
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "maximum": 0.06843014779731234,
+          "mean": 0.0023764804147902063,
+          "minimum": 0.0,
+          "p95": 0.014140752174643277
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "maximum": 0.3868812353454739,
+          "mean": 0.0024745292307433776,
+          "minimum": 0.0,
+          "p95": 0.012274537538504434
+        },
+        "uniform": {
+          "count": 2000,
+          "maximum": 0.09016111286007562,
+          "mean": 0.0022432749907340286,
+          "minimum": 0.0,
+          "p95": 0.01351161252572389
+        }
+      },
+      "overall": {
+        "count": 8000,
+        "maximum": 0.3868812353454739,
+        "mean": 0.0023915309787040763,
+        "minimum": 0.0,
+        "p95": 0.013570584199511763
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.0024745292307433776
+    },
+    "degree": 10,
+    "groups": {
+      "edge_bias": {
+        "dataset_array_bundle_sha256": "c741a90a4af8acd88c10539a691acbb09ff0f34571c1ee694a0609cae7cd339d",
+        "first_net_id": "validation:edge_bias:d10:s202:n000000",
+        "last_net_id": "validation:edge_bias:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.04435651581040381,
+          "mean": 0.002471839278548693,
+          "minimum": 0.0,
+          "p95": 0.014317111347263121
+        }
+      },
+      "grid_cluster": {
+        "dataset_array_bundle_sha256": "0a74d4441e5e1d950e0e561d87f1223b9e416f0926bf88991379ae7bb1ddee18",
+        "first_net_id": "validation:grid_cluster:d10:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.06843014779731234,
+          "mean": 0.0023764804147902063,
+          "minimum": 0.0,
+          "p95": 0.014140752174643277
+        }
+      },
+      "mix_gauss": {
+        "dataset_array_bundle_sha256": "964e39459e83495bae40dc2f844d1f0a67040a77f12db3148b2bb03ade8b16c0",
+        "first_net_id": "validation:mix_gauss:d10:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.3868812353454739,
+          "mean": 0.0024745292307433776,
+          "minimum": 0.0,
+          "p95": 0.012274537538504434
+        }
+      },
+      "uniform": {
+        "dataset_array_bundle_sha256": "4e7a26cff06f6526cd37fe22d027044caa63f317772b99bf1c95fb195f8c85d4",
+        "first_net_id": "validation:uniform:d10:s202:n000000",
+        "last_net_id": "validation:uniform:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.09016111286007562,
+          "mean": 0.0022432749907340286,
+          "minimum": 0.0,
+          "p95": 0.01351161252572389
+        }
+      }
+    },
+    "inference": {
+      "batch_size": 256,
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1
+    },
+    "seed": 202,
+    "selection": {
+      "nominal_mean": 0.0022432749907340286,
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "test_or_ispd_used": false,
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.0024745292307433776
+    },
+    "split": "validation"
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d10_s101_u2000/latest.pt",
+  "latest_checkpoint_sha256": "2b8f6427eb96ae0c0aaa041997fe4d3f8f3b36fdc5c14da544841d27b9b8a8e0",
+  "method": "erm",
+  "nan_detected": false,
+  "peak_memory_allocated_bytes": 387895296,
+  "peak_memory_reserved_bytes": 417333248,
+  "physical_gpu_index": 0,
+  "policy_update_nets": 512000,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "resumed_from": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage2/formal_erm_d10_s101_u2000/latest.pt",
+  "run_id": "formal_erm_d10_s101_u2000",
+  "schema_version": 1,
+  "segment_wall_seconds": 122.4261090643704,
+  "started_this_segment_at_update": 1701,
+  "status": "complete",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_seed": 101,
+  "training_stream_hash": "a431bf028c9f2289a1fd89b7ecbd16bba2019110d66299d7fea20f935d96c8f9"
+}

@@ -1,0 +1,67 @@
+{
+  "frozen_at_unix": 1790781401.3604596,
+  "scope": "staged expansion; no Cartesian sweep; no original artifacts overwritten",
+  "resource_limits": {
+    "project_skill": "no numerical GPU cap; inspect availability, preserve memory headroom, do not interrupt others; tmux+atomic checkpoints and handoff once progressing",
+    "our_limits": "one serial training queue GPU5, one frozen-model diagnostic queue GPU7; each CUDA fraction0.10, CPU1; stop stage on own error; no extra paid resources",
+    "disk": "weights on attached disk via project symlinks; root21GB free/attached2TB at snapshot"
+  },
+  "stages": [
+    {
+      "name": "rolling_supplement",
+      "directory": "checkpoint_bank_rolling_20260930",
+      "degree": 10,
+      "seeds": [
+        101,
+        102
+      ],
+      "updates": 200,
+      "arms": [
+        "lagged3"
+      ],
+      "policy": "fixed historical anchor + latest two completed50-step window snapshots; independent frozen models; initial empty slots historical top ranks",
+      "compare": "existing pilot geo and k3; final primary, best secondary",
+      "status": "launched; seed101 actual turnover at50,100,150"
+    },
+    {
+      "name": "faithful_scale",
+      "directory": "checkpoint_bank_scale_20260930",
+      "degree": 10,
+      "seeds": [
+        101,
+        102,
+        103
+      ],
+      "updates": 2000,
+      "batch": 256,
+      "arms": [
+        "geo",
+        "k3",
+        "lagged3"
+      ],
+      "initialization": "original legacy actor plus fresh critic/Adam; original data/RNG/search/dual/loss/validation sequence",
+      "reference": "only bank provider differs scientifically; bookkeeping removes content fingerprints and unrelated audit per Skill; original seed derivation retained",
+      "evaluation": "full cached test10000 per4 groups per model after training; final2000 primary; validation-selected best secondary",
+      "gate": "explicit same-input/RNG Geo adapter small example f/Z/loss/one-step parameters before launch",
+      "status": "launched after identity-reference check pass; first formal geo_s101 update1 committed",
+      "runtime": "tmux checkpoint-bank-scale; artifacts/scale.sock; queuePID1336975; childPID1336977; GPU5"
+    },
+    {
+      "name": "geometry_extension",
+      "directory": "geometry_uncertainty_extension_20260930",
+      "scope": "conditional diagnostics and fixed-budget offline hard selection, not WDRO inner optimum",
+      "d30": "ERM/WDRO x seeds102/103;4 families x(dev1024,test2048), exclude pilot test IDs",
+      "d10": "ERM/WDRO seed102;4 families x(dev512,test1024) as secondary scale control",
+      "total_model_trajectories": 61440,
+      "controls": "T1, fixed early/mid/late step stages; shared instance IDs; dev selects Q/G/C and persists gate before test labels",
+      "inference": "500 paired bootstrap; predeclared primary selection improvement; Holm family correction; historical test limitation acknowledged",
+      "status": "launched; first256 trajectories committed"
+    },
+    {
+      "name": "decision_stage",
+      "status": "not launched",
+      "rule": "after faithful scale and geometry dev/held-out outcomes, decide d30 training replication and geometry-guided WDRO; no parameter chosen on test; geometry candidates must use final normalized coordinates and original Hungarian cost/dual constraints; keep d30 screening separate from d10 training"
+    }
+  ],
+  "interpretation": "No prespecified equivalence margin and no long-run conclusion from pilot. Old refresh3 rejecting all new members remains a valid negative result, not overwritten. No critic redesign mixed into reference-only contrast; negative targets retained and logged."
+}

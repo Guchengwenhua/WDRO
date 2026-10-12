@@ -1,0 +1,913 @@
+{
+  "status": "pass",
+  "phase": "joint",
+  "task": "critic_calibrated4_d30_s101",
+  "method": "critic_calibrated4",
+  "degree": 30,
+  "seed": 101,
+  "parent": "erm",
+  "smoke": true,
+  "identity": {
+    "schema_version": 1,
+    "experiment": "adversarial_v3_joint",
+    "method": "critic_calibrated4",
+    "degree": 30,
+    "seed": 101,
+    "smoke": true,
+    "config": {
+      "updates": 4,
+      "batch_size": 4,
+      "learning_rate": 1e-05,
+      "gradient_clip": 1.0,
+      "lambda_learning_rate": 1.0,
+      "validation_interval": 2,
+      "validation_count": 4,
+      "evaluation_count": 8,
+      "independent_attack_count": 2,
+      "evaluation_batch_size": 4,
+      "rl_interval": 4,
+      "critic_interval": 2,
+      "rl_learning_rate": 0.0003,
+      "critic_learning_rate": 0.0001,
+      "nominal_degradation_max": 0.002,
+      "initial_checkpoint_is_candidate": true,
+      "optimizer_initialization": "fresh_for_main_policy_and_search_surrogate"
+    },
+    "protocol": {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_20260912/Codex/protocol.json",
+      "sha256": "ce00c1dbed5f34cb9fd54f6819594ae2141527d8f870031d2cbbd537cbe83a1a"
+    },
+    "dependencies": {
+      "parent_erm": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage2/formal_erm_d30_s101_u2000/best.pt",
+        "sha256": "22e95d658b68b5adb8bad4e77f1e2f6d55c71e800f946e244a54d24be333612e"
+      },
+      "parent_wdro_rest": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage5/stage5_rho_q75_d30_s101_u2000_v1/best.pt",
+        "sha256": "1235ffb73db7555c494d588c03ee3f68b16b1c1b2be1bfc749d21d1245186746"
+      },
+      "learned_surrogate": {
+        "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/smoke/erm_d30_s101/critic/best.pt",
+        "sha256": "0eb7e6e0374e69face29344a6b93ed294aedacc7369a919940cb5df1c0eef6ba"
+      }
+    },
+    "source": {
+      "common.py": "aba18059a91dbb7c5fac345a3dde5e38c7dc55393429d531d2490abf00af9db1",
+      "search.py": "ef80effff029f450349a525c93e629918b5d3d3024998108b7a35ced6eda850f",
+      "joint.py": "262b8cb657ee387f84311c74c60b9e3b7ad6c5ba7359ba520cb514fd36f9c947",
+      "critic.py": "8f8cc12bf1039641b6b0ef69b4a6d28448514b6b647e87e08360919e022a1719"
+    },
+    "data_namespaces": {
+      "train": "joint-training-u{update:06d}",
+      "validation": "joint-validation",
+      "evaluation": "joint-evaluation",
+      "independent_attack": "joint-independent-attack",
+      "rl_online": "joint-attacker-training-u{update:06d}"
+    }
+  },
+  "identity_hash": "fa9fde7d405a1b6c8d7143a75ddbfe7199da7864d1027b204befc7852750760f",
+  "updates": 4,
+  "best_update": 2,
+  "no_training_improvement": false,
+  "initial_price": 0.0384167150312949,
+  "final_price": 0.09835940556270764,
+  "best_price": 0.07781264769825227,
+  "rho": 0.027471832682689032,
+  "initial_validation": {
+    "uniform": {
+      "count": 4,
+      "mean": 0.00358892037766545,
+      "p95": 0.006320235652094529,
+      "maximum": 0.006689539077198825
+    },
+    "mix_gauss": {
+      "count": 4,
+      "mean": 0.0172019264259044,
+      "p95": 0.02592031724069724,
+      "maximum": 0.026208025420935144
+    },
+    "edge_bias": {
+      "count": 4,
+      "mean": 0.010258002049977455,
+      "p95": 0.020847716323331315,
+      "maximum": 0.0232275433450424
+    },
+    "grid_cluster": {
+      "count": 4,
+      "mean": 0.006153299052773342,
+      "p95": 0.016746626622068234,
+      "maximum": 0.019215305019966378
+    },
+    "ood_worst_group_mean": 0.0172019264259044,
+    "nominal_mean": 0.00358892037766545
+  },
+  "best_validation": {
+    "uniform": {
+      "count": 4,
+      "mean": 0.00358892037766545,
+      "p95": 0.006320235652094529,
+      "maximum": 0.006689539077198825
+    },
+    "mix_gauss": {
+      "count": 4,
+      "mean": 0.011303361953610203,
+      "p95": 0.022197900786294928,
+      "maximum": 0.02428997088601581
+    },
+    "edge_bias": {
+      "count": 4,
+      "mean": 0.010258002049977455,
+      "p95": 0.020847716323331315,
+      "maximum": 0.0232275433450424
+    },
+    "grid_cluster": {
+      "count": 4,
+      "mean": 0.006127401328192672,
+      "p95": 0.016406221811075254,
+      "maximum": 0.018814828771739345
+    },
+    "ood_worst_group_mean": 0.011303361953610203,
+    "nominal_mean": 0.00358892037766545
+  },
+  "initial_evaluation": {
+    "uniform": {
+      "count": 8,
+      "mean": 0.011942127467301639,
+      "p95": 0.017998224568659026,
+      "maximum": 0.018226348138143056
+    },
+    "mix_gauss": {
+      "count": 8,
+      "mean": 0.018343770131488357,
+      "p95": 0.049948180118380495,
+      "maximum": 0.06810411115970294
+    },
+    "edge_bias": {
+      "count": 8,
+      "mean": 0.008176215156718292,
+      "p95": 0.02222479514797589,
+      "maximum": 0.02533889671571643
+    },
+    "grid_cluster": {
+      "count": 8,
+      "mean": 0.009622007759230916,
+      "p95": 0.01834840145845614,
+      "maximum": 0.018726600612235522
+    },
+    "ood_worst_group_mean": 0.018343770131488357,
+    "nominal_mean": 0.011942127467301639
+  },
+  "final_evaluation": {
+    "uniform": {
+      "count": 8,
+      "mean": 0.012603921916353511,
+      "p95": 0.025426872267702634,
+      "maximum": 0.02930407756823472
+    },
+    "mix_gauss": {
+      "count": 8,
+      "mean": 0.01849265175964382,
+      "p95": 0.049948180118380495,
+      "maximum": 0.06810411115970294
+    },
+    "edge_bias": {
+      "count": 8,
+      "mean": 0.006566993773899493,
+      "p95": 0.015077731448979267,
+      "maximum": 0.016441463665029188
+    },
+    "grid_cluster": {
+      "count": 8,
+      "mean": 0.009772645221291093,
+      "p95": 0.017624198303111415,
+      "maximum": 0.017646031601437295
+    },
+    "ood_worst_group_mean": 0.01849265175964382,
+    "nominal_mean": 0.012603921916353511
+  },
+  "independent_attack": {
+    "uniform": {
+      "count": 2,
+      "mean": 0.03325785521002811,
+      "p95": 0.03727273070244489,
+      "maximum": 0.03771882797938009
+    },
+    "mix_gauss": {
+      "count": 2,
+      "mean": 0.06004565286798491,
+      "p95": 0.06263670024672244,
+      "maximum": 0.06292459439991549
+    },
+    "edge_bias": {
+      "count": 2,
+      "mean": 0.028852062879550333,
+      "p95": 0.03577572134554685,
+      "maximum": 0.036545016730657576
+    },
+    "grid_cluster": {
+      "count": 2,
+      "mean": 0.038154110083063575,
+      "p95": 0.04823797419157123,
+      "maximum": 0.04935840353696097
+    },
+    "ood_worst_group_mean": 0.06004565286798491,
+    "nominal_mean": 0.03325785521002811
+  },
+  "history": [
+    {
+      "update": 1,
+      "input_sha256": "49ec7e136839ef0d63173397fdd3362070b34203fd1a54e36c6b9f91f33d0261",
+      "selected_sha256": "4d96a7a84db3fd728042682f7d2b92c207d5229fefaf6a50c51ea74e89c7dbf7",
+      "lambda_before": 0.0384167150312949,
+      "lambda_after": 0.08875591103278485,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.07781102868417898,
+      "mean_search_score": 0.01740450110497961,
+      "mean_search_regret": 0.02039374522023163,
+      "mean_search_improvement": 0.01092080491106097,
+      "search_method": "critic_calibrated4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "geosteiner_misses_completed": 16,
+        "rest_completed": 16,
+        "actor_requested": 16,
+        "actor_completed": 16,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "search_diagnostics": {
+        "method": "critic_calibrated4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.07290239632129669,
+        "critic_loss": 0.00012547698861453682,
+        "mean_regret": 0.01708873820285256,
+        "p95_regret": 0.021891540397349772,
+        "actor_grad_norm_before_clip": 3.989269495010376,
+        "critic_grad_norm_before_clip": 0.03916443884372711,
+        "ledger_delta": {
+          "sampled_actor_requested": 4,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 4,
+          "sampled_actor_completed": 4,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 4,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 4,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "online": null,
+      "validation": null,
+      "validation_feasible": false,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_actor_requested": 4,
+        "actor_requested": 16,
+        "sampled_reference_reuses": 4,
+        "sampled_actor_completed": 4,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 4,
+        "rest_completed": 16,
+        "actor_completed": 16,
+        "sampled_rest_completed": 4,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "geometry_delta": {
+        "fallbacks": 0,
+        "proposals": 108,
+        "repairs": 0
+      },
+      "wall_seconds": 0.8475136682391167
+    },
+    {
+      "update": 2,
+      "input_sha256": "450d5e122c68d09cd9501dd9e95635488a4a385ecf8839f2010ca628b0af9cda",
+      "selected_sha256": "29c4815aa027d1063970c47ba572d1b5632b367f5e0697625e9c55000be65b0d",
+      "lambda_before": 0.08875591103278485,
+      "lambda_after": 0.07781264769825227,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.01652856934815645,
+      "mean_search_score": 0.012084080346245456,
+      "mean_search_regret": 0.013551088576809645,
+      "mean_search_improvement": 0.0011704871047515761,
+      "search_method": "critic_calibrated4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_actor_requested": 0,
+        "actor_requested": 16,
+        "sampled_reference_reuses": 0,
+        "sampled_actor_completed": 0,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 0,
+        "rest_completed": 16,
+        "actor_completed": 16,
+        "sampled_rest_completed": 0,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "search_diagnostics": {
+        "method": "critic_calibrated4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": 0.029157891869544983,
+        "critic_loss": 5.8266094129066914e-05,
+        "mean_regret": 0.009461090414272066,
+        "p95_regret": 0.014695913195755583,
+        "actor_grad_norm_before_clip": 1.6213328838348389,
+        "critic_grad_norm_before_clip": 0.010011999867856503,
+        "ledger_delta": {
+          "sampled_actor_requested": 4,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 4,
+          "sampled_actor_completed": 4,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 4,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 4,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "online": {
+        "nets": 16,
+        "updates": 1,
+        "mse_before": 0.001101342961192131,
+        "mse_after": 0.00613786093890667,
+        "real_oracle_calls": 0,
+        "kind": "critic",
+        "label_actor_update": 1,
+        "label_source": "this_update_true_search_candidates",
+        "ledger_delta": {
+          "sampled_actor_requested": 0,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 0,
+          "sampled_actor_completed": 0,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 0,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 0,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "validation": {
+        "uniform": {
+          "count": 4,
+          "mean": 0.00358892037766545,
+          "p95": 0.006320235652094529,
+          "maximum": 0.006689539077198825
+        },
+        "mix_gauss": {
+          "count": 4,
+          "mean": 0.011303361953610203,
+          "p95": 0.022197900786294928,
+          "maximum": 0.02428997088601581
+        },
+        "edge_bias": {
+          "count": 4,
+          "mean": 0.010258002049977455,
+          "p95": 0.020847716323331315,
+          "maximum": 0.0232275433450424
+        },
+        "grid_cluster": {
+          "count": 4,
+          "mean": 0.006127401328192672,
+          "p95": 0.016406221811075254,
+          "maximum": 0.018814828771739345
+        },
+        "ood_worst_group_mean": 0.011303361953610203,
+        "nominal_mean": 0.00358892037766545
+      },
+      "validation_feasible": true,
+      "best_improved": true,
+      "ledger_delta": {
+        "sampled_actor_requested": 4,
+        "actor_requested": 32,
+        "sampled_reference_reuses": 4,
+        "sampled_actor_completed": 4,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 4,
+        "rest_completed": 32,
+        "actor_completed": 32,
+        "sampled_rest_completed": 4,
+        "rest_requested": 32,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 32
+      },
+      "geometry_delta": {
+        "fallbacks": 0,
+        "proposals": 108,
+        "repairs": 11
+      },
+      "wall_seconds": 1.0684773325920105
+    },
+    {
+      "update": 3,
+      "input_sha256": "0784cf82275bed962bdce1f53b040f4e5fa69fb96083c906fef562867a0a1a8a",
+      "selected_sha256": "984bd7cc30f9f2a8f84ed93d4525b45fcfbcf268f0e16f8a208240d0114ec0ae",
+      "lambda_before": 0.07781264769825227,
+      "lambda_after": 0.06533591859333601,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.014995103577772777,
+      "mean_search_score": 0.008369642673929615,
+      "mean_search_regret": 0.00953645138582565,
+      "mean_search_improvement": 0.0009192507502140661,
+      "search_method": "critic_calibrated4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_actor_requested": 0,
+        "actor_requested": 16,
+        "sampled_reference_reuses": 0,
+        "sampled_actor_completed": 0,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 0,
+        "rest_completed": 16,
+        "actor_completed": 16,
+        "sampled_rest_completed": 0,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "search_diagnostics": {
+        "method": "critic_calibrated4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.04494079202413559,
+        "critic_loss": 7.150475721573457e-05,
+        "mean_regret": 0.02054415355511019,
+        "p95_regret": 0.028484462119481767,
+        "actor_grad_norm_before_clip": 1.6112116575241089,
+        "critic_grad_norm_before_clip": 0.0205038171261549,
+        "ledger_delta": {
+          "sampled_actor_requested": 4,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 4,
+          "sampled_actor_completed": 4,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 4,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 4,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "online": null,
+      "validation": null,
+      "validation_feasible": false,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_actor_requested": 4,
+        "actor_requested": 16,
+        "sampled_reference_reuses": 4,
+        "sampled_actor_completed": 4,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 4,
+        "rest_completed": 16,
+        "actor_completed": 16,
+        "sampled_rest_completed": 4,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "geometry_delta": {
+        "fallbacks": 0,
+        "proposals": 108,
+        "repairs": 0
+      },
+      "wall_seconds": 0.7105835899710655
+    },
+    {
+      "update": 4,
+      "input_sha256": "29c2195b9f38f694b5d340f26d65aa8aa443c5887d56aec8b91e8e7d87415db4",
+      "selected_sha256": "ab956291c7f701c438e39a47b7fe7811e5c4cc71f0fbdd01172a839266efa28a",
+      "lambda_before": 0.06533591859333601,
+      "lambda_after": 0.09835940556270764,
+      "rho": 0.027471832682689032,
+      "mean_cost": 0.06049531965206066,
+      "mean_search_score": 0.019410117731803317,
+      "mean_search_regret": 0.023362635011868194,
+      "mean_search_improvement": 0.014992115598739003,
+      "search_method": "critic_calibrated4",
+      "search_calls_per_center": 4,
+      "search_ledger_delta": {
+        "sampled_actor_requested": 0,
+        "actor_requested": 16,
+        "sampled_reference_reuses": 0,
+        "sampled_actor_completed": 0,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 0,
+        "rest_completed": 16,
+        "actor_completed": 16,
+        "sampled_rest_completed": 0,
+        "rest_requested": 16,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 16
+      },
+      "search_diagnostics": {
+        "method": "critic_calibrated4",
+        "legal_fraction": 1.0,
+        "scoring_batches_per_center": [
+          4
+        ],
+        "nominal_repeat_count": 0
+      },
+      "sampled": {
+        "actor_loss": -0.061413224786520004,
+        "critic_loss": 0.0001439319021301344,
+        "mean_regret": 0.02114083167627917,
+        "p95_regret": 0.031687174016542925,
+        "actor_grad_norm_before_clip": 2.7181901931762695,
+        "critic_grad_norm_before_clip": 0.027993351221084595,
+        "ledger_delta": {
+          "sampled_actor_requested": 4,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 4,
+          "sampled_actor_completed": 4,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 4,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 4,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "online": {
+        "nets": 16,
+        "updates": 1,
+        "mse_before": 0.0026280866004526615,
+        "mse_after": 0.0004994735354557633,
+        "real_oracle_calls": 0,
+        "kind": "critic",
+        "label_actor_update": 3,
+        "label_source": "this_update_true_search_candidates",
+        "ledger_delta": {
+          "sampled_actor_requested": 0,
+          "actor_requested": 0,
+          "sampled_reference_reuses": 0,
+          "sampled_actor_completed": 0,
+          "geosteiner_misses_completed": 0,
+          "sampled_rest_requested": 0,
+          "rest_completed": 0,
+          "actor_completed": 0,
+          "sampled_rest_completed": 0,
+          "rest_requested": 0,
+          "geosteiner_misses_started": 0,
+          "reference_requests": 0
+        }
+      },
+      "validation": {
+        "uniform": {
+          "count": 4,
+          "mean": 0.006033163369218775,
+          "p95": 0.012236689294609991,
+          "maximum": 0.013215598156506081
+        },
+        "mix_gauss": {
+          "count": 4,
+          "mean": 0.013258418256732851,
+          "p95": 0.02337093456816852,
+          "maximum": 0.02428997088601581
+        },
+        "edge_bias": {
+          "count": 4,
+          "mean": 0.011488094350190603,
+          "p95": 0.022345728177271314,
+          "maximum": 0.024313195450488267
+        },
+        "grid_cluster": {
+          "count": 4,
+          "mean": 0.0067685574946524385,
+          "p95": 0.017129235743214982,
+          "maximum": 0.019323216291437184
+        },
+        "ood_worst_group_mean": 0.013258418256732851,
+        "nominal_mean": 0.006033163369218775
+      },
+      "validation_feasible": false,
+      "best_improved": false,
+      "ledger_delta": {
+        "sampled_actor_requested": 4,
+        "actor_requested": 32,
+        "sampled_reference_reuses": 4,
+        "sampled_actor_completed": 4,
+        "geosteiner_misses_completed": 16,
+        "sampled_rest_requested": 4,
+        "rest_completed": 32,
+        "actor_completed": 32,
+        "sampled_rest_completed": 4,
+        "rest_requested": 32,
+        "geosteiner_misses_started": 16,
+        "reference_requests": 32
+      },
+      "geometry_delta": {
+        "fallbacks": 0,
+        "proposals": 108,
+        "repairs": 0
+      },
+      "wall_seconds": 1.0007491931319237
+    }
+  ],
+  "data_audit": {
+    "train": 16,
+    "validation": 16,
+    "evaluation": 32,
+    "independent_attack": 8,
+    "rl_online": 0
+  },
+  "ledger": {
+    "actor_requested": 688,
+    "reference_requests": 688,
+    "geosteiner_misses_started": 624,
+    "geosteiner_misses_completed": 624,
+    "actor_completed": 688,
+    "rest_requested": 688,
+    "rest_completed": 688,
+    "sampled_actor_requested": 16,
+    "sampled_actor_completed": 16,
+    "sampled_rest_requested": 16,
+    "sampled_rest_completed": 16,
+    "sampled_reference_reuses": 16
+  },
+  "geometry_ledger": {
+    "proposals": 432,
+    "repairs": 11,
+    "fallbacks": 0
+  },
+  "task_seconds_this_attempt": 13.956843510270119,
+  "peak_allocated_mib": 135.3115234375,
+  "peak_reserved_mib": 158.0,
+  "artifacts": [
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/attacks/edge_bias/cem64_00000.npz",
+      "sha256": "6d2d694f1a440224a65794339f412d1542b76831d71fc114e96eda1a71e1b4b5"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/attacks/grid_cluster/cem64_00000.npz",
+      "sha256": "eb1a692b557b19b5284c5ea61ffc71b781be105c5175ec16c4f2748acd14d36c"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/attacks/mix_gauss/cem64_00000.npz",
+      "sha256": "026aa01a7ee1208f3012eac544605341bd887962a8e899f4834297c1832ecd20"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/attacks/uniform/cem64_00000.npz",
+      "sha256": "4235aedd8c4aa0300392655e1886d6f8160b7c975c8ff3365eda6c6f6ea25a32"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/best.pt",
+      "sha256": "08cd85ed2b47dc4d7409ab11c6d3e706056688d754ce6658bfcd29c78c2bc294"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/checkpoints/u000002.pt",
+      "sha256": "d01ac8082407e6735aae0b0c9522b6aba2e00264afe19918471c937786c3448a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/checkpoints/u000004.pt",
+      "sha256": "1fc4e17d6f446d4c62b679dd2e58440d2f21c5f81b5eb4ebe9fab3f32dd10d8e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/edge_bias/final_00000.npz",
+      "sha256": "11b4e5bc321ac9cd30c41baacd6d86ee0db32a8f4b808a1743ed5016b8edc142"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/edge_bias/final_00004.npz",
+      "sha256": "bf74ef23f86e0abadc2129d272b1203ac30742b24874fa8d3536ac049accbdc7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/edge_bias/initial_00000.npz",
+      "sha256": "9c721b11f2650927c702e9a2a538f102fec4de680335e2ce1743cb195f885604"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/edge_bias/initial_00004.npz",
+      "sha256": "f9fa1db7f9dd1806881bcdc028911a1c376fd834102cd20d3e82bffd8bf055af"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/grid_cluster/final_00000.npz",
+      "sha256": "5dd4d3ef7416f945e49769b4bd40be2300d8e00eda4bc22527babe4b557ab451"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/grid_cluster/final_00004.npz",
+      "sha256": "77a64580c26caf69748a1dcec75094d69e589179352cac9d7e1d4cca967a2cb4"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/grid_cluster/initial_00000.npz",
+      "sha256": "8af5ad0aba247a0b6fcbcbfc7ebd277b6c02d304ddae8616ab23c09f808be0f2"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/grid_cluster/initial_00004.npz",
+      "sha256": "6bbe0b452c1f0baaa3a0adf9522cc47a3ed41e0c85e67a0a52c4ed4490cb56e4"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/mix_gauss/final_00000.npz",
+      "sha256": "b6f8a617e00065abf7713cdc071026e801855bc1aae7048a7d0a73da8b4f14b4"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/mix_gauss/final_00004.npz",
+      "sha256": "91102c339b278cdf09ac4214be5d6842ec0ca483b7996a57a80c3bea52983725"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/mix_gauss/initial_00000.npz",
+      "sha256": "ad5ba660b96451eef810d6c09727a0885d292a7bcf4bf8a1617de67d8bcb4c53"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/mix_gauss/initial_00004.npz",
+      "sha256": "59dff9b77e2a01b3debe7eb8f2d9d2a4ebeb3df1bbb2472fb3fcb9421837fd10"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/uniform/final_00000.npz",
+      "sha256": "3f32ce299d7719f22251e5e6f770ee97776a69005d903c9d885453e9db5f809c"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/uniform/final_00004.npz",
+      "sha256": "bdd55a018c262a693fc5c9188ebc7e59208795eed280d38c9c12fc421d2b167e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/uniform/initial_00000.npz",
+      "sha256": "e82074879476417ccb4ecb82363aef80254143ffaeab452bf83f406221f4f247"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/evaluation/uniform/initial_00004.npz",
+      "sha256": "7da84eba8ae8521e0ebeffb24559deec87a6a410105d60ef4aedcfc1b379cf92"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/identity.json",
+      "sha256": "bf3deefe4b1954ae96a0376ba83cf6cb2b53ba9441b936c08bfefe80279f04a9"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/initial.pt",
+      "sha256": "8c16484b84b29aa54bbf7066a2746377844e81777add9e792d98b1178e6db77a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/evaluation__edge_bias.npz",
+      "sha256": "04019a30752da5bcccc1491fe89af9169ed16355f45d958dd67d8ddc970df60d"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/evaluation__grid_cluster.npz",
+      "sha256": "0f79d50477ed6fd5c1d5a19f5a99924a123c5cd125af2d9cf0116adeeb250a7f"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/evaluation__mix_gauss.npz",
+      "sha256": "41de5d7c7835e7a4b347a4fbd83784b00da941375907d009953b1666443dec94"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/evaluation__uniform.npz",
+      "sha256": "e3ae3da81942d1f3f8bc7f8bb5241c85a6da427d9ec1dcbb78260a9f30a147b2"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/independent_attack__edge_bias.npz",
+      "sha256": "7543fd89eae9840a8ab85ca5152b45585e1005045c9e499c116eab2669eb4bbc"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/independent_attack__grid_cluster.npz",
+      "sha256": "8496d5bbb360c3965d565d7725b7cc1c2223e268a1fa67e3df7ae26946226ad6"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/independent_attack__mix_gauss.npz",
+      "sha256": "bcb9769b87a04d8fd1e35898f65250aafe745332a57b60b1bbdeedeb2ef002ef"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/independent_attack__uniform.npz",
+      "sha256": "5314e166210c75fb55490a538343c1a5cb8f28ed2583f0e272c5e1c00b44d06d"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/train__u000001.npz",
+      "sha256": "21c4c1fa26bd8bbcfb542146ced6e4e296a1fc7124935d2fc6ec78fbccd2aec7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/train__u000002.npz",
+      "sha256": "6787df3f569c1b178bcda53781928973aa153db4872cb974a5b57bf6f0c83323"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/train__u000003.npz",
+      "sha256": "5adc9704f23b4344282cc8179f8ccab537739b8b46e8adf7863ecec8a87e2a91"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/train__u000004.npz",
+      "sha256": "0c8a1900c3e52c20c0f23cb2dffe20abbd488182ace0a74014c6474fdf17619e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/validation__edge_bias.npz",
+      "sha256": "3b32b5f9542567d019a92126bf9eb815ef10bb9a6109a7d852ac40be3b659fbb"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/validation__grid_cluster.npz",
+      "sha256": "c2d67eb184aaeaeb6ffb5d42aee96ff285fdd318278de0c4a96e043c919aa252"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/validation__mix_gauss.npz",
+      "sha256": "2016c47d46f2c8387d40af5bdb9f52facf44fe2d0532a1236ca11866377bd453"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/inputs/validation__uniform.npz",
+      "sha256": "2198cb1f56f32342ff3249ac8a3a0f4eb68a59e383c3a6bb1f6e520ee3fe5806"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/latest.pt",
+      "sha256": "874b7b57cdd1cb4ef9b8a18d0bf7a8c684264ac44fd30f968ee475bf940525ec"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/oracle/oracle_ledger.json",
+      "sha256": "dabc01ec4fc6b40385f270de42d541d87610ff6c816bcd004c4c2d74697d653a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/training.jsonl",
+      "sha256": "02f8a7d666f7708fb4f2d70aa9451b19055bdb7284a89617a11a71c93d113584"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/updates/u000001.json",
+      "sha256": "cf1a5cb02420df335e54de4ea1afa8a18566e3f84571c403d864b82d9cb9d80e"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/updates/u000002.json",
+      "sha256": "b2ea2dedaaab09764f22b85f1e216dffa5c06dddc1e75c99fb76c3f2673b6177"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/updates/u000003.json",
+      "sha256": "80bfeb440cdd713b14701b01da3ed033e266a008729fb661147bc1ed2b762bf7"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/updates/u000004.json",
+      "sha256": "e6f684a07e4ecc1c0455b11d12b4b29c0ce51f21c69b721f13ffd206b2b364a5"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000000/edge_bias_00000.npz",
+      "sha256": "a132fbf9c3b13e2a1e2677820ddb6762489354df8e3f396590fe35641aa26c20"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000000/grid_cluster_00000.npz",
+      "sha256": "d61ce2e027f2d4e64c03af4f5311b23b7b67cecbcd3f5edcfd2e2cf859f4d60d"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000000/mix_gauss_00000.npz",
+      "sha256": "1f4efb36958b15eeb49fb262315ed0a4b8e8759710b9756b7c44059662b8562f"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000000/uniform_00000.npz",
+      "sha256": "6d9590d04cc8ba7e3632e0379db915ba93cd46fe3d59ff43ebf352e50963067c"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000002/edge_bias_00000.npz",
+      "sha256": "2012f936f865253fd9b9df2a1bca4d0d04e2f1d567c9eeda01c1910c0e3d6fc0"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000002/grid_cluster_00000.npz",
+      "sha256": "63537e16dcae0a89d90898e69ac02277d1bd1f3495d0ec255eb4dc6289b2965d"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000002/mix_gauss_00000.npz",
+      "sha256": "df58aab7f992bc6b3eac1e43c544ffac1bf58e169ae84fde02c9712836b9d265"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000002/uniform_00000.npz",
+      "sha256": "c4ac3c7fbf045fd779af30bf0f017e741604b4dddc947639a532c9e344b7c26a"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000004/edge_bias_00000.npz",
+      "sha256": "0a6fa8a3044568bf4f15e64fd4b6a82128f6dd541af5b777d6e543d63b641dc0"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000004/grid_cluster_00000.npz",
+      "sha256": "b38977698bb7f75c6c33ca9093175da4f8aae2db5db3f07cbc27b64b46ed066b"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000004/mix_gauss_00000.npz",
+      "sha256": "fb2a26d10156f4f213b5b9fc72fdc4f518688f7f716478fc0a61e9ff05695693"
+    },
+    {
+      "path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/adversarial_v3_20260912/joint_smoke/critic_calibrated4_d30_s101/validation/u000004/uniform_00000.npz",
+      "sha256": "edb3f3a75ee9ae14945a0a1b9a51c99f1927fa344d83641a363919bc3bae51fc"
+    }
+  ],
+  "accounting": "greedy search/evaluation and sampled main updates separate; actual attempts never rolled back"
+}

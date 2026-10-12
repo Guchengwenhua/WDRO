@@ -1,0 +1,120 @@
+{
+  "status": "complete",
+  "run_id": "post_pre8192_sequential_ppo_s302",
+  "kind": "coev",
+  "method": "sequential_ppo",
+  "seed": 302,
+  "initial_step": 0,
+  "step": 8192,
+  "task": {
+    "id": "post_pre8192_sequential_ppo_s302",
+    "kind": "coev",
+    "method": "sequential_ppo",
+    "seed": 302,
+    "start": 0,
+    "end": 8192,
+    "milestones": [
+      2048,
+      4096,
+      8192
+    ],
+    "parents": {
+      "warmup": {
+        "run": "pre8192_s302",
+        "step": 8192,
+        "source": "new"
+      },
+      "attacker": {
+        "run": "fixed_pre8192_sequential_ppo_s302",
+        "step": 2048,
+        "source": "new"
+      }
+    },
+    "priority": 3
+  },
+  "identity": {
+    "pid": 1087220,
+    "start_ticks": "3459694564",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "time": "2026-09-23T22:38:29Z",
+    "device": "cuda:0",
+    "physical_gpu_index": 3,
+    "gpu_uuid": "GPU-909d03c8-f7f0-c674-01c4-0e694b11a6ef",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "duty_fraction": 1.0
+  },
+  "binding": {
+    "protocol_sha256": "737de52e8aba578c9013ab6b52f55073f7b2e2ec2c241ef18d9b8da609bcf855",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/runner.py": "1f59115dfd17c67dfec68c79c3f5784d1e13d9a1c7fe4a599b02a0433872186a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/engine.py": "39bcc94df8423e677a60529dbd8d4098beaf1b6ae20d064d54242ec836fc1c9a",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/policies.py": "fbab7457b63b09c2afd879e9b10bfc15942ff7104f5fbab53e8f21f214284a3f",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/env_geometry.py": "388e4f956865bb25ee54c6ec8785fd8ce80d87f47e3a216dcfb08d27e1393914"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/shared/legacy_dro/WDRO-REST/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "parents": {
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/artifacts/runs/pre8192_s302/checkpoints/step_8192.pt": "a56351b749ffefbd6ce02cbf5a268429d3cdd3bcd7af8e6a7fb331ff8e8b56a3",
+      "/remote-home/Guilin/DRO/Codex/rl_prepost_scaleup_20260922/artifacts/runs/fixed_pre8192_sequential_ppo_s302/checkpoints/step_2048.pt": "582e35865fd7409266d3b6e4706571057a867d32088447ec1e6c6973fa419e38"
+    },
+    "task": {
+      "id": "post_pre8192_sequential_ppo_s302",
+      "kind": "coev",
+      "method": "sequential_ppo",
+      "seed": 302,
+      "start": 0,
+      "end": 8192,
+      "milestones": [
+        2048,
+        4096,
+        8192
+      ],
+      "parents": {
+        "warmup": {
+          "run": "pre8192_s302",
+          "step": 8192,
+          "source": "new"
+        },
+        "attacker": {
+          "run": "fixed_pre8192_sequential_ppo_s302",
+          "step": 2048,
+          "source": "new"
+        }
+      },
+      "priority": 3
+    }
+  },
+  "device": "cuda:0",
+  "calls": {
+    "search_greedy_scores": 4194304,
+    "evaluation_greedy_scores": 442368,
+    "sampled_actor_scores": 524288,
+    "search_padded_forward_rows": 4194304,
+    "evaluation_padded_forward_rows": 454656,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 59614.61936419457,
+  "peak_allocated_bytes": 378094080,
+  "artifacts_sha256": {
+    "latest.pt": "cfa0d0cd829d79879638b4808b2299cd0374ba5cfff987b87935878fb7f156ca",
+    "run.json": "5f98fa6c1e8a730051b2a6ef908f49d197625ac2789abe0186ffb2dac9b435ae",
+    "progress.jsonl": "941f796a82d49d4e0396fdce52f3ac4b637709461dbd6671217eb9ee31917cad",
+    "actual_calls.jsonl": "f8158ac6a0d74c71b92c3eab0e045250ccd01a7130f0175f3f751da8d07d2571",
+    "inherited_budget.json": "022db5afb7386e129f79d81e53e7fb3a322f910894114d23a085497f27c02fad",
+    "checkpoints/step_2048.json": "706c2b1d6e16ade6a56174fbf4687d353ae241872793cb18d48f7fcd37560100",
+    "checkpoints/step_2048.pt": "4ffc1a0b160e178595679345aa386583169771287ede49779b449529bb46f163",
+    "checkpoints/step_4096.json": "0348938b76eed6e495e25d588c379fc0d0b16b481f39846da872d80f155a6026",
+    "checkpoints/step_4096.pt": "1312a1f0fb3c744e59306097aed64d014e77fb794683c83cd32e8b84800e25c9",
+    "checkpoints/step_8192.json": "90a66ca2219106479e7a45f8f04a1773fb05d1b0f6b9847d0185dfdc20cf3213",
+    "checkpoints/step_8192.pt": "cfa0d0cd829d79879638b4808b2299cd0374ba5cfff987b87935878fb7f156ca",
+    "evaluations/step_2048.json": "6cc64e48ab33961bb6136e543db869c9f172cd3b824d6e9b50a5df7995c1eb56",
+    "evaluations/step_2048.npz": "4eb14dfa287c936a3529ca11ced6fe61dfaa33a3295c14132e8def82564b6547",
+    "evaluations/step_4096.json": "fc58118a2eb019d5207f7f7a1eab4e5a15d5a1f3c43df14d5ed73a31195ed078",
+    "evaluations/step_4096.npz": "ddac58ffc891f988725882789df5e33b95408b511f160d443e8a748cce45f38d",
+    "evaluations/step_8192.json": "87bc935782606ebe5c6c4b941b56c265b55469dae3b69e681944072814974f7f",
+    "evaluations/step_8192.npz": "461b025c919508506071ee16ca0ed092cf39a03f3fb62cd80c1bbc0585f81691"
+  }
+}

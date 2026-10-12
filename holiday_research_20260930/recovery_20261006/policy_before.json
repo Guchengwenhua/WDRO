@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "deadline_utc": "2026-10-07T15:29:00+00:00",
+  "training_cutoff_utc": "2026-10-06T15:29:00+00:00",
+  "poll_seconds": 300,
+  "child_poll_seconds": 30,
+  "gpus": [
+    1,
+    5,
+    7
+  ],
+  "gpu_min_free_mib": 10240,
+  "gpu_max_utilization_before_start": 85,
+  "cuda_fraction": 0.1,
+  "cpu_threads": 1,
+  "root_min_free_gib": 10,
+  "attached_min_free_gib": 200,
+  "new_artifact_cap_gib": 200,
+  "max_attempts": 2,
+  "max_new_gpu_jobs": 1,
+  "manifest_paths": [
+    "/remote-home/Guilin/DRO/Codex/week_bank_20260930/jobs.json",
+    "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/jobs.json"
+  ],
+  "owned_artifact_dirs": [
+    "/remote-home/Guilin/DRO/Codex/holiday_research_20260930/artifacts",
+    "/remote-home/Guilin/DRO/Codex/week_bank_20260930/artifacts",
+    "/remote-home/Guilin/DRO/Codex/week_geometry_20260930/artifacts"
+  ],
+  "dependencies": {
+    "scale": "/remote-home/Guilin/DRO/Codex/checkpoint_bank_scale_20260930",
+    "geometry": "/remote-home/Guilin/DRO/Codex/geometry_uncertainty_extension_20260930"
+  },
+  "failure_policy": "one retry only for transient resource/I-O/process interruption with resumable outputs; deterministic errors block dependent branch, preserve logs; no arbitrary code mutation",
+  "no_new_services": true
+}

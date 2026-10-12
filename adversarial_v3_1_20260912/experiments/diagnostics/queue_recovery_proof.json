@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "at": 1789204010.5274463,
+  "cpu_tests": 5,
+  "scientific_modules_changed": false,
+  "running_queue_restarted": false,
+  "reference_reconciliation_fields": [
+    "reference_requests",
+    "geosteiner_misses_started",
+    "geosteiner_misses_completed"
+  ],
+  "session_test": {
+    "controller_pid": 356608,
+    "controller_exit": -1,
+    "child_pid": 356609,
+    "child_sid": 356609,
+    "child_pgid": 356609,
+    "child_survived": true,
+    "child_active_after_test": false
+  },
+  "evidence": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/adv_v3/queue.py",
+      "sha256": "251aff0eb7b329b6a40b6b9d034127eaba733f22b15436bae1fa431cbd670f74"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/adv_v3/pipeline.py",
+      "sha256": "7b5346a4d10b666bf690e4f2682ada6712440f24e995be559c126fb0a66c8b80"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/tests/test_queue_recovery_v3.py",
+      "sha256": "dbc6e29b62de3250c4e823675cc59c1a117554405291dd5abfa89b37526f9d20"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/logs/queue_recovery_tests.log",
+      "sha256": "ead5959601dbe352262bc4032e2e3babb0dc079a1d60ccb7ef2c9454d3fdeed2"
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/revisions/adversarial_v3_1_20260912/Codex/experiments/queue/fixed/erm_d10_s102_1789203581124012928_a1.log",
+      "sha256": "952d7e69fb92279b440aef1aad58757ace2e057a6d4c38dec91c3691b0df3b0a"
+    }
+  ],
+  "cause_assessment": "Failure log confirms reference_requests delta mismatch. ReferenceCache commits call receipts before exact solving; Oracle JSON refresh occurs after solving. Stale JSON after SIGHUP is consistent with evidence; pre-interruption JSON was not retained to prove the exact delta."
+}

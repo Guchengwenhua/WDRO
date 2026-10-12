@@ -1,0 +1,353 @@
+{
+  "comparisons": [
+    {
+      "baseline_value": 3.6420277677275408,
+      "candidate_value": 3.461859932198422,
+      "improvement": 0.18016783552911875,
+      "improvement_percent": 4.946909991340765,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.28498109523252424,
+        0.1262906767055938,
+        0.1292317346492382
+      ],
+      "ci95": [
+        0.12594204105800297,
+        0.28325197546989783
+      ],
+      "simultaneous_ci99": [
+        0.12480992533539696,
+        0.28707744669079605
+      ],
+      "name": "training_budget",
+      "baseline": "U/step2048",
+      "candidate": "U/step8192",
+      "metric": "mean",
+      "primary": true,
+      "mean_degradation_percent": -4.946909991340764,
+      "supports": true,
+      "direction": "candidate_better_with_corrected_interval"
+    },
+    {
+      "baseline_value": 3.461859932198422,
+      "candidate_value": 3.4495109622043856,
+      "improvement": 0.012348969994036452,
+      "improvement_percent": 0.35671489418678914,
+      "improved_seeds": 2,
+      "seed_improvement": [
+        0.04284433791781339,
+        -0.0092841985965606,
+        0.003486770660856564
+      ],
+      "ci95": [
+        -0.009004761463006616,
+        0.04225824083561065
+      ],
+      "simultaneous_ci99": [
+        -0.0103203255330709,
+        0.04472085231322581
+      ],
+      "name": "data_coverage",
+      "baseline": "U/step8192",
+      "candidate": "M/step8192",
+      "metric": "mean",
+      "primary": true,
+      "mean_degradation_percent": -0.3567148941867937,
+      "supports": false,
+      "direction": "exploratory_or_uncertain"
+    },
+    {
+      "baseline_value": 3.8042260204789877,
+      "candidate_value": 3.8669665777027453,
+      "improvement": -0.0627405572237576,
+      "improvement_percent": -1.6492331655903552,
+      "improved_seeds": 0,
+      "seed_improvement": [
+        -0.056660507716514985,
+        -0.05808510383394605,
+        -0.07347606012081087
+      ],
+      "ci95": [
+        -0.07275609959165194,
+        -0.055047133513608064
+      ],
+      "simultaneous_ci99": [
+        -0.07598301223671115,
+        -0.053837410928102444
+      ],
+      "name": "robust_finetuning",
+      "baseline": "ME/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "primary": true,
+      "mean_degradation_percent": 2.013517928968356,
+      "supports": false,
+      "direction": "candidate_worse_with_corrected_interval"
+    },
+    {
+      "baseline_value": 3.914141728921701,
+      "candidate_value": 3.8669665777027453,
+      "improvement": 0.04717515121895577,
+      "improvement_percent": 1.205248927763072,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.029180808742239606,
+        0.08863169394680881,
+        0.02371295096781978
+      ],
+      "ci95": [
+        0.022599959122453585,
+        0.08643342987925279
+      ],
+      "simultaneous_ci99": [
+        0.020384712703880724,
+        0.09226534388501934
+      ],
+      "name": "pretraining_order",
+      "baseline": "D/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "primary": true,
+      "mean_degradation_percent": -3.0942563659071887,
+      "supports": true,
+      "direction": "candidate_better_with_corrected_interval"
+    },
+    {
+      "baseline_value": 3.871225432104135,
+      "candidate_value": 3.8669665777027453,
+      "improvement": 0.004258854401389733,
+      "improvement_percent": 0.11001308180275385,
+      "improved_seeds": 2,
+      "seed_improvement": [
+        0.012437204630259657,
+        0.015235842336551286,
+        -0.014896483762640855
+      ],
+      "ci95": [
+        -0.01414596089225597,
+        0.01750783748457252
+      ],
+      "simultaneous_ci99": [
+        -0.017445924420799203,
+        0.019872661532881475
+      ],
+      "name": "stage_allocation",
+      "baseline": "SG/step12288",
+      "candidate": "MG/step12288",
+      "metric": "worst",
+      "primary": true,
+      "mean_degradation_percent": -1.664837944747688,
+      "supports": false,
+      "direction": "exploratory_or_uncertain"
+    },
+    {
+      "baseline_value": 4.025516725029472,
+      "candidate_value": 3.871225432104135,
+      "improvement": 0.1542912929253366,
+      "improvement_percent": 3.832831993120262,
+      "improved_seeds": 3,
+      "seed_improvement": [
+        0.10488361177704064,
+        0.12777735149393266,
+        0.2302129155050352
+      ],
+      "ci95": [
+        0.10577106257628657,
+        0.22915366512179386
+      ],
+      "simultaneous_ci99": [
+        0.10160394440293202,
+        0.23326603587181127
+      ],
+      "name": "posttraining_scale_exploratory",
+      "baseline": "SG/step6144",
+      "candidate": "SG/step12288",
+      "metric": "worst",
+      "primary": false,
+      "mean_degradation_percent": -3.7697416393540406,
+      "supports": null,
+      "direction": "exploratory_or_uncertain"
+    }
+  ],
+  "model_summary": [
+    {
+      "arm": "U",
+      "model": "best",
+      "mean": 3.4515637132214274,
+      "worst": 3.8902583864625435,
+      "mean_p95": 4.144284813354413,
+      "steps": [
+        7680,
+        7680,
+        8192
+      ]
+    },
+    {
+      "arm": "U",
+      "model": "step8192",
+      "mean": 3.461859932198422,
+      "worst": 3.9175746764940413,
+      "mean_p95": 4.16771924632291,
+      "steps": [
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "arm": "M",
+      "model": "best",
+      "mean": 3.449172649775543,
+      "worst": 3.886440615524407,
+      "mean_p95": 4.143833053857088,
+      "steps": [
+        8192,
+        6656,
+        8192
+      ]
+    },
+    {
+      "arm": "M",
+      "model": "step8192",
+      "mean": 3.4495109622043856,
+      "worst": 3.8976542476126874,
+      "mean_p95": 4.150308544437091,
+      "steps": [
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "arm": "D",
+      "model": "best",
+      "mean": 3.537913795279261,
+      "worst": 3.8898511001334555,
+      "mean_p95": 4.196600903570652,
+      "steps": [
+        12288,
+        11776,
+        11776
+      ]
+    },
+    {
+      "arm": "D",
+      "model": "step12288",
+      "mean": 3.560665686926768,
+      "worst": 3.914141728921701,
+      "mean_p95": 4.224961568787694,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    },
+    {
+      "arm": "ME",
+      "model": "best",
+      "mean": 3.382384641065831,
+      "worst": 3.8042260204789877,
+      "mean_p95": 4.050476030260325,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    },
+    {
+      "arm": "ME",
+      "model": "step12288",
+      "mean": 3.382384641065831,
+      "worst": 3.8042260204789877,
+      "mean_p95": 4.050476030260325,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    },
+    {
+      "arm": "MG",
+      "model": "best",
+      "mean": 3.42556224898514,
+      "worst": 3.8458633669561095,
+      "mean_p95": 4.101938791324695,
+      "steps": [
+        10752,
+        11264,
+        9216
+      ]
+    },
+    {
+      "arm": "MG",
+      "model": "step12288",
+      "mean": 3.4504895622403637,
+      "worst": 3.8669665777027453,
+      "mean_p95": 4.135066531101862,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    },
+    {
+      "arm": "SG",
+      "model": "best",
+      "mean": 3.5089071804260734,
+      "worst": 3.871225432104135,
+      "mean_p95": 4.176002288858095,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    },
+    {
+      "arm": "SG",
+      "model": "step12288",
+      "mean": 3.5089071804260734,
+      "worst": 3.871225432104135,
+      "mean_p95": 4.176002288858095,
+      "steps": [
+        12288,
+        12288,
+        12288
+      ]
+    }
+  ],
+  "descriptive": [
+    {
+      "arm": "U",
+      "baseline": "step4096",
+      "candidate": "step8192",
+      "mean_improvement_percent": 1.5224559898292607,
+      "per_seed_mean_improvement_percent": [
+        0.7579610858498347,
+        2.010204982550967,
+        1.8019484672642698
+      ]
+    },
+    {
+      "arm": "M",
+      "baseline": "step4096",
+      "candidate": "step8192",
+      "mean_improvement_percent": 1.952140680386189,
+      "per_seed_mean_improvement_percent": [
+        1.2246158479588303,
+        2.1532089293576266,
+        2.4733247598807817
+      ]
+    },
+    {
+      "arm": "ME",
+      "baseline": "step8192",
+      "candidate": "step12288",
+      "mean_improvement_percent": 1.945966308675182,
+      "per_seed_mean_improvement_percent": [
+        1.9713562872052564,
+        2.1438677843961758,
+        1.7210147788284256
+      ]
+    }
+  ]
+}

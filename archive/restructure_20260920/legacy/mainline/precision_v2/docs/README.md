@@ -1,0 +1,31 @@
+# WDRO 正式主线 precision_v2：文档与进展
+
+[方法入口](../README.md)
+
+- [01_WDRO-REST_项目进度.md](01_WDRO-REST_项目进度.md)
+- [history/阶段6_CEM中断账目修复与正式续跑_20260909.md](history/阶段6_CEM中断账目修复与正式续跑_20260909.md)
+- [history/阶段6_GeoSteiner参考精度阻塞与修复建议.md](history/阶段6_GeoSteiner参考精度阻塞与修复建议.md)
+- [history/阶段6_precision_v2纠错与重跑运行说明.md](history/阶段6_precision_v2纠错与重跑运行说明.md)
+- [history/阶段6_剩余任务续跑记录_20260907.md](history/阶段6_剩余任务续跑记录_20260907.md)
+- [history/阶段6_剩余任务续跑记录_20260908.md](history/阶段6_剩余任务续跑记录_20260908.md)
+- [history/阶段6_命令进度与完成项验收_20260908_1023.md](history/阶段6_命令进度与完成项验收_20260908_1023.md)
+- [history/阶段6_命令进度与审计交接_20260908_1434.md](history/阶段6_命令进度与审计交接_20260908_1434.md)
+- [history/阶段6_子步骤与运行说明.md](history/阶段6_子步骤与运行说明.md)
+- [history/阶段6_最终交接复核_20260909.md](history/阶段6_最终交接复核_20260909.md)
+- [history/阶段6_消融训练完成与最终审计续跑_20260908_1651.md](history/阶段6_消融训练完成与最终审计续跑_20260908_1651.md)
+- [history/阶段7_ISPD外部测试验收报告.md](history/阶段7_ISPD外部测试验收报告.md)
+- [history/阶段7_子步骤与运行说明.md](history/阶段7_子步骤与运行说明.md)
+- [stages/STAGES_0_5.md](stages/STAGES_0_5.md)
+- [stages/STAGE_6.md](stages/STAGE_6.md)
+- [stages/STAGE_7.md](stages/STAGE_7.md)
+- [stages/STAGE_8.md](stages/STAGE_8.md)
+- [阶段3_三基线与验收报告.md](阶段3_三基线与验收报告.md)
+- [阶段4_Random-WDRO与数学审计报告.md](阶段4_Random-WDRO与数学审计报告.md)
+- [阶段4_子步骤与运行说明.md](阶段4_子步骤与运行说明.md)
+- [阶段5_Validation搜索与消融验收报告.md](阶段5_Validation搜索与消融验收报告.md)
+- [阶段6_多种子合成主实验验收报告.md](阶段6_多种子合成主实验验收报告.md)
+- [阶段8_子步骤与运行说明.md](阶段8_子步骤与运行说明.md)
+- [阶段8_独立攻击效率与统计验收报告.md](阶段8_独立攻击效率与统计验收报告.md)
+- [阶段8_结果解读与交付清单.md](阶段8_结果解读与交付清单.md)
+
+历史文件中的日期、阶段状态和资源快照按原实验时点理解；当前结论优先查看最终结果与验收材料。

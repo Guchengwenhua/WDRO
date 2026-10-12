@@ -1,0 +1,862 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "smoke_erm_critic",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_critic",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/erm_critic",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/erm_critic/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/erm_critic/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_critic",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "smoke_erm_rollout",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_rollout",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/erm_rollout",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/erm_rollout/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/erm_rollout/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_rollout",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "smoke_wdro_random",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_random",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/wdro_random",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/wdro_random/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/wdro_random/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_random",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "smoke_wdro_es",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_es",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/wdro_es",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/wdro_es/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/wdro_es/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_es",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "smoke_wdro_critic",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_critic",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/wdro_critic",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/wdro_critic/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/wdro_critic/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_critic",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "smoke_wdro_rl",
+      "kind": "gpu_smoke",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_rl",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/gpu_smoke/wdro_rl",
+        "--smoke",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/gpu_smoke/wdro_rl/complete.json",
+      "checkpoint": "artifacts/gpu_smoke/wdro_rl/latest.pt",
+      "depends_on": [],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "gpu_smoke"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_rl",
+        "seed": 101,
+        "smoke": true
+      }
+    },
+    {
+      "id": "wdro_rl_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_rl",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/wdro_rl_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_rl_s101/complete.json",
+      "checkpoint": "artifacts/runs/wdro_rl_s101/latest.pt",
+      "depends_on": [
+        "smoke_wdro_rl"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_rl",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_rollout_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_rollout",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/erm_rollout_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_rollout_s101/complete.json",
+      "checkpoint": "artifacts/runs/erm_rollout_s101/latest.pt",
+      "depends_on": [
+        "smoke_erm_rollout"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_rollout",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_critic_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_critic",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/erm_critic_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_critic_s101/complete.json",
+      "checkpoint": "artifacts/runs/erm_critic_s101/latest.pt",
+      "depends_on": [
+        "smoke_erm_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_critic",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_random_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_random",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/wdro_random_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_random_s101/complete.json",
+      "checkpoint": "artifacts/runs/wdro_random_s101/latest.pt",
+      "depends_on": [
+        "smoke_wdro_random"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_random",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_es_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_es",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/wdro_es_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_es_s101/complete.json",
+      "checkpoint": "artifacts/runs/wdro_es_s101/latest.pt",
+      "depends_on": [
+        "smoke_wdro_es"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_es",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_critic_s101",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_critic",
+        "--seed",
+        "101",
+        "--outdir",
+        "artifacts/runs/wdro_critic_s101",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_critic_s101/complete.json",
+      "checkpoint": "artifacts/runs/wdro_critic_s101/latest.pt",
+      "depends_on": [
+        "smoke_wdro_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_critic",
+        "seed": 101,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_critic_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_critic",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/erm_critic_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_critic_s102/complete.json",
+      "checkpoint": "artifacts/runs/erm_critic_s102/latest.pt",
+      "depends_on": [
+        "smoke_erm_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_critic",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_rollout_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_rollout",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/erm_rollout_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_rollout_s102/complete.json",
+      "checkpoint": "artifacts/runs/erm_rollout_s102/latest.pt",
+      "depends_on": [
+        "smoke_erm_rollout"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_rollout",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_random_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_random",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/wdro_random_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_random_s102/complete.json",
+      "checkpoint": "artifacts/runs/wdro_random_s102/latest.pt",
+      "depends_on": [
+        "smoke_wdro_random"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_random",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_es_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_es",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/wdro_es_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_es_s102/complete.json",
+      "checkpoint": "artifacts/runs/wdro_es_s102/latest.pt",
+      "depends_on": [
+        "smoke_wdro_es"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_es",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_critic_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_critic",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/wdro_critic_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_critic_s102/complete.json",
+      "checkpoint": "artifacts/runs/wdro_critic_s102/latest.pt",
+      "depends_on": [
+        "smoke_wdro_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_critic",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_rl_s102",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_rl",
+        "--seed",
+        "102",
+        "--outdir",
+        "artifacts/runs/wdro_rl_s102",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_rl_s102/complete.json",
+      "checkpoint": "artifacts/runs/wdro_rl_s102/latest.pt",
+      "depends_on": [
+        "smoke_wdro_rl"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_rl",
+        "seed": 102,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_critic_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_critic",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/erm_critic_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_critic_s103/complete.json",
+      "checkpoint": "artifacts/runs/erm_critic_s103/latest.pt",
+      "depends_on": [
+        "smoke_erm_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_critic",
+        "seed": 103,
+        "smoke": false
+      }
+    },
+    {
+      "id": "erm_rollout_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "erm_rollout",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/erm_rollout_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/erm_rollout_s103/complete.json",
+      "checkpoint": "artifacts/runs/erm_rollout_s103/latest.pt",
+      "depends_on": [
+        "smoke_erm_rollout"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "erm_rollout",
+        "seed": 103,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_random_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_random",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/wdro_random_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_random_s103/complete.json",
+      "checkpoint": "artifacts/runs/wdro_random_s103/latest.pt",
+      "depends_on": [
+        "smoke_wdro_random"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_random",
+        "seed": 103,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_es_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_es",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/wdro_es_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_es_s103/complete.json",
+      "checkpoint": "artifacts/runs/wdro_es_s103/latest.pt",
+      "depends_on": [
+        "smoke_wdro_es"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_es",
+        "seed": 103,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_critic_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_critic",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/wdro_critic_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_critic_s103/complete.json",
+      "checkpoint": "artifacts/runs/wdro_critic_s103/latest.pt",
+      "depends_on": [
+        "smoke_wdro_critic"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_critic",
+        "seed": 103,
+        "smoke": false
+      }
+    },
+    {
+      "id": "wdro_rl_s103",
+      "kind": "training",
+      "args": [
+        "train.py",
+        "--method",
+        "wdro_rl",
+        "--seed",
+        "103",
+        "--outdir",
+        "artifacts/runs/wdro_rl_s103",
+        "--cpu-threads",
+        "3"
+      ],
+      "complete": "artifacts/runs/wdro_rl_s103/complete.json",
+      "checkpoint": "artifacts/runs/wdro_rl_s103/latest.pt",
+      "depends_on": [
+        "smoke_wdro_rl"
+      ],
+      "required_free_mib": 6144,
+      "cpu_threads": 3,
+      "resume_args": [
+        "--resume"
+      ],
+      "completion_checks": {
+        "status": "complete",
+        "acceptance": "accepted_gpu"
+      },
+      "verify_artifacts": true,
+      "binding_checks": {
+        "method": "wdro_rl",
+        "seed": 103,
+        "smoke": false
+      }
+    }
+  ],
+  "source_paths": [
+    "protocol.json",
+    "THEORY.md",
+    "THEORY_REVIEW.md",
+    "artifacts/cpu_report/complete.json",
+    "artifacts/tests/cpu_smoke_results.json",
+    "artifacts/resume_audit/audit.json",
+    "artifacts/tests/environment_final.log"
+  ],
+  "cpu_diagnostic_gate": {
+    "report": "artifacts/cpu_report/complete.json",
+    "smoke_results": "artifacts/tests/cpu_smoke_results.json",
+    "resume_audit": "artifacts/resume_audit/audit.json"
+  },
+  "postprocess": {
+    "args": [
+      "report.py"
+    ],
+    "complete": "artifacts/report/complete.json",
+    "completion_checks": {
+      "status": "complete"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "protocol_id": "geometry_gpu_scale_20261012",
+  "classification": "exploratory",
+  "degrees": [
+    10,
+    30
+  ],
+  "arms": [
+    "original",
+    "random",
+    "entropy",
+    "geometry"
+  ],
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "training_batch": 4096,
+  "updates": 625,
+  "milestones": [
+    125,
+    625
+  ],
+  "sample_updates_per_run": 2560000,
+  "total_run_count": 24,
+  "total_sample_updates": 61440000,
+  "score_microbatch": 1024,
+  "ranking_microbatch": 4096,
+  "validation_batch": 1024,
+  "validation_interval": 6,
+  "test_batch": 1024,
+  "geosteiner_workers": 4,
+  "learning_rate": 5e-05,
+  "actor_gradient_precision": "FP32, TF32 disabled",
+  "score_precision": "FP64 probabilities, distances and accumulation; FP32 route construction as historical code",
+  "score_implementation": "only G or H on CUDA; streaming decoder hooks; upper-triangle action pairs; one host transfer at end of candidate scoring",
+  "selection": "original plus top3; unchanged 33 candidates and 4 exact labels per center",
+  "primary": "latest625 OOD macro relative regret; G minus original/random/H at each degree",
+  "statistics": "six main contrasts: paired instance bootstrap conditional on seed-averaged models, Bonferroni99.1667%; seed effects separately",
+  "secondary": "latest125, validation-best at125/625, worstOOD, P95, runtime, final lambda, G/H difficulty correlation",
+  "limitation": "same mathematical G definition, different floating-point evaluation order; no bitwise equivalence claim; old tests already seen; no blind generalization claim",
+  "speed_scope": "formal training phase timings; no separate benchmark. Historical timing combines GPU scoring, microbatch and oracle parallelism, not an isolated kernel comparison",
+  "authorization": "User requests geometry optimization and larger training; four matched arms and previous gate override retained"
+}

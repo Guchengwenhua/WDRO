@@ -1,0 +1,71 @@
+{
+  "version": "adversarial_v3_20260912",
+  "status": "frozen",
+  "frozen_at": "2026-09-12T06:39:33.592829+00:00",
+  "plan_sha256": "d05b7b15782985a9d7712f298292bfcc8164a6a179d9188e29543fd33303a4ce",
+  "degrees": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "parents": [
+    "erm",
+    "wdro_rest"
+  ],
+  "fixed_evaluation_per_distribution": 256,
+  "methods": [
+    "random_top4",
+    "critic_raw4",
+    "critic_calibrated4",
+    "rl4",
+    "random64",
+    "cem64",
+    "es64",
+    "critic_calibrated64",
+    "rl64"
+  ],
+  "rl": {
+    "updates": 256,
+    "batch_size": 64,
+    "learning_rate": 0.0003,
+    "validation_interval": 32,
+    "validation_count": 128
+  },
+  "critic": {
+    "train_count": 8192,
+    "validation_count": 1024,
+    "epochs": 16,
+    "batch_size": 128,
+    "learning_rate": 0.0001
+  },
+  "joint": {
+    "degree": 30,
+    "updates": 512,
+    "batch_size": 64,
+    "methods": [
+      "random_top4",
+      "critic_calibrated4",
+      "rl_frozen4",
+      "rl_joint4",
+      "random64",
+      "es64"
+    ],
+    "initial_checkpoint_is_candidate": true
+  },
+  "scope": "feasibility_experiment_not_replacement_of_parent_full_protocol",
+  "implementation_revision": "adversarial_v3_1_20260912",
+  "greedy_inference": {
+    "fixed_batch_rows": 256,
+    "tail_padding": "repeat_last_requested_point_then_discard",
+    "padding_is_not_oracle_request": true,
+    "padding_forward_rows_accounted_separately": true,
+    "cross_method_nominal_consistency_gate": true
+  }
+}

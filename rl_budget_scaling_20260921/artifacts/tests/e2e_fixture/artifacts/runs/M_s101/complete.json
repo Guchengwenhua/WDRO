@@ -1,0 +1,102 @@
+{
+  "status": "complete",
+  "acceptance": "training_complete",
+  "binding": {
+    "arm": "M",
+    "seed": 101,
+    "protocol_sha256": "f0c345556fa354621338373b76c1f81f9dc12aa35da5741e7c7e39d8fdb3030d",
+    "code_sha256": {
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/geometry.py": "3a3c8ad5a0126727bffde1cc21fdbfe911133b8786c1ce21da502b3502ea5e9e",
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/common.py": "3b2d68bd572a9445abd94bd4a9e377310d40e0d4ea31cc1cb790a93910af1228",
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/worker.py": "701a7f724cc7810e5ed6f7cb488e8cfa037a5e44863ae038d9c1233fc56b0ed6"
+    },
+    "dependencies": {
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/vendor/models/actor_critic.py": "b01bef84cef8f8ce4812e7f282663b3d5075aec9ce0f721e416f567204dab676",
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/vendor/models/self_attn.py": "9752b01b4e81f57d84950bb8d1871fd458e81854cb0644d54c1c45c773df437f",
+      "/remote-home/Guilin/DRO/Codex/rl_budget_scaling_20260921/artifacts/tests/e2e_fixture/vendor/models/utils.py": "5beb3284650ea20b5c3b03fe737aaffb5efdf8a52661e7d800d5d1428cbb1b40"
+    },
+    "data_manifest_sha256": "38ac4229f261e757e569db66e61f2c8aa9d56eb3fd37ac76eb3296f53cdd6329"
+  },
+  "identity": {
+    "pid": 917320,
+    "start_ticks": "3440712274",
+    "boot_id": "ef4cc9e7-6718-42c8-bd78-7f6a730a35f8",
+    "device": "cuda:0",
+    "physical_gpu_index": 5,
+    "CUDA_VISIBLE_DEVICES": "5",
+    "torch_version": "2.6.0+cu124",
+    "numpy_version": "2.4.6",
+    "started": "2026-09-21T17:54:46Z"
+  },
+  "step": 2,
+  "best_step": 2,
+  "start_step": 0,
+  "initial_actor_sha256": "915e33cc004ab76d396c9c411e75b051beeb3f2a5d2d3748d0c1e216f3427280",
+  "parent": null,
+  "ledger": {
+    "sampled_rows": 128,
+    "rollout_rows": 128,
+    "validation_rows": 768,
+    "test_rows": 0,
+    "backward_updates": 2,
+    "oracle_calls": 0
+  },
+  "elapsed_seconds": 15.348576962947845,
+  "update_seconds": 2.8173419386148453,
+  "new_updates": 2,
+  "peak_reserved_bytes": 425721856,
+  "finished": "2026-09-21T17:55:01Z",
+  "artifacts": {
+    "run.json": "665dc818d81b0a0121e15d7fc3c8d21329d387689eefe332903406e70a4a5300",
+    "progress.jsonl": "7837cff979eedd0fcac7843a2f733e8a8a9810543027292096c0eb9d0f4fe6ca",
+    "latest.pt": "24645da41814ad809f750a250f81afd671bfbc8b5496d2dfe1bf161576855ce9",
+    "actual_calls.jsonl": "aa0d1f27c5d432bf4aabbc4adb9d9b4ba6c88b4d63b0f1f58b31d935ac4269a6",
+    "best.pt": "96a5e8cfad7353a50c4cca831b2967e5d08a3343eaf2792d0554637e58a758e4",
+    "step1.pt": "5986f06d22fbfa893a3082f685c39fb42ed3070943975610e8bc591f09e290bd",
+    "step2.pt": "6c53e74c34687c554fb1fbe1a20b074df4e0df866497cfa34a65359fc5a0b3af",
+    "results.npz": "a3b91be39ce769bec67c02b08bec805e3b399786c2047f375af38b0bc49fb8bf"
+  },
+  "models": {
+    "step1": {
+      "file": "step1.pt",
+      "sha256": "5986f06d22fbfa893a3082f685c39fb42ed3070943975610e8bc591f09e290bd",
+      "step": 1,
+      "actor_sha256": "c916899457e46ededf0ce9a802edd7886bbb467a6c6422e0b07ade1473684cac"
+    },
+    "step2": {
+      "file": "step2.pt",
+      "sha256": "6c53e74c34687c554fb1fbe1a20b074df4e0df866497cfa34a65359fc5a0b3af",
+      "step": 2,
+      "actor_sha256": "c5c2265755638365ddfc1e780e4007696042ee7a5db3730524f14cc722dc055e"
+    },
+    "best": {
+      "file": "best.pt",
+      "sha256": "96a5e8cfad7353a50c4cca831b2967e5d08a3343eaf2792d0554637e58a758e4",
+      "step": 2,
+      "actor_sha256": "c5c2265755638365ddfc1e780e4007696042ee7a5db3730524f14cc722dc055e"
+    }
+  },
+  "selected_validation": {
+    "groups": {
+      "uniform": {
+        "mean": 11.928274128586054,
+        "p95": 13.754477103054523
+      },
+      "mix_gauss": {
+        "mean": 11.585482829832472,
+        "p95": 14.813858114182949
+      },
+      "edge_bias": {
+        "mean": 12.694883573218249,
+        "p95": 14.729599451646207
+      },
+      "grid_cluster": {
+        "mean": 11.756902861758135,
+        "p95": 13.728614784404636
+      }
+    },
+    "mean": 11.991385848348727,
+    "worst": 12.694883573218249,
+    "p95": 14.54373507015407
+  }
+}

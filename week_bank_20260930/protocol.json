@@ -1,0 +1,53 @@
+{
+  "id": "week-bank-20260930-v1",
+  "frozen_before_week_training": true,
+  "deadline_utc": "2026-10-07T15:29:00Z",
+  "train_cutoff_utc": "2026-10-06T15:29:00Z",
+  "stages": [
+    "3seed qualifiedbest3 d10 matched2000 from original legacy initialization",
+    "dev-only independently gated4method3seed d10 continuation to10000",
+    "dev-only selected teacher versusGeo d30 3seed2000",
+    "final test and reports without influencing gates"
+  ],
+  "updates": [
+    2000,
+    10000
+  ],
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "batch_size": 256,
+  "original_algorithm": "copy scale original-stage6-loop implementation; change horizon only, degree parameter, explicit reference providers; original seeds/generator/search/lambda/loss/nominal constraints retained",
+  "qualifiedbest3": "historical validation top3 initialization; candidate current actor every100 on existing validation only; nominal<=same-seedERM+.002 and rank top3 by worst OOD mean; freeze in all inner search/update, duplicate full-state tensors skipped",
+  "long_gate": {
+    "finite": true,
+    "mean_bank_minus_geo_max": "max(0.0002,0.05*mean_geo_regret)",
+    "at_least2of3_seed_delta_max": 0.0005,
+    "nominal_bank_minus_geo_max": 0.002,
+    "per_method_independent": true,
+    "geo_runs_only_if_any_bank_eligible": true
+  },
+  "d30_gate": "same numerical dev gate applied to completed10000step models; choose eligible teacher with lowest mean worst OOD regret; no test reading",
+  "negative_stop": "nonfinite loss/grad or lambda>100 abort original loop; failing stage dev gate stops only that method branch; no eligible bank closes further d30 expansion; always report qualifiedmatched and incomplete results",
+  "migration": "explicit source parent same degree/seed/batch/rho/nominal/refarm; preserve model/critic/optim/scheduler/RNG/lambda/bank; expected horizon and bookkeeping identity change only",
+  "boundary_limitation": "scale skipped terminal2000 refresh; continuation preserves savedbank and first new scheduledrefresh at2050 (lagged) or2100(qualified), not identical to uninterrupted10000 training",
+  "test": "full10000/group, latest primary best secondary, final-only jobs; never decides gate",
+  "correctness_scope": "inherited explicit scale one-step reference equivalence; no new tests or GPU jobs executed during preparation",
+  "cost_scope": "new-work event deltas subtract imported counters; account restarts using resume cursor; Geo elapsed first measured in week so prior scale solver time unavailable",
+  "resources": {
+    "gpu": "controller assigned one visible GPU",
+    "memory_fraction": 0.1,
+    "cpu_threads": 1,
+    "estimated_train_gpu_hours": 63.0,
+    "expected_total_gpu_hours_range": [
+      45,
+      75
+    ],
+    "disk_cap_gib": 200,
+    "expected_disk_gib_upper": 100
+  },
+  "inference": "original greedy batch256 with unpadded final tail identical across new arms; source historical ranking recorded",
+  "statistical_limits": "500 paired stratified-instance bootstrap replicates conditional on model; actual3seed effects mean/range/std, not confident seedpopulation inference; no statistical equivalence margin"
+}

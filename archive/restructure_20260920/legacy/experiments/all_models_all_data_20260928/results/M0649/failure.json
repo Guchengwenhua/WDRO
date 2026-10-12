@@ -1,0 +1,8 @@
+{
+  "model": "M0649",
+  "error": "ValueError('decoded graph does not connect every sink')",
+  "traceback": "Traceback (most recent call last):\n  File \"/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/evaluate.py\", line 149, in main\n    try:return Evaluation(m,args.gpu,args.batch).run()\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/evaluate.py\", line 115, in run\n    l,o=self.predict(np.array(x[start:min(start+self.batch,end)],copy=True));ls.append(l);obs.append(o)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/remote-home/Guilin/DRO/Codex/benchmarks/all_models_all_data_20260928/evaluate.py\", line 93, in predict\n    objective,_,details=self.net.evaluate(x,True)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/adapter_buffer.py\", line 147, in evaluate\n    rows.append(self.evaluator.eval_func(coords, caps, connections))\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/remote-home/Guilin/DRO/Codex/papers_wdro_20260915/vendor_harrl/evaluator.py\", line 519, in eval_func\n    raise ValueError(\"decoded graph does not connect every sink\")\nValueError: decoded graph does not connect every sink\n",
+  "pid": 1371045,
+  "start_ticks": "3533411770",
+  "time": 1790940337.8025444
+}

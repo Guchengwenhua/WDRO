@@ -1,0 +1,148 @@
+{
+  "accounting": "committed rounds; completed replay attempts and unfinished-call bounds kept in calls.jsonl",
+  "at_utc": "2026-09-10T01:20:30.383568Z",
+  "binding": {
+    "attack": {
+      "calls_per_center": 256,
+      "cem": {
+        "elite": 4,
+        "initial_std": 0.02,
+        "maximum_motion": 0.08,
+        "minimum_std": 0.001,
+        "population": 16,
+        "rounds": 16
+      },
+      "center_batch": 16,
+      "cost_interpretation": "Unconstrained local search stress test; measure actual cost. Not a certified Wasserstein ball.",
+      "elite": 4,
+      "ground_cost": "hungarian_l1_mean",
+      "objective": "maximum_true_relative_regret",
+      "original_included_once": true,
+      "population": 16,
+      "refresh_updates": 10,
+      "rounds": 16,
+      "score_microbatch": 256,
+      "searcher": "cem_256",
+      "seed": 303,
+      "source": "stage5.cem_round with independent attack net IDs; 16 rounds",
+      "tie_break": "earliest candidate",
+      "transport_penalty": 0
+    },
+    "count": 2000,
+    "hardware": {
+      "cuda": "12.4",
+      "name": "NVIDIA RTX 6000 Ada Generation",
+      "torch": "2.6.0+cu124"
+    },
+    "input": {
+      "count": 2000,
+      "degree": 20,
+      "distribution": "uniform",
+      "input": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/cache/stage8/inputs/uniform_d20.npz",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/cache/stage8/inputs/uniform_d20.npz",
+        "sha256": "641dd717360f81e85a6de4f4f2ba16700c574821d1ad7b6837e4085ddd24feed"
+      },
+      "metadata": {
+        "array_bundle_sha256": "9272790f6e427536b619362bad3c99a9a6f9730883482d6337602ca246b0b143",
+        "attempt_streams_used": 1,
+        "base_seed": 303,
+        "count": 2000,
+        "degree": 20,
+        "distribution": "uniform",
+        "kind": "synthetic_fixed_split",
+        "parameters": {
+          "nonuniform": 0.0
+        },
+        "protocol_id": "wdro-rest-min-protocol-v1",
+        "rejections": {},
+        "schema_version": 1,
+        "split": "attack"
+      }
+    },
+    "model": {
+      "best": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage3/formal_group_dro_d20_s103_u2000/best.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage3/formal_group_dro_d20_s103_u2000/best.pt",
+        "sha256": "08d059fc3b47fd2a289f2d6808aa4118e9675f346fe00dbad5106d4b6a89dcd8"
+      },
+      "degree": 20,
+      "latest": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/checkpoints/stage3/formal_group_dro_d20_s103_u2000/latest.pt",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/checkpoints/stage3/formal_group_dro_d20_s103_u2000/latest.pt",
+        "sha256": "810bd2e342ddcb20d30c64b632abddf8a0a0847db34f2c3aae1653b8f404ff80"
+      },
+      "method": "group_dro",
+      "result": {
+        "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage3/formal_group_dro_d20_s103_u2000/result.json",
+        "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage3/formal_group_dro_d20_s103_u2000/result.json",
+        "sha256": "ade822b6a3a92a1cdf4bce3895e0fffb7eb3d53404cb05cc817b21c6b1a63a33"
+      },
+      "seed": 103
+    },
+    "model_selection": false,
+    "plan": {
+      "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "resolved_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/wdro_rest_min/manifests/stage8_plan_v1.json",
+      "sha256": "ad3e145992f33a6bfa01a55dce73d7c7fce93ceff74795657b6f0ba510499ece"
+    },
+    "reference_identity": {
+      "implementation_sha256": "508cf6ec03af543f04b7c54598e8447cf578321c1bc5533bdbbd6f31054118e2",
+      "library_sha256": "8b0e1599f072711b739158f30b10da8e41f585b87d9b5bcd55cfcde4c8020a6a",
+      "reference_id": "geosteiner_exact_binary_scale_v2",
+      "require_status": "optimal",
+      "rounding": "none",
+      "scale": 134217728,
+      "validate_embedding": true
+    },
+    "role": "independent_attack",
+    "source_sha256": "ffd8e962ae73a49adb3865fdd3ea7a102688d50831c1c0b14f295e2702ecc4eb"
+  },
+  "call_ledger": {
+    "actor_forward_nets": 512000,
+    "exact_rest_evaluator_nets": 512000,
+    "geosteiner_search_nets": 512000,
+    "geosteiner_selected_verification_nets": 2000
+  },
+  "changed_fraction": 0.9995,
+  "completed_nets": 2000,
+  "cost": {
+    "count": 2000,
+    "maximum": 0.05258182138204574,
+    "mean": 0.031109071812964975,
+    "minimum": 0.0,
+    "p95": 0.040383773650974036
+  },
+  "legal_fraction": 1.0,
+  "model_selection": false,
+  "original_summary": {
+    "count": 2000,
+    "maximum": 0.04971508975867748,
+    "mean": 0.005537961229559711,
+    "minimum": 0.0,
+    "p95": 0.01989501787232476
+  },
+  "peak_reserved_mib": 104.0,
+  "predictions": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/revisions/reference_precision_v2/Codex/experiments/logs/stage8/attacks/group_dro_d20_s103_uniform/predictions.npz",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/precision_v2/logs/stage8/attacks/group_dro_d20_s103_uniform/predictions.npz",
+    "sha256": "756940653ed809ca6fc84ffcffdb561c56ea769299fb0de335c5a51ad7d1b5ec"
+  },
+  "repaired_candidates": 18,
+  "selected_update": 1300,
+  "status": "complete",
+  "summary": {
+    "count": 2000,
+    "maximum": 0.2164842092495573,
+    "mean": 0.04778809964125217,
+    "minimum": 0.01027241877347114,
+    "p95": 0.07812556015585148
+  },
+  "times": {
+    "actor_seconds": 96.82417165115476,
+    "reference_seconds": 368.9043856561184,
+    "rest_seconds": 6.212379641830921,
+    "wall_seconds": 548.1358224190772
+  },
+  "verification_seconds": 3.851657535880804
+}

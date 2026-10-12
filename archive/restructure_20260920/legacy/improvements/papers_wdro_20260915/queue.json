@@ -1,0 +1,930 @@
+{
+  "postprocess": {
+    "command": [
+      "bash",
+      "/remote-home/Guilin/DRO/Codex/improvements/papers_wdro_20260915/run_env.sh",
+      "/remote-home/Guilin/DRO/Codex/improvements/papers_wdro_20260915/report.py"
+    ],
+    "complete": "artifacts/report/complete.json"
+  },
+  "schema_version": 1,
+  "source_paths": [
+    "PAPER_23_DAC25.md",
+    "PAPER_ICCAD25.md",
+    "THEORY.md",
+    "adapter_buffer.py",
+    "adapter_hub.py",
+    "adapter_rest.py",
+    "adapter_timing.py",
+    "artifacts/build/_mspd.cpython-311-x86_64-linux-gnu.so",
+    "artifacts/data/manifest.json",
+    "core.py",
+    "eta.py",
+    "freeze.py",
+    "pipeline.sh",
+    "prepare.py",
+    "protocol.json",
+    "report.py",
+    "run_env.sh",
+    "runner.py",
+    "scheduler.py",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/cpp/mspd.cpp",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/cpp/optional/mspd_mt.cpp",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/cpp/optional/mspd_mt.hpp",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/models/__init__.py",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/models/attention.py",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/models/evaluate.py",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/models/layers.py",
+    "sources/An-Adaptive-Learning-Approach-for-Hub-Node-Selection/models/selector_conductor.py",
+    "sources/Timing-RST/models/gat.py",
+    "sources/Timing-RST/models/gcn.py",
+    "sources/Timing-RST/models/model_sorted.py",
+    "sources/Timing-RST/models/self_attn.py",
+    "sources/Timing-RST/models/utils.py",
+    "sources/Timing-RST/utils/__init__.py",
+    "sources/Timing-RST/utils/distance.py",
+    "sources/Timing-RST/utils/divide_merge.py",
+    "sources/Timing-RST/utils/log_utils.py",
+    "sources/Timing-RST/utils/myutil.py",
+    "sources/Timing-RST/utils/nn_solver.py",
+    "sources/Timing-RST/utils/rsmt_utils.py",
+    "test_adapter_buffer.py",
+    "vendor_harrl/__init__.py",
+    "vendor_harrl/actor_critic.py",
+    "vendor_harrl/evaluator.py",
+    "vendor_harrl/self_attn.py",
+    "vendor_harrl/utils.py",
+    "verify_adapters_cpu.py",
+    "artifacts/frozen.json"
+  ],
+  "tasks": [
+    {
+      "checkpoint": "artifacts/runs/gpu_smoke_rest/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "wdro",
+        "--seed",
+        "9101",
+        "--device",
+        "cuda",
+        "--smoke",
+        "--smoke-batch-size",
+        "64",
+        "--run-id",
+        "gpu_smoke_rest"
+      ],
+      "complete": "artifacts/runs/gpu_smoke_rest/complete.json",
+      "completion_checks": {
+        "completed_updates": 6,
+        "scope": "smoke",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "id": "gpu_smoke_rest",
+      "progress": "artifacts/runs/gpu_smoke_rest/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/gpu_smoke_timing/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "wdro",
+        "--seed",
+        "9101",
+        "--device",
+        "cuda",
+        "--smoke",
+        "--smoke-batch-size",
+        "64",
+        "--run-id",
+        "gpu_smoke_timing"
+      ],
+      "complete": "artifacts/runs/gpu_smoke_timing/complete.json",
+      "completion_checks": {
+        "completed_updates": 6,
+        "scope": "smoke",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "id": "gpu_smoke_timing",
+      "progress": "artifacts/runs/gpu_smoke_timing/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/gpu_smoke_hub/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "wdro",
+        "--seed",
+        "9101",
+        "--device",
+        "cuda",
+        "--smoke",
+        "--smoke-batch-size",
+        "64",
+        "--run-id",
+        "gpu_smoke_hub"
+      ],
+      "complete": "artifacts/runs/gpu_smoke_hub/complete.json",
+      "completion_checks": {
+        "completed_updates": 6,
+        "scope": "smoke",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "id": "gpu_smoke_hub",
+      "progress": "artifacts/runs/gpu_smoke_hub/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/gpu_smoke_buffer/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "wdro",
+        "--seed",
+        "9101",
+        "--device",
+        "cuda",
+        "--smoke",
+        "--smoke-batch-size",
+        "64",
+        "--run-id",
+        "gpu_smoke_buffer"
+      ],
+      "complete": "artifacts/runs/gpu_smoke_buffer/complete.json",
+      "completion_checks": {
+        "completed_updates": 6,
+        "scope": "smoke",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "id": "gpu_smoke_buffer",
+      "progress": "artifacts/runs/gpu_smoke_buffer/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_erm_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "erm",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_erm_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_erm_s101",
+      "progress": "artifacts/runs/rest_erm_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_wdro_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "wdro",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_wdro_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_wdro_s101",
+      "progress": "artifacts/runs/rest_wdro_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_erm_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "erm",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_erm_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_erm_s101",
+      "progress": "artifacts/runs/timing_erm_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_wdro_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "wdro",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_wdro_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_wdro_s101",
+      "progress": "artifacts/runs/timing_wdro_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_erm_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "erm",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_erm_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_erm_s101",
+      "progress": "artifacts/runs/hub_erm_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_wdro_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "wdro",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_wdro_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_wdro_s101",
+      "progress": "artifacts/runs/hub_wdro_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_erm_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "erm",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_erm_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_erm_s101",
+      "progress": "artifacts/runs/buffer_erm_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_wdro_s101/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "wdro",
+        "--seed",
+        "101",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_wdro_s101/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_wdro_s101",
+      "progress": "artifacts/runs/buffer_wdro_s101/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_erm_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "erm",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_erm_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_erm_s102",
+      "progress": "artifacts/runs/rest_erm_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_wdro_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "wdro",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_wdro_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_wdro_s102",
+      "progress": "artifacts/runs/rest_wdro_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_erm_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "erm",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_erm_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_erm_s102",
+      "progress": "artifacts/runs/timing_erm_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_wdro_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "wdro",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_wdro_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_wdro_s102",
+      "progress": "artifacts/runs/timing_wdro_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_erm_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "erm",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_erm_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_erm_s102",
+      "progress": "artifacts/runs/hub_erm_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_wdro_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "wdro",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_wdro_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_wdro_s102",
+      "progress": "artifacts/runs/hub_wdro_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_erm_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "erm",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_erm_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_erm_s102",
+      "progress": "artifacts/runs/buffer_erm_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_wdro_s102/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "wdro",
+        "--seed",
+        "102",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_wdro_s102/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_wdro_s102",
+      "progress": "artifacts/runs/buffer_wdro_s102/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_erm_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "erm",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_erm_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_erm_s103",
+      "progress": "artifacts/runs/rest_erm_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/rest_wdro_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "rest",
+        "--method",
+        "wdro",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/rest_wdro_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_rest"
+      ],
+      "id": "rest_wdro_s103",
+      "progress": "artifacts/runs/rest_wdro_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_erm_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "erm",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_erm_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_erm_s103",
+      "progress": "artifacts/runs/timing_erm_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/timing_wdro_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "timing",
+        "--method",
+        "wdro",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/timing_wdro_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_timing"
+      ],
+      "id": "timing_wdro_s103",
+      "progress": "artifacts/runs/timing_wdro_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_erm_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "erm",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_erm_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_erm_s103",
+      "progress": "artifacts/runs/hub_erm_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/hub_wdro_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "hub",
+        "--method",
+        "wdro",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/hub_wdro_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_hub"
+      ],
+      "id": "hub_wdro_s103",
+      "progress": "artifacts/runs/hub_wdro_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_erm_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "erm",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_erm_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_erm_s103",
+      "progress": "artifacts/runs/buffer_erm_s103/heartbeat.json",
+      "required_free_mib": 4096
+    },
+    {
+      "checkpoint": "artifacts/runs/buffer_wdro_s103/latest.pt",
+      "command": [
+        "bash",
+        "{root}/run_env.sh",
+        "{root}/runner.py",
+        "--family",
+        "buffer",
+        "--method",
+        "wdro",
+        "--seed",
+        "103",
+        "--device",
+        "cuda"
+      ],
+      "complete": "artifacts/runs/buffer_wdro_s103/complete.json",
+      "completion_checks": {
+        "completed_updates": 2048,
+        "frozen_sha256": "e23525864ff36c4340ba419127efa99ddbd079adf7577657141b2997fa742fec",
+        "protocol_sha256": "66bb0e273ef98e33495d165197e288a2fa6dd7fd48eb12e0bb1fdc5d64718395",
+        "scope": "degree10_pilot",
+        "status": "complete"
+      },
+      "cpu_threads": 2,
+      "depends_on": [
+        "gpu_smoke_buffer"
+      ],
+      "id": "buffer_wdro_s103",
+      "progress": "artifacts/runs/buffer_wdro_s103/heartbeat.json",
+      "required_free_mib": 4096
+    }
+  ]
+}

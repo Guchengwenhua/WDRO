@@ -1,0 +1,112 @@
+{
+  "phase": "main",
+  "method": "laplacian",
+  "seed": 101,
+  "generator": 301,
+  "recipe": "frozen_bn_1e5",
+  "setting": {
+    "lr": 1e-05,
+    "freeze_bn": true
+  },
+  "device_type": "cuda",
+  "update": 256,
+  "best_update": 256,
+  "validations": [
+    {
+      "update": 0,
+      "nets": 1085,
+      "mean": 0.019190858706974304,
+      "p95": 0.05140785810501423,
+      "macro": 0.018990492371417686
+    },
+    {
+      "update": 128,
+      "nets": 1085,
+      "mean": 0.01961131268401959,
+      "p95": 0.053173336224802796,
+      "macro": 0.01974593912958436
+    },
+    {
+      "update": 256,
+      "nets": 1085,
+      "mean": 0.018564485459402598,
+      "p95": 0.04958787472620683,
+      "macro": 0.018581467368813866
+    }
+  ],
+  "last_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.018564485459402598,
+    "p95": 0.04958787472620683,
+    "macro": 0.018581467368813866
+  },
+  "best_validation": {
+    "update": 256,
+    "nets": 1085,
+    "mean": 0.018564485459402598,
+    "p95": 0.04958787472620683,
+    "macro": 0.018581467368813866
+  },
+  "training_seconds": 195.44332127273083,
+  "new_training_seconds": 195.44332127273083,
+  "test_seconds": 8.508864901959896,
+  "process_seconds": 206.3062597885728,
+  "initial_update": 0,
+  "new_updates": 256,
+  "ledger": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "candidate_requested": 131072,
+    "candidate_forward_rows": 131072,
+    "candidate_gpu_rows": 131072,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 11870,
+    "test_forward_rows": 12288,
+    "test_gpu_rows": 12288
+  },
+  "ledger_delta": {
+    "validation_requested": 3255,
+    "validation_forward_rows": 3840,
+    "validation_gpu_rows": 3840,
+    "candidate_requested": 131072,
+    "candidate_forward_rows": 131072,
+    "candidate_gpu_rows": 131072,
+    "sampled_requested": 16384,
+    "sampled_forward_rows": 16384,
+    "sampled_gpu_rows": 16384,
+    "test_requested": 11870,
+    "test_forward_rows": 12288,
+    "test_gpu_rows": 12288
+  },
+  "tests": [
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/laplacian_g301_s101_u256_last.npz",
+      "nets": 5935,
+      "method": "laplacian",
+      "seed": 101,
+      "generator": 301,
+      "budget": 256,
+      "role": "last",
+      "update": 256
+    },
+    {
+      "path": "/remote-home/Guilin/DRO/Codex/net_structure_real_20260922/artifacts/test/laplacian_g301_s101_u256_val_best.npz",
+      "nets": 5935,
+      "method": "laplacian",
+      "seed": 101,
+      "generator": 301,
+      "budget": 256,
+      "role": "val_best",
+      "update": 256
+    }
+  ],
+  "rho": 0.07090420840928952,
+  "lambda_final": 0.0,
+  "nominal_fraction": 0.12738037109375,
+  "mean_selected_cost": 0.06897419319308636,
+  "mean_budget_gap": -0.0019300152162031702
+}

@@ -1,0 +1,20 @@
+{
+  "base_contract_sha256": "1771604ad66469cb292bf46070f442e379a85f8f01f090d722e2b2a3b05afcb0",
+  "created_at_utc": "2026-09-05T05:12:22.569005Z",
+  "final_auditor_changed": false,
+  "operation_hashes": {
+    "wdro_rest_min/scripts/audit_stage3_completed.py": "05436d9828ef49708930ccbd265f43a16dbcda9459b1b996ef8f96d72ac02ca8",
+    "wdro_rest_min/scripts/stage3_pipeline.py": "a30d9dd4b56fca7e8425729cc14dcd86ec6bf1bc9d03d6fbdf623d3df6f85a85",
+    "wdro_rest_min/tests/test_stage3_completed_audit.py": "f00097fa4e4fa43be643bddea6597da8c8ea9d60d07705be5d07a77427114c58"
+  },
+  "preflight": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260905T091409Z.json",
+  "previous_patch_sha256": "18180d7a01ae328ba0b253a7fae0d5f9d8a6f219b8aa684960ebbf7a46a80275",
+  "previous_revision_sha256": "2ab1cdd42167209fc22f9cefb277999dd50c936dc744e1a8b27fbd4545a2b009",
+  "reason": "Run the existing full auditor on completed formal runs at nice=10 with one CPU worker; serialize final audit against this job and stop our training safely on any audit failure. All checkpoint identities and reconstruction bindings remain unchanged.",
+  "research_protocol_override": false,
+  "revised_at_utc": "2026-09-05T09:20:43.910033Z",
+  "revision": 3,
+  "revision_reason": "Measured first formal Hard Mining audit needs minutes per 25-update cursor at nice=10. When all training ends, terminate only the early CPU worker and yield its atomic cursor to the unchanged eight-worker final auditor; avoid waiting for the entire active low-priority run. Real audit exceptions still stop training.",
+  "test_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage3_completed_audit_handoff_tests.log",
+  "training_code_changed": false
+}

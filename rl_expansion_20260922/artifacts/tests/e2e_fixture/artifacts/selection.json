@@ -1,0 +1,1008 @@
+{
+  "status": "all_training_frozen",
+  "training_completions": {
+    "artifacts/runs/screen_BASE_s201/complete.json": "154553015e9f35a7df88e139704e46ded44b8a3377f8576922c6a611e625b8d9",
+    "artifacts/runs/screen_WIDE_s201/complete.json": "fc20446c7955b90c5eaebf95763541c163ac934ad14cfefcd42966d744e9c467",
+    "artifacts/runs/screen_DEEP_s201/complete.json": "2b1c5a0c459742f7f9fb38f6202ee97178b8de94d7f706475496dcb8d3ffc329",
+    "artifacts/runs/screen_BASE_s202/complete.json": "f153447cc00a3c2026a3ba5fdeb5d9e057758ec0212771c36914b44265aca97c",
+    "artifacts/runs/screen_WIDE_s202/complete.json": "1ea541adcbbcd20ccf384545b975b4a52d1c017db842dd502431031454fbd22a",
+    "artifacts/runs/screen_DEEP_s202/complete.json": "8959c221367da7a0118b89e26f4951f143a26def8bb95a8a3f6de5a566ea7abe",
+    "artifacts/runs/screen_E50_s101/complete.json": "b2560264fed149ef6bbbef704a32c7e7b2f13f4366e20d335d0fcc4a7163c0c1",
+    "artifacts/runs/screen_GDF_s101/complete.json": "4b6ea8a218dafc977881e3d9c794d5a716575ce4a28cd2b26984c1bd0be581f9",
+    "artifacts/runs/screen_E50_s102/complete.json": "da82822fdfb2c7570013cc7230b7489a20b43051f324ee4d456a3fd5a408a1cd",
+    "artifacts/runs/screen_GDF_s102/complete.json": "420a9b92e9f9208f95e2582b4008f115110b4f3105eed10184d853c0bf9321a1",
+    "artifacts/runs/parents_ME_s104/complete.json": "6c313649a3984154514b1fe66f86eff0d6d894380fabc762a2851838bca5bd5f",
+    "artifacts/runs/final_E50_s101/complete.json": "fe53f854eff10957f5fff9c2814916e66a183e68fe8e2038b824b99d7bda193c",
+    "artifacts/runs/final_E50_s102/complete.json": "464df54a990d1a7f388dc39bba80de312514f6689e9b35fc7fa9df6fb86c8ef6",
+    "artifacts/runs/final_E50_s104/complete.json": "f9128df0ec2fc7c04441783d2ccd6753e3914634bcf45a2c32e88326e11c69b2",
+    "artifacts/runs/final_BASE_s201/complete.json": "64ae66aa63b4e1dc8450d6eddb0571fdc5e6517a58c1e26946b90aa5d4c2f2cd",
+    "artifacts/runs/final_DEEP_s201/complete.json": "6a8e1286b165ba06237f32c29499785f33a5b567fec5d2d6caecc448657d5e07",
+    "artifacts/runs/final_BASE_s202/complete.json": "b3b6fefed3db741a0373cf83fdf12e574599070bd980c166f9b6c238a7c504c6",
+    "artifacts/runs/final_DEEP_s202/complete.json": "402b1dfb8fca19387597da5262e8afdf484d0d775b403b51a7e22fa6afb7b9aa"
+  },
+  "models": {
+    "screen_BASE_s201": {
+      "task": {
+        "id": "screen_BASE_s201",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "BASE",
+        "seed": 201,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_BASE_s201",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_BASE_s201/step4.pt",
+          "sha256": "67255516ea8c44cc12a6e1a2ffb95d547803bf4e99b52b102a06422803755258",
+          "step": 4,
+          "actor_sha256": "559530ed5039a704514e919283e9f916a6d13624615584766d266bd5032e4115"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_BASE_s201/best.pt",
+          "sha256": "f5493fa788fdd417f53e9b3e7d66c19c512c398d9f0365c226a6e81f3dd8aec7",
+          "step": 2,
+          "actor_sha256": "9587f65df2d94edbd53bfe9cb08e78eda93548c739a68b90762b9599e5bce585"
+        }
+      }
+    },
+    "screen_WIDE_s201": {
+      "task": {
+        "id": "screen_WIDE_s201",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "WIDE",
+        "seed": 201,
+        "config": {
+          "width": 256,
+          "depth": 3,
+          "inner": 1024,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_WIDE_s201",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_WIDE_s201/step4.pt",
+          "sha256": "4e270703d369c9d59f719d87ac5dbe75531e121c9a40520b5af6719cad870996",
+          "step": 4,
+          "actor_sha256": "3ef57f078d28496179df1c5e81a360040156fcc906adaddf796670ae9085bf92"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_WIDE_s201/best.pt",
+          "sha256": "89afddb260e596ca282d3cc045e9b0b98e6b4002da1fa3ae9dc19d2e1b773451",
+          "step": 0,
+          "actor_sha256": "0c50fa53f417e4e4807286dc04622f2a86ad0abd4fdbe177e12b539db1fda5fb"
+        }
+      }
+    },
+    "screen_DEEP_s201": {
+      "task": {
+        "id": "screen_DEEP_s201",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "DEEP",
+        "seed": 201,
+        "config": {
+          "width": 128,
+          "depth": 6,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_DEEP_s201",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_DEEP_s201/step4.pt",
+          "sha256": "2774e26e6a028f76e417ce452919b3f193df4746efab64f247f1148ade1a4167",
+          "step": 4,
+          "actor_sha256": "7bdc8453ce98399c8288780827c96758b4e56dc1b709070a837745c35fd0861b"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_DEEP_s201/best.pt",
+          "sha256": "47f11ffd0352298b0671b05f471946db5d89a420fe15cfafae573ebf1f7437e2",
+          "step": 2,
+          "actor_sha256": "3b40d6c48c86bb15d6b40c9465f153ba911ede54c6a0cb5f14ac4eac759d49d6"
+        }
+      }
+    },
+    "screen_BASE_s202": {
+      "task": {
+        "id": "screen_BASE_s202",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "BASE",
+        "seed": 202,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_BASE_s202",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_BASE_s202/step4.pt",
+          "sha256": "c05911a1262120ecfb25844ffaa4e6c635d94ac1b463fe29d1ca36347507231f",
+          "step": 4,
+          "actor_sha256": "709b0daae232a7848563d86f75b5f04a55f02962b84caf7774c641921a82de2b"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_BASE_s202/best.pt",
+          "sha256": "3773dce8b498d1a43c6579152e2b0e000959bbc69618a2c882ac8dc663772c2a",
+          "step": 4,
+          "actor_sha256": "709b0daae232a7848563d86f75b5f04a55f02962b84caf7774c641921a82de2b"
+        }
+      }
+    },
+    "screen_WIDE_s202": {
+      "task": {
+        "id": "screen_WIDE_s202",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "WIDE",
+        "seed": 202,
+        "config": {
+          "width": 256,
+          "depth": 3,
+          "inner": 1024,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_WIDE_s202",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_WIDE_s202/step4.pt",
+          "sha256": "46d5d3cff27b3ba8a4fb99ac765ec6272d3e0cb747960d2d02fac165fab21e67",
+          "step": 4,
+          "actor_sha256": "a6b03b1b00f0ad4a5d8f4c57d9b7b51df869b68ab61e3f4eb68099af1b0e79db"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_WIDE_s202/best.pt",
+          "sha256": "ca47a58ad6c3285bc11dedd9d9d125e4672f7304423d1c1b1d63676d1d76976e",
+          "step": 4,
+          "actor_sha256": "a6b03b1b00f0ad4a5d8f4c57d9b7b51df869b68ab61e3f4eb68099af1b0e79db"
+        }
+      }
+    },
+    "screen_DEEP_s202": {
+      "task": {
+        "id": "screen_DEEP_s202",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "DEEP",
+        "seed": 202,
+        "config": {
+          "width": 128,
+          "depth": 6,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_DEEP_s202",
+        "endpoints": [
+          4
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_DEEP_s202/step4.pt",
+          "sha256": "755de3be5b0a5178850f49e24e357bcd58ba223b9e4abc2d9638af05c23cf484",
+          "step": 4,
+          "actor_sha256": "965c2e8cfb42fcdc11574958738362b55f5ddc2c17a9ad4b0ea7a88fb06ee600"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_DEEP_s202/best.pt",
+          "sha256": "87f7e0e523eb179150d190c479dbb07e0f093f4ef39a9cb9b5674528f73431eb",
+          "step": 0,
+          "actor_sha256": "154c12a13812827d66cfc53d6b7527ac99e5825fb204cb6b6361db2fbe3bba8b"
+        }
+      }
+    },
+    "screen_E50_s101": {
+      "task": {
+        "id": "screen_E50_s101",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "E50",
+        "seed": 101,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_E50_s101",
+        "endpoints": [
+          4
+        ],
+        "parent": {
+          "path": "artifacts/inputs/ME_s101.pt",
+          "sha256": "bdeffbaccd9042fd3a3453e8c2e8d4a4adb15b2b86cc48e16c5a894a5b50ba45"
+        },
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_E50_s101/step4.pt",
+          "sha256": "f9d0c063ae9a8a3cef67fc50f0344ae5958a53a4e125cace8433d1c86784cfcb",
+          "step": 4,
+          "actor_sha256": "da1d0ebf879ad3ab843b440d99e121b766d3327390e21439ad2608749332474b"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_E50_s101/best.pt",
+          "sha256": "45c23263118ed39bf70b05257041fe7ee5e4b78f4efc9dfbd17cb8e322b22827",
+          "step": 2,
+          "actor_sha256": "4e8d6be4cf06221fcbeced829af0667127143f7838857620efccfa68e2af177e"
+        }
+      }
+    },
+    "screen_GDF_s101": {
+      "task": {
+        "id": "screen_GDF_s101",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "GDF",
+        "seed": 101,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "group",
+          "eta": 0.01,
+          "uniform_mix": 0.2,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_GDF_s101",
+        "endpoints": [
+          4
+        ],
+        "parent": {
+          "path": "artifacts/inputs/ME_s101.pt",
+          "sha256": "bdeffbaccd9042fd3a3453e8c2e8d4a4adb15b2b86cc48e16c5a894a5b50ba45"
+        },
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_GDF_s101/step4.pt",
+          "sha256": "a7699faa91c2236c5abb32a4678dc0b67c603bd98146ca5b1e2512a5fc60feb9",
+          "step": 4,
+          "actor_sha256": "fb9359233cce3f27c07c92a85137c300d10d776ce096ee738663e50a6130d735"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_GDF_s101/best.pt",
+          "sha256": "2e3efe1d95b2421502536f613f123aeec4f2b6c5709be3e97630f4f54cceb4d1",
+          "step": 2,
+          "actor_sha256": "4e8d6be4cf06221fcbeced829af0667127143f7838857620efccfa68e2af177e"
+        }
+      }
+    },
+    "screen_E50_s102": {
+      "task": {
+        "id": "screen_E50_s102",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "E50",
+        "seed": 102,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_E50_s102",
+        "endpoints": [
+          4
+        ],
+        "parent": {
+          "path": "artifacts/inputs/ME_s102.pt",
+          "sha256": "46bdb4ad3896710e79619be5db472b9288642015dbd3dc3d85584987ccfc26e4"
+        },
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_E50_s102/step4.pt",
+          "sha256": "9d559e8bc8e84eb356535a69501e4ba837320d574844865cdbb71ee7d731a6a3",
+          "step": 4,
+          "actor_sha256": "796a2bc0594307a9c56892de28dbfe79c907f9eda02e9d0933774f0310e7ee53"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_E50_s102/best.pt",
+          "sha256": "7354ce499a4af7bf8e2906ff95ffa0013ef2757b94db670edce15b0381684969",
+          "step": 4,
+          "actor_sha256": "796a2bc0594307a9c56892de28dbfe79c907f9eda02e9d0933774f0310e7ee53"
+        }
+      }
+    },
+    "screen_GDF_s102": {
+      "task": {
+        "id": "screen_GDF_s102",
+        "mode": "train",
+        "stage": "screen",
+        "arm": "GDF",
+        "seed": 102,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "group",
+          "eta": 0.01,
+          "uniform_mix": 0.2,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 4,
+        "outdir": "artifacts/runs/screen_GDF_s102",
+        "endpoints": [
+          4
+        ],
+        "parent": {
+          "path": "artifacts/inputs/ME_s102.pt",
+          "sha256": "46bdb4ad3896710e79619be5db472b9288642015dbd3dc3d85584987ccfc26e4"
+        },
+        "inherit_training": false
+      },
+      "models": {
+        "step4": {
+          "path": "artifacts/runs/screen_GDF_s102/step4.pt",
+          "sha256": "e0b69b33b3e7d9a6e6547d5617b197c61582fb102699fe71ff5368d51f4cf532",
+          "step": 4,
+          "actor_sha256": "c6b583bb55cac5436a9b39c1a3d5759e5a6daa3c3cb94b06436d2faceb5b733d"
+        },
+        "best": {
+          "path": "artifacts/runs/screen_GDF_s102/best.pt",
+          "sha256": "44a8f52ca77b4f8eede937dac141f789152f8bca2bf811dcb9ef6d8de34461f0",
+          "step": 4,
+          "actor_sha256": "c6b583bb55cac5436a9b39c1a3d5759e5a6daa3c3cb94b06436d2faceb5b733d"
+        }
+      }
+    },
+    "parents_ME_s104": {
+      "task": {
+        "id": "parents_ME_s104",
+        "mode": "train",
+        "stage": "parents",
+        "arm": "ME",
+        "seed": 104,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 0,
+        "target": 2,
+        "outdir": "artifacts/runs/parents_ME_s104",
+        "endpoints": [
+          2
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step2": {
+          "path": "artifacts/runs/parents_ME_s104/step2.pt",
+          "sha256": "9618826c8a6d884372b0facdfb1dc4fc05ded8a4194553d45e4dc33f9735ce61",
+          "step": 2,
+          "actor_sha256": "48944f15e05b1f3c651a28d91bb8117641f1a1a7c582205793d4948c26284f07"
+        },
+        "best": {
+          "path": "artifacts/runs/parents_ME_s104/best.pt",
+          "sha256": "9bec928cffa025dc3683be00eb9e742d4aa2dd6332ba7ab47ba0ee78719f5afc",
+          "step": 0,
+          "actor_sha256": "8999e7b8a1935100be302c8bbe29d9212af958c3d87408fd1c7799a28e70d51c"
+        }
+      }
+    },
+    "final_E50_s101": {
+      "task": {
+        "id": "final_E50_s101",
+        "mode": "train",
+        "stage": "final",
+        "arm": "E50",
+        "seed": 101,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_E50_s101",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_E50_s101/step4.pt",
+          "sha256": "f9d0c063ae9a8a3cef67fc50f0344ae5958a53a4e125cace8433d1c86784cfcb"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_E50_s101/step6.pt",
+          "sha256": "0a0a5bbd23e5c1f7b113f00b56ce1edbecb7b8a29df19cc442b9f7ea946d1f72",
+          "step": 6,
+          "actor_sha256": "2f638b46a8eead209387ab097cab6b6d9c433e5cb4479ab9ef1002d3c411b03d"
+        },
+        "best": {
+          "path": "artifacts/runs/final_E50_s101/best.pt",
+          "sha256": "f7fd947f7bfed10e7bb492fa3a725a9e11704d9059a2fc7bea299bbdfb9b3013",
+          "step": 6,
+          "actor_sha256": "2f638b46a8eead209387ab097cab6b6d9c433e5cb4479ab9ef1002d3c411b03d"
+        }
+      }
+    },
+    "final_E50_s102": {
+      "task": {
+        "id": "final_E50_s102",
+        "mode": "train",
+        "stage": "final",
+        "arm": "E50",
+        "seed": 102,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_E50_s102",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_E50_s102/step4.pt",
+          "sha256": "9d559e8bc8e84eb356535a69501e4ba837320d574844865cdbb71ee7d731a6a3"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_E50_s102/step6.pt",
+          "sha256": "1250363e1e9135ae393923a76a58c3857cbf36e80796b09f8044137ae398ff81",
+          "step": 6,
+          "actor_sha256": "457ff9bccb23ce7d95251d0fee197343566cfbfaa906d8cf4375ad1af547f41e"
+        },
+        "best": {
+          "path": "artifacts/runs/final_E50_s102/best.pt",
+          "sha256": "3d71bbdd968ecae5e8e94ef1fbec2fe951e5a45fdddfe362bfc178bbbc86cc76",
+          "step": 4,
+          "actor_sha256": "796a2bc0594307a9c56892de28dbfe79c907f9eda02e9d0933774f0310e7ee53"
+        }
+      }
+    },
+    "final_E50_s104": {
+      "task": {
+        "id": "final_E50_s104",
+        "mode": "train",
+        "stage": "final",
+        "arm": "E50",
+        "seed": 104,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 6,
+        "outdir": "artifacts/runs/final_E50_s104",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/parents_ME_s104/step2.pt",
+          "sha256": "9618826c8a6d884372b0facdfb1dc4fc05ded8a4194553d45e4dc33f9735ce61"
+        },
+        "inherit_training": false
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_E50_s104/step6.pt",
+          "sha256": "13e472621e5914f060306a6c317cfbad12b2b1723ae1d3bea38c2db146768c61",
+          "step": 6,
+          "actor_sha256": "9b5cbfb91fe74f4d922ee2f411fbfdb6105f4be20705b00056fd7cc7ac8cac29"
+        },
+        "best": {
+          "path": "artifacts/runs/final_E50_s104/best.pt",
+          "sha256": "6ffd89c7667468cd879b83c6f0520e957d5b8ad31193fa9b3e76e58d6aa2d85c",
+          "step": 2,
+          "actor_sha256": "48944f15e05b1f3c651a28d91bb8117641f1a1a7c582205793d4948c26284f07"
+        }
+      }
+    },
+    "final_BASE_s201": {
+      "task": {
+        "id": "final_BASE_s201",
+        "mode": "train",
+        "stage": "final",
+        "arm": "BASE",
+        "seed": 201,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_BASE_s201",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_BASE_s201/step4.pt",
+          "sha256": "67255516ea8c44cc12a6e1a2ffb95d547803bf4e99b52b102a06422803755258"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_BASE_s201/step6.pt",
+          "sha256": "ff4d675d9929d71c2977ecc2b426cb6edc9427a186611274697f4bd7343ac0e3",
+          "step": 6,
+          "actor_sha256": "a66038a8510e6189d403bcb8bf22f7418d74fbfafa1d185ccda0bf0a28275485"
+        },
+        "best": {
+          "path": "artifacts/runs/final_BASE_s201/best.pt",
+          "sha256": "cb744ed525e3dd3ce6f50b2f0ae2947703da8b4b1cf626ecde095d976bb10835",
+          "step": 6,
+          "actor_sha256": "a66038a8510e6189d403bcb8bf22f7418d74fbfafa1d185ccda0bf0a28275485"
+        }
+      }
+    },
+    "final_DEEP_s201": {
+      "task": {
+        "id": "final_DEEP_s201",
+        "mode": "train",
+        "stage": "final",
+        "arm": "DEEP",
+        "seed": 201,
+        "config": {
+          "width": 128,
+          "depth": 6,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_DEEP_s201",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_DEEP_s201/step4.pt",
+          "sha256": "2774e26e6a028f76e417ce452919b3f193df4746efab64f247f1148ade1a4167"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_DEEP_s201/step6.pt",
+          "sha256": "1b38ca49b4e0346a6bfa8a07b652bd7b3e671808a2dd60f76ce7af2c48af3335",
+          "step": 6,
+          "actor_sha256": "db2a343c87ee7a042282b2b5c3a22b6d84aa8f0205ce25bdc7f199cf325410a7"
+        },
+        "best": {
+          "path": "artifacts/runs/final_DEEP_s201/best.pt",
+          "sha256": "7935c99236ef09303f93cf52dfe629e33706429f8793e26b107137f4d5c3b6bf",
+          "step": 4,
+          "actor_sha256": "7bdc8453ce98399c8288780827c96758b4e56dc1b709070a837745c35fd0861b"
+        }
+      }
+    },
+    "final_BASE_s202": {
+      "task": {
+        "id": "final_BASE_s202",
+        "mode": "train",
+        "stage": "final",
+        "arm": "BASE",
+        "seed": 202,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_BASE_s202",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_BASE_s202/step4.pt",
+          "sha256": "c05911a1262120ecfb25844ffaa4e6c635d94ac1b463fe29d1ca36347507231f"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_BASE_s202/step6.pt",
+          "sha256": "67a005ab6f33d63d269999b2f7f0e3dcc28a278105262a461eda5c2f9e4f9633",
+          "step": 6,
+          "actor_sha256": "54f7a3cc32aa0acd2393e00725d0c38b4e1a0d4e3f799b9f6c66d5aa16dd8114"
+        },
+        "best": {
+          "path": "artifacts/runs/final_BASE_s202/best.pt",
+          "sha256": "f5f0fe911563398bd90d4c8c6bde08212fa948cd63f1d496e92369030f8c8ed9",
+          "step": 6,
+          "actor_sha256": "54f7a3cc32aa0acd2393e00725d0c38b4e1a0d4e3f799b9f6c66d5aa16dd8114"
+        }
+      }
+    },
+    "final_DEEP_s202": {
+      "task": {
+        "id": "final_DEEP_s202",
+        "mode": "train",
+        "stage": "final",
+        "arm": "DEEP",
+        "seed": 202,
+        "config": {
+          "width": 128,
+          "depth": 6,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "original",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 4,
+        "target": 6,
+        "outdir": "artifacts/runs/final_DEEP_s202",
+        "endpoints": [
+          6
+        ],
+        "parent": {
+          "path": "artifacts/runs/screen_DEEP_s202/step4.pt",
+          "sha256": "755de3be5b0a5178850f49e24e357bcd58ba223b9e4abc2d9638af05c23cf484"
+        },
+        "inherit_training": true
+      },
+      "models": {
+        "step6": {
+          "path": "artifacts/runs/final_DEEP_s202/step6.pt",
+          "sha256": "1ee5c7c21d5156d1564657c1ba039cb8cfb13285ecc3414ea11477acb2d8ed6d",
+          "step": 6,
+          "actor_sha256": "e2a4f16131a758e2f52c83c1210fa251b28453708412f113085ff31fdc9261a9"
+        },
+        "best": {
+          "path": "artifacts/runs/final_DEEP_s202/best.pt",
+          "sha256": "983d60157c75f865ab7be9bb7491a259d8c7018b7f292c997c09e0221bd7a783",
+          "step": 6,
+          "actor_sha256": "e2a4f16131a758e2f52c83c1210fa251b28453708412f113085ff31fdc9261a9"
+        }
+      }
+    },
+    "origin_ME_s101": {
+      "task": {
+        "id": "origin_ME_s101",
+        "mode": "train",
+        "stage": "origin",
+        "arm": "ME",
+        "seed": 101,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 2,
+        "outdir": "artifacts/runs/origin_ME_s101",
+        "endpoints": [
+          2
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step2": {
+          "path": "artifacts/inputs/ME_s101.pt",
+          "sha256": "bdeffbaccd9042fd3a3453e8c2e8d4a4adb15b2b86cc48e16c5a894a5b50ba45",
+          "step": 2,
+          "actor_sha256": "4e8d6be4cf06221fcbeced829af0667127143f7838857620efccfa68e2af177e"
+        }
+      }
+    },
+    "origin_ME_s102": {
+      "task": {
+        "id": "origin_ME_s102",
+        "mode": "train",
+        "stage": "origin",
+        "arm": "ME",
+        "seed": 102,
+        "config": {
+          "width": 128,
+          "depth": 3,
+          "inner": 512,
+          "batch": 64,
+          "lr": 5e-05,
+          "schedule": "constant",
+          "optimizer": "adam",
+          "weight_decay": 0.0,
+          "freeze_bn": false,
+          "advantage_ema": false,
+          "augmentation": false,
+          "objective": "erm",
+          "eta": 0.01,
+          "uniform_mix": 0.0,
+          "normalize_risk": false
+        },
+        "start": 2,
+        "target": 2,
+        "outdir": "artifacts/runs/origin_ME_s102",
+        "endpoints": [
+          2
+        ],
+        "parent": null,
+        "inherit_training": false
+      },
+      "models": {
+        "step2": {
+          "path": "artifacts/inputs/ME_s102.pt",
+          "sha256": "46bdb4ad3896710e79619be5db472b9288642015dbd3dc3d85584987ccfc26e4",
+          "step": 2,
+          "actor_sha256": "cb9d4840e5d76795e550cf3fef3003b7276b90a319ed5b3a1963de64c7856fae"
+        }
+      }
+    }
+  },
+  "promotion_sha256": "84bed550b3bf97750350a0864737eb77bbd16e22b50abbe9ee470f94ed37e3d9",
+  "protocol_sha256": "1da4591ac7b59e75de6cfc5fa15a5c53023fb145584cd6a740951a1ac1635982"
+}

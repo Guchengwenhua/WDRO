@@ -1,0 +1,42 @@
+{
+  "id": "eval_origin_ME_s101_d30",
+  "mode": "eval",
+  "stage": "origin",
+  "arm": "ME",
+  "seed": 101,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 5e-05,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 12288,
+  "outdir": "artifacts/eval/origin_ME_s101_d30",
+  "endpoints": [
+    12288
+  ],
+  "parent": null,
+  "inherit_training": false,
+  "models": {
+    "step12288": {
+      "path": "artifacts/inputs/ME_s101.pt",
+      "sha256": "4d5f8da695a47a77d71bcc2c4b41eb4a0f0ee6f053b526fd977aecd46056f4bf",
+      "step": 12288,
+      "actor_sha256": "4e8d6be4cf06221fcbeced829af0667127143f7838857620efccfa68e2af177e"
+    }
+  },
+  "degree": 30,
+  "selection_sha256": "d7049603e2aff245dd29f587450a4764a0abc2f58e5a8d611912477cf7b88b09"
+}

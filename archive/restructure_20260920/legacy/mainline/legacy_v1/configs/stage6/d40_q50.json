@@ -1,0 +1,33 @@
+{
+  "batch_size": 256,
+  "calibration_artifact": "experiments/cache/stage6/calibration_d40_s101.json",
+  "config_id": "stage6_d40_q50",
+  "degree": 40,
+  "ground_cost": "hungarian_l1_mean",
+  "lambda_initial": 0.0,
+  "lambda_learning_rate": 1.0,
+  "lambda_mode": "learned",
+  "research_protocol_override": false,
+  "rho_mode": "q50",
+  "schema_version": 1,
+  "search_overrides": {
+    "candidate_count": 32,
+    "cem": {
+      "elite": 4,
+      "initial_std": 0.02,
+      "maximum_motion": 0.08,
+      "minimum_std": 0.001,
+      "population": 16,
+      "rounds": 4
+    },
+    "exact_rescore_top_k": 4,
+    "searcher": "random_sobol"
+  },
+  "stability_gate": {
+    "maximum_lambda": 100.0
+  },
+  "stage": 6,
+  "status": "frozen",
+  "training_seed": "per_run_protocol_seed",
+  "updates": 2000
+}

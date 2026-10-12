@@ -1,0 +1,35 @@
+{
+  "id": "screen_E100_s103",
+  "mode": "train",
+  "stage": "screen",
+  "arm": "E100",
+  "seed": 103,
+  "config": {
+    "width": 128,
+    "depth": 3,
+    "inner": 512,
+    "batch": 64,
+    "lr": 0.0001,
+    "schedule": "constant",
+    "optimizer": "adam",
+    "weight_decay": 0.0,
+    "freeze_bn": false,
+    "advantage_ema": false,
+    "augmentation": false,
+    "objective": "erm",
+    "eta": 0.01,
+    "uniform_mix": 0.0,
+    "normalize_risk": false
+  },
+  "start": 12288,
+  "target": 20480,
+  "outdir": "artifacts/runs/screen_E100_s103",
+  "endpoints": [
+    20480
+  ],
+  "parent": {
+    "path": "artifacts/inputs/ME_s103.pt",
+    "sha256": "a8745647c0170cdd3d3f7bce0429ba99f795911a9b8d800d41af3eb2957407c6"
+  },
+  "inherit_training": false
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "profile_id": "stage2-erm-memory-profile-v1",
+  "created_at_utc": "2026-09-04T17:56:33Z",
+  "research_protocol_override": false,
+  "batch_size": 256,
+  "torch_peak_source": "per-run torch.cuda.max_memory_reserved",
+  "capacity_rule": "round measured torch reserved upward and include observed/estimated CUDA process overhead",
+  "per_gpu_safety_margin_mib": 2048,
+  "profiles": {
+    "10": {
+      "measured_torch_reserved_mib": 372,
+      "capacity_peak_mib": 1024,
+      "evidence": "Codex/experiments/logs/stage2/stage2_memory_smoke_erm_d10_s101/result.json"
+    },
+    "20": {
+      "measured_torch_reserved_mib": 828,
+      "capacity_peak_mib": 1536,
+      "evidence": "Codex/experiments/logs/stage2/stage2_memory_smoke_erm_d20_s101/result.json"
+    },
+    "30": {
+      "measured_torch_reserved_mib": 1626,
+      "observed_nvidia_process_memory_mib": 2198,
+      "capacity_peak_mib": 2200,
+      "evidence": "Codex/experiments/logs/stage2/stage2_smoke_erm_d30_s101_u200/result.json"
+    },
+    "40": {
+      "measured_torch_reserved_mib": 2372,
+      "capacity_peak_mib": 3072,
+      "evidence": "Codex/experiments/logs/stage2/stage2_memory_smoke_erm_d40_s101/result.json"
+    },
+    "50": {
+      "measured_torch_reserved_mib": 3576,
+      "capacity_peak_mib": 4224,
+      "evidence": "Codex/experiments/logs/stage2/stage2_memory_smoke_erm_d50_s101/result.json"
+    }
+  },
+  "formal_runtime": {
+    "geosteiner_workers_per_run": 3,
+    "maximum_simultaneous_runs": 15,
+    "maximum_geosteiner_worker_processes": 45,
+    "launch_stagger_seconds": 3,
+    "fresh_preflight_before_each_launch": true,
+    "post_launch_gpu_sample": true
+  },
+  "artifact_root": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/experiments",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments"
+  }
+}

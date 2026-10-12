@@ -1,0 +1,165 @@
+{
+  "artifact_paths": {
+    "checkpoints_logical": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage6/stage6_smoke_d10_s102_peak_v1",
+    "checkpoints_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/checkpoints/stage6/stage6_smoke_d10_s102_peak_v1",
+    "logs_logical": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage6/stage6_smoke_d10_s102_peak_v1",
+    "logs_resolved": "/attached/remote-home1/Guilin/DRO/Codex/experiments/logs/stage6/stage6_smoke_d10_s102_peak_v1"
+  },
+  "batch_size": 256,
+  "best": {
+    "feasible": true,
+    "nominal_mean": 0.0023355427666092916,
+    "selection_objective": 0.0024519282544485247,
+    "update": 0,
+    "validation_manifest_sha256": "cf06be198a7ae75466c0591b68ac1adb35ecded0b0d3c31ce93d20a1f31aeba8"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage6/stage6_smoke_d10_s102_peak_v1/best.pt",
+  "best_checkpoint_sha256": "2676bbb8f504755403f2efced47d600022646cf4bbc92561a9c877090a80353b",
+  "call_ledger": {
+    "actor_forward_nets": 10561,
+    "exact_rest_evaluator_nets": 10562,
+    "geosteiner_nets": 2050,
+    "surrogate_evaluator_nets": 16896
+  },
+  "completed_updates": 2,
+  "cuda_visible_devices": "6",
+  "degree": 10,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/experiments/logs/stage6/stage6_smoke_d10_s102_peak_v1/events.jsonl",
+  "expected_updates": 2000,
+  "finished_at_utc": "2026-09-06T13:39:49.822611Z",
+  "geosteiner_workers": 3,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/wdro_rest_min/manifests/host_runtime_20260906T133936Z.json",
+  "initialization": {
+    "ignored_components": [
+      "batch_idx",
+      "best_eval",
+      "critic_state_dict",
+      "optimizer_state_dict",
+      "scheduler_state_dict"
+    ],
+    "legacy_batch_idx": 38500,
+    "legacy_best_eval": 2.322439833959299,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/DRO/WDRO-REST/save/DAC21/rsmt10b.pt",
+    "sha256": "8edeb75f81955f90a924b2ffd14a15273ba277ee7c573bac7e868bff5caa1772",
+    "weights_only": false
+  },
+  "inverse_length_audit": {
+    "lstar_absolute_error": 4.440892098500626e-16,
+    "lstar_normalized": 2.2483681738376617,
+    "lstar_original": 2.5981131132235817,
+    "net_id": "train_u000001:uniform:d10:s102:n000000",
+    "rest_absolute_error": 4.440892098500626e-16,
+    "rest_normalized": 2.2483681738376617,
+    "rest_original": 2.5981131132235817,
+    "scale": 0.8653850220739707,
+    "status": "pass"
+  },
+  "last_validation": null,
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/experiments/checkpoints/stage6/stage6_smoke_d10_s102_peak_v1/latest.pt",
+  "latest_checkpoint_sha256": "89f90dc34de67fe609f4c7a808bcf9edaeb20dfeb4246955027ecbf0a4d6e7dc",
+  "method": "wdro_rest",
+  "method_state": {
+    "budget": {
+      "centers": 512,
+      "exact_rescore_nets": 2048,
+      "perturbations": 16384,
+      "reference_cache_hits": 0,
+      "reference_cache_misses": 2048,
+      "reference_requests": 2048,
+      "repaired_candidates": 2,
+      "surrogate_nets": 16896
+    },
+    "cost_history": [
+      0.027043879611301235,
+      0.0203671078372281
+    ],
+    "lambda": 0.01853406144364271,
+    "rho": 0.014438463002443313,
+    "selection_stream_hash": "333c8bee9048674dccfeac0578717fa213310a36b41ab20d85dc19013ed4b894",
+    "support_stream_hash": "1843da8aaf4da21dc3df956d87e839b46d5157056946623f34f00763dbfeaf75"
+  },
+  "nan_detected": false,
+  "nominal_limit": 0.004263912962880393,
+  "peak_memory_allocated_bytes": 378279424,
+  "peak_memory_reserved_bytes": 406847488,
+  "physical_gpu_index": 6,
+  "policy_update_nets": 512,
+  "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+  "reference_cache": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/experiments/cache/stage6_references/stage6_smoke_d10_s102_peak_v1/lstar.sqlite",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/experiments/cache/stage6_references/stage6_smoke_d10_s102_peak_v1/lstar.sqlite"
+  },
+  "resumed_from": null,
+  "run_id": "stage6_smoke_d10_s102_peak_v1",
+  "run_identity": {
+    "ablation_config": {
+      "batch_size": 256,
+      "calibration_artifact": "experiments/cache/stage6/calibration_d10_s101.json",
+      "config_id": "stage6_d10_q50",
+      "degree": 10,
+      "ground_cost": "hungarian_l1_mean",
+      "lambda_initial": 0.0,
+      "lambda_learning_rate": 1.0,
+      "lambda_mode": "learned",
+      "research_protocol_override": false,
+      "rho_mode": "q50",
+      "schema_version": 1,
+      "search_overrides": {
+        "candidate_count": 32,
+        "cem": {
+          "elite": 4,
+          "initial_std": 0.02,
+          "maximum_motion": 0.08,
+          "minimum_std": 0.001,
+          "population": 16,
+          "rounds": 4
+        },
+        "exact_rescore_top_k": 4,
+        "searcher": "random_sobol"
+      },
+      "stability_gate": {
+        "maximum_lambda": 100.0
+      },
+      "stage": 6,
+      "status": "frozen",
+      "training_seed": "per_run_protocol_seed",
+      "updates": 2000
+    },
+    "baseline_config_sha256": "1e89baa124c2984ab4c71335a8919da64ea057dd4df67ac2b1bc5631a66392c3",
+    "batch_size": 256,
+    "calibration_sha256": "d71d453c6f62f7777a2cae02e90c883d000c1dd3f2486ed974969d29f5af2d0b",
+    "degree": 10,
+    "erm_reference_result_sha256": "54d1b5409e1a497e7ac655046f51f1e2ec5ed5554772d0c2ed26a8a8c6bdceb8",
+    "expected_updates": 2000,
+    "implementation_sha256": "b979aebaa956b0600f153dadc2a4a7c40b4055548fedf59a72c04bb0cdbf6829",
+    "inference": {
+      "mode": "deterministic_greedy",
+      "shared_batches": true,
+      "shared_hardware_required": true,
+      "symmetry_transforms": 1
+    },
+    "method": "wdro_rest",
+    "nominal_limit": 0.004263912962880393,
+    "protocol_canonical_sha256": "1bddb1a317bdf3f2d9d472431c4d4305fc156e1dd7a0a4d0e50ce666fac7967c",
+    "rho": 0.014438463002443313,
+    "rho_mode": "q50",
+    "stage": 6,
+    "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+    "training_seed": 102,
+    "wdro_config_sha256": "0cf6e09ff90cd3ff408599eb8a589b481a7d52d5b3245e4ddab8738aa8b3c156"
+  },
+  "schema_version": 1,
+  "segment_wall_seconds": 3.136912703514099,
+  "selection_feasible": true,
+  "started_this_segment_at_update": 1,
+  "status": "paused_for_resume",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": "df1d1687b02e6957379a6e5246d191785ce09b289d100ce2e3ea117eedf0b137",
+  "training_seed": 102,
+  "training_stream_hash": "93bcd763bd56cc1c05de37b8ab6613a2f52ff057797c57aae8e2576829f1e77a"
+}
