@@ -64,6 +64,8 @@ def finish(jid,rc):
  r.update(exit_code=rc,ended=time.time(),wall_seconds_this_attempt=time.time()-a['started'])
  r['wall_seconds_total']=r.get('wall_seconds_total',0)+r['wall_seconds_this_attempt']
  if complete(j):r['status']='complete'
+ elif a.get('stop_reason')=='disk_limit':
+  r.update(status='pending',reason='waiting_disk',resource_pauses=r.get('resource_pauses',0)+1)
  elif a.get('stop_reason')=='controller_stop':r.update(status='paused',reason='controller_stop')
  elif a.get('stop_reason'):r.update(status='failed',reason=a['stop_reason'])
  else:
@@ -118,7 +120,7 @@ def main():
     d=read(j['gate_file'])
     if not isinstance(d,dict) or 'allow' not in d:r.update(status='failed',reason='missing_development_gate');continue
     if not d['allow']:r.update(status='skipped_gate',reason=d.get('reason','negative_development_gate'));continue
-   if r['attempts']>=CFG['max_attempts']:r.update(status='failed',reason='attempt_limit');continue
+   if r['attempts']-r.get('resource_pauses',0)>=CFG['max_attempts']:r.update(status='failed',reason='attempt_limit');continue
    ready.append(j)
   ready.sort(key=lambda j:(j['priority'],JOBS.index(j)))
   for j in ready:

@@ -1,0 +1,1372 @@
+{
+  "artifact_paths": {
+    "checkpoints_logical": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints",
+    "checkpoints_resolved": "/attached/remote-home1/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints",
+    "logs_logical": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/logs",
+    "logs_resolved": "/attached/remote-home1/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/logs"
+  },
+  "batch_size": 4096,
+  "best": {
+    "feasible": true,
+    "nominal_mean": 0.0020541741984620157,
+    "selection_objective": 0.0019278206950717007,
+    "update": 252,
+    "validation_manifest_sha256": "not_computed_per_skill"
+  },
+  "best_checkpoint": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints/best.pt",
+  "best_checkpoint_sha256": {
+    "identity_kind": "path_size_mtime_not_digest",
+    "mtime_ns": 1791820228369357105,
+    "path": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints/best.pt",
+    "size": 28810970
+  },
+  "call_ledger": {
+    "actor_forward_nets": 13656000,
+    "exact_rest_evaluator_nets": 13656000,
+    "geosteiner_nets": 10240000,
+    "surrogate_evaluator_nets": 84480000
+  },
+  "completed_updates": 625,
+  "cuda_visible_devices": "6",
+  "degree": 10,
+  "device": "cuda:0",
+  "event_log": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/logs/events.jsonl",
+  "expected_updates": 625,
+  "finished_at_utc": "2026-10-12T17:08:49.812585Z",
+  "geosteiner_workers": 4,
+  "host_runtime_manifest": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/protocol.json",
+  "initialization": {
+    "legacy_batch_idx": 38500,
+    "loaded_components": [
+      "actor_state_dict"
+    ],
+    "path": "/remote-home/Guilin/DRO/DRO/WDRO-REST/save/DAC21/rsmt10b.pt",
+    "source_metadata": {
+      "identity_kind": "path_size_mtime_not_digest",
+      "mtime_ns": 1788516727768053651,
+      "path": "/remote-home/Guilin/DRO/DRO/WDRO-REST/save/DAC21/rsmt10b.pt",
+      "size": 28683630
+    }
+  },
+  "inverse_length_audit": {
+    "reason": "existing Skill forbids unsolicited automated inverse audit",
+    "status": "not_run"
+  },
+  "last_validation": {
+    "aggregate": {
+      "groups": {
+        "edge_bias": {
+          "count": 2000,
+          "maximum": 0.12764097288163895,
+          "mean": 0.0018506722476448272,
+          "minimum": 0.0,
+          "p95": 0.010779858477911214
+        },
+        "grid_cluster": {
+          "count": 2000,
+          "maximum": 0.05698063179751814,
+          "mean": 0.0019450342775080224,
+          "minimum": 0.0,
+          "p95": 0.01202212286332161
+        },
+        "mix_gauss": {
+          "count": 2000,
+          "maximum": 0.2664563305968439,
+          "mean": 0.0019912153585446295,
+          "minimum": 0.0,
+          "p95": 0.010944429628488326
+        },
+        "uniform": {
+          "count": 2000,
+          "maximum": 0.061893798539083215,
+          "mean": 0.0017389882156369446,
+          "minimum": 0.0,
+          "p95": 0.010819129079058708
+        }
+      },
+      "overall": {
+        "count": 8000,
+        "maximum": 0.2664563305968439,
+        "mean": 0.001881477524833606,
+        "minimum": 0.0,
+        "p95": 0.011114377480833638
+      },
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.0019912153585446295
+    },
+    "degree": 10,
+    "groups": {
+      "edge_bias": {
+        "dataset_array_bundle_sha256": "c741a90a4af8acd88c10539a691acbb09ff0f34571c1ee694a0609cae7cd339d",
+        "first_net_id": "validation:edge_bias:d10:s202:n000000",
+        "last_net_id": "validation:edge_bias:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.12764097288163895,
+          "mean": 0.0018506722476448272,
+          "minimum": 0.0,
+          "p95": 0.010779858477911214
+        }
+      },
+      "grid_cluster": {
+        "dataset_array_bundle_sha256": "0a74d4441e5e1d950e0e561d87f1223b9e416f0926bf88991379ae7bb1ddee18",
+        "first_net_id": "validation:grid_cluster:d10:s202:n000000",
+        "last_net_id": "validation:grid_cluster:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.05698063179751814,
+          "mean": 0.0019450342775080224,
+          "minimum": 0.0,
+          "p95": 0.01202212286332161
+        }
+      },
+      "mix_gauss": {
+        "dataset_array_bundle_sha256": "964e39459e83495bae40dc2f844d1f0a67040a77f12db3148b2bb03ade8b16c0",
+        "first_net_id": "validation:mix_gauss:d10:s202:n000000",
+        "last_net_id": "validation:mix_gauss:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.2664563305968439,
+          "mean": 0.0019912153585446295,
+          "minimum": 0.0,
+          "p95": 0.010944429628488326
+        }
+      },
+      "uniform": {
+        "dataset_array_bundle_sha256": "4e7a26cff06f6526cd37fe22d027044caa63f317772b99bf1c95fb195f8c85d4",
+        "first_net_id": "validation:uniform:d10:s202:n000000",
+        "last_net_id": "validation:uniform:d10:s202:n001999",
+        "summary": {
+          "count": 2000,
+          "maximum": 0.061893798539083215,
+          "mean": 0.0017389882156369446,
+          "minimum": 0.0,
+          "p95": 0.010819129079058708
+        }
+      }
+    },
+    "inference": {
+      "batch_size": 1024,
+      "mode": "deterministic_greedy",
+      "symmetry_transforms": 1
+    },
+    "seed": 202,
+    "selection": {
+      "nominal_mean": 0.0017389882156369446,
+      "objective": "minimum_worst_group_relative_regret",
+      "scope": [
+        "mix_gauss",
+        "edge_bias",
+        "grid_cluster"
+      ],
+      "test_or_ispd_used": false,
+      "worst_group": "mix_gauss",
+      "worst_group_mean": 0.0019912153585446295
+    },
+    "split": "validation"
+  },
+  "latest_checkpoint": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints/latest.pt",
+  "latest_checkpoint_sha256": {
+    "identity_kind": "path_size_mtime_not_digest",
+    "mtime_ns": 1791824929794548046,
+    "path": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints/latest.pt",
+    "size": 28811906
+  },
+  "method": "wdro_rest",
+  "method_state": {
+    "budget": {
+      "centers": 2560000,
+      "exact_rescore_nets": 10240000,
+      "perturbations": 81920000,
+      "reference_cache_hits": 0,
+      "reference_cache_misses": 10240000,
+      "reference_requests": 10240000,
+      "repaired_candidates": 14249,
+      "surrogate_nets": 84480000
+    },
+    "cost_history": [
+      0.02201111465001304,
+      0.02245601955091843,
+      0.02242607668686105,
+      0.022553397045157908,
+      0.02198161530923244,
+      0.02201394635249017,
+      0.02233862481352844,
+      0.021726430735725444,
+      0.022395688287906522,
+      0.021896395506701083,
+      0.02266713870030799,
+      0.023347734106209828,
+      0.022974338451967925,
+      0.0222567766892098,
+      0.022849434462295905,
+      0.02233271175518894,
+      0.022006127326858402,
+      0.022107212349874318,
+      0.022962083752827312,
+      0.02218767823160306,
+      0.02316095860733185,
+      0.02226030110978172,
+      0.022451570414341405,
+      0.022043833500720214,
+      0.022337645454717857,
+      0.022386350413944454,
+      0.021332734698262357,
+      0.021971856659183685,
+      0.023002708201602218,
+      0.023175530567823444,
+      0.02208809310304787,
+      0.021890617567260053,
+      0.023086895808228293,
+      0.022414934964581336,
+      0.021878368135730852,
+      0.021628962051727284,
+      0.022412717242877987,
+      0.022188232825465094,
+      0.021523280874862393,
+      0.0224792234306733,
+      0.022751103405244066,
+      0.0221358051907373,
+      0.021685323301062452,
+      0.02176511991492589,
+      0.022227067675157742,
+      0.021958692790758502,
+      0.022621539893953012,
+      0.021801845820300512,
+      0.021633850565922333,
+      0.022452152508594735,
+      0.021615920585645654,
+      0.022571448583221354,
+      0.02226966138659918,
+      0.022463236061594217,
+      0.022982583164048262,
+      0.022814283984735083,
+      0.022320885478438867,
+      0.023017996266389673,
+      0.022718639563936452,
+      0.022381538888657813,
+      0.02273688672066783,
+      0.022061806817146132,
+      0.022448621327203,
+      0.021988078889808093,
+      0.022403358152769212,
+      0.022197916138975416,
+      0.021466714950656753,
+      0.02223595288651268,
+      0.023047751486774362,
+      0.022360276396466358,
+      0.022554569372005062,
+      0.021931061309624057,
+      0.02288654403801047,
+      0.022147359201699145,
+      0.021619929434200456,
+      0.022751472938944063,
+      0.021848821451567343,
+      0.021891069529374363,
+      0.022224894069404397,
+      0.02229039121957612,
+      0.023139491107031063,
+      0.02251478243360907,
+      0.02247642455567984,
+      0.02253787866102357,
+      0.022289821678714357,
+      0.021815174222138016,
+      0.022779633882055353,
+      0.022397832599563117,
+      0.022181201065177448,
+      0.022397691474361638,
+      0.022788840517205245,
+      0.021505399278612457,
+      0.021688632918812796,
+      0.021735794921551137,
+      0.022374779248275446,
+      0.02190829923601996,
+      0.02236689319524885,
+      0.022147442524328653,
+      0.022633469082211376,
+      0.021841427972685776
+    ],
+    "lambda": 0.0,
+    "phase_accounting": {
+      "materialize_seconds": 56.19417306780815,
+      "optimization_seconds": 184.6472159177065,
+      "search_seconds": 8744.437711812556,
+      "shortlist_seconds": 887.3475206494331,
+      "updates": 625
+    },
+    "rho": 0.029607180878520014,
+    "selection_stream_hash": "not_computed_per_skill",
+    "support_stream_hash": "not_computed_per_skill"
+  },
+  "nan_detected": false,
+  "nominal_limit": 0.004138405956469988,
+  "peak_memory_allocated_bytes": 4372477952,
+  "peak_memory_reserved_bytes": 4756340736,
+  "physical_gpu_index": 6,
+  "policy_update_nets": 2560000,
+  "protocol_canonical_sha256": {
+    "identity_kind": "literal_protocol_not_digest",
+    "value": {
+      "artifacts": {
+        "cache": "Codex/experiments/cache",
+        "checkpoints": "Codex/experiments/checkpoints",
+        "figures": "Codex/experiments/figures",
+        "logs": "Codex/experiments/logs",
+        "manifests": "Codex/wdro_rest_min/manifests",
+        "root": "Codex/experiments",
+        "tables": "Codex/experiments/tables"
+      },
+      "data": {
+        "dimension": 2,
+        "distributions": {
+          "edge_bias": {
+            "clusters": 4,
+            "nonuniform": 0.8,
+            "sigma": 0.06
+          },
+          "grid_cluster": {
+            "clusters": 8,
+            "nonuniform": 0.8,
+            "sigma": 0.03
+          },
+          "mix_gauss": {
+            "clusters": 6,
+            "nonuniform": 0.8,
+            "sigma": 0.04
+          },
+          "uniform": {
+            "nonuniform": 0.0
+          }
+        },
+        "fixed_pool_required": true,
+        "id_fields": [
+          "split",
+          "distribution",
+          "degree",
+          "seed",
+          "net_index"
+        ],
+        "nominal_distribution": "uniform",
+        "readonly_after_generation": true,
+        "seed_namespace_required": true,
+        "seeds": {
+          "test": 303,
+          "training": [
+            101,
+            102,
+            103
+          ],
+          "validation": 202
+        },
+        "sizes_per_degree_distribution": {
+          "test": 10000,
+          "validation": 2000
+        }
+      },
+      "frozen_at_utc": "2026-09-04T07:42:05Z",
+      "inference": {
+        "mode": "deterministic_greedy",
+        "shared_batches": true,
+        "shared_hardware_required": true,
+        "symmetry_transforms": 1
+      },
+      "ispd": {
+        "exclude_metal5_variants": true,
+        "protocol": "A",
+        "researcher_blind_claim_allowed": false,
+        "retain_design_and_net_ids": true,
+        "role": "zero_shot_external_test_after_configuration_freeze"
+      },
+      "loss_and_metrics": {
+        "confidence_level": 0.95,
+        "formula": "(L_REST - L_star) / L_star",
+        "ispd": [
+          "net_weighted_mean",
+          "design_macro_mean",
+          "p95",
+          "worst_design_mean",
+          "counts_by_design_and_degree",
+          "invalid_counts"
+        ],
+        "paired_per_net_bootstrap": true,
+        "primary": [
+          "mean",
+          "p95",
+          "worst_group"
+        ],
+        "reference": "GeoSteiner",
+        "reference_cache_key": "data_content_sha256",
+        "retain_all_degrees_distributions_seeds": true,
+        "training_loss": "per_net_relative_regret"
+      },
+      "method_contracts": {
+        "erm": {
+          "training_groups": [
+            "uniform"
+          ]
+        },
+        "group_dro": {
+          "group_update": "exponential_weights",
+          "training_groups": [
+            "uniform",
+            "mix_gauss",
+            "edge_bias",
+            "grid_cluster"
+          ]
+        },
+        "hard_mining": {
+          "candidate_budget_must_match_wdro": true,
+          "exact_rescore_top_k": 4,
+          "transport_penalty": false
+        },
+        "mixed_erm": {
+          "sampling": "equal_proportion",
+          "training_groups": [
+            "uniform",
+            "mix_gauss",
+            "edge_bias",
+            "grid_cluster"
+          ]
+        },
+        "wdro_rest": {
+          "candidate_count": 32,
+          "candidate_families": [
+            "jitter",
+            "sparse",
+            "correlated",
+            "axis_biased"
+          ],
+          "exact_rescore_top_k": 4,
+          "ground_cost": "hungarian_l1_mean",
+          "include_nominal_candidate": true,
+          "lambda": "learned_nonnegative",
+          "lambda_update_signal": "mean_selected_cost_minus_rho",
+          "rho_calibration": "per_degree_perturbation_cost_quantile",
+          "searcher": "random_sobol",
+          "selection_unit": "one_argmax_per_nominal_center"
+        }
+      },
+      "preprocessing": {
+        "inverse_transform_required": true,
+        "normalized_interval": [
+          0.1,
+          0.9
+        ],
+        "preserve_aspect_ratio": true,
+        "rules_requiring_stage_1_implementation_and_tests": [
+          "duplicate_pins",
+          "zero_span",
+          "minimum_spacing",
+          "invalid_net"
+        ],
+        "scale_by_longest_bbox_side": true,
+        "shared_implementation_required": true,
+        "translate_bbox_to_origin": true
+      },
+      "protocol_id": "geometry_gpu_scale_20261012",
+      "required_ablations": {
+        "candidate_count": [
+          1,
+          8,
+          32
+        ],
+        "equal_call_searchers": [
+          "random_64",
+          "cem_64"
+        ],
+        "ground_costs": [
+          "hungarian_l1_mean",
+          "symmetric_chamfer_l1"
+        ],
+        "independent_attack": "cem_256",
+        "lambda": [
+          "fixed",
+          "learned"
+        ],
+        "rho": [
+          "0",
+          "q50",
+          "q75"
+        ]
+      },
+      "runtime": {
+        "allowed_gpu_idle_memory_mib_max": 1024,
+        "allowed_gpu_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "forbidden_gpu_indices": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "minimum_free_disk_gib_for_batch": 100,
+        "python": "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+        "scheduler": "single_host_manifest_queue",
+        "trusted_legacy_checkpoint_load": {
+          "reason": "DAC21 checkpoints contain legacy NumPy scalar metadata and fail PyTorch 2.6 safe weights-only loading",
+          "required": true,
+          "torch_load_weights_only": false
+        }
+      },
+      "schema_version": 1,
+      "scope": {
+        "degrees": [
+          10,
+          20,
+          30,
+          40,
+          50
+        ],
+        "excluded_costs": [
+          "gw",
+          "fgw"
+        ],
+        "excluded_methods": [
+          "canonicalized_erm",
+          "kl_dro",
+          "cvar"
+        ],
+        "excluded_shifts": [
+          "anisotropic_gauss",
+          "hotspots_with_void"
+        ],
+        "methods": [
+          "erm",
+          "mixed_erm",
+          "hard_mining",
+          "group_dro",
+          "wdro_rest"
+        ]
+      },
+      "status": "frozen",
+      "tracked_legacy_assets": [
+        "DRO/WDRO-REST/models/actor_critic.py",
+        "DRO/WDRO-REST/models/self_attn.py",
+        "DRO/WDRO-REST/models/utils.py",
+        "DRO/WDRO-REST/utils/rsmt_utils.py",
+        "DRO/WDRO-REST/algorithms/libeval.so"
+      ],
+      "training": {
+        "batch_size": 4096,
+        "candidate_refresh_updates": 10,
+        "checkpoint_retention": [
+          "latest",
+          "best"
+        ],
+        "critic_initialization_policy": "identical_per_degree_and_seed_across_methods",
+        "initial_actor_checkpoint_template": "DRO/WDRO-REST/save/DAC21/rsmt{degree}b.pt",
+        "policy_updates": 625,
+        "same_degree_checkpoint_for_all_methods": true,
+        "selection": {
+          "ispd_used_for_selection": false,
+          "nominal_mean_regret_degradation_max_absolute": 0.002,
+          "objective": "minimum_worst_group_relative_regret",
+          "source": "synthetic_validation_only",
+          "test_data_used_for_selection": false,
+          "worst_group_scope": [
+            "mix_gauss",
+            "edge_bias",
+            "grid_cluster"
+          ]
+        }
+      }
+    }
+  },
+  "reference_cache": {
+    "logical_path": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/reference_state",
+    "resolved_path": "/attached/remote-home1/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/reference_state"
+  },
+  "resumed_from": "/remote-home/Guilin/DRO/Codex/geometry_gpu_scale_20261012/artifacts/train/d10_original_s103/checkpoints/latest.pt",
+  "run_id": "d10_original_s103",
+  "run_identity": {
+    "ablation_config": {
+      "batch_size": 4096,
+      "calibration_artifact": "experiments/cache/stage6/calibration_d10_s101.json",
+      "config_id": "stage6_d10_q75",
+      "degree": 10,
+      "ground_cost": "hungarian_l1_mean",
+      "lambda_initial": 0.0,
+      "lambda_learning_rate": 1.0,
+      "lambda_mode": "learned",
+      "research_protocol_override": true,
+      "rho_mode": "q75",
+      "schema_version": 1,
+      "search_overrides": {
+        "candidate_count": 32,
+        "cem": {
+          "elite": 4,
+          "initial_std": 0.02,
+          "maximum_motion": 0.08,
+          "minimum_std": 0.001,
+          "population": 16,
+          "rounds": 4
+        },
+        "exact_rescore_top_k": 4,
+        "searcher": "random_sobol"
+      },
+      "stability_gate": {
+        "maximum_lambda": 100.0
+      },
+      "stage": 6,
+      "status": "frozen",
+      "training_seed": "per_run_protocol_seed",
+      "updates": 625
+    },
+    "baseline_config_sha256": {
+      "identity_kind": "literal_config_not_digest",
+      "value": {
+        "config_id": "wdro-rest-stage3-baselines-v1",
+        "freeze_evidence": "Codex/experiments/logs/stage3_smoke/audit_v1.json",
+        "frozen_at_utc": "2026-09-05T03:20:00Z",
+        "group_dro": {
+          "critic_weighting": "same_group_weights_as_actor",
+          "eta": 0.01,
+          "initial_weights": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "update_loss": "current_sampled_per_net_relative_regret"
+        },
+        "methods": [
+          "mixed_erm",
+          "group_dro",
+          "hard_mining"
+        ],
+        "notes": [
+          "Implementation defaults fixed before formal runs without reading test or ISPD metrics.",
+          "Search support and shortlist rules must be reused unchanged by WDRO; rho cannot change candidate coordinates.",
+          "Only scalar true GeoSteiner lengths are cached by unordered content hash. Critic is never L_star."
+        ],
+        "research_protocol_override": false,
+        "schema_version": 1,
+        "search": {
+          "amplitudes": [
+            0.01,
+            0.02,
+            0.04,
+            0.08
+          ],
+          "candidate_count": 32,
+          "candidate_count_semantics": "32_perturbations_plus_unchanged_nominal_at_index_zero",
+          "canonical_pin_order": "lexicographic_for_noise_assignment_then_restore_input_order",
+          "exact_rescore": "current_actor_greedy_rest_length_and_content_cached_geosteiner",
+          "exact_rescore_top_k": 4,
+          "families": [
+            "jitter",
+            "sparse",
+            "correlated",
+            "axis_biased"
+          ],
+          "refresh_semantics": "block_seed_plus_immutable_center_id; centers_follow_frozen_per_update_pool",
+          "refresh_updates": 10,
+          "score_microbatch": 1024,
+          "screening": "fixed_geometric_mst_over_hpwl_minus_one",
+          "screening_training_data": "none",
+          "shared_with_wdro_required": true,
+          "shortlist": "nominal_plus_highest_three_distinct_perturbations; stable_candidate_index_ties"
+        },
+        "selection": {
+          "erm_reference": "same_degree_seed_stage2_best_validation_nominal",
+          "no_feasible_checkpoint": "fail_acceptance_keep_latest_and_diagnostic_best",
+          "nominal_degradation_max": 0.002,
+          "objective": "earliest_minimum_feasible_ood_worst_group_mean"
+        },
+        "status": "frozen"
+      }
+    },
+    "batch_size": 4096,
+    "calibration_sha256": {
+      "identity_kind": "path_size_mtime_not_digest",
+      "mtime_ns": 1788919789022486817,
+      "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/experiments/cache/stage6/calibration_d10_s101.json",
+      "size": 251698
+    },
+    "degree": 10,
+    "erm_reference_result_sha256": {
+      "identity_kind": "path_size_mtime_not_digest",
+      "mtime_ns": 1788756088252739206,
+      "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/experiments/logs/stage2/formal_erm_d10_s103_u2000/result.json",
+      "size": 6887
+    },
+    "expected_updates": 625,
+    "geometry_shortlist": {
+      "arm": "original",
+      "candidate_budget": 32,
+      "exact_budget": 4,
+      "implementation": "gpu_upper_triangle_fp64_v1",
+      "metric": "G",
+      "ranking_microbatch": 4096
+    },
+    "implementation_sha256": {
+      "identity_kind": "literal_config_not_digest",
+      "value": {
+        "scripts/train_stage6.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403679758865,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/scripts/train_stage6.py",
+          "size": 7647
+        },
+        "src/__init__.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/__init__.py",
+          "size": 55
+        },
+        "src/accounting.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/accounting.py",
+          "size": 996
+        },
+        "src/baseline_data.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/baseline_data.py",
+          "size": 2443
+        },
+        "src/baseline_trainer.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403119753051,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/baseline_trainer.py",
+          "size": 21901
+        },
+        "src/candidates.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788752321995099986,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/candidates.py",
+          "size": 10044
+        },
+        "src/checkpoints.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/checkpoints.py",
+          "size": 2835
+        },
+        "src/costs.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/costs.py",
+          "size": 2128
+        },
+        "src/datasets.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/datasets.py",
+          "size": 9721
+        },
+        "src/geometry.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/geometry.py",
+          "size": 7436
+        },
+        "src/geosteiner.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403167753549,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/geosteiner.py",
+          "size": 6873
+        },
+        "src/io_utils.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/io_utils.py",
+          "size": 1321
+        },
+        "src/ispd.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/ispd.py",
+          "size": 4757
+        },
+        "src/job_control.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/job_control.py",
+          "size": 5057
+        },
+        "src/metrics.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/metrics.py",
+          "size": 3589
+        },
+        "src/protocol.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/protocol.py",
+          "size": 5116
+        },
+        "src/rest.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403191753799,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/rest.py",
+          "size": 4742
+        },
+        "src/stage2_audit_checks.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875035214357,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/stage2_audit_checks.py",
+          "size": 8789
+        },
+        "src/trainer.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403199753881,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/trainer.py",
+          "size": 20888
+        },
+        "src/training_data.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/training_data.py",
+          "size": 2547
+        },
+        "src/validation.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403207753964,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/src/validation.py",
+          "size": 5287
+        },
+        "stage4/__init__.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage4/__init__.py",
+          "size": 68
+        },
+        "stage4/dual.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage4/dual.py",
+          "size": 4100
+        },
+        "stage4/trainer.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403235754256,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage4/trainer.py",
+          "size": 23388
+        },
+        "stage5/__init__.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage5/__init__.py",
+          "size": 84
+        },
+        "stage5/configuration.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage5/configuration.py",
+          "size": 3717
+        },
+        "stage5/search.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1788751875039214393,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage5/search.py",
+          "size": 6592
+        },
+        "stage5/trainer.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403267754588,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage5/trainer.py",
+          "size": 23779
+        },
+        "stage6/trainer.py": {
+          "identity_kind": "path_size_mtime_not_digest",
+          "mtime_ns": 1789925403291754837,
+          "path": "/remote-home/Guilin/DRO/Codex/wdro_precision_v2/wdro_rest_min/stage6/trainer.py",
+          "size": 24472
+        }
+      }
+    },
+    "inference": {
+      "mode": "deterministic_greedy",
+      "shared_batches": true,
+      "shared_hardware_required": true,
+      "symmetry_transforms": 1
+    },
+    "method": "wdro_rest",
+    "nominal_limit": 0.004138405956469988,
+    "protocol_canonical_sha256": {
+      "identity_kind": "literal_protocol_not_digest",
+      "value": {
+        "artifacts": {
+          "cache": "Codex/experiments/cache",
+          "checkpoints": "Codex/experiments/checkpoints",
+          "figures": "Codex/experiments/figures",
+          "logs": "Codex/experiments/logs",
+          "manifests": "Codex/wdro_rest_min/manifests",
+          "root": "Codex/experiments",
+          "tables": "Codex/experiments/tables"
+        },
+        "data": {
+          "dimension": 2,
+          "distributions": {
+            "edge_bias": {
+              "clusters": 4,
+              "nonuniform": 0.8,
+              "sigma": 0.06
+            },
+            "grid_cluster": {
+              "clusters": 8,
+              "nonuniform": 0.8,
+              "sigma": 0.03
+            },
+            "mix_gauss": {
+              "clusters": 6,
+              "nonuniform": 0.8,
+              "sigma": 0.04
+            },
+            "uniform": {
+              "nonuniform": 0.0
+            }
+          },
+          "fixed_pool_required": true,
+          "id_fields": [
+            "split",
+            "distribution",
+            "degree",
+            "seed",
+            "net_index"
+          ],
+          "nominal_distribution": "uniform",
+          "readonly_after_generation": true,
+          "seed_namespace_required": true,
+          "seeds": {
+            "test": 303,
+            "training": [
+              101,
+              102,
+              103
+            ],
+            "validation": 202
+          },
+          "sizes_per_degree_distribution": {
+            "test": 10000,
+            "validation": 2000
+          }
+        },
+        "frozen_at_utc": "2026-09-04T07:42:05Z",
+        "inference": {
+          "mode": "deterministic_greedy",
+          "shared_batches": true,
+          "shared_hardware_required": true,
+          "symmetry_transforms": 1
+        },
+        "ispd": {
+          "exclude_metal5_variants": true,
+          "protocol": "A",
+          "researcher_blind_claim_allowed": false,
+          "retain_design_and_net_ids": true,
+          "role": "zero_shot_external_test_after_configuration_freeze"
+        },
+        "loss_and_metrics": {
+          "confidence_level": 0.95,
+          "formula": "(L_REST - L_star) / L_star",
+          "ispd": [
+            "net_weighted_mean",
+            "design_macro_mean",
+            "p95",
+            "worst_design_mean",
+            "counts_by_design_and_degree",
+            "invalid_counts"
+          ],
+          "paired_per_net_bootstrap": true,
+          "primary": [
+            "mean",
+            "p95",
+            "worst_group"
+          ],
+          "reference": "GeoSteiner",
+          "reference_cache_key": "data_content_sha256",
+          "retain_all_degrees_distributions_seeds": true,
+          "training_loss": "per_net_relative_regret"
+        },
+        "method_contracts": {
+          "erm": {
+            "training_groups": [
+              "uniform"
+            ]
+          },
+          "group_dro": {
+            "group_update": "exponential_weights",
+            "training_groups": [
+              "uniform",
+              "mix_gauss",
+              "edge_bias",
+              "grid_cluster"
+            ]
+          },
+          "hard_mining": {
+            "candidate_budget_must_match_wdro": true,
+            "exact_rescore_top_k": 4,
+            "transport_penalty": false
+          },
+          "mixed_erm": {
+            "sampling": "equal_proportion",
+            "training_groups": [
+              "uniform",
+              "mix_gauss",
+              "edge_bias",
+              "grid_cluster"
+            ]
+          },
+          "wdro_rest": {
+            "candidate_count": 32,
+            "candidate_families": [
+              "jitter",
+              "sparse",
+              "correlated",
+              "axis_biased"
+            ],
+            "exact_rescore_top_k": 4,
+            "ground_cost": "hungarian_l1_mean",
+            "include_nominal_candidate": true,
+            "lambda": "learned_nonnegative",
+            "lambda_update_signal": "mean_selected_cost_minus_rho",
+            "rho_calibration": "per_degree_perturbation_cost_quantile",
+            "searcher": "random_sobol",
+            "selection_unit": "one_argmax_per_nominal_center"
+          }
+        },
+        "preprocessing": {
+          "inverse_transform_required": true,
+          "normalized_interval": [
+            0.1,
+            0.9
+          ],
+          "preserve_aspect_ratio": true,
+          "rules_requiring_stage_1_implementation_and_tests": [
+            "duplicate_pins",
+            "zero_span",
+            "minimum_spacing",
+            "invalid_net"
+          ],
+          "scale_by_longest_bbox_side": true,
+          "shared_implementation_required": true,
+          "translate_bbox_to_origin": true
+        },
+        "protocol_id": "geometry_gpu_scale_20261012",
+        "required_ablations": {
+          "candidate_count": [
+            1,
+            8,
+            32
+          ],
+          "equal_call_searchers": [
+            "random_64",
+            "cem_64"
+          ],
+          "ground_costs": [
+            "hungarian_l1_mean",
+            "symmetric_chamfer_l1"
+          ],
+          "independent_attack": "cem_256",
+          "lambda": [
+            "fixed",
+            "learned"
+          ],
+          "rho": [
+            "0",
+            "q50",
+            "q75"
+          ]
+        },
+        "runtime": {
+          "allowed_gpu_idle_memory_mib_max": 1024,
+          "allowed_gpu_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "forbidden_gpu_indices": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "minimum_free_disk_gib_for_batch": 100,
+          "python": "/remote-home/Guilin/miniconda3/envs/py311/bin/python",
+          "scheduler": "single_host_manifest_queue",
+          "trusted_legacy_checkpoint_load": {
+            "reason": "DAC21 checkpoints contain legacy NumPy scalar metadata and fail PyTorch 2.6 safe weights-only loading",
+            "required": true,
+            "torch_load_weights_only": false
+          }
+        },
+        "schema_version": 1,
+        "scope": {
+          "degrees": [
+            10,
+            20,
+            30,
+            40,
+            50
+          ],
+          "excluded_costs": [
+            "gw",
+            "fgw"
+          ],
+          "excluded_methods": [
+            "canonicalized_erm",
+            "kl_dro",
+            "cvar"
+          ],
+          "excluded_shifts": [
+            "anisotropic_gauss",
+            "hotspots_with_void"
+          ],
+          "methods": [
+            "erm",
+            "mixed_erm",
+            "hard_mining",
+            "group_dro",
+            "wdro_rest"
+          ]
+        },
+        "status": "frozen",
+        "tracked_legacy_assets": [
+          "DRO/WDRO-REST/models/actor_critic.py",
+          "DRO/WDRO-REST/models/self_attn.py",
+          "DRO/WDRO-REST/models/utils.py",
+          "DRO/WDRO-REST/utils/rsmt_utils.py",
+          "DRO/WDRO-REST/algorithms/libeval.so"
+        ],
+        "training": {
+          "batch_size": 4096,
+          "candidate_refresh_updates": 10,
+          "checkpoint_retention": [
+            "latest",
+            "best"
+          ],
+          "critic_initialization_policy": "identical_per_degree_and_seed_across_methods",
+          "initial_actor_checkpoint_template": "DRO/WDRO-REST/save/DAC21/rsmt{degree}b.pt",
+          "policy_updates": 625,
+          "same_degree_checkpoint_for_all_methods": true,
+          "selection": {
+            "ispd_used_for_selection": false,
+            "nominal_mean_regret_degradation_max_absolute": 0.002,
+            "objective": "minimum_worst_group_relative_regret",
+            "source": "synthetic_validation_only",
+            "test_data_used_for_selection": false,
+            "worst_group_scope": [
+              "mix_gauss",
+              "edge_bias",
+              "grid_cluster"
+            ]
+          }
+        }
+      }
+    },
+    "reference_solver": {
+      "content_hashes": "not_computed",
+      "library": "/remote-home/Guilin/DRO/DRO/WDRO-REST/algorithms/libeval.so",
+      "reference_id": "geosteiner_exact_binary_scale_v2"
+    },
+    "rho": 0.029607180878520014,
+    "rho_mode": "q75",
+    "stage": 6,
+    "trainer_config_sha256": {
+      "identity_kind": "literal_config_not_digest",
+      "value": {
+        "applies_to_methods": [
+          "erm",
+          "mixed_erm",
+          "hard_mining",
+          "group_dro",
+          "wdro_rest"
+        ],
+        "checkpoint_interval_updates": 6,
+        "checkpoint_schema": {
+          "includes": [
+            "actor",
+            "critic",
+            "optimizer",
+            "scheduler",
+            "rng",
+            "task_cursor",
+            "call_ledger"
+          ],
+          "retention": [
+            "latest",
+            "best"
+          ]
+        },
+        "config_id": "wdro-rest-stage2-unified-trainer-v1",
+        "determinism": {
+          "cudnn_benchmark": false,
+          "torch_deterministic_algorithms": true
+        },
+        "frozen_after_smoke_audit": "Codex/experiments/logs/stage2/stage2_smoke_audit_d30_s101_u200.json",
+        "frozen_at_utc": "2026-09-04T17:50:45Z",
+        "gradient_clip_l2": 1.0,
+        "initialization": {
+          "actor": "trusted_degree_specific_dac21_actor_only",
+          "critic": "deterministic_fresh_per_degree_and_training_seed",
+          "policy_rng": "deterministic_per_degree_and_training_seed"
+        },
+        "loss": "per_net_relative_regret",
+        "optimizer": {
+          "epsilon": 1e-05,
+          "learning_rate": 5e-05,
+          "name": "adam_joint_actor_critic",
+          "weight_decay": 0.0
+        },
+        "research_protocol_override": false,
+        "scheduler": {
+          "name": "constant",
+          "step_per_policy_update": true
+        },
+        "schema_version": 1,
+        "selection": {
+          "erm_objective": "minimum_ood_worst_group_relative_regret",
+          "split": "synthetic_validation_only",
+          "test_or_ispd_allowed": false
+        },
+        "stage2_smoke_updates": 200,
+        "status": "frozen",
+        "structured_log_interval_updates": 1,
+        "training_pool": {
+          "identity_fields": [
+            "protocol_id",
+            "training_seed",
+            "degree",
+            "update",
+            "net_index"
+          ],
+          "kind": "stateless_immutable_per_update",
+          "materialized_nets_per_formal_run": 512000,
+          "reuse_across_methods": true
+        },
+        "validation_batch_size": 1024,
+        "validation_interval_updates": 6
+      }
+    },
+    "training_seed": 103,
+    "wdro_config_sha256": {
+      "identity_kind": "literal_config_not_digest",
+      "value": {
+        "batch_size": 4096,
+        "calibration_artifact": "experiments/cache/stage6/calibration_d10_s101.json",
+        "config_id": "stage6_d10_q75",
+        "degree": 10,
+        "ground_cost": "hungarian_l1_mean",
+        "lambda_initial": 0.0,
+        "lambda_learning_rate": 1.0,
+        "lambda_mode": "learned",
+        "research_protocol_override": true,
+        "rho_mode": "q75",
+        "schema_version": 1,
+        "search_overrides": {
+          "candidate_count": 32,
+          "cem": {
+            "elite": 4,
+            "initial_std": 0.02,
+            "maximum_motion": 0.08,
+            "minimum_std": 0.001,
+            "population": 16,
+            "rounds": 4
+          },
+          "exact_rescore_top_k": 4,
+          "searcher": "random_sobol"
+        },
+        "stability_gate": {
+          "maximum_lambda": 100.0
+        },
+        "stage": 6,
+        "status": "frozen",
+        "training_seed": "per_run_protocol_seed",
+        "updates": 625
+      }
+    }
+  },
+  "schema_version": 1,
+  "segment_wall_seconds": 6498.4518524855375,
+  "selection_feasible": true,
+  "started_this_segment_at_update": 126,
+  "status": "complete",
+  "test_or_ispd_used": false,
+  "trainer_config_path": "Codex/wdro_precision_v2/wdro_rest_min/configs/stage2_trainer_v1.json",
+  "trainer_config_sha256": {
+    "identity_kind": "literal_config_not_digest",
+    "value": {
+      "applies_to_methods": [
+        "erm",
+        "mixed_erm",
+        "hard_mining",
+        "group_dro",
+        "wdro_rest"
+      ],
+      "checkpoint_interval_updates": 6,
+      "checkpoint_schema": {
+        "includes": [
+          "actor",
+          "critic",
+          "optimizer",
+          "scheduler",
+          "rng",
+          "task_cursor",
+          "call_ledger"
+        ],
+        "retention": [
+          "latest",
+          "best"
+        ]
+      },
+      "config_id": "wdro-rest-stage2-unified-trainer-v1",
+      "determinism": {
+        "cudnn_benchmark": false,
+        "torch_deterministic_algorithms": true
+      },
+      "frozen_after_smoke_audit": "Codex/experiments/logs/stage2/stage2_smoke_audit_d30_s101_u200.json",
+      "frozen_at_utc": "2026-09-04T17:50:45Z",
+      "gradient_clip_l2": 1.0,
+      "initialization": {
+        "actor": "trusted_degree_specific_dac21_actor_only",
+        "critic": "deterministic_fresh_per_degree_and_training_seed",
+        "policy_rng": "deterministic_per_degree_and_training_seed"
+      },
+      "loss": "per_net_relative_regret",
+      "optimizer": {
+        "epsilon": 1e-05,
+        "learning_rate": 5e-05,
+        "name": "adam_joint_actor_critic",
+        "weight_decay": 0.0
+      },
+      "research_protocol_override": false,
+      "scheduler": {
+        "name": "constant",
+        "step_per_policy_update": true
+      },
+      "schema_version": 1,
+      "selection": {
+        "erm_objective": "minimum_ood_worst_group_relative_regret",
+        "split": "synthetic_validation_only",
+        "test_or_ispd_allowed": false
+      },
+      "stage2_smoke_updates": 200,
+      "status": "frozen",
+      "structured_log_interval_updates": 1,
+      "training_pool": {
+        "identity_fields": [
+          "protocol_id",
+          "training_seed",
+          "degree",
+          "update",
+          "net_index"
+        ],
+        "kind": "stateless_immutable_per_update",
+        "materialized_nets_per_formal_run": 512000,
+        "reuse_across_methods": true
+      },
+      "validation_batch_size": 1024,
+      "validation_interval_updates": 6
+    }
+  },
+  "training_seed": 103,
+  "training_stream_hash": "not_computed_per_skill"
+}
